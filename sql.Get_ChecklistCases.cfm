@@ -1,0 +1,28 @@
+
+<!--- Include cases without Checklist records (early cases) and cases with approved Checklists --->
+
+AND
+(
+
+CASE_REC_ID_SEQUENCE NOT IN 
+(
+SELECT CASE_REC_ID_SEQUENCE
+FROM VIEW_CONTING_GET_CHKLISTCASES
+)
+
+OR 
+
+CASE_REC_ID_SEQUENCE IN 
+(
+SELECT CASE_REC_ID_SEQUENCE
+FROM VIEW_CONTING_GET_CHKLISTCASES
+WHERE MC_APPR_FLAG = 1
+)
+
+
+OR
+FINALIZED_FLAG = 1
+)
+
+
+

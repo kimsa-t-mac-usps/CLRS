@@ -1,0 +1,42 @@
+
+<CFSET Prev_ASSESSMENT_AMOUNT_DisplayAmt = "">
+
+<CFIF ThisReportDate NEQ EarliestReportDate AND PrevReportDate NEQ "">
+
+	<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.ASSESSMENT_AMOUNT NEQ "">
+
+		<CFSET Prev_ASSESSMENT_AMOUNT_DisplayAmt = CONTINGENT_LIAB_GetRecord_PrevRpt.ASSESSMENT_AMOUNT / 1000000>
+		<CFSET Prev_ASSESSMENT_AMOUNT_DisplayAmt = NumberFormat(Prev_ASSESSMENT_AMOUNT_DisplayAmt, '_$__._') & " Million">
+
+	<CFELSE>
+
+		<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.ASSESSMENT_AMT_UNKNOWN NEQ "" AND CONTINGENT_LIAB_GetRecord_PrevRpt.ASSESSMENT_AMT_UNKNOWN NEQ 0>
+
+			<CFLOOP INDEX="Prev_ASSESSMENT_AMT_UNKNOWN_Index" FROM="1" TO="1">
+
+				<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.ASSESSMENT_AMT_UNKNOWN EQ Prev_ASSESSMENT_AMT_UNKNOWN_Index>
+					<CFSET Prev_ASSESSMENT_AMT_UNKNOWN_Word = "[" & ListGetAt(Unknown_NA_List, Prev_ASSESSMENT_AMT_UNKNOWN_Index) & "]">
+				</cfif>
+
+			</cfloop>
+
+			<CFSET Prev_ASSESSMENT_AMOUNT_DisplayAmt = Prev_ASSESSMENT_AMT_UNKNOWN_Word>
+
+		</cfif>
+
+	</cfif>
+
+
+	<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.ASSESSMENT_AMT_HIGH_END NEQ "">
+
+		<CFSET Prev_ASSESSMENT_AMT_HIGH_END_DisplayAmt = CONTINGENT_LIAB_GetRecord_PrevRpt.ASSESSMENT_AMT_HIGH_END / 1000000>
+		<CFSET Prev_ASSESSMENT_AMT_HIGH_END_DisplayAmt = NumberFormat(Prev_ASSESSMENT_AMT_HIGH_END_DisplayAmt, '_$__._') & " Million">
+
+	   	<CFSET Prev_ASSESSMENT_AMOUNT_DisplayAmt = Prev_ASSESSMENT_AMOUNT_DisplayAmt & " - " & Prev_ASSESSMENT_AMT_HIGH_END_DisplayAmt>
+
+	</cfif>
+
+
+</cfif>
+
+

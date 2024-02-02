@@ -1,0 +1,69 @@
+body {font-family:arial, sans-serif; font-size:13pt}
+
+
+div.CaseEndPageBreak {page-break-after:always}
+
+
+div.PreviouslyReported {margin-left:10pt; font-size:9pt; margin-bottom:5pt; font-style:italic}
+
+
+/* New style: */
+h3.SectionHead {page-break-before:always}
+
+
+h3.SectionHeadFirst {page-break-before:auto}
+
+/*
+h3.SectionHeadAfterFirst {page-break-before:always}
+*/
+
+/*
+h3.SectionHeadAfterFirst {page-break-before:auto}
+*/
+
+/*h3.SectionHeadAfterFirst {} */
+
+h4.SectionHead {page-break-before:auto}
+
+
+
+
+h5.SectionHead {page-break-before:always}
+
+li.TopIndex {list-style:url(../images/bulletblack.GIF) inside}
+li.TopIndex_Gray {list-style:url(../images/bulletblack.gray.GIF) inside}
+
+span.ClickEdit {color:white; background:maroon; padding:2pt; font-weight:bold}
+
+span.CumulativeTotal {font-size:9pt; font-weight:normal}
+
+span.Highlight {color:red}
+
+span.ShortTermFlag {font-size:9pt; font-weight:bold; color:maroon; position:absolute; text-align:right; width:5pt; left:40pt}
+span.TopIndexAmt {font-size:7pt; position:absolute; text-align:right; width:30pt; left:7pt; margin-right:5pt; padding-top:1pt}
+
+
+
+div.NarrDeletion_Note {display:inline}
+span.NarrDeletion {display:inline}
+
+
+strong {color:red}
+
+table.CorpFin {margin-left:10pt; width:90%; font-size:8pt}
+
+td {font-family:arial,sans-serif;font-size:10pt; vertical-align:top}
+td.CorpFin {font-family:arial,sans-serif; font-size:8pt; vertical-align:top; border-top:1px solid gray}
+
+textarea {font-family:arial,sans-serif;font-size:10pt}
+
+th {font-family:arial,sans-serif;font-size:10pt; font-weight:bold; width:30%; text-align:right}
+th.CorpFin {font-family:arial,sans-serif;font-size:7pt; font-weight:bold; width:30%; text-align:left}
+th.CorpFinAmtSought {font-family:arial,sans-serif;font-size:7pt; font-weight:bold; width:15%; text-align:left}
+th.CorpFinCaseName {font-family:arial,sans-serif;font-size:7pt; font-weight:bold; width:40%; text-align:left}
+th.CorpFinCaseNumber {font-family:arial,sans-serif;font-size:7pt; font-weight:bold; width:20%; text-align:left}
+
+th.CorpFinOrdinalNumber {font-family:arial,sans-serif;font-size:8pt; font-weight:bold; text-align:left; vertical-align:top; color:green; width:2%}
+
+A:hover {background:black; color:white; text-decoration:none; font-family:arial; font-size:10pt; font-weight:bold}
+A:active {background:yellow; color:black; text-decoration:none; font-family:arial; font-size:10pt; font-weight:bold}
