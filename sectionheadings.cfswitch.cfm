@@ -332,9 +332,9 @@
 			<CFIF This_CASE_TYPE EQ 2>
 				<CFSET CASE_TYPE_Label = CASE_TYPE_Label & "Contingent Receivables: Most Likely Payout Below $10 Million and Maximum Reasonable Payout At or Above $1 Million (Including New Cases and Cases Previously Reporting Below Threshold)"></CFIF>
 			<CFIF This_CASE_TYPE EQ 11>
-				<CFSET CASE_TYPE_Label = CASE_TYPE_Label & "Cases To Be Removed - Contingent Liabilities: Most Likely Payout Below $10 Million and Maximum Reasonable Payout At or Above $1 Million."></CFIF>
+				<CFSET CASE_TYPE_Label = CASE_TYPE_Label & "Cases To Be Removed - Contingent Liabilities: Most Likely Payout Below $10 Million and Maximum Reasonable Payout At or Above $1 Million"></CFIF>
 			<CFIF This_CASE_TYPE EQ 12>
-				<CFSET CASE_TYPE_Label = CASE_TYPE_Label & "Cases To Be Removed - Contingent Receivables: Most Likely Payout Below $10 Million and Maximum Reasonable Payout At or Above $1 Million."></CFIF>
+				<CFSET CASE_TYPE_Label = CASE_TYPE_Label & "Cases To Be Removed - Contingent Receivables: Most Likely Payout Below $10 Million and Maximum Reasonable Payout At or Above $1 Million"></CFIF>
    			 
    			
    			
