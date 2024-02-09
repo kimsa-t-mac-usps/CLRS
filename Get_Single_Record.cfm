@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 
 <!---
@@ -211,5 +212,6 @@ CL Case:
 </div>
 
 </CFLOOP>
+
 
 

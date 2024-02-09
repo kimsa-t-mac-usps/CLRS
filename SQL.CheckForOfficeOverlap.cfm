@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <CFOUTPUT>
 
@@ -67,4 +68,5 @@ Check for Southern (104). If yes, include Southeast (5) and Southwest (4).
 
 
 </CFOUTPUT>
+
 

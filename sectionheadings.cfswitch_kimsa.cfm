@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!---
 
@@ -630,6 +631,7 @@ In cfswitch.cfm: ASSESSMENT_PROBABILITY_Label = "#ASSESSMENT_PROBABILITY_Label#"
 </cfcase>
 
 </cfswitch>
+
 
 
 

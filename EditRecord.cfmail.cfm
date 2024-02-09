@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!---
 5/21/09 Changed references to 5000000 cutoff: Use ASSESSMENT_AMOUNT instead of ASSESSMENT_AMOUNT_UPPER. Also add range for ASSESSMENT_AMOUNT (to ASSESSMENT_AMT_HIGH_END) and ASSESSMENT_AMOUNT_UPPER (to ASSESSMENT_AMT_UPPER_HIGH_END), using
@@ -210,5 +211,6 @@ Thank you,
 </div>
 
 </CFMAIL>
+
 
 
