@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!----------------- cfloop.cur_rem.casetype.assesscutoff.query.cfm ----------->
 <!---------------------------------------------------------------------------->
@@ -1135,5 +1136,6 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 
 <!--- Close <CFLOOP INDEX="Current_Removed_List_Index" LIST="#Current_Removed_List#"> --->
 </cfloop>
+
 
 

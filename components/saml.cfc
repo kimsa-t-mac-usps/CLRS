@@ -1,0 +1,17 @@
+component {
+
+    public void function doMfaInit(relayPage,queryString) {
+        //writeLog(text="saml.cfc: arguments: #relayPage# | #queryString#", type="information",file="ContLiab_samlcfc");
+        if(len(arguments.queryString) > 0) {
+            returnPage = "#arguments.relayPage#?#arguments.queryString#";
+        } else {
+            returnPage = arguments.relayPage;
+        }
+        samlConfig = {
+            idp = {name="ContLiab_idp"},
+            sp = {name="ContLiab_sp"},
+            relayState = "#returnPage#"
+        };
+        initSamlAuthRequest(samlConfig);
+    }
+}

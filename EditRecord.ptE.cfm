@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <tr>
 
@@ -174,5 +175,6 @@ See <a href="" onClick="showCaseEvaluationChecklistDiv(#CONTINGENT_LIAB_GetRecor
 
 </td>
 </tr>
+
 
 

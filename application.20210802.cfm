@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!---
 <CFAPPLICATION NAME="ContingLiab"
@@ -1326,6 +1327,7 @@ AND NOT IsDefined("Form.IndexOnly")) --->
 	
 <!--- Close <CFIF GetFileFromPath(GetBaseTemplatePath()) DOES NOT CONTAIN "NotAuthorized.cfm"> --->
 </CFIF>
+
 
 
 

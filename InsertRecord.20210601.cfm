@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <html>
 
@@ -1894,5 +1895,6 @@ var cal1 = new calendar5(document.CaseForm.DATE_FILED);
 
 
 </html>
+
 
 
