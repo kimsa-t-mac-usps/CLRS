@@ -18,7 +18,7 @@ requestTimeout = "1300"
 
 <CFSETTING requestTimeout = "5000">
 
-
+<cfset application.appname="ContingLiab">
 
 <!-- applicationCFM at 11 -->
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
