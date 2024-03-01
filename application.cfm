@@ -120,7 +120,8 @@ GetFileFromPath(GetBaseTemplatePath()) = #GetFileFromPath(GetBaseTemplatePath())
 
 
 <!--- Durr case added after consulting N.Whitehead, C.Zadina, other Chicago managers --->
-<CFSET TurnOffTextHighlight = "Stephen Durr v United States Postal Service; Chicago Network Distribution Center (CNDC)">
+<!---KS Turn On Stephen for Factor/Positon textHighlight 2.14.24 --->
+<!---<CFSET TurnOffTextHighlight = "Stephen Durr v United States Postal Service; Chicago Network Distribution Center (CNDC)">--->
 
 
 
