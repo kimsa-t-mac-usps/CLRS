@@ -8,3 +8,4 @@ RemoteSystemsTempFiles/*
 .metadata\.plugins\*
 .metadata\.lock
 .metadata\version.ini
+mfadeleteutility.cfm
