@@ -17,5 +17,5 @@
     <cfinvokeargument name="templatePath" value="#samlResponse.RELAYSTATE#">
     <cfinvokeargument name="appName" value="#application.appName#">
   </cfinvoke>
-<cflocation url="../#urldecode(cookie._mfa.relaystate_clrs)#">
+<cflocation url="../#urldecode(session.mfa_clrs.relaystate)#">
 
