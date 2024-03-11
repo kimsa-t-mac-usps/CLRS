@@ -1,6 +1,6 @@
 
 <CFAPPLICATION NAME="ContingLiab"
-SESSIONTIMEOUT=#CreateTimeSpan(0,0,10,0)#
+SESSIONTIMEOUT=#CreateTimeSpan(0,2,0,0)#
 SESSIONMANAGEMENT="Yes">
 
 
