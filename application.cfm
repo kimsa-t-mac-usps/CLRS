@@ -180,7 +180,7 @@ Assess_Cutoff_List set in Report.ptA.cfm
 <CFQUERY NAME="Get_PW" DATASOURCE="ContLiab">
 SELECT PW, AD_MAILNICKNAME
 FROM BUSINESSSERVUSERS
-WHERE USERPRMKEY = 361
+WHERE USERPRMKEY = 360
 </cfquery>
 
 
@@ -324,8 +324,8 @@ WHERE USERPRMKEY = 361
 <cfset YesNo_List = "Y,N">
 --->
 
-<!--- <cfdump var="#cgi#" abort="true"> --->
-<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
+
+<cfset Init_User_Id = TRIM(UCASE(RemoveChars(auth_user,1,find('\',auth_user))))>
 
 
 <!---
@@ -465,6 +465,8 @@ WHERE USERPRMKEY = 361
 		    server="#LDAPServerName#"
 		    username="usa\#Trim(Get_PW.AD_MAILNICKNAME)#"
 		    password="#Get_PW.PW#">
+		
+		
 
 
 		<CFSET This_EE_From_Line = '"' & Trim(QueryGetDisplayName.displayName) & '"' & ' <' & Trim(QueryGetDisplayName.mail) & '>'>

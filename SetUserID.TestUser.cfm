@@ -30,7 +30,7 @@ WHERE SETTINGUSER_PKEY = #Init_Check_Auth_User_A.USERPRMKEY#)
 
 <CFELSE>
 
-	<cfset RespondingUser_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
+	<cfset RespondingUser_Id = TRIM(UCASE(RemoveChars(auth_user,1,find('\',auth_user))))>
 
 	<CFQUERY NAME="Get_Ee_ThisUser" DATASOURCE="lddb">
 	SELECT Trim(LAWDEPARTMENT.LASTNAME) || ', ' || Trim(LAWDEPARTMENT.FIRSTNAME) AS FULLNAME
