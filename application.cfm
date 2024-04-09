@@ -180,7 +180,7 @@ Assess_Cutoff_List set in Report.ptA.cfm
 <CFQUERY NAME="Get_PW" DATASOURCE="ContLiab">
 SELECT PW, AD_MAILNICKNAME
 FROM BUSINESSSERVUSERS
-WHERE USERPRMKEY = 360
+WHERE USERPRMKEY = 361
 </cfquery>
 
 
@@ -323,9 +323,16 @@ WHERE USERPRMKEY = 360
 <!--- Moved to LabelLists.cfm
 <cfset YesNo_List = "Y,N">
 --->
+<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME eq "eagnmnss146" and isdefined("cookie.TESTUSER_PKEY")>
+	<cfinvoke component="components/clrsFunctions" method="getUserId" returnvariable="qUserId">
+		<cfinvokeargument name="userPkey" value="#cookie.testuser_pkey#">
+	</cfinvoke>
+	<cfset Init_User_Id = qUserId.userId>
+<cfelse>
+	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
+</cfif>
 
 
-<cfset Init_User_Id = TRIM(UCASE(RemoveChars(auth_user,1,find('\',auth_user))))>
 
 
 <!---
@@ -452,7 +459,7 @@ WHERE USERPRMKEY = 360
 <!---
     dn="#LDAPDistingName#"
 --->
-
+<cftry>
 		<cfldap action="QUERY"
 		    name="QueryGetDisplayName"
 		    attributes="displayName, mail"
@@ -465,9 +472,14 @@ WHERE USERPRMKEY = 360
 		    server="#LDAPServerName#"
 		    username="usa\#Trim(Get_PW.AD_MAILNICKNAME)#"
 		    password="#Get_PW.PW#">
-		
-		
-
+		<cfcatch type="any">
+			<cflog text="QueryGetDisplayName Error: #cfcatch.message#" type="error" file="clrs-ldap">
+			
+		</cfcatch>
+		<cffinally>
+			<cflog text="LDAP QueryGetDisplayName Result: displayName #queryGetDisplayname.displayname# | mail #queryGetDisplayname.mail#" type="information" file="clrs-ldap">
+		</cffinally>
+		</cftry>
 
 		<CFSET This_EE_From_Line = '"' & Trim(QueryGetDisplayName.displayName) & '"' & ' <' & Trim(QueryGetDisplayName.mail) & '>'>
 
@@ -490,7 +502,7 @@ WHERE USERPRMKEY = 360
     dn="#LDAPDistingName#"
 --->
 
-
+<cftry>
 	<cfldap action="QUERY"
 	    name="QueryGetBusServContactDisplayName"
 	    attributes="displayName, mail"
@@ -503,8 +515,14 @@ WHERE USERPRMKEY = 360
 	    server="#LDAPServerName#"
 	    username="usa\#Trim(Get_PW.AD_MAILNICKNAME)#"
 	    password="#Get_PW.PW#">
-	
-
+		<cfcatch type="any">
+			<cflog text="QueryGetBusServContactDisplayName Error: #cfcatch.message#" type="error" file="clrs-ldap">
+			
+		</cfcatch>
+		<cffinally>
+			<cflog text="LDAP QueryGetBusServContactDisplayName Result: displayName #QueryGetBusServContactDisplayName.displayname# | mail #QueryGetBusServContactDisplayName.mail#" type="information" file="clrs-ldap">
+		</cffinally>
+	</cftry>
 	<CFSET This_BusServContact_From_Line = '"' & Trim(QueryGetBusServContactDisplayName.displayName) & '"' & ' <' & Trim(QueryGetBusServContactDisplayName.mail) & '>'>
 	
 	
