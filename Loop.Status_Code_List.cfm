@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 <CFLOOP INDEX="Status_Code_List_Index" LIST="#STATUS_CODE_SELECTED#">
@@ -48,7 +47,6 @@
 
 
 </cfloop>
-
 
 
 

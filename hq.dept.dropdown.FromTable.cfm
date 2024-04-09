@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!--- HQ Department lists in areas.districts.arrays.cfm --->
 <!---
@@ -65,5 +64,4 @@ This_HQ_AREA_NAME EQ "HQ MULTIPLE Departments">
 
 
 </cfloop>
-
 

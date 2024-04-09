@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 
@@ -787,7 +786,6 @@ history.back();
 </CFOUTPUT>
 
 </script>
-
 
 
 

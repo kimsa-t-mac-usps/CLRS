@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 <!---
 Included on InHouse Web site Welcome page (iframe on InHouse/frametest/welcome.main.htm): Checks if user gets links to Contingent Liabilities for report, adding new case, accessing Protocol
 --->
@@ -338,5 +337,4 @@ https://lawdept.usps.gov/inhouse/framed/conting.liab.htm
 	</script>
 	
 </cfif>
-
 

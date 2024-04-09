@@ -1,8 +1,8 @@
-
+<!---
 <CFAPPLICATION NAME="ContingLiab"
-SESSIONTIMEOUT=#CreateTimeSpan(0,2,0,0)#
+SESSIONTIMEOUT=#CreateTimeSpan(0,0,10,0)#
 SESSIONMANAGEMENT="Yes">
-
+--->
 
 <!--- Previous:
 
@@ -18,7 +18,7 @@ requestTimeout = "1300"
 
 <CFSETTING requestTimeout = "5000">
 
-<cfset application.appname="ContingLiab">
+
 
 <!-- applicationCFM at 11 -->
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -82,14 +82,14 @@ GetFileFromPath(GetBaseTemplatePath()) = #GetFileFromPath(GetBaseTemplatePath())
 
 
 <!---
-<CFSET Test_Email_Addr = "robert.p.sindermann@usps.gov">
+<CFSET Test_Email_Addr = "Kimsa.t.mac@usps.gov">
 <CFSET Test_Server = "lawdept">
 <CFSET Test_Server_Folder = ThisTemplateFolder & "/">
 --->
 
 
 <!---
-<CFSET Test_Email_Addr = "robert.p.sindermann@usps.gov">
+<CFSET Test_Email_Addr = "Kimsa.t.mac@usps.gov">
 
 <!---
 <CFSET Test_Server = "eagnmntwe1860:7443">
@@ -177,10 +177,10 @@ Assess_Cutoff_List set in Report.ptA.cfm
 
 
 
-<CFQUERY NAME="Get_PW" DATASOURCE="lddb">
+<CFQUERY NAME="Get_PW" DATASOURCE="ContLiab">
 SELECT PW, AD_MAILNICKNAME
 FROM BUSINESSSERVUSERS
-WHERE USERPRMKEY = 2556
+WHERE USERPRMKEY = 361
 </cfquery>
 
 
@@ -191,7 +191,7 @@ WHERE USERPRMKEY = 2556
 
 <cfset startstr = "dc=usa,dc=dce,dc=usps,dc=gov">
 
-<CFSET LDAPDistingName = "CN=LDIS,OU=Users,OU=HQ,OU=Users & Workstations," & startstr>
+<CFSET LDAPDistingName = "CN=Sindermann Jr\, Robert P,OU=Users,OU=HQ,OU=Users & Workstations," & startstr>
 
 
 <CFSET LDAPServerName = "eagandcs.usa.dce.usps.gov">
@@ -324,8 +324,8 @@ WHERE USERPRMKEY = 2556
 <cfset YesNo_List = "Y,N">
 --->
 
-
-<!---<cfset Init_User_Id = TRIM(UCASE(RemoveChars(auth_user,1,find('\',auth_user))))>--->
+<!--- <cfdump var="#cgi#" abort="true"> --->
+<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
 
 
 <!---
@@ -333,13 +333,12 @@ WHERE USERPRMKEY = 2556
 <cfset Init_User_Id = "schletjg">
 --->
 
-<!--- User test: Joe Jung DD32J0 / DD32J0 --->
-<cfset Init_User_Id = "DD32J0">
+
 
 <CFIF GetFileFromPath(GetBaseTemplatePath()) DOES NOT CONTAIN "NotAuthorized.cfm">
 
 
-	<CFQUERY NAME="Init_Check_Auth_User_A" DATASOURCE="lddb">
+	<CFQUERY NAME="Init_Check_Auth_User_A" DATASOURCE="ContLiab">
 	SELECT USERPRMKEY
 	
 	FROM BUSINESSSERVUSERS a, LAWDEPARTMENT b
@@ -376,7 +375,7 @@ WHERE USERPRMKEY = 2556
 
 --->	
 	
-	<CFIF Init_Check_Auth_User_A.RecordCount EQ 1 AND NOT (IsDefined("FromInHouse") AND FromInHouse EQ "yes" )
+	<CFIF Init_Check_Auth_User_A.RecordCount EQ 1
 
 	AND NOT
 	(
@@ -425,7 +424,7 @@ WHERE USERPRMKEY = 2556
 
 
 
-	<CFQUERY NAME="GetUserInfo" DATASOURCE="lddb">
+	<CFQUERY NAME="GetUserInfo" DATASOURCE="ContLiab">
 	
 	SELECT b.LASTNAME, b.FIRSTNAME, a.LONGEMAIL, b.PRIMARYKEY, b.AD_USERID, b.AD_MAILNICKNAME, Trim(a.LASTNAME) || ', ' || Trim(a.FIRSTNAME) AS FULLNAME
 	
@@ -454,7 +453,7 @@ WHERE USERPRMKEY = 2556
     dn="#LDAPDistingName#"
 --->
 
-		<!---<cfldap action="QUERY"
+		<cfldap action="QUERY"
 		    name="QueryGetDisplayName"
 		    attributes="displayName, mail"
 			maxrows="10000"
@@ -465,12 +464,10 @@ WHERE USERPRMKEY = 2556
 			sort="name"
 		    server="#LDAPServerName#"
 		    username="usa\#Trim(Get_PW.AD_MAILNICKNAME)#"
-		    password="#Get_PW.PW#">--->
-		
-		
+		    password="#Get_PW.PW#">
 
 
-		<!---<CFSET This_EE_From_Line = '"' & Trim(QueryGetDisplayName.displayName) & '"' & ' <' & Trim(QueryGetDisplayName.mail) & '>'>--->
+		<CFSET This_EE_From_Line = '"' & Trim(QueryGetDisplayName.displayName) & '"' & ' <' & Trim(QueryGetDisplayName.mail) & '>'>
 
 
 		<CFSET ThisEEName = Trim(GetUserInfo.FULLNAME)>
@@ -492,7 +489,7 @@ WHERE USERPRMKEY = 2556
 --->
 
 
-	<!---<cfldap action="QUERY"
+	<cfldap action="QUERY"
 	    name="QueryGetBusServContactDisplayName"
 	    attributes="displayName, mail"
 		maxrows="10000"
@@ -503,14 +500,14 @@ WHERE USERPRMKEY = 2556
 		sort="name"
 	    server="#LDAPServerName#"
 	    username="usa\#Trim(Get_PW.AD_MAILNICKNAME)#"
-	    password="#Get_PW.PW#">--->
+	    password="#Get_PW.PW#">
 	
 
-	<!---<CFSET This_BusServContact_From_Line = '"' & Trim(QueryGetBusServContactDisplayName.displayName) & '"' & ' <' & Trim(QueryGetBusServContactDisplayName.mail) & '>'>--->
+	<CFSET This_BusServContact_From_Line = '"' & Trim(QueryGetBusServContactDisplayName.displayName) & '"' & ' <' & Trim(QueryGetBusServContactDisplayName.mail) & '>'>
 	
 	
 	
-	<CFQUERY NAME="Get_All_ReportDates" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_All_ReportDates" DATASOURCE="ContLiab">
 	SELECT DATE_RPT_FMT
 	FROM view_conting_all_rptdates_fmt
 	</cfquery>
@@ -822,7 +819,7 @@ ThisReportDateCompare = #ThisReportDateCompare#
 
 
 
-	<CFQUERY NAME="Get_Districts" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Districts" DATASOURCE="ContLiab">
 	
 <!---    
     
@@ -924,7 +921,7 @@ ThisReportDateCompare = #ThisReportDateCompare#
 
 
 
-	<CFQUERY NAME="Get_Areas" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Areas" DATASOURCE="ContLiab">
 	
 	SELECT AREA_CODE,
 	NAME
@@ -965,7 +962,7 @@ ThisReportDateCompare = #ThisReportDateCompare#
 
 
 
-	<CFQUERY NAME="Get_Divisions" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Divisions" DATASOURCE="ContLiab">
 
 	SELECT 
     DIVISION_CODE,
@@ -1010,7 +1007,7 @@ ThisReportDateCompare = #ThisReportDateCompare#
 
 
 
-	<CFQUERY NAME="Get_HQ" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_HQ" DATASOURCE="ContLiab">
 	
 	SELECT AREA_CODE,
 	NAME
@@ -1088,7 +1085,7 @@ Get_Single_Record
 
 
 <!--- Cases in prev report below Corp Fin thresholds: --->
-		<CFQUERY NAME="Get_PrevReport_CASE_REC_ID_SEQUENCE" DATASOURCE="lddb">
+		<CFQUERY NAME="Get_PrevReport_CASE_REC_ID_SEQUENCE" DATASOURCE="ContLiab">
 
 
 		SELECT DISTINCT CASE_REC_ID_SEQUENCE
@@ -1318,13 +1315,13 @@ ValueList(Get_PrevReport_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) =
 	<CFSET Status_Code_To_Be_Removed_List = "11,12,13,14,15">
 	
 	
-	<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="ContLiab">
 	SELECT *
 	FROM VIEW_CONTING_GET_CHECKLISTQUES
 	</cfquery>
 	
 	
-	<CFQUERY NAME="Get_AllQuesNum" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_AllQuesNum" DATASOURCE="ContLiab">
 	SELECT *
 	FROM VIEW_CONTING_GET_ALLQUESNUM
 	</cfquery>
@@ -1338,7 +1335,7 @@ ValueList(Get_PrevReport_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) =
 	<CFSET MaroonBorderList = "">
 	
 	
-	<CFQUERY NAME="GetMC" DATASOURCE="lddb">
+	<CFQUERY NAME="GetMC" DATASOURCE="ContLiab">
 	SELECT USERPRMKEY, CONTINGENT_LIAB_CONCUR
 	FROM VIEW_CONTING_BUSSERVUSERS_OBT
 	WHERE UPPER(AD_USERID) LIKE UPPER('#RespondingUser_Id#%')

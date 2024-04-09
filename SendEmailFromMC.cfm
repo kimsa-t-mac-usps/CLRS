@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
@@ -342,11 +341,10 @@ IsDefined("Form.Alt_Approval_Flag")>
 
 
 	<CFMAIL
-	    FROM="Kimsa.t.mac@usps.gov"
-	    TO="Kimsa.t.mac@usps.gov"
-	   <!--- CC="#CCLine#"
-	    BCC="LawDeptSurvey@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"--->
-	    
+	    FROM="#This_EE_From_Line#"
+	    TO="#ToLine#"
+	    CC="#CCLine#"
+	    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
 	    SUBJECT="#ApprWordSubj#: New Contingent Liabilities Case Record"
 		TYPE="HTML">
 	
@@ -453,6 +451,5 @@ ReturnForm.submit();
 
 </body>
 </html>
-
 
 

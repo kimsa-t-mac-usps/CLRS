@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 <!--- Query Get_Districts in appllcation.cfm. Area, District lists NO LONGER in areas.districts.arrays.cfm --->
@@ -204,5 +203,4 @@ Get_Divisions.RecordCount GT 0
 
 
 </CFIF>
-
 

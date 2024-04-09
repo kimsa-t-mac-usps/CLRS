@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!--------------------- Assessment_probabily_Label_Count.loop.cfm ------------>
 
@@ -19,6 +18,5 @@
 <CFSET ASSESSMENT_PROBABILITY_Label_Count = ASSESSMENT_PROBABILITY_Label_Count + 1> 
 
 </cfloop>
-
 
 

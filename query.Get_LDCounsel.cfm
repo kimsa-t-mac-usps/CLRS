@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <head>
 
@@ -73,5 +72,4 @@ OFFICE
 </CFLOOP>
 
 </table>
-
 

@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <html>
 
@@ -17,4 +16,3 @@ Redirect - Contingent Liabilities Report
 </body>
 
 </html>
-

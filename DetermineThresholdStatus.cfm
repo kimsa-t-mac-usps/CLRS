@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!--- ThresholdStatus used in Report.TopIndexDiv.cfm / Report.TopIndexDiv.cfloops.cfm --->
 
@@ -89,7 +88,6 @@ ASSESSMENT_AMT_UPPER_HIGH_END LT OneMillion
 <CFELSE>
 	<CFSET ThresholdStatus = "AtOrAbove">
 </cfif>
-
 
 
 

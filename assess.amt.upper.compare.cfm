@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 
@@ -35,7 +34,6 @@
    	<CFSET ASSESSMENT_AMOUNT_UPPER_DisplayAmt = ASSESSMENT_AMOUNT_UPPER_DisplayAmt & " - " & ASSESSMENT_AMT_UPPER_HIGH_END_DisplayAmt>
 
 </cfif>
-
 
 
 

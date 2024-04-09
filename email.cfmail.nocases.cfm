@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
@@ -59,7 +58,7 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 <CFIF IsDefined("Test_Email_Addr")>
 	<CFSET email_cfmail_nocases_To = Test_Email_Addr>
 <CFELSE>
-	<!---<CFSET email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>kimsa 2/5/2023--->
+	<CFSET email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>
 </CFIF>
 
 
@@ -71,9 +70,9 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 <CFMAIL
    
     
-    FROM="Kimsa.t.mac@usps.gov"
-    TO="Kimsa.t.mac@usps.gov"
-    <!---BCC="LawDeptSurvey@usps.gov"--->
+    FROM="#This_EE_From_Line#"
+    TO="#email_cfmail_nocases_To#"
+    BCC="gccontliab@usps.gov"
     SUBJECT="No Cases From #Office# to Report for Contingent Liabilities Report, #Rpt#"
 	TYPE="HTML">
 <!--- Kimsa test email --->
@@ -145,6 +144,5 @@ or
 
 </body>
 </html>
-
 
 

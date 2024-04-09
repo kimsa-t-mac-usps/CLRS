@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 <!--- This file contains link to stylesheeet and has various JavaScript routines and functions used throughout --->
@@ -1100,7 +1099,6 @@ newInfoChgCompatViewFileWindow.focus();
 
 
 </script>
-
 
 
 

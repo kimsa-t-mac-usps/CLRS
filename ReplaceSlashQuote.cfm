@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 <CFSET Result_String = Replace(Orig_String, "\r\n", "<br>", "ALL")>
@@ -26,6 +25,5 @@
 
 <!--- Replace inverted question mark with hyphen and spaces --->
 <CFSET Result_String = Replace(Result_String, chr(191), " - ", "ALL")>
-
 
 

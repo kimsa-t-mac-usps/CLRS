@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!---
 <CFOUTPUT>
@@ -708,7 +707,6 @@ DiffFlag = "#DiffFlag#"
 <p>
 </CFOUTPUT>
 --->
-
 
 
 

@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
@@ -30,6 +29,5 @@ You are not currently authorized to view the case records.
 
 </body>
 </html>
-
 
 

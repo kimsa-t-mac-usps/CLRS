@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!---
 Included in cfloop.cur_rem.casetype.assesscutoff.query.cfm, Report.ptA.cfm
@@ -63,7 +62,6 @@ clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
 
 
 )
-
 
 
 

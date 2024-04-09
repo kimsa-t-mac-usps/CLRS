@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!---------------------- SectionHeading.cfset.cfm ---------------------------->
 <!---------------------------------------------------------------------------->
@@ -181,15 +180,35 @@ IsDefined("This_CASE_TYPE")>
 
 		</CFIF>
         
-          
+        
+    <!--- KS2 --->
+	<!---<CFOUTPUT>
+		<br />
+		Program = "SectionHeading.cfSet.cfm at 154 -- KS2"
+		<br />
+		Case_Type = #Case_Type#
+		<br />
+		Assess_Cutoff_List_Index = #Assess_Cutoff_List_Index#
+		<br />
+		CASE_TYPE_Label = #CASE_TYPE_Label#
+		<br />
+		<!---<a #AParm#><h3 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 115>--->
+		
+	</CFOUTPUT> --->   
+        
 
 		<CFIF This_RecordCount EQ 0>
 			<p>
 			[No Cases] 
                 
+<!---
+                [sectionheadings.cfset.cfm at 101]
+--->
 			<p>
 		</cfif>
 
+	
+<!--- From <CFIF HeaderParm EQ "TopIndex"> --->
 	<CFELSE>
 	
 		</table sectionheadings.cfset.cfm at 119>
@@ -230,6 +249,7 @@ IsDefined("This_CASE_TYPE")>
 
 		</cfif>
 
+
 		<CFIF This_RecordCount EQ 0>
 			<p>
 			[No Cases]
@@ -248,8 +268,8 @@ IsDefined("This_CASE_TYPE")>
 
 
 	<CFSET Old_CASE_TYPE_Label = CASE_TYPE_Label>
-     
-       
+        
+        
 <!---        
 		<table class="CorpFin" cellpadding=7 cellspacing=7 border=0>
 		<CFINCLUDE TEMPLATE="Report.CorpFinTableHeaderRow.cfm">
@@ -302,7 +322,6 @@ IsDefined("This_CASE_TYPE")>
 				<h5>
 			<CFELSE>
 				<h4 style="sectionheadings.cfset.cfm at 163">
-	
 			</cfif>
 	
 			<CFOUTPUT>
@@ -856,5 +875,4 @@ This_CASE_TYPE = #This_CASE_TYPE#
 Assess_Cutoff_List_Index = #Assess_Cutoff_List_Index#
 <p>
 </cfoutput>--->
-
 

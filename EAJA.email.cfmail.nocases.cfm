@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
@@ -80,9 +79,9 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 
 <CFMAIL
     
-    FROM="Kimsa.t.mac@usps.gov"
-    TO="Kimsa.t.mac@usps.gov"
-    <!---BCC="LawDeptSurvey@usps.gov"--->
+    FROM="#This_EE_From_Line#"
+    TO="#EAJA_email_cfmail_nocases_To#"
+    BCC="gccontliab@usps.gov"
     SUBJECT="No EAJA Cases For #Office# to Report for #Rpt#"
 	TYPE="HTML">
 <div style="font-family:arial; font-size:10pt">
@@ -132,6 +131,5 @@ or
 
 </body>
 </html>
-
 
 

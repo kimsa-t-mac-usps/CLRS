@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <CFQUERY NAME="Check_Auth_User_A" DATASOURCE="lddb">
 <!---
@@ -39,6 +38,5 @@ OR UPPER(b.AD_MAILNICKNAME) LIKE UPPER('#RespondingUser_Id#%'))
 	b.SEPARATFLG = '0')
 
 </cfquery>
-
 
 

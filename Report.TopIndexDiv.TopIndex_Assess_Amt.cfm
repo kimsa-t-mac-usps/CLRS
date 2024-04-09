@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!--- 
 For Front Office Review or Short-term Liabilities: Show Most Likely Payout in Index entry 
@@ -25,7 +24,6 @@ TopIndex_Assess_Amt NEQ "">
 	</cfif>
 
 </cfif>
-
 
 
 

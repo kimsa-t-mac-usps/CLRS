@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!---
 Included in:
@@ -141,6 +140,5 @@ Or
 <CFSET PrevStatusCodeText = Status_Code_Label>
 
 --->
-
 
 

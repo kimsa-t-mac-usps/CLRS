@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!---------------------- Report.TopIndexDiv.cfloops.cfm ---------------------->
 <!---------------------------------------------------------------------------->
@@ -86,7 +85,7 @@ Same CFLOOP bypasses in:
 					<CFIF Assess_Cutoff_List_Index EQ "NewTenMillionAndAbove" OR 
 					Assess_Cutoff_List_Index EQ "MostLikelyUnderTenMillion_MaxReasonableOverOneMillion">
 
-						 <!--- <cfif Assess_Cutoff_List_Index EQ "MostLikelyUnderTenMillion_MaxReasonableOverOneMillion">
+						  <!---<cfif Assess_Cutoff_List_Index EQ "MostLikelyUnderTenMillion_MaxReasonableOverOneMillion">
 							<cfoutput>I am here....topindex,cfloops line 62 </cfoutput><cfabort>
 						</cfif>  --->
 		
@@ -117,6 +116,7 @@ Same CFLOOP bypasses in:
 		<CFELSEIF Current_Removed_List_Index EQ "Current">
 
 <!---KS2 --->
+
 					<!---<CFIF Assess_Cutoff_List_Index EQ "TenMillionAndAbove">--->
 					
 					<CFIF Assess_Cutoff_List_Index EQ "TenMillionAndAbove"
@@ -1419,7 +1419,6 @@ total_This_Current_IndexRow = #This_Current_IndexRow#;
 </CFOUTPUT>
 
 </script>
-
 
 
 

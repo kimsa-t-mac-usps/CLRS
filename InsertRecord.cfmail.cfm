@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 <!---
@@ -138,7 +137,7 @@ ORDER BY c.SORTORDER, a.LASTNAME
 <CFIF IsDefined("Test_Email_Addr")>
 	<CFSET InsertRecord_cfmail_To = Test_Email_Addr>
 <CFELSE>
-	<!---<CFSET InsertRecord_cfmail_To = ToMCLine>--->
+	<CFSET InsertRecord_cfmail_To = ToMCLine>
 </CFIF>
 
 <!---
@@ -147,9 +146,9 @@ ORDER BY c.SORTORDER, a.LASTNAME
 
 
 <CFMAIL
-    FROM="Kimsa.t.mac@usps.gov"
-    TO="Kimsa.t.mac@usps.gov"
-    <!---BCC="LawDeptSurvey@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"--->
+    FROM="#This_EE_From_Line#"
+    TO="#InsertRecord_cfmail_To#"
+    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
     SUBJECT="New Contingent Liabilities Case Record For Approval"
 	TYPE="HTML">
 
@@ -214,6 +213,5 @@ Thank you,
 </div>
 
 </CFMAIL>
-
 
 

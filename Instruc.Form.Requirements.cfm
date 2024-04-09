@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 <span class="ClickEdit" style="font-weight:bold">Revised June 2010</span>
@@ -101,6 +100,5 @@ Divide the <b>narrative</b> in the <b>Facts/Positions</b> section into <b>three 
 Be sure to explain the methodology and assumptions relied upon to determine the likelihood of an unfavorable result and to calculate maximum potential and most likely damages. Where damages are continuing, include an estimate of the increase per annum or per quarter. Also include settlement offers.
 
 </div>
-
 
 

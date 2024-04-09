@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <CFIF FormField EQ "Assessment Amount">
 <!---
@@ -45,6 +44,5 @@ with up to one decimal place and no comma.
 If less than $1 Million, use decimal amount. E.g., for <b>$400,000</b>, use <b><u>0</u>.4</b>
 
 </div>
-
 
 

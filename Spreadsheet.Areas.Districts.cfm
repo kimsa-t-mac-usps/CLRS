@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 <CFIF IsDefined("RptDate")>
@@ -612,7 +611,6 @@ history.back();
 </CFOUTPUT>
 
 </script>
-
 
 
 

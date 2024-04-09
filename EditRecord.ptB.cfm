@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <tr>
 <td>
@@ -830,6 +829,5 @@ onClick="clearUnknown(#CONTINGENT_LIAB_GetRecord.CurrentRow#, 'ASSESSMENT_AMT_MA
 </td>
 
 </tr>
-
 
 

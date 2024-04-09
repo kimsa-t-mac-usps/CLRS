@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!---
 5/21/09 Changed references to 5000000 cutoff: Use ASSESSMENT_AMOUNT instead of ASSESSMENT_AMOUNT_UPPER. Also add range for ASSESSMENT_AMOUNT (to ASSESSMENT_AMT_HIGH_END) and ASSESSMENT_AMOUNT_UPPER (to ASSESSMENT_AMT_UPPER_HIGH_END), using
@@ -90,15 +89,15 @@ CHR(32) = space
 <CFIF IsDefined("Test_Email_Addr")>
 	<CFSET EditRecord_cfmail_To = Test_Email_Addr>
 <CFELSE>
-	<!---<CFSET EditRecord_cfmail_To = ToMCLine> Kimsa 2/5/2023--->
+	<CFSET EditRecord_cfmail_To = ToMCLine> 
 </CFIF>
 
 
 <CFMAIL
    
-    FROM="Kimsa.t.mac@usps.gov"
-    TO="Kimsa.t.mac@usps.gov"
-    <!---BCC="LawDeptSurvey@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"--->
+     FROM="#This_EE_From_Line#"
+    TO="#EditRecord_cfmail_To#"
+    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
     SUBJECT="#Form.CASE_NAME#: #ASSESSMENT_AMOUNT_Change# in Contingent Liabilities Assessment"
 	TYPE="HTML">
 
@@ -211,6 +210,5 @@ Thank you,
 </div>
 
 </CFMAIL>
-
 
 

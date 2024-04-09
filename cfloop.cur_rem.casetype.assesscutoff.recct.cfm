@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!-------------------- cfloop.cur_rem.casetype.assesscutoff.recct.cfm -------->
 <!---------------------------------------------------------------------------->
@@ -64,6 +63,5 @@
 	</cfif>
 
 </cfloop>
-
 
 

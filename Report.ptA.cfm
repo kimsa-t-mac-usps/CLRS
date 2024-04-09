@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!---------------------------- Report.ptA.cfm -------------------------------->
 <!---------------------------------------------------------------------------->
@@ -1177,7 +1176,6 @@ IsDefined("Form.FrontOffcReviewFormat") AND Form.FrontOffcReviewFormat EQ "Front
 
 
 </cfif>
-
 
 
 

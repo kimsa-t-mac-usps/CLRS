@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!---------------------------- String_compare_Routine.cfm --------------------->
 <!---------------------------------------------------------------------------->
@@ -515,7 +514,6 @@ Adaptations and major modifications to JS and CF code copied frm https://www.cod
 
 
 </cfscript>
-
 
 
 

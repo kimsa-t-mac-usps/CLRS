@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 <!---
 Action file for attaching a spreadsheet for a case report: new spreadsheet or updated replacement of previously saved spreadsheet.
@@ -159,6 +158,5 @@ ReturnForm.submit();
 
 </body>
 </html>
-
 
 

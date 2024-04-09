@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 <!--- 
@@ -536,6 +535,5 @@ Office
 
 
 </div>
-
 
 

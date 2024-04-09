@@ -1,4 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
 
 <!---
@@ -1310,6 +1309,5 @@ CLRC_Query_Name EQ "Get_Single_Record")>
 
 </td>
 </tr>
-
 
 
