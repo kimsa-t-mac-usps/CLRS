@@ -1,8 +1,8 @@
-<!---
+
 <CFAPPLICATION NAME="ContingLiab"
 SESSIONTIMEOUT=#CreateTimeSpan(0,0,10,0)#
 SESSIONMANAGEMENT="Yes">
---->
+
 
 <!--- Previous:
 
@@ -323,11 +323,8 @@ WHERE USERPRMKEY = 361
 <!--- Moved to LabelLists.cfm
 <cfset YesNo_List = "Y,N">
 --->
-<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME eq "eagnmnss146" and isdefined("cookie.TESTUSER_PKEY")>
-	<cfinvoke component="components/clrsFunctions" method="getUserId" returnvariable="qUserId">
-		<cfinvokeargument name="userPkey" value="#cookie.testuser_pkey#">
-	</cfinvoke>
-	<cfset Init_User_Id = qUserId.userId>
+<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME eq "eagnmnss146" >
+	<cfset Init_user_id = "K6GVN0">
 <cfelse>
 	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
 </cfif>
