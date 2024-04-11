@@ -323,7 +323,7 @@ WHERE USERPRMKEY = 361
 <!--- Moved to LabelLists.cfm
 <cfset YesNo_List = "Y,N">
 --->
-<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME eq "eagnmnss146" >
+<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME neq "eagnmnwep1431" and cgi.SERVER_NAME neq "eagnmnwep1432" >
 	<cfset Init_user_id = "K6GVN0">
 <cfelse>
 	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
@@ -343,34 +343,12 @@ WHERE USERPRMKEY = 361
 
 
 	<CFQUERY NAME="Init_Check_Auth_User_A" DATASOURCE="ContLiab">
-	SELECT USERPRMKEY
-	
-	FROM BUSINESSSERVUSERS a, LAWDEPARTMENT b
-	
-	WHERE
-	a.USERPRMKEY = b.PRIMARYKEY
-	
-	AND
-	(
-	a.CONTINGENT_LIAB_AUTH = 'A'
-	OR
-	a.CONTINGENT_LIAB_AUTH = 'I'
-	)
-	
-	AND
-	(
-	UPPER(a.AD_USERID) LIKE UPPER('#Init_User_Id#%')
-	OR
-	UPPER(a.AD_MAILNICKNAME) LIKE UPPER('#Init_User_Id#%')
-	)
-	
-	AND
-	(b.SEPARATFLG != 'S'
-	OR
-	b.SEPARATFLG IS NULL
-	OR
-	b.SEPARATFLG = '0')
-	
+	SELECT USERPRMKEY FROM BUSINESSSERVUSERS a, LAWDEPARTMENT b
+	WHERE a.USERPRMKEY = b.PRIMARYKEY
+	AND (a.CONTINGENT_LIAB_AUTH = 'A' OR a.CONTINGENT_LIAB_AUTH = 'I')
+	AND (UPPER(a.AD_USERID) LIKE UPPER('#Init_User_Id#%')
+	OR UPPER(a.AD_MAILNICKNAME) LIKE UPPER('#Init_User_Id#%'))
+	AND (b.SEPARATFLG != 'S' OR b.SEPARATFLG IS NULL OR b.SEPARATFLG = '0')
 	</cfquery>
 
 
