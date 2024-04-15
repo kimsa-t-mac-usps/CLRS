@@ -341,8 +341,8 @@ WHERE USERPRMKEY = 361
 
 <CFIF GetFileFromPath(GetBaseTemplatePath()) DOES NOT CONTAIN "NotAuthorized.cfm">
 
-
-	<CFQUERY NAME="Init_Check_Auth_User_A" DATASOURCE="ContLiab">
+<cftry>
+	<CFQUERY NAME="Init_Check_Auth_User_A" DATASOURCE="ContLiab" result="checkAuthAResult">
 	SELECT USERPRMKEY FROM BUSINESSSERVUSERS a, LAWDEPARTMENT b
 	WHERE a.USERPRMKEY = b.PRIMARYKEY
 	AND (a.CONTINGENT_LIAB_AUTH = 'A' OR a.CONTINGENT_LIAB_AUTH = 'I')
@@ -350,8 +350,13 @@ WHERE USERPRMKEY = 361
 	OR UPPER(a.AD_MAILNICKNAME) LIKE UPPER('#Init_User_Id#%'))
 	AND (b.SEPARATFLG != 'S' OR b.SEPARATFLG IS NULL OR b.SEPARATFLG = '0')
 	</cfquery>
-
-
+	<cfcatch type="any">
+		<cfdump var="#cfcatch#" abort="true">
+	</cfcatch>
+	<cffinally>
+		<cflog text="Init_Check_Auth_User_A: #serializeJson(checkAuthAResult)#" type="information" file="clrs-ldap">
+	</cffinally>
+</cftry>
 <!---
 
 
