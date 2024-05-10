@@ -1,8 +1,8 @@
-<!---
 <CFAPPLICATION NAME="ContingLiab"
 SESSIONTIMEOUT=#CreateTimeSpan(0,0,10,0)#
-SESSIONMANAGEMENT="Yes">
---->
+SESSIONMANAGEMENT="Yes"
+searchimplicitscopes="true">
+
 
 <!--- Previous:
 
@@ -180,7 +180,7 @@ Assess_Cutoff_List set in Report.ptA.cfm
 <CFQUERY NAME="Get_PW" DATASOURCE="ContLiab">
 SELECT PW, AD_MAILNICKNAME
 FROM BUSINESSSERVUSERS
-WHERE USERPRMKEY = 360
+WHERE USERPRMKEY = 361
 </cfquery>
 
 
@@ -323,9 +323,13 @@ WHERE USERPRMKEY = 360
 <!--- Moved to LabelLists.cfm
 <cfset YesNo_List = "Y,N">
 --->
+<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME neq "eagnmnwep1431" and cgi.SERVER_NAME neq "eagnmnwep1432" >
+	<cfset Init_user_id = "K6GVN0">
+<cfelse>
+	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
+</cfif>
 
 
-<cfset Init_User_Id = TRIM(UCASE(RemoveChars(auth_user,1,find('\',auth_user))))>
 
 
 <!---
@@ -337,39 +341,22 @@ WHERE USERPRMKEY = 360
 
 <CFIF GetFileFromPath(GetBaseTemplatePath()) DOES NOT CONTAIN "NotAuthorized.cfm">
 
-
-	<CFQUERY NAME="Init_Check_Auth_User_A" DATASOURCE="ContLiab">
-	SELECT USERPRMKEY
-	
-	FROM BUSINESSSERVUSERS a, LAWDEPARTMENT b
-	
-	WHERE
-	a.USERPRMKEY = b.PRIMARYKEY
-	
-	AND
-	(
-	a.CONTINGENT_LIAB_AUTH = 'A'
-	OR
-	a.CONTINGENT_LIAB_AUTH = 'I'
-	)
-	
-	AND
-	(
-	UPPER(a.AD_USERID) LIKE UPPER('#Init_User_Id#%')
-	OR
-	UPPER(a.AD_MAILNICKNAME) LIKE UPPER('#Init_User_Id#%')
-	)
-	
-	AND
-	(b.SEPARATFLG != 'S'
-	OR
-	b.SEPARATFLG IS NULL
-	OR
-	b.SEPARATFLG = '0')
-	
+<cftry>
+	<CFQUERY NAME="Init_Check_Auth_User_A" DATASOURCE="ContLiab" result="checkAuthAResult">
+	SELECT USERPRMKEY FROM BUSINESSSERVUSERS a, LAWDEPARTMENT b
+	WHERE a.USERPRMKEY = b.PRIMARYKEY
+	AND (a.CONTINGENT_LIAB_AUTH = 'A' OR a.CONTINGENT_LIAB_AUTH = 'I')
+	AND (UPPER(a.AD_USERID) LIKE UPPER('#Init_User_Id#%')
+	OR UPPER(a.AD_MAILNICKNAME) LIKE UPPER('#Init_User_Id#%'))
+	AND (b.SEPARATFLG != 'S' OR b.SEPARATFLG IS NULL OR b.SEPARATFLG = '0')
 	</cfquery>
-
-
+	<cfcatch type="any">
+		<cfdump var="#cfcatch#" abort="true">
+	</cfcatch>
+	<cffinally>
+		<cflog text="Init_Check_Auth_User_A: #serializeJson(checkAuthAResult)#" type="information" file="clrs-ldap">
+	</cffinally>
+</cftry>
 <!---
 
 
@@ -452,7 +439,7 @@ WHERE USERPRMKEY = 360
 <!---
     dn="#LDAPDistingName#"
 --->
-
+<cftry>
 		<cfldap action="QUERY"
 		    name="QueryGetDisplayName"
 		    attributes="displayName, mail"
@@ -465,9 +452,14 @@ WHERE USERPRMKEY = 360
 		    server="#LDAPServerName#"
 		    username="usa\#Trim(Get_PW.AD_MAILNICKNAME)#"
 		    password="#Get_PW.PW#">
-		
-		
-
+		<cfcatch type="any">
+			<cflog text="QueryGetDisplayName Error: #cfcatch.message#" type="error" file="clrs-ldap">
+			
+		</cfcatch>
+		<cffinally>
+			<cflog text="LDAP QueryGetDisplayName Result: displayName #queryGetDisplayname.displayname# | mail #queryGetDisplayname.mail#" type="information" file="clrs-ldap">
+		</cffinally>
+		</cftry>
 
 		<CFSET This_EE_From_Line = '"' & Trim(QueryGetDisplayName.displayName) & '"' & ' <' & Trim(QueryGetDisplayName.mail) & '>'>
 
@@ -490,7 +482,7 @@ WHERE USERPRMKEY = 360
     dn="#LDAPDistingName#"
 --->
 
-
+<cftry>
 	<cfldap action="QUERY"
 	    name="QueryGetBusServContactDisplayName"
 	    attributes="displayName, mail"
@@ -503,8 +495,14 @@ WHERE USERPRMKEY = 360
 	    server="#LDAPServerName#"
 	    username="usa\#Trim(Get_PW.AD_MAILNICKNAME)#"
 	    password="#Get_PW.PW#">
-	
-
+		<cfcatch type="any">
+			<cflog text="QueryGetBusServContactDisplayName Error: #cfcatch.message#" type="error" file="clrs-ldap">
+			
+		</cfcatch>
+		<cffinally>
+			<cflog text="LDAP QueryGetBusServContactDisplayName Result: displayName #QueryGetBusServContactDisplayName.displayname# | mail #QueryGetBusServContactDisplayName.mail#" type="information" file="clrs-ldap">
+		</cffinally>
+	</cftry>
 	<CFSET This_BusServContact_From_Line = '"' & Trim(QueryGetBusServContactDisplayName.displayName) & '"' & ' <' & Trim(QueryGetBusServContactDisplayName.mail) & '>'>
 	
 	

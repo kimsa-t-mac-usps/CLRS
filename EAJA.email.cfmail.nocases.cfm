@@ -68,7 +68,7 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 <CFIF IsDefined("Test_Email_Addr")>
 	<CFSET EAJA_email_cfmail_nocases_To = Test_Email_Addr>
 <CFELSE>
-<!---	<CFSET EAJA_email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)> Kimsa 2/5/2023--->
+	<CFSET EAJA_email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>
 </CFIF>
 
 
@@ -82,13 +82,13 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
     FROM="#This_EE_From_Line#"
     TO="#EAJA_email_cfmail_nocases_To#"
     BCC="gccontliab@usps.gov"
-    SUBJECT="No EAJA Cases For #Office# to Report for #Rpt#"
+    SUBJECT="No EAJA Cases For #trim(Office)# to Report for #trim(Rpt)#"
 	TYPE="HTML">
 <div style="font-family:arial; font-size:10pt">
 
 
 <CFOUTPUT>
-#Office#
+#trim(Office)#
 has no EAJA cases to report for #Rpt#.
 <p>
 Please let me know if you have any questions or need anything else.
