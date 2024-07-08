@@ -1,4 +1,4 @@
-<cfinclude template="MfaCookieCheck.cfm">
+
 <!---
 <CFQUERY NAME="Get_TestUser_Pkey" DATASOURCE="lddb">
 SELECT TESTUSER_PKEY
