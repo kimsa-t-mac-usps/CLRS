@@ -1,3 +1,4 @@
+
 <CFSET RptDateToFmt_CalYear = DatePart("yyyy", RptDateToFmt)>
 
 
@@ -130,6 +131,7 @@ Crx 4/17/2018: Chg CalYear to FY, was giving incorrect date for previous quarter
 
 <cfabort>
 --->
+
 
 
 

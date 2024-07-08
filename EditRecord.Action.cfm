@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <html>
 <head>
@@ -1120,5 +1121,6 @@ ReturnForm.submit();
 
 </body>
 </html>
+
 
 

@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 
 <!---
@@ -213,5 +214,6 @@ Thank you,
 </div>
 
 </CFMAIL>
+
 
 

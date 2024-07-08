@@ -1,7 +1,10 @@
+
+
 <CFAPPLICATION NAME="ContingLiab"
 SESSIONTIMEOUT=#CreateTimeSpan(0,0,10,0)#
 SESSIONMANAGEMENT="Yes"
-searchimplicitscopes="true">
+SEARCHIMPLICITSCOPES="True">
+
 
 
 <!--- Previous:
@@ -661,13 +664,7 @@ PrevReportDate = "#PrevReportDate#"
 
     
     
-<!---    
-	<CFELSE>
 
-		<CFSET RptDateToFmt = ThisReportDate>
-
-		<CFINCLUDE TEMPLATE="RptDateFYQFmt.cfm">
---->
 
 
 
@@ -1271,9 +1268,7 @@ ValueList(Get_PrevReport_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) =
 --->
 
 
-<!--- Moved to CFINCLUDEs\LabelLists.cfm:
-<CFINCLUDE TEMPLATE="Unknown_NA_List.cfm">
---->
+
 
 
 <!--- Used in textcompare.cfm: --->
@@ -1343,9 +1338,7 @@ ValueList(Get_PrevReport_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) =
 	</cfquery>
 
 
-<!--- Included separately in Report.ptA.cfm, InsertRecord.cfm, EditRecord.cfm:
-<CFINCLUDE TEMPLATE="CFINCLUDEs/CheckUserAuth.cfm">
---->
+
 
 
 <!--- Used in Report with

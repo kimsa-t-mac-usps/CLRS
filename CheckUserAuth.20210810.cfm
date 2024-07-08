@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 
 <!--- Check whether user authorized to access CL system and scope of authorization: Department-wide, Office-wide, case-only, or none --->
@@ -553,6 +554,7 @@ alert('CheckUserAuth.cfm at 367: AuthorizedFlag = "#AuthorizedFlag#"');
 	</cfif>
 
 </cfif>
+
 
 
 

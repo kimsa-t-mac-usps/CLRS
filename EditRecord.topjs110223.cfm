@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <script language="JavaScript">
 
@@ -1800,5 +1801,6 @@ if (UNremoveConf==false) return false
 
 
 </script>
+
 
 

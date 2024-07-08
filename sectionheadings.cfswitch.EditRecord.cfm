@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <CFSWITCH EXPRESSION="#CASE_TYPE#">
 
@@ -44,6 +45,7 @@
 </cfcase>
 
 </cfswitch>
+
 
 
 

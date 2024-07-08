@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!---
 
@@ -805,6 +806,7 @@ IsDefined("This_CASE_TYPE")>
 
 <!--- Close <CFIF CASE_TYPE_Label NEQ Old_CASE_TYPE_Label> --->
 </cfif>
+
 
 
 
