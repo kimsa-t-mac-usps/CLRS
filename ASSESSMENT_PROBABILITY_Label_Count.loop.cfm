@@ -1,7 +1,6 @@
-<cfinclude template="MfaCookieCheck.cfm">
 
-<!--------------------- Assessment_probabily_Label_Count.loop.cfm ------------>
-
+<!---------------------  Assessment_probabily_Label_Count.loop.cfm ------------>
+<!---KS test --->
 <CFLOOP CONDITION="(ASSESSMENT_PROBABILITY_Label_Count NEQ ThisASSESSMENT_PROBABILITY) AND (ASSESSMENT_PROBABILITY_Label_Count LE ASSESSMENT_PROBABILITY_Label_List_Len) AND (HeaderParm EQ 'TopIndex')">
 
 <p>
@@ -19,6 +18,5 @@
 <CFSET ASSESSMENT_PROBABILITY_Label_Count = ASSESSMENT_PROBABILITY_Label_Count + 1> 
 
 </cfloop>
-
 
 
