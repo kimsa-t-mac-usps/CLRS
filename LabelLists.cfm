@@ -1,4 +1,4 @@
-<cfinclude template="MfaCookieCheck.cfm">
+
 <CFSET ASSESSMENT_PROBABILITY_LabelList = "Probable,Reasonably Possible,Remote">
 
 <!--- Also: --->

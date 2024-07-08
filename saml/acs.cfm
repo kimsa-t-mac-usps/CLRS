@@ -1,6 +1,7 @@
 <!--- <cflog text="starting SAML response" type="information" file="empDB_samlResp"> --->
 
     <cfset samlResponse = "#ProcessSAMLResponse("ContLiab_idp","ContLiab_sp")#">
+    <cflog text="#serializeJSON(samlResponse)#" type="information" file="contliab_samlresponse">
     <cfdump var="#samlResponse#">
     <cfcookie name="_mfa.authenticated_clrs" value="#samlResponse.AUTHENTICATED#"  expires="#dateAdd('h',2,now())#">
     <cfcookie name="_mfa.nameid_clrs" value="#samlResponse.NAMEID#"  expires="#dateAdd('h',2,now())#">

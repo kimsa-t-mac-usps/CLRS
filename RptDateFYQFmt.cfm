@@ -1,4 +1,4 @@
-<cfinclude template="MfaCookieCheck.cfm">
+
 <CFSET RptDateToFmt_CalYear = DatePart("yyyy", RptDateToFmt)>
 
 
