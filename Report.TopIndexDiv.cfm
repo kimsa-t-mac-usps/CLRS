@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!------------------------- Report.TopIndexDiv.cfm --------------------------->
 <!---------------------------------------------------------------------------->
@@ -522,6 +523,7 @@ Form.CorpFinFormat_STL EQ "CorpFinFormat_STL"
 
 <!--- End TopIndex div:--->
 </div>
+
 
 
 

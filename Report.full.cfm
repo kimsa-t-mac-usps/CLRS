@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!---------------------------- Report.Full.cfm ------------------------------->
 <!---------------------------------------------------------------------------->
@@ -515,5 +516,6 @@ Close <CFIF CONTINGENT_LIAB_GetRecord_Current.RecordCount EQ 0>:
 
 
 </html>
+
 
 

@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!------------------------- Report.ptD.cfm --------------------------->
 <!---------------------------------------------------------------------------->
@@ -584,5 +585,6 @@ Time to Resolution
 
 <!--- Close <CFIF CLAIM_CATEGORY EQ 2> --->
 </CFIF>
+
 
 

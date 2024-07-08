@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
@@ -40,5 +41,6 @@ location.href = "https://<cfoutput>#This_Server#</cfoutput>/ClientService/Contin
 
 </body>
 </html>
+
 
 

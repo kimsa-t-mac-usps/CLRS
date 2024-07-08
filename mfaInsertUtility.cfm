@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 <!---
     This file hopefully will loop through the directory and check for existence of 
     "<cfinclude template="MfaCookieCheck.cfm">" at the top of the file

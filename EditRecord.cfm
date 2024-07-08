@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <html>
 
@@ -292,5 +293,6 @@ onSubmit attribute in CFFORM tag appears not to work anymore, maybe because of u
 
 
 </html>
+
 
 

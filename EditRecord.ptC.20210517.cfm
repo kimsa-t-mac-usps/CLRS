@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!--- Query CONTINGENT_LIAB_GetRecord in EditRecord.ptA --->
 
@@ -871,5 +872,6 @@ Other Representative for USPS
 </td>
 
 </tr>
+
 
 

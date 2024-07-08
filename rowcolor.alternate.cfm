@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 
 <CFSET RowNum = RowNum + 1>
@@ -16,6 +17,7 @@
 --->
 	<CFSET RowColor = "lightcyan">
 </cfif>
+
 
 
 
