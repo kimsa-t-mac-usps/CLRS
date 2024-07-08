@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <tr>
 
@@ -404,5 +405,6 @@ Close <CFIF FINALIZED_FLAG NEQ 1 OR (Check_Auth_User_A.RecordCount EQ 1 AND FINA
 </td>
 
 </tr>
+
 
 

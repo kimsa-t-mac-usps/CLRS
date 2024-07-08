@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 
 <!--- Has INCLUDEs for Report.ptB.cfm - Report.ptE.cfm --->
@@ -189,5 +190,6 @@ Same CFLOOP bypasses in:
 	</cfloop>
 
 </cfloop>
+
 
 

@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!--- Include cases without Checklist records (early cases) and cases with approved Checklists --->
 
@@ -23,6 +24,7 @@ WHERE MC_APPR_FLAG = 1
 OR
 FINALIZED_FLAG = 1
 )
+
 
 
 

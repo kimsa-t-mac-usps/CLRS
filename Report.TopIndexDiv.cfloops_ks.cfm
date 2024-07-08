@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!---------------------- Report.TopIndexDiv.cfloops.cfm ---------------------->
 <!---------------------------------------------------------------------------->
@@ -1567,6 +1568,7 @@ total_This_Current_IndexRow = #This_Current_IndexRow#;
 </CFOUTPUT>
 
 </script>
+
 
 
 

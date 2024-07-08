@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <CFIF DateCompare(ThisReportDate, NewCLProtocolReportDate) GE 0>
 
@@ -203,5 +204,6 @@ NewList = "#NewList#"
 
 <!--- Close <CFIF DateCompare(ThisReportDate, NewCLProtocolReportDate) GE 0> --->
 </CFIF>
+
 
 

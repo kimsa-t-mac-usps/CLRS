@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 
 <CFIF IsNumeric(ThisString)>
@@ -17,6 +18,7 @@
 	</cfloop>
 
 </cfif>
+
 
 
 

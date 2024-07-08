@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!---------------------- SectionHeading.cfset.cfm ---------------------------->
 <!---------------------------------------------------------------------------->
@@ -875,4 +876,5 @@ This_CASE_TYPE = #This_CASE_TYPE#
 Assess_Cutoff_List_Index = #Assess_Cutoff_List_Index#
 <p>
 </cfoutput>--->
+
 

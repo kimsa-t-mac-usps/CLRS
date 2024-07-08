@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!--- Has INCLUDEs for Report.ptB.cfm - Report.ptE.cfm --->
 
@@ -440,3 +441,4 @@ New Cases Assessed At or Above $1 Million (incl. Cases Previously Below Reportin
 
 <!--- Close <CFLOOP INDEX="Current_Removed_List_Index" LIST="#Current_Removed_List#"> --->
 </cfloop>
+

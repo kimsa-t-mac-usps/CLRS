@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!---
 For attaching a spreadsheet for a case report: new spreadsheet or updated replacement of previously saved spreadsheet.
@@ -354,4 +355,5 @@ Then click&nbsp;&nbsp;<input id="AttachButton" type="submit" value="Attach Sprea
 --->
 
 </body>
+
 

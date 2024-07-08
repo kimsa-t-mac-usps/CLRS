@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!--- 
 Included in Report.full.cfm.
@@ -57,5 +58,6 @@ Form to return to Report.full.cfm after selecting Report scope option (earlier r
 </cfif>
 
 </form>
+
 
 

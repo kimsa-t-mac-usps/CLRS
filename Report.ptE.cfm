@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!------------------------- Report.ptE.cfm --------------------------->
 <!---------------------------------------------------------------------------->
@@ -1255,5 +1256,6 @@ Assess_Cutoff_List_Index EQ "UnderTenMillion"
 AND
 Assess_Cutoff_List_Index EQ "Under5Million")> --->
 </cfif>
+
 
 

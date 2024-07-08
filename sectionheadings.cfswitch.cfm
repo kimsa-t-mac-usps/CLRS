@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!---------------------- SectionHeading.cfswitch.cfm ------------------------->
 	<CFIF IsDefined("CASE_TYPE") AND IsDefined("This_RecordCount") AND This_RecordCount NEQ 0>
@@ -656,4 +657,5 @@
 	</cfswitch>
 	
 --->
+
 

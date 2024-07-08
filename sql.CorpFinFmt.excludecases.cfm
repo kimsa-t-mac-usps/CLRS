@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 
 <!--- Used in cfloop.cur_rem.casetype.assesscutoff.query.cfm --->
 
@@ -120,4 +121,5 @@ clr.CASE_REC_ID_SEQUENCE NOT IN
 
 
 </CFOUTPUT>
+
 
