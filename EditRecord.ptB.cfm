@@ -255,45 +255,6 @@ HQ&nbsp;Dept
 <CFSET This_DIST_PERF_CLUSTER_CODE = DIST_PERF_CLUSTER_CODE>
 
 
-
-
-
-
-
-
-<!---
-<CFOUTPUT>
-
-<p>
-EditRecord.ptB.cfm
-at 261:
-
-This_DIST_PERF_CLUSTER_CODE = "#This_DIST_PERF_CLUSTER_CODE#"
-<br />
-
-DIST_PERF_CLUSTER_CODE = "#DIST_PERF_CLUSTER_CODE#"
-
-
-<p>
-
-<CFIF IsDefined("Form.DIST_PERF_CLUSTER_CODE")>
-
-
-Form.DIST_PERF_CLUSTER_CODE = "#Form.DIST_PERF_CLUSTER_CODE#"
-
-<CFELSE>
-
-Form.DIST_PERF_CLUSTER_CODE NOT DEFINED
-
-</CFIF>
-
-<p>
-
-
-</CFOUTPUT>
---->
-
-
 <CFSET DropdownList = "District">
 
 
