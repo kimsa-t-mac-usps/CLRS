@@ -60,7 +60,7 @@ A:active {background:yellow; color:black; text-decoration:none; font-family:aria
 <CFINCLUDE TEMPLATE="Unknown_NA_List.cfm">
 --->
 
-<CFQUERY NAME="Get_ReportDate" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ReportDate" DATASOURCE="contliab">
 
 SELECT MAX(DATE_REPORT) AS REPORT_DATE
 
@@ -73,7 +73,7 @@ FROM CONTINGENT_LIAB_REPORT
 
 
 
-<CFQUERY NAME="Get_PrevReportDate" DATASOURCE="lddb">
+<CFQUERY NAME="Get_PrevReportDate" DATASOURCE="contliab">
 
 SELECT MAX(DATE_REPORT) AS DATE_REPORT_PREV
 

@@ -11,7 +11,7 @@
 
 
 
-<CFQUERY NAME="Get_ReportDate" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ReportDate" DATASOURCE="contliab">
 SELECT *
 FROM view_conting_get_reportdate
 </cfquery>
@@ -23,7 +23,7 @@ FROM view_conting_get_reportdate
 <CFOUTPUT>
 --->
 
-<CFQUERY NAME="CONTINGENT_LIAB_Insert" DATASOURCE="lddb">
+<CFQUERY NAME="CONTINGENT_LIAB_Insert" DATASOURCE="contliab">
 
 
 INSERT INTO CONTINGENT_LIAB_REPORT
@@ -536,7 +536,7 @@ CONTINGENT_LIAB_SEQUENCE.NEXTVAL)
 Record Inserted.
 --->
 
-<CFQUERY NAME="Get_Currval" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Currval" DATASOURCE="contliab">
 SELECT CONTINGENT_LIAB_SEQUENCE.CURRVAL AS SEQ_CURRVAL
 FROM DUAL
 </cfquery>
@@ -552,7 +552,7 @@ Currval = #Get_Currval.SEQ_CURRVAL#
 <CFIF Form.LM_MATTER_NUMBER NEQ "">
 
 
-	<CFQUERY NAME="Get_Matter_Key" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Matter_Key" DATASOURCE="contliab">
 
 	select
 	c.matter_key
@@ -569,7 +569,7 @@ Currval = #Get_Currval.SEQ_CURRVAL#
 	<CFIF Get_Matter_Key.RecordCount GT 0>
 
 
-		<CFQUERY NAME="CONTINGENT_LIAB_Update" DATASOURCE="lddb">
+		<CFQUERY NAME="CONTINGENT_LIAB_Update" DATASOURCE="contliab">
 		UPDATE CONTINGENT_LIAB_REPORT
 		SET
 
@@ -592,7 +592,7 @@ Currval = #Get_Currval.SEQ_CURRVAL#
 
 
 <!---
-<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_GET_CHECKLISTQUES
 </cfquery>
@@ -610,7 +610,7 @@ FROM VIEW_CONTING_GET_CHECKLISTQUES
 Save Checklist Reponses:
 --->
 
-<CFQUERY NAME="Save_Checklist_Reponses" DATASOURCE="lddb">
+<CFQUERY NAME="Save_Checklist_Reponses" DATASOURCE="contliab">
 
 INSERT INTO CONTINGENT_LIAB_C_E_CHECKLIST
 
@@ -676,7 +676,7 @@ SYSDATE,
 </cfquery>
 
 
-<CFQUERY NAME="Get_CONTINGENT_LIAB_REPORT_Currval" DATASOURCE="lddb">
+<CFQUERY NAME="Get_CONTINGENT_LIAB_REPORT_Currval" DATASOURCE="contliab">
 SELECT CONTINGENT_LIAB_REPORT_PRMKEY.CURRVAL AS CONTINGENT_LIAB_REPORT_CURRVAL
 FROM DUAL
 </cfquery>

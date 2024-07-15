@@ -1,6 +1,6 @@
 <cfinclude template="MfaCookieCheck.cfm">
 
-<CFQUERY NAME="Check_Auth_User_A" DATASOURCE="lddb">
+<CFQUERY NAME="Check_Auth_User_A" DATASOURCE="contliab">
 <!---
 SELECT USERPRMKEY
 FROM BUSINESSSERVUSERS a, LDEXTRA b

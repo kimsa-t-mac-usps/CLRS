@@ -160,7 +160,7 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 --->
 
 	
-					<CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="lddb">
+					<CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="contliab">
 
 					SELECT
 

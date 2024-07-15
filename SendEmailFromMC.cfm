@@ -17,7 +17,7 @@
 
 <CFIF IsDefined("Form.MC_Approval_Flag")>
 
-	<CFQUERY NAME="Upd_CONTINGENT_LIAB_C_E_CHECKLIST" DATASOURCE="lddb">
+	<CFQUERY NAME="Upd_CONTINGENT_LIAB_C_E_CHECKLIST" DATASOURCE="contliab">
 	
 	UPDATE CONTINGENT_LIAB_C_E_CHECKLIST
 	
@@ -52,7 +52,7 @@
 
 
 
-	<CFQUERY NAME="Upd_CONTINGENT_LIAB" DATASOURCE="lddb">
+	<CFQUERY NAME="Upd_CONTINGENT_LIAB" DATASOURCE="contliab">
 	
 	UPDATE CONTINGENT_LIAB_REPORT
 	
@@ -101,7 +101,7 @@
 <CFELSEIF IsDefined("Form.Alt_Approval_Flag")>
 
 
-	<CFQUERY NAME="Upd_CONTINGENT_LIAB_C_E_CHECKLIST" DATASOURCE="lddb">
+	<CFQUERY NAME="Upd_CONTINGENT_LIAB_C_E_CHECKLIST" DATASOURCE="contliab">
 	
 	UPDATE CONTINGENT_LIAB_C_E_CHECKLIST
 	
@@ -136,7 +136,7 @@
 	
 
 
-	<CFQUERY NAME="Upd_CONTINGENT_LIAB" DATASOURCE="lddb">
+	<CFQUERY NAME="Upd_CONTINGENT_LIAB" DATASOURCE="contliab">
 	
 	UPDATE CONTINGENT_LIAB_REPORT
 	
@@ -187,7 +187,7 @@ IsDefined("Form.Alt_Approval_Flag")>
 <!--- Trigger e-mail to assigned counsel: I have approved / disapproved; Link to record
 --->
 
-	<CFQUERY NAME="Get_CounselInfo" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_CounselInfo" DATASOURCE="contliab">
 	
 	SELECT LDEXTRA.LASTNAME, LDEXTRA.FIRSTNAME, LAWDEPARTMENT.LONGEMAIL, LDEXTRA.PRIMARYKEY
 	
@@ -218,7 +218,7 @@ IsDefined("Form.Alt_Approval_Flag")>
 	Form.COCOUNSEL_LAW_DEPT NEQ 0>
 
 
-		<CFQUERY NAME="Get_Co_CounselInfo" DATASOURCE="lddb">
+		<CFQUERY NAME="Get_Co_CounselInfo" DATASOURCE="contliab">
 		
 		SELECT LDEXTRA.LASTNAME, LDEXTRA.FIRSTNAME, LAWDEPARTMENT.LONGEMAIL, LDEXTRA.PRIMARYKEY
 		
@@ -261,7 +261,7 @@ IsDefined("Form.Alt_Approval_Flag")>
 	</cfif>
 
 
-	<CFQUERY NAME="Get_SenderInfo" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_SenderInfo" DATASOURCE="contliab">
 	
 	SELECT LDEXTRA.LASTNAME, 
     LDEXTRA.FIRSTNAME, 
@@ -279,7 +279,7 @@ IsDefined("Form.Alt_Approval_Flag")>
 	</cfquery>
 	
 	
-	<CFQUERY NAME="GetCCLine_Auth_Users_Office" DATASOURCE="lddb">
+	<CFQUERY NAME="GetCCLine_Auth_Users_Office" DATASOURCE="contliab">
 	
 	SELECT DISTINCT lawdepartment.LASTNAME, lawdepartment.FIRSTNAME, lawdepartment.LONGEMAIL, lawdepartment.PRIMARYKEY, LDPOSITIONSORT.SORTORDER
 	

@@ -8,7 +8,7 @@ Included on InHouse Web site Welcome page (iframe on InHouse/frametest/welcome.m
 
 
 
-<CFQUERY NAME="Get_LatestReportDate" DATASOURCE="lddb">
+<CFQUERY NAME="Get_LatestReportDate" DATASOURCE="contliab">
 
 SELECT MAX(DATE_REPORT) AS DATE_REPORT_LATEST
 
@@ -17,7 +17,7 @@ FROM CONTINGENT_LIAB_REPORT
 </cfquery>
 
 
-<CFQUERY NAME="Get_Ee_ThisUser" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Ee_ThisUser" DATASOURCE="contliab">
 <!---
 SELECT EENAME
 FROM LDEXTRA
@@ -60,7 +60,7 @@ alert('checkUserAtty.cfm at 53: AuthorizedFlag = "#AuthorizedFlag#"');
 
 
 
-<CFQUERY NAME="Check_Auth_User_A" DATASOURCE="lddb">
+<CFQUERY NAME="Check_Auth_User_A" DATASOURCE="contliab">
 SELECT USERPRMKEY
 FROM BUSINESSSERVUSERS
 WHERE CONTINGENT_LIAB_AUTH = 'A'
@@ -90,7 +90,7 @@ alert('checkUserAtty.cfm at 80: AuthorizedFlag = "#AuthorizedFlag#"');
 <CFELSE>
 
 
-	<CFQUERY NAME="Get_Auth_User_PRMKEY" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Auth_User_PRMKEY" DATASOURCE="contliab">
 	
 	SELECT USERPRMKEY, CONTINGENT_LIAB_AUTH
 	
@@ -127,7 +127,7 @@ alert('checkUserAtty.cfm at 114: AuthorizedFlag = "#AuthorizedFlag#"');
 		<CFSET ThisCONTINGENT_LIAB_AUTH = Get_Auth_User_PRMKEY.CONTINGENT_LIAB_AUTH>
 		
 		
-		<CFQUERY NAME="Get_Auth_User_Office" DATASOURCE="lddb">
+		<CFQUERY NAME="Get_Auth_User_Office" DATASOURCE="contliab">
 		
 		SELECT LDOFFICES.OFFICE_PRM_KEY, LDOFFICES.OFFICE
 		
@@ -164,7 +164,7 @@ alert('checkUserAtty.cfm at 114: AuthorizedFlag = "#AuthorizedFlag#"');
 
 	<CFELSE>
 	
-		<CFQUERY NAME="Get_Indiv_User" DATASOURCE="lddb">
+		<CFQUERY NAME="Get_Indiv_User" DATASOURCE="contliab">
 		SELECT LAWDEPARTMENT.PRIMARYKEY
 		FROM LAWDEPARTMENT, LDEXTRA
 		WHERE LAWDEPARTMENT.PRIMARYKEY = LDEXTRA.PRIMARYKEY
@@ -210,7 +210,7 @@ alert('checkUserAtty.cfm at 202: AuthorizedFlag = "#AuthorizedFlag#"');
             
             
             
-			<CFQUERY NAME="Get_Atty_AssignedCounsel" DATASOURCE="lddb">
+			<CFQUERY NAME="Get_Atty_AssignedCounsel" DATASOURCE="contliab">
 			
 			SELECT LAWDEPARTMENT.PRIMARYKEY
 			FROM LAWDEPARTMENT, LDEXTRA, CONTINGENT_LIAB_REPORT

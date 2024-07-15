@@ -25,7 +25,7 @@
 <CFELSEIF IsDefined("RecIDParm")>
 
 
-	<CFQUERY NAME="Get_Checklist_Responses" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Checklist_Responses" DATASOURCE="contliab">
 	SELECT checklist.*
 	
     FROM 
