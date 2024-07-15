@@ -1,6 +1,6 @@
 <cfinclude template="MfaCookieCheck.cfm">
 
-<CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
+
 
 <!--- Deleted Query GetMC as duplicate with application.cfm --->
 
