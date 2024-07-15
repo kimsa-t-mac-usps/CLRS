@@ -423,7 +423,7 @@ SelectedHQDept CONTAINS "HQ Labor Relations">
 <CFIF Check_Auth_User_A.RecordCount EQ 1>
 
 
-<CFQUERY NAME="LDOffices" DATASOURCE="lddb">
+<CFQUERY NAME="LDOffices" DATASOURCE="contliab">
 
 <!---
 SELECT *

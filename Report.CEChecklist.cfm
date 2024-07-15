@@ -8,7 +8,7 @@
 	</CFOUTPUT>--->
 <tr>
 
-<CFQUERY NAME="Get_Checklist_Reponses" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Checklist_Reponses" DATASOURCE="contliab">
 
 SELECT *
 FROM CONTINGENT_LIAB_C_E_CHECKLIST

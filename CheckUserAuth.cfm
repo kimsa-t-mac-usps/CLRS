@@ -29,7 +29,7 @@ CONTINGENT_LIAB_AUTH = 'I' = Input Access (for inputting new Conting Liab case r
 
 
 <!---
-<CFQUERY NAME="Check_Auth_User_A" DATASOURCE="lddb">
+<CFQUERY NAME="Check_Auth_User_A" DATASOURCE="contliab">
 SELECT USERPRMKEY
 FROM BUSINESSSERVUSERS a, LDEXTRA b
 WHERE a.USERPRMKEY = b.PRIMARYKEY
@@ -75,7 +75,7 @@ alert('CheckUserAuth.cfm at 51: AuthorizedFlag = "#AuthorizedFlag#"');
 <CFELSE>
 
 
-	<CFQUERY NAME="Get_Auth_User_PRMKEY" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Auth_User_PRMKEY" DATASOURCE="contliab">
 	
 	SELECT USERPRMKEY, CONTINGENT_LIAB_AUTH
 	
@@ -126,7 +126,7 @@ CONTINGENT_LIAB_AUTH = 'T' = Tort Claim cases only (St. Louis)
 --->
 
 
-		<CFQUERY NAME="Get_Auth_User_Office" DATASOURCE="lddb">
+		<CFQUERY NAME="Get_Auth_User_Office" DATASOURCE="contliab">
 		
 		SELECT DISTINCT
         
@@ -229,7 +229,7 @@ OfficeScope = "#OfficeScope#"
 
 			<CFSET DefaultOffice = Get_Auth_User_Office.OFFICE_PRM_KEY>
 		
-		    <CFQUERY NAME="Find_Office_Concur" DATASOURCE="lddb">
+		    <CFQUERY NAME="Find_Office_Concur" DATASOURCE="contliab">
         
 <!---        
 			SELECT b.USERPRMKEY
@@ -299,7 +299,7 @@ OfficeScope = "#OfficeScope#"
 <!--- from <CFIF Get_Auth_User_PRMKEY.RecordCount EQ 1> --->
 	<CFELSE>
 
-		<CFQUERY NAME="Get_Indiv_User" DATASOURCE="lddb">
+		<CFQUERY NAME="Get_Indiv_User" DATASOURCE="contliab">
         
 <!---        
 		SELECT a.PRIMARYKEY, a.OFFICE, b.OFFICE_PRM_KEY
@@ -412,7 +412,7 @@ Get_Indiv_User.RecordCount = #Get_Indiv_User.RecordCount#
 <CFOUTPUT>    		
 --->				
             
-				<CFQUERY NAME="Get_Indiv_User_Cases" DATASOURCE="lddb">
+				<CFQUERY NAME="Get_Indiv_User_Cases" DATASOURCE="contliab">
 				
 				
 				SELECT PRIMARYKEY

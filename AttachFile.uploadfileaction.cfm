@@ -103,7 +103,7 @@ spreadsheet_flag              CHAR(1),
 --->
 
 
-<CFQUERY NAME="CONTINGENT_LIAB_Update_Spsheet" DATASOURCE="lddb">
+<CFQUERY NAME="CONTINGENT_LIAB_Update_Spsheet" DATASOURCE="contliab">
 
 
 UPDATE CONTINGENT_LIAB_REPORT

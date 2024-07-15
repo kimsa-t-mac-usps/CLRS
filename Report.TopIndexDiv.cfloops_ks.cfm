@@ -365,14 +365,14 @@ CASE_TYPE_Label = #CASE_TYPE_Label#
 						<CFINCLUDE TEMPLATE="DetermineThresholdStatus.cfm">
 						
 						
-						<CFQUERY NAME="Get_MC_APPR_FLAG" DATASOURCE="lddb">
+						<CFQUERY NAME="Get_MC_APPR_FLAG" DATASOURCE="contliab">
 						SELECT MC_APPR_FLAG, ALT_APPR_FLAG
 						FROM CONTINGENT_LIAB_C_E_CHECKLIST
 						WHERE CASE_REC_ID_SEQUENCE = #CASE_REC_ID_SEQUENCE#
 						AND (MC_APPR_FLAG <> 1 OR MC_APPR_FLAG IS NULL)
 						</cfquery>
 						
-						<CFQUERY NAME="Get_MC_APPR_FLAG_Approved" DATASOURCE="lddb">
+						<CFQUERY NAME="Get_MC_APPR_FLAG_Approved" DATASOURCE="contliab">
 						SELECT MC_APPR_FLAG, ALT_APPR_FLAG
 						FROM CONTINGENT_LIAB_C_E_CHECKLIST
 						WHERE CASE_REC_ID_SEQUENCE = #CASE_REC_ID_SEQUENCE#
@@ -380,7 +380,7 @@ CASE_TYPE_Label = #CASE_TYPE_Label#
 						</cfquery>
 						
 						
-						<CFQUERY NAME="Get_Case_WithoutChecklist" DATASOURCE="lddb">
+						<CFQUERY NAME="Get_Case_WithoutChecklist" DATASOURCE="contliab">
 						SELECT DISTINCT CASE_REC_ID_SEQUENCE
 						FROM CONTINGENT_LIAB_REPORT
 						WHERE
@@ -427,7 +427,7 @@ CASE_TYPE_Label = #CASE_TYPE_Label#
 						<CFINCLUDE TEMPLATE="sectionheadings.cfset.cfm">
 
 
-						<CFQUERY NAME="Get_MC_APPR_FLAG_Index" DATASOURCE="lddb">
+						<CFQUERY NAME="Get_MC_APPR_FLAG_Index" DATASOURCE="contliab">
 						SELECT MC_APPR_FLAG
 						FROM CONTINGENT_LIAB_C_E_CHECKLIST
 						WHERE CASE_REC_ID_SEQUENCE = #CASE_REC_ID_SEQUENCE#

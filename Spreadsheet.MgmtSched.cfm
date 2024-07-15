@@ -51,7 +51,7 @@ For production, must comment out hard-coded value for date_report in WHERE claus
 
 --->
 
-<CFQUERY NAME="Get_MgmtSched_Cases" DATASOURCE="lddb">
+<CFQUERY NAME="Get_MgmtSched_Cases" DATASOURCE="contliab">
 
 /*
 
