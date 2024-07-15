@@ -1,5 +1,7 @@
 <cfinclude template="MfaCookieCheck.cfm">
+<cfif isdefined("contingent_liab_getrecord_prevrpt")>
 <cflog text="&&&& Previous Record: #serializeJson(contingent_liab_getrecord_prevrpt)#" type="information" file="clrs_adddft">
+</cfif>
 <CFIF (IsDefined("DropdownList") AND DropdownList EQ "District") OR (NOT IsDefined("DropdownList") AND Get_Districts.RecordCount GT 0 )>
 	<cflog text="@@@@@ this is first if @@@@@" type="information" file="clrs_adddft">
 	
