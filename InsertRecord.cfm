@@ -33,7 +33,7 @@ A:active {background:white; color:black; text-decoration:none; font-family:arial
 <!---
 Check CONTINGENT_LIAB_BLOCK_NEW flag in BUSINESSSERVUSERS table for dummy user surname "Contingent Liabilities" (WHERE USERPRMKEY = 13). System blocks users from entering new cases if flag = "Y"
 --->
-<CFQUERY NAME="Check_CONTINGENT_LIAB_BLOCK_NEW" DATASOURCE="lddb">
+<CFQUERY NAME="Check_CONTINGENT_LIAB_BLOCK_NEW" DATASOURCE="contliab">
 
 SELECT CONTINGENT_LIAB_BLOCK_NEW
 
@@ -777,7 +777,7 @@ Add New Case
 
 <CFIF IsDefined("Get_Indiv_User.PRIMARYKEY")>
 
-<CFQUERY NAME="Check_Atty" DATASOURCE="lddb">
+<CFQUERY NAME="Check_Atty" DATASOURCE="contliab">
 SELECT LAWDEPARTMENT.PRIMARYKEY, ldoffices.OFFICE_PRM_KEY
 FROM LAWDEPARTMENT, ldoffices
 WHERE LAWDEPARTMENT.OFFICE = ldoffices.OFFICE
@@ -850,13 +850,13 @@ OR title LIKE 'Executive Program%')
 
 
 
-<CFQUERY NAME="EeList" DATASOURCE="lddb">
+<CFQUERY NAME="EeList" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_EE_LIST
 </cfquery>
 
 
-<CFQUERY NAME="LDOffices" DATASOURCE="lddb">
+<CFQUERY NAME="LDOffices" DATASOURCE="contliab">
 
 <!---
 SELECT *
@@ -1778,7 +1778,7 @@ Comment / Notes
 <p>
 
 <!---
-<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="contliab">
 SELECT TRIM(QUESNUM) AS QUESNUM_TRIM, QUESTEXT, SORTORDER
 FROM PCESSURVEYQUES
 WHERE SURVEY LIKE 'Conting Liability Checklist%'
@@ -1787,7 +1787,7 @@ ORDER BY SORTORDER
 --->
 
 <!---
-<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_GET_CHECKLISTQUES
 </cfquery>

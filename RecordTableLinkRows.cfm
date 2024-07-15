@@ -157,7 +157,7 @@ Check for Southern (104). If yes, include Southeast (5) and Southwest (4).
 <CFSET This_LAW_DEPT_OFFICE = CLRC_Query_Name & ".LAW_DEPT_OFFICE">
 
 
-<CFQUERY NAME="Get_Case_LawDept_Office" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Case_LawDept_Office" DATASOURCE="contliab">
 SELECT OFFICE
 FROM LDOFFICES
 WHERE

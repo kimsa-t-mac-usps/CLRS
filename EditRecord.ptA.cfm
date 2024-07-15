@@ -5,7 +5,7 @@
 <!--- Deleted Query GetMC as duplicate with application.cfm --->
 
 <!---
-<CFQUERY NAME="GetMC" DATASOURCE="lddb">
+<CFQUERY NAME="GetMC" DATASOURCE="contliab">
 
 SELECT LDEXTRA.PRIMARYKEY
 
@@ -26,7 +26,7 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#RespondingUser_Id#%'))
 --->
 
 
-<CFQUERY NAME="CONTINGENT_LIAB_GetRecord" DATASOURCE="lddb">
+<CFQUERY NAME="CONTINGENT_LIAB_GetRecord" DATASOURCE="contliab">
 
 
 
@@ -231,7 +231,7 @@ alert('EditRecord.ptA.cfm at 197: CONTINGENT_LIAB_GetRecord.RecordCount = #CONTI
 
 	<CFIF IsDefined("RecIDParm")>
 
-		<CFQUERY NAME="Get_Checklist_Responses" DATASOURCE="lddb">
+		<CFQUERY NAME="Get_Checklist_Responses" DATASOURCE="contliab">
 		SELECT checklist.*
 	
 	    FROM 
@@ -264,7 +264,7 @@ alert('EditRecord.ptA.cfm at 197: CONTINGENT_LIAB_GetRecord.RecordCount = #CONTI
 
 <CFELSE>
 
-	<CFQUERY NAME="Get_Checklist_Responses" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Checklist_Responses" DATASOURCE="contliab">
 	SELECT *
 	FROM CONTINGENT_LIAB_C_E_CHECKLIST
 	WHERE CASE_REC_ID_SEQUENCE = #CONTINGENT_LIAB_GetRecord.CASE_REC_ID_SEQUENCE#
@@ -580,13 +580,13 @@ IsDefined("RecIDParm")
 
 
 
-<CFQUERY NAME="EeList" DATASOURCE="lddb">
+<CFQUERY NAME="EeList" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_EE_LIST
 </cfquery>
 
 
-<CFQUERY NAME="LDOffices" DATASOURCE="lddb">
+<CFQUERY NAME="LDOffices" DATASOURCE="contliab">
 
 <!---
 SELECT *

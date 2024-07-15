@@ -150,7 +150,7 @@ For Current Report
 <small>Date:&nbsp;<i>#DateFormat(DATE_LAST_UPDATE, "m/d/yyyy")#</i></small>
 </cfoutput>
 
-<CFQUERY NAME="Get_Upd_User" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Upd_User" DATASOURCE="contliab">
 SELECT Trim(EENAME) AS TRIM_EENAME
 FROM LDEXTRA
 WHERE UPPER(AD_USERID) LIKE UPPER('#Trim(LAST_UPDATE_USER_ID)#%')
