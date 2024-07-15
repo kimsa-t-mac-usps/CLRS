@@ -159,7 +159,10 @@ Added form field STATUS_CODE_SELECTED_ALL to hold concatenated string of STATUS_
 	onSubmit="return showStatusCodeSelected(this); return showUnionsSelected(this); return checkupdFactsFlagArray(this, this.name)">
 --->
 
-
+<cfinvoke component="components/clrsFunctions" method="getPrevReptRecord" returnvariable="CONTINGENT_LIAB_GetRecord_PrevRpt">
+	<cfinvokeargument name="prevRptDate" value="#url.PrevReportDate_Parm#">
+	<cfinvokeargument name="caseRecordIdSeq" value="#CASE_REC_ID_SEQUENCE#">
+</cfinvoke>
 
 	<form name="CaseForm_#CONTINGENT_LIAB_GetRecord.CurrentRow#" METHOD="POST" ACTION="EditRecord.Action.cfm"
 	onSubmit="return showStatusCodeSelected(this); return checkupdFactsFlagArray(this, this.name)">
