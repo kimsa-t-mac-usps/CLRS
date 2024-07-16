@@ -575,7 +575,7 @@ UndoApprFlag EQ "UndoAppr">
 					
 						<CFSET This_DIST_PERF_CLUSTER_CODE = Left(Form.DIST_PERF_CLUSTER_CODE, Slashes_DIST_PERF_CLUSTER_CODE_Index - 1)>
 					
-						DIST_PERF_CLUSTER_CODE = '#This_DIST_PERF_CLUSTER_CODE#',
+						 DIST_PERF_CLUSTER_CODE = '#This_DIST_PERF_CLUSTER_CODE#', 
 					
 						<CFIF This_DIST_PERF_CLUSTER_CODE NEQ "Multiple">
 					
