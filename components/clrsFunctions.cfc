@@ -1,6 +1,23 @@
 component {
     function getPrevReptRecord(prevRptDate,caseRecordIdSeq) {
-        var sqlString = "select * from contingent_liab_report where date_report = :reportDate and case_rec_id_sequence = :caseSeq and deleted_flag is null";
+        var sqlString = "SELECT
+        date_report,
+        case_rec_id_sequence,
+        primarykey,
+        case_name,
+        case_number,
+        area_name,
+        area_code,
+        dist_perf_cluster_name,
+        dist_perf_cluster_code,
+        division_code,
+        division_name
+    FROM
+        contingent_liab_report
+    WHERE
+            date_report = :reportDate
+        AND case_rec_id_sequence = :caseSeq
+        AND deleted_flag IS NULL";
         var qry = new query();
         qry.setdatasource("contliab");
         qry.setname("qPrevReport");
