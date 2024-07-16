@@ -4,8 +4,12 @@
 </cfif>
 <CFIF (IsDefined("DropdownList") AND DropdownList EQ "District") OR (NOT IsDefined("DropdownList") AND Get_Districts.RecordCount GT 0 )>
 	<cflog text="@@@@@ this is first if @@@@@" type="information" file="clrs_adddft">
+	<cfif isdefined("contingent_liab_getrecord_prevrpt")>
+		<cfset Prev_This_District_Code = contingent_liab_getrecord_prevrpt.dist_perf_cluster_code>
+	<cfelse>
+		<CFSET Prev_This_District_Code = "">
+	</cfif>
 	
-	<CFSET Prev_This_District_Code = "">
 
 	<CFLOOP QUERY="Get_Districts">	
 		<CFSET This_District_Code = DIST_PERF_CLUSTER_CODE>
