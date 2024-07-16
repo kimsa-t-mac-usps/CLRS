@@ -251,8 +251,8 @@ HQ&nbsp;Dept
 <td style="padding-top:15pt; padding-bottom:15pt">
 
 
-<cfset prev_dist_perf_cluster_code = CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_CODE>
-<cfset prev_DIVISION_CODE = CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_CODE>
+<cfset prev_dist_perf_cluster_code = GetRecord_PrevRpt.DIST_PERF_CLUSTER_CODE>
+<cfset prev_DIVISION_CODE = GetRecord_PrevRpt.DIVISION_CODE>
 <CFSET This_DIST_PERF_CLUSTER_CODE = DIST_PERF_CLUSTER_CODE>
 
 
