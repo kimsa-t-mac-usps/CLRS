@@ -269,7 +269,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_HQ_AREA_NAME" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1" onChange="setRptSelectOption(this, 'SelectedHQDept')">
+<SELECT NAME="Select_HQ_AREA_NAME" id="Select_HQ_AREA_NAME"style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1">
 
 <option value="0">Select a Headquarters Department . . .
 
@@ -287,17 +287,17 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 
 
-<CFIF IsDefined("SelectedHQDept")
+<!--- <CFIF IsDefined("SelectedHQDept")
 AND
-SelectedHQDept CONTAINS "HQ Labor Relations">
-
+SelectedHQDept CONTAINS "HQ Labor Relations"> --->
+<div id="unionSelect">
 
 <cfoutput>
 <p style="margin-top:#TopRightLinksMarginTop#; margin-left:10pt">
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_UNIONS_SELECTED" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1" onChange="setRptSelectOption(this, 'SelectedUnion')">
+<SELECT NAME="Select_UNIONS_SELECTED" id="Select_UNIONS_SELECTED" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1">
 
 <option value="0">Select a Union . . .
 
@@ -324,9 +324,9 @@ SelectedHQDept CONTAINS "HQ Labor Relations">
 
 
 </select>
+</div>
 
-
-</cfif>
+<!--- </cfif> --->
 
 
 
