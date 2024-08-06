@@ -977,7 +977,8 @@ docTitle = document.title;
 
 <div style="color:maroon; margin-bottom:35pt">
 
-<CFIF IsDefined("SelectedPC")>
+<CFIF IsDefined("url.SelectedPC")>
+	<!--- <cfdump var="#url.SelectedPC#"> --->
 
 	<CFSET Slashes_DIST_PERF_CLUSTER_CODE_Index = Find(" // ", SelectedPC)>
 	<CFSET Slashes_Next_Word = Slashes_DIST_PERF_CLUSTER_CODE_Index + 4>

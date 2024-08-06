@@ -7,11 +7,15 @@ $(document).ready(function(){
         let url = checkEarlierRpt(event);
 
         let selectedVal = $('#Select_DIST_PERF_CLUSTER_CODE').val();
-        url = url + "?SelectedPC=" + selectedVal;
+        
+       
+        url = url + "SelectedPC=" + selectedVal;
+        console.log("URL: " + url);
         let encoded = encodeURI(url);
         location.href = encoded;
+        
     });
-
+   
     $('#Select_DIVISION_CODE').on('change',function(event) {
         event.preventDefault();
         let selectedVal = $('#Select_DIVISION_CODE').val();
@@ -54,9 +58,15 @@ $(document).ready(function(){
         let urlString = event.currentTarget.baseURI;
         let fileIndex = urlString.indexOf("Report");
         let result = urlString.slice(fileIndex);
+        if(result.indexOf("EarlierRptDate") > -1) {
+            result = result + "&";
+        } else {
+            result = result + "?";
+        }
         console.log("RESULT: " + result);
         return result;
 
     }
+
 });
 /* https://lawdept1.usps.gov/ClientService/ContingentLiabilities/V1.0/Report.full.cfm?SelectedHQDept=6X%20//%20HQ%20Labor%20Relations&SelectedUnion=Mail%20Handlers */
