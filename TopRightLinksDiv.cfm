@@ -398,7 +398,7 @@ order by office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" onChange="setRptSelectOption(this, 'SelectedLDOffice')">
+<SELECT NAME="Select_LDOffice" id="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" >
 
 <option value="0">Select a Law Department Office . . .
 <option value="ALL">Full Report

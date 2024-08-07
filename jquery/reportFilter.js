@@ -50,6 +50,18 @@ $(document).ready(function(){
        
     });
 
+    $('#Select_LDOffice').on('change',function(event){
+        event.preventDefault();
+        let url = checkEarlierRpt(event);
+        let selectedVal = $('#Select_LDOffice').val();
+        url = url + "SelectedLDOffice=" + selectedVal;
+        console.log("URL: " + url);
+        let encoded = encodeURI(url);
+        console.log("ENCODED: " + encoded);
+        location.href = encoded;
+
+    })
+
     function checkEarlierRpt(event) {
         console.log(event);
         let urlString = event.currentTarget.baseURI;
