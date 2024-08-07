@@ -145,6 +145,7 @@ alert("thisSelect_Option.options[thisSelect_Option.selectedIndex] = '" + thisSel
 
 
 selectedOption = thisSelect_Option.options[thisSelect_Option.selectedIndex].value;
+
 selectedOption = selectedOption.replaceAll(/&/g,"%26");
 
 // alert("Report.topjs.cfm at 148: selectedOption = '" + selectedOption + "'");
