@@ -5,10 +5,7 @@ $(document).ready(function(){
     $('#Select_DIST_PERF_CLUSTER_CODE').on('change',function(event) {
         event.preventDefault();
         let url = checkEarlierRpt(event);
-
         let selectedVal = $('#Select_DIST_PERF_CLUSTER_CODE').val();
-        
-       
         url = url + "SelectedPC=" + selectedVal;
         console.log("URL: " + url);
         let encoded = encodeURI(url);
@@ -18,8 +15,10 @@ $(document).ready(function(){
    
     $('#Select_DIVISION_CODE').on('change',function(event) {
         event.preventDefault();
+        let url = checkEarlierRpt(event);
         let selectedVal = $('#Select_DIVISION_CODE').val();
-        let url = url + "SelectedPC=" + selectedVal;
+        url = url + "SelectedPC=" + selectedVal;
+        console.log("URL: " + url);
         let encoded = encodeURI(url);
         location.href = encoded;
     });

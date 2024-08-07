@@ -252,7 +252,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 <!--- SelectedDiv --->
 
 
-	<SELECT NAME="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1">
+	<SELECT NAME="Select_DIVISION_CODE" id="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1">
 
 	<option value="0">Select a Division . . .
 
