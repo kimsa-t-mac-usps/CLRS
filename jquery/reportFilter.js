@@ -1,6 +1,12 @@
 $(document).ready(function(){
+
+    if ($('#Select_HQ_AREA_NAME').val() == "6X // HQ Labor Relations") {
+        $('#unionSelect').show();
+    } else {
+        $('#unionSelect').hide();
+    }
     
-    $('#unionSelect').hide();
+    
 
     $('#Select_DIST_PERF_CLUSTER_CODE').on('change',function(event) {
         event.preventDefault();
@@ -32,7 +38,7 @@ $(document).ready(function(){
         url = url + "SelectedHQDept=" + selectedVal;
         let encoded = encodeURI(url);
         console.log("ENCODED: " + encoded);
-        if (selectedVal == "6X // HQ Labor Relations") {
+        /* if (selectedVal == "6X // HQ Labor Relations") {
             $('#unionSelect').show();
             $('#Select_UNIONS_SELECTED').on('change',function() {
                 let selectedUnion = $('#Select_UNIONS_SELECTED').val();
@@ -45,10 +51,22 @@ $(document).ready(function(){
             })    
         } else {
             $('#unionSelect').hide();
-             location.href = encoded; 
-        }
-       
+            
+        } */
+        location.href = encoded; 
     });
+
+    $('#Select_UNIONS_SELECTED').on('change',function(event) {
+        event.preventDefault();
+        let url = checkEarlierRpt(event);
+        url = clearHq(url);
+        let selectedVal = $('#Select_UNIONS_SELECTED').val();
+        url = url + "&SelectedUnion=" + selectedVal;
+        let encoded = encodeURI(url);
+        location.href = encoded;
+    });
+
+    
 
     $('#Select_LDOffice').on('change',function(event){
         event.preventDefault();
@@ -82,6 +100,8 @@ $(document).ready(function(){
         let result = urlString.slice(fileIndex);
         if(result.indexOf("EarlierRptDate") > -1) {
             result = result + "&";
+        } else if (result.indexOf("SelectedHQDept") > -1) {
+            result = result + "&";
         } else {
             result = result + "?";
         }
@@ -100,6 +120,17 @@ $(document).ready(function(){
         
         return resultString;
     }
+
+    function clearHq(urlString) {
+        let hqIdx = urlString.indexOf("SelectedHQDept");
+        if(hqIdx > -1) {
+            let hqSubStr = urlString.substring(hqIdx,urlString.length);
+            urlString = urlString.replace(hqSubStr,"SelectedHQDept=6X // HQ Labor Relations");
+        }
+        return urlString;
+    }
+
+   
 
 
     
