@@ -767,7 +767,7 @@ OR
 --->
 
 <body id="DocBody" onLoad="openInfoChgCompatView(); newCaseWindow = null; hideOrShowLinksDivs(); rotate()">
-
+<!---<cfinclude template="AddHeader.cfm">--->
 
 <CFIF
 (
