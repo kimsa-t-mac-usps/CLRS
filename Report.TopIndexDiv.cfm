@@ -93,7 +93,6 @@ Form.CorpFinFormat EQ "CorpFinFormat">
 
 </cfif>
 
-
 <CFSET MillionsNotation = "<span style='font-size:6pt; margin-left:0.5pt'>M</span>">
 
 <!---
