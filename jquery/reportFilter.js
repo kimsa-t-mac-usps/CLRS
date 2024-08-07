@@ -25,11 +25,11 @@ $(document).ready(function(){
 
     $('#Select_HQ_AREA_NAME').on('change',function(event) {
         event.preventDefault();
-        console.log("event.currentTarget.baseURI: " + event.currentTarget.baseURI);
-        let url="report.full.cfm?";
+        let url = checkEarlierRpt(event);
+        console.log("URL: " + url);
         let selectedVal = $('#Select_HQ_AREA_NAME').val();
         console.log("SELECTEDVAL: " + selectedVal);
-        url = url + "SelectedHQDept" + selectedVal;
+        url = url + "SelectedHQDept=" + selectedVal;
         let encoded = encodeURI(url);
         console.log("ENCODED: " + encoded);
         if (selectedVal == "6X // HQ Labor Relations") {
@@ -37,19 +37,17 @@ $(document).ready(function(){
             $('#Select_UNIONS_SELECTED').on('change',function() {
                 let selectedUnion = $('#Select_UNIONS_SELECTED').val();
                 console.log("UNION: " + selectedUnion);
-                let encodedUnion = endodedURI(selectedUnion);
-                encoded = encoded + encodedUnion;
-                console.log("ENCODED: " + encoded);
-                alert("encoded: " + encoded);
-                //location.href = encoded;
+                url = url + "&SelectedUnion=" + selectedUnion;
+                console.log("UNION URL: " + url);
+                encoded = encodeURI(url);
+                console.log("UNION ENCODED: " + encoded);
+                location.href = encoded;
             })    
         } else {
-
-            alert("encoded: " + encoded);
-            //$('#unionSelect').hide();
-            
+            $('#unionSelect').hide();
+             location.href = encoded; 
         }
-        //location.href = encoded; 
+       
     });
 
     function checkEarlierRpt(event) {
