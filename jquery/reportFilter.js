@@ -60,6 +60,19 @@ $(document).ready(function(){
         console.log("ENCODED: " + encoded);
         location.href = encoded;
 
+    });
+
+   
+
+    $('#Select_CaseCategory').on('change',function(event) {
+        event.preventDefault();
+        url = checkEarlierRpt(event);
+        let selectedVal = $('#Select_CaseCategory').val();
+        url = url + "SelectedCategory=" + selectedVal;
+        console.log("URL: " + url);
+        let encoded = encodeURI(url);
+        console.log("ENCODED: " + encoded);
+        location.href = encoded;
     })
 
     function checkEarlierRpt(event) {
@@ -72,10 +85,23 @@ $(document).ready(function(){
         } else {
             result = result + "?";
         }
+        result = clearCaseCat(result);
         console.log("RESULT: " + result);
         return result;
 
     }
 
+    function clearCaseCat(resultString) {
+        let idx = resultString.indexOf("SelectedCategory");
+        if(idx > -1) {
+            let caseSubStr = resultString.substring(idx,resultString.length);
+            resultString = resultString.replace(caseSubStr,'');
+        }
+        
+        return resultString;
+    }
+
+
+    
+
 });
-/* https://lawdept1.usps.gov/ClientService/ContingentLiabilities/V1.0/Report.full.cfm?SelectedHQDept=6X%20//%20HQ%20Labor%20Relations&SelectedUnion=Mail%20Handlers */

@@ -466,7 +466,7 @@ Office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" onChange="setRptSelectOption(this, 'SelectedCategory')">
+<SELECT NAME="Select_CaseCategory" id="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1">
 
 <option value="0">Select a Claim Category . . .
 <option value="ALL">ALL Categories
