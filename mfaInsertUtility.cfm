@@ -1,3 +1,4 @@
+<cfinclude template="MfaCookieCheck.cfm">
 <!---
     This file hopefully will loop through the directory and check for existence of 
     "<cfinclude template="MfaCookieCheck.cfm">" at the top of the file
@@ -11,24 +12,22 @@
     5. save as the original path/file
 --->
 <cftry>
-    <cfoutput>#getdirectoryfrompath(getBaseTemplatePath())#</cfoutput>
-    <cfset directoryPath = "D:\web\cf\cfusion\wwwroot\ClientService\ContingentLiabilities\V1.0\">
-    <cfset fileList = directoryList(path="#directoryPath#", recurse="false" ,listInfo="path" ,filter="*.cfm" ,type="all")>
-    <cfdump var="#fileList#">
-    <cfset doNotIncludeList = "application.cfm,MfaCookieCheck.cfm,mfaInsertUtility.cfm,cfswitch.serveraddr_id.cfm,serverName.cfm,Query.Get_Bus_Serv_Contact.cfm,LabelLists.cfm,RptDateFYQFmt.cfm,SetUserID.TestUser.cfm">
-    <cfset writeContent = '<cfinclude template="MfaCookieCheck.cfm">'>
-    <cfloop from="1" to="#arraylen(fileList)#" index="i">
-        
-        <cfif listfindNocase(doNotIncludeList,getFileFromPath(fileList[i])) eq 0>
-            <cffile action="read" file="#fileList[i]#" variable="fileContents">
-            <cfif findNoCase('<cfinclude template="MfaCookieCheck.cfm">',fileContents) eq 0>
-                <cffile action="write" file="#fileList[i]#" output="#writeContent#">
-                <cffile action="append" file="#fileList[i]#" output="#fileContents#"> 
-                <cfoutput><p>#i# #fileList[i]#</p></cfoutput>
-            </cfif>
-        </cfif> 
-     </cfloop>     
-        <cfcatch type="any">
-            <cfdump var="#cfcatch#">
-        </cfcatch>
-    </cftry>
+<cfset fileList = directoryList(path="D:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0", recurse="false" ,listInfo="path" ,filter="*.cfm" ,type="all")>
+<cfdump var="#fileList#"  >
+<cfset doNotIncludeList = "application.cfm,MfaCookieCheck.cfm,cfswitch.serveraddr_id.cfm,serverName.cfm">
+<cfset writeContent = '<cfinclude template="MfaCookieCheck.cfm">'>
+<cfloop from="1" to="#arraylen(fileList)#" index="i">
+   
+    <cfif listfindNocase(doNotIncludeList,getFileFromPath(fileList[i])) eq 0>
+        <cffile action="read" file="#fileList[i]#" variable="fileContents">
+        <cfif findNoCase('<cfinclude template="MfaCookieCheck.cfm">',fileContents) eq 0>
+            <cffile action="write" file="#fileList[i]#" output="#writeContent#">
+            <cffile action="append" file="#fileList[i]#" output="#fileContents#"> 
+            <cfoutput><p>#i# #fileList[i]#</p></cfoutput>
+        </cfif>
+    </cfif>
+</cfloop>    
+    <cfcatch type="any">
+        <cfdump var="#cfcatch#">
+    </cfcatch>
+</cftry>

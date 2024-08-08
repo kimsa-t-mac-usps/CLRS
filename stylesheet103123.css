@@ -21,7 +21,7 @@ h3.SectionHeadAfterFirst {page-break-before:always}
 h3.SectionHeadAfterFirst {page-break-before:auto}
 */
 
-/*h3.SectionHeadAfterFirst {} */
+h3.SectionHeadAfterFirst {}
 
 h4.SectionHead {page-break-before:auto}
 
@@ -57,7 +57,7 @@ td.CorpFin {font-family:arial,sans-serif; font-size:8pt; vertical-align:top; bor
 
 textarea {font-family:arial,sans-serif;font-size:10pt}
 
-th {font-family:arial,sans-serif;font-size:10pt; font-weight:bold; width:30%; text-align:right}
+th {font-family:arial,sans-serif;font-size:10pt; font-weight:bold; width:30%; align:right}
 th.CorpFin {font-family:arial,sans-serif;font-size:7pt; font-weight:bold; width:30%; text-align:left}
 th.CorpFinAmtSought {font-family:arial,sans-serif;font-size:7pt; font-weight:bold; width:15%; text-align:left}
 th.CorpFinCaseName {font-family:arial,sans-serif;font-size:7pt; font-weight:bold; width:40%; text-align:left}

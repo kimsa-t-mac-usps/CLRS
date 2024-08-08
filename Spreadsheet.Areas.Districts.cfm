@@ -48,7 +48,7 @@
 
 
 
-<CFQUERY NAME="Get_Areas_Data" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Areas_Data" DATASOURCE="contliab">
 
 select AREA_NAME, 
 

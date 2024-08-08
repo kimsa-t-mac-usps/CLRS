@@ -1,5 +1,5 @@
 <cfinclude template="MfaCookieCheck.cfm">
-<!---KS updated 2.2.24 --->
+
 
 <!--- Has INCLUDEs for Report.ptB.cfm - Report.ptE.cfm --->
 

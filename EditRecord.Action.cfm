@@ -48,7 +48,7 @@ AND
 Form.ActionButton EQ "Delete This Record">
 
 
-	<CFQUERY NAME="CONTINGENT_LIAB_Delete_Record" DATASOURCE="lddb">
+	<CFQUERY NAME="CONTINGENT_LIAB_Delete_Record" DATASOURCE="contliab">
 	
 	UPDATE CONTINGENT_LIAB_REPORT
 	SET
@@ -67,7 +67,7 @@ Form.ActionButton EQ "Delete This Record">
 
 	<CFIF LockFlag EQ "Lock">
 	
-		<CFQUERY NAME="CONTINGENT_LIAB_LockRecord" DATASOURCE="lddb">
+		<CFQUERY NAME="CONTINGENT_LIAB_LockRecord" DATASOURCE="contliab">
 		
 		UPDATE CONTINGENT_LIAB_REPORT
 		SET FINALIZED_FLAG = 1
@@ -77,7 +77,7 @@ Form.ActionButton EQ "Delete This Record">
 	
 	<CFELSEIF LockFlag EQ "UNLock">
 	
-		<CFQUERY NAME="CONTINGENT_LIAB_LockRecord" DATASOURCE="lddb">
+		<CFQUERY NAME="CONTINGENT_LIAB_LockRecord" DATASOURCE="contliab">
 		
 		UPDATE CONTINGENT_LIAB_REPORT
 		SET FINALIZED_FLAG = 0
@@ -94,7 +94,7 @@ AND
 UndoApprFlag EQ "UndoAppr">
 
 
-	<CFQUERY NAME="CONTINGENT_LIAB_UndoAppr" DATASOURCE="lddb">
+	<CFQUERY NAME="CONTINGENT_LIAB_UndoAppr" DATASOURCE="contliab">
 	UPDATE CONTINGENT_LIAB_REPORT
 	SET
 		CONCUR_MC = NULL,
@@ -123,7 +123,7 @@ UndoApprFlag EQ "UndoAppr">
 	Save Checklist Reponses:
 	--->
 	
-		<CFQUERY NAME="Update_Checklist_Reponses" DATASOURCE="lddb">
+		<CFQUERY NAME="Update_Checklist_Reponses" DATASOURCE="contliab">
 		
 		UPDATE CONTINGENT_LIAB_C_E_CHECKLIST
 		
@@ -208,7 +208,7 @@ UndoApprFlag EQ "UndoAppr">
 	
 		<CFIF IsDefined("Form.MC_APPR_FLAG") OR IsDefined("Form.MC_COMMENT")>
 		
-			<CFQUERY NAME="CONTINGENT_LIAB_C_E_CHECKLISTUpdate" DATASOURCE="lddb">
+			<CFQUERY NAME="CONTINGENT_LIAB_C_E_CHECKLISTUpdate" DATASOURCE="contliab">
 			
 			UPDATE CONTINGENT_LIAB_C_E_CHECKLIST
 			
@@ -252,7 +252,7 @@ UndoApprFlag EQ "UndoAppr">
 		
 		<CFIF IsDefined("Form.LM_MATTER_NUMBER")>
 		
-			<CFQUERY NAME="Get_Matter_Key" DATASOURCE="lddb">
+			<CFQUERY NAME="Get_Matter_Key" DATASOURCE="contliab">
 			
 			select
 			c.matter_key
@@ -270,7 +270,7 @@ UndoApprFlag EQ "UndoAppr">
 		
 		
 		
-		<CFQUERY NAME="CONTINGENT_LIAB_Update" DATASOURCE="lddb">
+		<CFQUERY NAME="CONTINGENT_LIAB_Update" DATASOURCE="contliab">
 		
 		UPDATE CONTINGENT_LIAB_REPORT
 		
@@ -575,7 +575,7 @@ UndoApprFlag EQ "UndoAppr">
 					
 						<CFSET This_DIST_PERF_CLUSTER_CODE = Left(Form.DIST_PERF_CLUSTER_CODE, Slashes_DIST_PERF_CLUSTER_CODE_Index - 1)>
 					
-						DIST_PERF_CLUSTER_CODE = '#This_DIST_PERF_CLUSTER_CODE#',
+						 DIST_PERF_CLUSTER_CODE = '#This_DIST_PERF_CLUSTER_CODE#', 
 					
 						<CFIF This_DIST_PERF_CLUSTER_CODE NEQ "Multiple">
 					
@@ -958,7 +958,7 @@ For approved case, e-mail notice to MC, other manager(s) if ASSESSMENT_AMOUNT [f
 		ASSESSMENT_AMOUNT_Change NEQ "">
 		
 		
-			<CFQUERY NAME="Check_MC_APPR_FLAG" DATASOURCE="lddb">
+			<CFQUERY NAME="Check_MC_APPR_FLAG" DATASOURCE="contliab">
 		
 			SELECT MC_APPR_FLAG
 			FROM CONTINGENT_LIAB_C_E_CHECKLIST

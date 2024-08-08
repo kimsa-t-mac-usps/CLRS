@@ -5,7 +5,7 @@
 <CFIF Get_Checklist_Responses.RecordCount EQ 1>
 
 <!---
-<CFQUERY NAME="Get_AllQuesNum" DATASOURCE="lddb">
+<CFQUERY NAME="Get_AllQuesNum" DATASOURCE="contliab">
 SELECT TRIM(QUESNUM) AS QUESNUM_TRIM, TRIM(QUESTEXT) AS QUESTEXT_TRIM, SORTORDER
 FROM PCESSURVEYQUES
 WHERE SURVEY LIKE 'Conting Liability Checklist%'
@@ -13,7 +13,7 @@ ORDER BY SORTORDER
 </cfquery>
 --->
 
-<CFQUERY NAME="Get_AllQuesNum" DATASOURCE="lddb">
+<CFQUERY NAME="Get_AllQuesNum" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_GET_CHECKLISTQUES
 </cfquery>

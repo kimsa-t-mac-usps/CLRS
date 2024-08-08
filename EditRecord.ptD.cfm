@@ -1,4 +1,5 @@
 <cfinclude template="MfaCookieCheck.cfm">
+
 <tr>
 
 <th align="right" valign="top">
@@ -149,7 +150,7 @@ For Current Report
 <small>Date:&nbsp;<i>#DateFormat(DATE_LAST_UPDATE, "m/d/yyyy")#</i></small>
 </cfoutput>
 
-<CFQUERY NAME="Get_Upd_User" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Upd_User" DATASOURCE="contliab">
 SELECT Trim(EENAME) AS TRIM_EENAME
 FROM LDEXTRA
 WHERE UPPER(AD_USERID) LIKE UPPER('#Trim(LAST_UPDATE_USER_ID)#%')
@@ -206,7 +207,7 @@ Both buttons return user to Report.cfm at current version of Case Record:
 
 <tr>
 <td align="center">
-<!--- <input TYPE="SUBMIT" NAME="ActionButton" VALUE="Submit This Change" style="width:100pt"> --->
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Submit This Change" style="width:100pt">
 </td>
 <td align="center">
 &nbsp;&nbsp;<b>OR</b>&nbsp;&nbsp;
@@ -265,9 +266,9 @@ Both buttons return user to Report.cfm at current version of Case Record:
 
 
 <CFIF RowColor NEQ "lightgrey">
-<!--- <input TYPE="SUBMIT" NAME="ActionButton" VALUE="Submit This Update" style="width:100pt; margin-left:25pt" onClick="return checkupdFactsFlagArray(this.form, this.form.name)">
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Submit This Update" style="width:100pt; margin-left:25pt" onClick="return checkupdFactsFlagArray(this.form, this.form.name)">
 <CFELSE>
-<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Submit This Update" style="background:khaki; width:100pt; margin-left:25pt" onClick="return checkupdFactsFlagArray(this.form, this.form.name)"> --->
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Submit This Update" style="background:khaki; width:100pt; margin-left:25pt" onClick="return checkupdFactsFlagArray(this.form, this.form.name)">
 </cfif>
 
 </div>
@@ -314,17 +315,17 @@ CASE_TYPE = #CASE_TYPE#
 <CFIF CASE_TYPE LE 10>
 
 <CFIF RowColor NEQ "lightgrey">
-<!--- <input TYPE="SUBMIT" NAME="ActionButton" VALUE="Remove This Case" style="width:100pt; margin-top:15pt" onClick="removeConfirm(this.form)">
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Remove This Case" style="width:100pt; margin-top:15pt" onClick="removeConfirm(this.form)">
 <CFELSE>
-<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Remove This Case" style="background:khaki; width:100pt; margin-top:15pt" onClick="removeConfirm(this.form)"> --->
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Remove This Case" style="background:khaki; width:100pt; margin-top:15pt" onClick="removeConfirm(this.form)">
 </cfif>
 
 <CFELSE>
 
 <CFIF RowColor NEQ "lightgrey">
-<!--- <input TYPE="SUBMIT" NAME="ActionButton" VALUE="Un-Remove This Case" style="width:110pt; margin-top:15pt" onClick="UNremoveConfirm()">
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Un-Remove This Case" style="width:110pt; margin-top:15pt" onClick="UNremoveConfirm()">
 <CFELSE>
-<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Un-Remove This Case" style="background:khaki; width:110pt; margin-top:15pt" onClick="UNremoveConfirm()"> --->
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Un-Remove This Case" style="background:khaki; width:110pt; margin-top:15pt" onClick="UNremoveConfirm()">
 </cfif>
 
 </cfif>
@@ -340,17 +341,17 @@ CASE_TYPE = #CASE_TYPE#
 <CFIF FINALIZED_FLAG NEQ 1>
 
 <CFIF RowColor NEQ "lightgrey">
-<!--- <input TYPE="SUBMIT" NAME="ActionButton" VALUE="Lock This Record" style="width:100pt; margin-top:15pt">
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Lock This Record" style="width:100pt; margin-top:15pt">
 <CFELSE>
-<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Lock This Record" style="background:khaki; width:100pt; margin-top:15pt"> --->
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Lock This Record" style="background:khaki; width:100pt; margin-top:15pt">
 </cfif>
 
 <CFIF CONCUR_MC EQ 1>
 	&nbsp;&nbsp;<b>OR</b>&nbsp;&nbsp;
 	<CFIF RowColor NEQ "lightgrey">
-		<!--- <input TYPE="SUBMIT" NAME="ActionButton" VALUE="Undo Approvals" style="width:100pt; margin-top:15pt"> --->
+		<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Undo Approvals" style="width:100pt; margin-top:15pt">
 	<CFELSE>
-		<!--- <input TYPE="SUBMIT" NAME="ActionButton" VALUE="Undo Approvals" style="background:khaki; width:100pt; margin-top:15pt"> --->
+		<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Undo Approvals" style="background:khaki; width:100pt; margin-top:15pt">
 	</cfif>
 </cfif>
 
@@ -362,9 +363,9 @@ style="font-family:verdana; width:120pt; margin-top:10pt; margin-left:250pt; bor
 
 
 	<CFIF RowColor NEQ "lightgrey">
-		<!--- <input TYPE="SUBMIT" NAME="ActionButton" VALUE="Delete This Record" style="width:100pt; margin-top:15pt; border:3px dotted maroon" onClick="return confirmDelete()"> --->
+		<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Delete This Record" style="width:100pt; margin-top:15pt; border:3px dotted maroon" onClick="return confirmDelete()">
 	<CFELSE>
-		<!--- <input TYPE="SUBMIT" NAME="ActionButton" ---> VALUE="Delete This Record" style="background:khaki; width:100pt; margin-top:15pt; border:3px dotted maroon" onClick="return confirmDelete()">
+		<input TYPE="SUBMIT" NAME="ActionButton" VALUE="Delete This Record" style="background:khaki; width:100pt; margin-top:15pt; border:3px dotted maroon" onClick="return confirmDelete()">
 	</cfif>
 
 
@@ -375,9 +376,9 @@ style="font-family:verdana; width:120pt; margin-top:10pt; margin-left:250pt; bor
 <CFELSE>
 
 <CFIF RowColor NEQ "lightgrey">
-<!--- <input TYPE="SUBMIT" NAME="ActionButton" VALUE="UNLock This Record" style="width:100pt; margin-top:15pt"> --->
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="UNLock This Record" style="width:100pt; margin-top:15pt">
 <CFELSE>
-<!--- <input TYPE="SUBMIT" NAME="ActionButton" VALUE="UNLock This Record" style="background:khaki; width:100pt; margin-top:15pt"> --->
+<input TYPE="SUBMIT" NAME="ActionButton" VALUE="UNLock This Record" style="background:khaki; width:100pt; margin-top:15pt">
 </cfif>
 
 </cfif>
@@ -404,4 +405,6 @@ Close <CFIF FINALIZED_FLAG NEQ 1 OR (Check_Auth_User_A.RecordCount EQ 1 AND FINA
 </td>
 
 </tr>
+
+
 

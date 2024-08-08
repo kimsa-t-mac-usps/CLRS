@@ -30,13 +30,9 @@ TextHighlight EQ "Disabled"
 <CFSET This_CurrentRow = 0>
 <CFSET RowColor = "linen">
 <CFSET CLRC_Query_Name = "Get_Single_Record">
-
-
-
-
 <CFINCLUDE TEMPLATE="CheckUserAuth.cfm">
 
-<CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="lddb" result=singleResult>
+<CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="contliab" result=singleResult>
 
 SELECT
 
@@ -133,7 +129,7 @@ clr.DELETED_FLAG IS NULL
 
 <CFIF IsDefined("PrevReportDate_Parm")>
 
-<CFQUERY NAME="CONTINGENT_LIAB_GetRecord_PrevRpt" DATASOURCE="lddb">
+<CFQUERY NAME="CONTINGENT_LIAB_GetRecord_PrevRpt" DATASOURCE="contliab">
 
 SELECT *
 
@@ -151,13 +147,13 @@ DELETED_FLAG IS NULL
 
 </cfif>
 
-<CFQUERY NAME="Get_MC_APPR_FLAG" DATASOURCE="lddb">
+<CFQUERY NAME="Get_MC_APPR_FLAG" DATASOURCE="contliab">
 SELECT MC_APPR_FLAG, ALT_APPR_FLAG
 FROM VIEW_CONTING_GET_MC_APPR_FLAG
 WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value=#Get_Single_Record.CASE_REC_ID_SEQUENCE# cfsqltype="cf_sql_numeric">
 </cfquery>
 
-<CFQUERY NAME="Get_MC_APPR_FLAG_Approved" DATASOURCE="lddb">
+<CFQUERY NAME="Get_MC_APPR_FLAG_Approved" DATASOURCE="contliab">
 SELECT MC_APPR_FLAG, ALT_APPR_FLAG
 FROM VIEW_CONTING_GET_MC_APR_FLG_AP
 WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value=#Get_Single_Record.CASE_REC_ID_SEQUENCE# cfsqltype="cf_sql_numeric">
@@ -165,7 +161,7 @@ WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value=#Get_Single_Record.CASE_REC_ID_
 
 <!--- Copied from Report.ptA.cfm: --->
 
-<CFQUERY NAME="Get_Case_WithoutChecklist" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Case_WithoutChecklist" DATASOURCE="contliab">
 SELECT DISTINCT CASE_REC_ID_SEQUENCE
 FROM VIEW_CONTING_CASE_REC_ID_SEQ
 WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value=#Get_Single_Record.CASE_REC_ID_SEQUENCE# cfsqltype="cf_sql_numeric">

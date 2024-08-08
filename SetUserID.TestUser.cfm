@@ -1,12 +1,13 @@
+
 <!---
-<CFQUERY NAME="Get_TestUser_Pkey" DATASOURCE="lddb">
+<CFQUERY NAME="Get_TestUser_Pkey" DATASOURCE="contliab">
 SELECT TESTUSER_PKEY
 FROM TEST_USER
 WHERE SETTINGUSER_PKEY = #Init_Check_Auth_User_A.USERPRMKEY#
 </cfquery>
 --->
 
-<CFQUERY NAME="Get_TestUser_Name" DATASOURCE="lddb">
+<CFQUERY NAME="Get_TestUser_Name" DATASOURCE="contliab">
 SELECT LDEXTRA.AD_USERID, Trim(LAWDEPARTMENT.LASTNAME) || ', ' || Trim(LAWDEPARTMENT.FIRSTNAME) AS FULLNAME
 FROM LAWDEPARTMENT, LDEXTRA
 WHERE
@@ -30,9 +31,9 @@ WHERE SETTINGUSER_PKEY = #Init_Check_Auth_User_A.USERPRMKEY#)
 
 <CFELSE>
 
-	<cfset RespondingUser_Id = TRIM(UCASE(RemoveChars(auth_user,1,find('\',auth_user))))>
+	<cfset RespondingUser_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
 
-	<CFQUERY NAME="Get_Ee_ThisUser" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Ee_ThisUser" DATASOURCE="contliab">
 	SELECT Trim(LAWDEPARTMENT.LASTNAME) || ', ' || Trim(LAWDEPARTMENT.FIRSTNAME) AS FULLNAME
 	FROM LAWDEPARTMENT, LDEXTRA
 	WHERE
@@ -76,3 +77,4 @@ Get_Ee_ThisUser.RecordCount = #Get_Ee_ThisUser.RecordCount#
 	</cfoutput>--->
 
 </cfif>
+

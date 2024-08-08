@@ -1,3 +1,4 @@
+
 <!---------------------- Query.Get_Bus_Serv_Contact.cfm ---------------------->
 <!---------------------------------------------------------------------------->
 <!--- KS --->
@@ -6,7 +7,7 @@
 		Program = "Query.Get_Bus_Serv_Contact.cfm"
 		<br />
 	</CFOUTPUT>--->
-<CFQUERY NAME="Get_Bus_Serv_Contact" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Bus_Serv_Contact" DATASOURCE="contliab">
 SELECT Trim(a.LASTNAME) AS Trim_LASTNAME,
 Trim(a.FIRSTNAME) AS Trim_FIRSTNAME,
 Trim(a.TITLE) AS Trim_TITLE,
@@ -64,7 +65,7 @@ c.SURNAME = 'Contingent Liabilities Contact'
 
 
 
-<CFQUERY NAME="Get_Bus_Serv_Mgr" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Bus_Serv_Mgr" DATASOURCE="contliab">
 SELECT Trim(a.LASTNAME) AS Trim_LASTNAME, Trim(a.FIRSTNAME) AS Trim_FIRSTNAME, Trim(a.TITLE) AS Trim_TITLE, Trim(a.VOICE) AS Trim_VOICE, Trim(a.LONGEMAIL) AS Trim_LONGEMAIL
 
 FROM lawdepartment a

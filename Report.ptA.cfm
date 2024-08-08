@@ -33,13 +33,13 @@ Query CONTINGENT_LIAB_GetRecord_PrevRpt in Report.cfm
 --->
 
 <!---
-<CFQUERY NAME="Get_ChecklistCases" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ChecklistCases" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_GET_CHKLISTCASES
 </cfquery>
 
 
-<CFQUERY NAME="Get_ChecklistCases_Approved" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ChecklistCases_Approved" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_GET_CHKLISTCASES
 WHERE MC_APPR_FLAG = 1
@@ -48,7 +48,7 @@ WHERE MC_APPR_FLAG = 1
 
 
 <!--- Moved to application.cfm:
-<CFQUERY NAME="Get_AllQuesNum" DATASOURCE="lddb">
+<CFQUERY NAME="Get_AllQuesNum" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_GET_ALLQUESNUM
 </cfquery>
@@ -66,7 +66,7 @@ select DISTINCT DATE_REPORT
 
 <!--- Moved to application.cfm: --->
 <!---
-<CFQUERY NAME="Get_All_ReportDates" DATASOURCE="lddb">
+<CFQUERY NAME="Get_All_ReportDates" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_ALL_REPORTDATES
 </cfquery>
@@ -109,7 +109,7 @@ ThisReportDate NEQ EarliestReportDate AND PrevReportDate NEQ "">
 VIEW_CONTING_PRV_CAS_RECID_SEQ
 --->
 
-<CFQUERY NAME="CONTINGENT_LIAB_PrevRpt_CASE_REC_ID_SEQUENCE" DATASOURCE="lddb">
+<CFQUERY NAME="CONTINGENT_LIAB_PrevRpt_CASE_REC_ID_SEQUENCE" DATASOURCE="contliab">
 SELECT CASE_REC_ID_SEQUENCE
 FROM view_conting_prv_recid_seq_2
 WHERE DATE_REPORT = to_date('#DateFormat(PrevReportDate, "mm/dd/yyyy")#', 'mm/dd/yyyy')
@@ -157,7 +157,7 @@ Get_Auth_User_Office.OFFICE_PRM_KEY = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 --->
 
 
-<CFQUERY NAME="CONTINGENT_LIAB_GetRecord_Current_Count" DATASOURCE="lddb">
+<CFQUERY NAME="CONTINGENT_LIAB_GetRecord_Current_Count" DATASOURCE="contliab">
 
 SELECT COUNT(*) AS Current_Count
 
@@ -767,7 +767,7 @@ OR
 --->
 
 <body id="DocBody" onLoad="openInfoChgCompatView(); newCaseWindow = null; hideOrShowLinksDivs(); rotate()">
-
+<!---<cfinclude template="AddHeader.cfm">--->
 
 <CFIF
 (
@@ -977,7 +977,8 @@ docTitle = document.title;
 
 <div style="color:maroon; margin-bottom:35pt">
 
-<CFIF IsDefined("SelectedPC")>
+<CFIF IsDefined("url.SelectedPC")>
+	<!--- <cfdump var="#url.SelectedPC#"> --->
 
 	<CFSET Slashes_DIST_PERF_CLUSTER_CODE_Index = Find(" // ", SelectedPC)>
 	<CFSET Slashes_Next_Word = Slashes_DIST_PERF_CLUSTER_CODE_Index + 4>

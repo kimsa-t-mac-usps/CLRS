@@ -1,3 +1,4 @@
+
 <CFSET ASSESSMENT_PROBABILITY_LabelList = "Probable,Reasonably Possible,Remote">
 
 <!--- Also: --->
@@ -81,7 +82,6 @@
 
 
 
-
 <CFIF (
 (IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat")
 OR
@@ -142,6 +142,7 @@ OR
 <CFSET Unknown_NA_List = "Unknown,N/A">
 
 <cfset YesNo_List = "Y,N,0">
+
 
 
 

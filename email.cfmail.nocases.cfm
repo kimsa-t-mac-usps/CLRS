@@ -59,7 +59,7 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 <CFIF IsDefined("Test_Email_Addr")>
 	<CFSET email_cfmail_nocases_To = Test_Email_Addr>
 <CFELSE>
-	<!---<CFSET email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>kimsa 2/5/2023--->
+	<CFSET email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>
 </CFIF>
 
 
@@ -71,11 +71,12 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 <CFMAIL
    
     
-    FROM="Kimsa.t.mac@usps.gov"
-    TO="Kimsa.t.mac@usps.gov"
-    <!---BCC="LawDeptSurvey@usps.gov"--->
-    SUBJECT="No Cases From #Office# to Report for Contingent Liabilities Report, #Rpt#"
+    FROM="#This_EE_From_Line#"
+    TO="#email_cfmail_nocases_To#"
+    BCC="gccontliab@usps.gov"
+    SUBJECT="No Cases From #Trim(Office)# to Report for Contingent Liabilities Report, #Trim(Rpt)#"
 	TYPE="HTML">
+
 <!--- Kimsa test email --->
 <!---<CFIF IsDefined("Test_Email_Addr")>
 	<CFSET email_cfmail_nocases_To = Test_Email_Addr>
@@ -101,7 +102,7 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 <div style="font-family:arial; font-size:10pt">
 
 <CFOUTPUT>
-#Office#
+#Trim(Office)#
 has no cases to report for the Contingent Liabilities Report, #Rpt#.
 <p>
 Please let me know if you have any questions or need anything else.

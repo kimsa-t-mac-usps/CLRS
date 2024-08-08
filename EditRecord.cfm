@@ -60,7 +60,7 @@ A:active {background:yellow; color:black; text-decoration:none; font-family:aria
 <CFINCLUDE TEMPLATE="Unknown_NA_List.cfm">
 --->
 
-<CFQUERY NAME="Get_ReportDate" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ReportDate" DATASOURCE="contliab">
 
 SELECT MAX(DATE_REPORT) AS REPORT_DATE
 
@@ -73,7 +73,7 @@ FROM CONTINGENT_LIAB_REPORT
 
 
 
-<CFQUERY NAME="Get_PrevReportDate" DATASOURCE="lddb">
+<CFQUERY NAME="Get_PrevReportDate" DATASOURCE="contliab">
 
 SELECT MAX(DATE_REPORT) AS DATE_REPORT_PREV
 
@@ -159,7 +159,10 @@ Added form field STATUS_CODE_SELECTED_ALL to hold concatenated string of STATUS_
 	onSubmit="return showStatusCodeSelected(this); return showUnionsSelected(this); return checkupdFactsFlagArray(this, this.name)">
 --->
 
-
+<cfinvoke component="components/clrsFunctions" method="getPrevReptRecord" returnvariable="GetRecord_PrevRpt">
+	<cfinvokeargument name="prevRptDate" value="#url.PrevReportDate_Parm#">
+	<cfinvokeargument name="caseRecordIdSeq" value="#CASE_REC_ID_SEQUENCE#">
+</cfinvoke>
 
 	<form name="CaseForm_#CONTINGENT_LIAB_GetRecord.CurrentRow#" METHOD="POST" ACTION="EditRecord.Action.cfm"
 	onSubmit="return showStatusCodeSelected(this); return checkupdFactsFlagArray(this, this.name)">

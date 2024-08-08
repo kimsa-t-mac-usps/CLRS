@@ -2,7 +2,7 @@
 
 
 <!---
-<CFQUERY NAME="GetUserInfo" DATASOURCE="lddb">
+<CFQUERY NAME="GetUserInfo" DATASOURCE="contliab">
 
 SELECT LDEXTRA.LASTNAME, LDEXTRA.FIRSTNAME, LAWDEPARTMENT.LONGEMAIL, LDEXTRA.PRIMARYKEY
 
@@ -29,7 +29,7 @@ AND (UPPER(AD_USERID) LIKE UPPER('#RespondingUser_Id#%') OR UPPER(AD_MAILNICKNAM
 --->
 
 
-<CFQUERY NAME="GetAll_Auth_Users_Office" DATASOURCE="lddb">
+<CFQUERY NAME="GetAll_Auth_Users_Office" DATASOURCE="contliab">
 
 SELECT DISTINCT a.LASTNAME, a.FIRSTNAME, a.LONGEMAIL, a.PRIMARYKEY, c.SORTORDER
 
@@ -138,7 +138,7 @@ ORDER BY c.SORTORDER, a.LASTNAME
 <CFIF IsDefined("Test_Email_Addr")>
 	<CFSET InsertRecord_cfmail_To = Test_Email_Addr>
 <CFELSE>
-	<!---<CFSET InsertRecord_cfmail_To = ToMCLine>--->
+	<CFSET InsertRecord_cfmail_To = ToMCLine>
 </CFIF>
 
 <!---
@@ -147,9 +147,9 @@ ORDER BY c.SORTORDER, a.LASTNAME
 
 
 <CFMAIL
-    FROM="Kimsa.t.mac@usps.gov"
-    TO="Kimsa.t.mac@usps.gov"
-    <!---BCC="LawDeptSurvey@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"--->
+    FROM="#This_EE_From_Line#"
+    TO="#InsertRecord_cfmail_To#"
+    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
     SUBJECT="New Contingent Liabilities Case Record For Approval"
 	TYPE="HTML">
 

@@ -8,7 +8,7 @@ U.S. Postal Service Law Department, Contingent Liabilities and Receivables
 
 </head>
 
-<CFQUERY NAME="Get_LDCounsel" DATASOURCE="lddb">
+<CFQUERY NAME="Get_LDCounsel" DATASOURCE="contliab">
 select DISTINCT a.LASTNAME, a.FIRSTNAME, Trim(a.OFFICE) AS Trim_OFFICE
 
 from LAWDEPARTMENT a, contingent_liab_report b

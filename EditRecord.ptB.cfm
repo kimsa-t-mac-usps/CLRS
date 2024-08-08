@@ -25,7 +25,7 @@
 <CFELSEIF IsDefined("RecIDParm")>
 
 
-	<CFQUERY NAME="Get_Checklist_Responses" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Checklist_Responses" DATASOURCE="contliab">
 	SELECT checklist.*
 	
     FROM 
@@ -251,47 +251,9 @@ HQ&nbsp;Dept
 <td style="padding-top:15pt; padding-bottom:15pt">
 
 
-
+<cfset prev_dist_perf_cluster_code = GetRecord_PrevRpt.DIST_PERF_CLUSTER_CODE>
+<cfset prev_DIVISION_CODE = GetRecord_PrevRpt.DIVISION_CODE>
 <CFSET This_DIST_PERF_CLUSTER_CODE = DIST_PERF_CLUSTER_CODE>
-
-
-
-
-
-
-
-
-<!---
-<CFOUTPUT>
-
-<p>
-EditRecord.ptB.cfm
-at 261:
-
-This_DIST_PERF_CLUSTER_CODE = "#This_DIST_PERF_CLUSTER_CODE#"
-<br />
-
-DIST_PERF_CLUSTER_CODE = "#DIST_PERF_CLUSTER_CODE#"
-
-
-<p>
-
-<CFIF IsDefined("Form.DIST_PERF_CLUSTER_CODE")>
-
-
-Form.DIST_PERF_CLUSTER_CODE = "#Form.DIST_PERF_CLUSTER_CODE#"
-
-<CFELSE>
-
-Form.DIST_PERF_CLUSTER_CODE NOT DEFINED
-
-</CFIF>
-
-<p>
-
-
-</CFOUTPUT>
---->
 
 
 <CFSET DropdownList = "District">
@@ -304,38 +266,6 @@ Form.DIST_PERF_CLUSTER_CODE NOT DEFINED
 <CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
 
 </select>
-
-
-
-<!---
-<CFOUTPUT>
-
-<p>
-
-At 317:
-DIST_PERF_CLUSTER_CODE = "#DIST_PERF_CLUSTER_CODE#"
-
-
-<p>
-
-<CFIF IsDefined("Form.DIST_PERF_CLUSTER_CODE")>
-
-
-Form.DIST_PERF_CLUSTER_CODE = "#Form.DIST_PERF_CLUSTER_CODE#"
-
-<CFELSE>
-
-Form.DIST_PERF_CLUSTER_CODE NOT DEFINED
-
-</CFIF>
-
-<p>
-
-
-</CFOUTPUT>
---->
-
-
 
 
 <CFIF Get_Divisions.RecordCount GT 0>
