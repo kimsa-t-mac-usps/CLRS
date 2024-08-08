@@ -1,3 +1,4 @@
+
 <cfinclude template="MfaCookieCheck.cfm">
 <script src="jquery\jquery-3.7.1.min.js"></script>
 <script src="jquery\reportFilter.js"></script>
@@ -229,7 +230,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_DIST_PERF_CLUSTER_CODE" id="Select_DIST_PERF_CLUSTER_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="setRptSelectOption(this, 'SelectedPC')">
+<SELECT NAME="Select_DIST_PERF_CLUSTER_CODE" id="Select_DIST_PERF_CLUSTER_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1">
 
 <option value="0">Select a District . . .
 
@@ -252,7 +253,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 <!--- SelectedDiv --->
 
 
-	<SELECT NAME="Select_DIVISION_CODE" id="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="setRptSelectOption(this, 'SelectedPC')">
+	<SELECT NAME="Select_DIVISION_CODE" id="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" >
 
 	<option value="0">Select a Division . . . 
 
@@ -398,7 +399,7 @@ order by office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" onChange="setRptSelectOption(this, 'SelectedLDOffice')">
+<SELECT NAME="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" >
 
 <option value="0">Select a Law Department Office . . .
 <option value="ALL">Full Report
@@ -466,7 +467,7 @@ Office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" onChange="setRptSelectOption(this, 'SelectedCategory')">
+<SELECT NAME="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" >
 
 <option value="0">Select a Claim Category . . .
 <option value="ALL">ALL Categories
@@ -537,6 +538,3 @@ Office
 
 
 </div>
-
-
-
