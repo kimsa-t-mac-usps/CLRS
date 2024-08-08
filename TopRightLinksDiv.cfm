@@ -229,7 +229,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_DIST_PERF_CLUSTER_CODE" id="Select_DIST_PERF_CLUSTER_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" >
+<SELECT NAME="Select_DIST_PERF_CLUSTER_CODE" id="Select_DIST_PERF_CLUSTER_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="setRptSelectOption(this, 'SelectedPC')">
 
 <option value="0">Select a District . . .
 
@@ -252,9 +252,9 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 <!--- SelectedDiv --->
 
 
-	<SELECT NAME="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1">
+	<SELECT NAME="Select_DIVISION_CODE" id="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="setRptSelectOption(this, 'SelectedPC')">
 
-	<option value="0">Select a Division . . .
+	<option value="0">Select a Division . . . KIMSA_1
 
 	<CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
 

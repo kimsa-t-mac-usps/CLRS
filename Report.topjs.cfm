@@ -135,13 +135,11 @@ location.href='Spreadsheet.MgmtSched.cfm?RptDate=' + selectedDate;
 function setRptSelectOption(thisSelect_Option, optionTypeParm) {
 
 
-<!---
-	<SELECT NAME="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="(this, 'SelectedDiv')">
---->
 
-<!---
-alert("thisSelect_Option.options[thisSelect_Option.selectedIndex] = '" + thisSelect_Option.options[thisSelect_Option.selectedIndex] + "'");
---->
+	/*<SELECT NAME="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="(this, 'SelectedDiv')">*/
+
+
+//alert("thisSelect_Option.options[thisSelect_Option.selectedIndex] = '" + thisSelect_Option.options[thisSelect_Option.selectedIndex] + "'");
 
 
 selectedOption = thisSelect_Option.options[thisSelect_Option.selectedIndex].value;
