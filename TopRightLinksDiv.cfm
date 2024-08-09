@@ -286,10 +286,10 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 
 
-<!--- <CFIF IsDefined("SelectedHQDept")
+<CFIF IsDefined("SelectedHQDept")
 AND
-SelectedHQDept CONTAINS "HQ Labor Relations"> --->
-<div id="unionSelect">
+SelectedHQDept CONTAINS "HQ Labor Relations"> 
+<!--- <div id="unionSelect"> --->
 
 <cfoutput>
 <p style="margin-top:#TopRightLinksMarginTop#; margin-left:10pt">
@@ -323,9 +323,9 @@ SelectedHQDept CONTAINS "HQ Labor Relations"> --->
 
 
 </select>
-</div>
+<!--- </div> --->
 
-<!--- </cfif> --->
+</cfif>
 
 
 
