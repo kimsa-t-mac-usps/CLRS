@@ -91,16 +91,17 @@ $(document).ready(function(){
         console.log(event);
         let urlString = event.currentTarget.baseURI;
         let fileIndex = urlString.indexOf("Report");
-        let result = urlString.slice(fileIndex);
-        let hqIdx = result.indexOf("SelectedHQDept");
+        let result = decodeURI(urlString.slice(fileIndex));
+        
+        let hqLrIdx = result.indexOf("SelectedHQDept=6X // HQ Labor Relations");
         if(result.indexOf("EarlierRptDate") > -1) {
             result = result + "&";
-        } else if (result.indexOf("SelectedHQDept") > -1) {
+        } else if (hqLrIdx > -1) {
             result = result + "&";
         } else {
             result = result + "?";
         }
-        if (hqIdx == -1) {
+        if (hqLrIdx == -1) {
         result = clearCaseCat(result);
         }
         console.log("RESULT: " + result);
