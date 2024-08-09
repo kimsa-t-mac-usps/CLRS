@@ -1,7 +1,5 @@
 
 <cfinclude template="MfaCookieCheck.cfm">
-<script src="jquery\jquery-3.7.1.min.js"></script>
-<script src="jquery\reportFilter.js"></script>
 
 <!--- 
 Included in Report.full.cfm.
