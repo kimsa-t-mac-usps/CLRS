@@ -38,21 +38,7 @@ $(document).ready(function(){
         url = url + "SelectedHQDept=" + selectedVal;
         let encoded = encodeURI(url);
         console.log("ENCODED: " + encoded);
-        /* if (selectedVal == "6X // HQ Labor Relations") {
-            $('#unionSelect').show();
-            $('#Select_UNIONS_SELECTED').on('change',function() {
-                let selectedUnion = $('#Select_UNIONS_SELECTED').val();
-                console.log("UNION: " + selectedUnion);
-                url = url + "&SelectedUnion=" + selectedUnion;
-                console.log("UNION URL: " + url);
-                encoded = encodeURI(url);
-                console.log("UNION ENCODED: " + encoded);
-                location.href = encoded;
-            })    
-        } else {
-            $('#unionSelect').hide();
-            
-        } */
+       
         location.href = encoded; 
     });
 
@@ -84,7 +70,7 @@ $(document).ready(function(){
 
     $('#Select_CaseCategory').on('change',function(event) {
         event.preventDefault();
-        url = checkEarlierRpt(event);
+        let url = checkEarlierRpt(event);
         let selectedVal = $('#Select_CaseCategory').val();
         url = url + "SelectedCategory=" + selectedVal;
         console.log("URL: " + url);
@@ -98,6 +84,7 @@ $(document).ready(function(){
         let urlString = event.currentTarget.baseURI;
         let fileIndex = urlString.indexOf("Report");
         let result = urlString.slice(fileIndex);
+        let hqIdx = result.indexOf("SelectedHQDept");
         if(result.indexOf("EarlierRptDate") > -1) {
             result = result + "&";
         } else if (result.indexOf("SelectedHQDept") > -1) {
@@ -105,14 +92,16 @@ $(document).ready(function(){
         } else {
             result = result + "?";
         }
+        if (hqIdx == -1) {
         result = clearCaseCat(result);
+        }
         console.log("RESULT: " + result);
         return result;
 
     }
 
     function clearCaseCat(resultString) {
-        let idx = resultString.indexOf("SelectedCategory");
+        let idx = resultString.indexOf("Select");
         if(idx > -1) {
             let caseSubStr = resultString.substring(idx,resultString.length);
             resultString = resultString.replace(caseSubStr,'');
