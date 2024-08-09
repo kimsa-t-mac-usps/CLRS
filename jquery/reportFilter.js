@@ -12,17 +12,21 @@ $(document).ready(function(){
         event.preventDefault();
         let url = checkEarlierRpt(event);
         let selectedVal = $('#Select_DIST_PERF_CLUSTER_CODE').val();
+        selectedVal = removeAmp(selectedVal);
         url = url + "SelectedPC=" + selectedVal;
         console.log("URL: " + url);
         let encoded = encodeURI(url);
         location.href = encoded;
         
     });
+
+    
    
     $('#Select_DIVISION_CODE').on('change',function(event) {
         event.preventDefault();
         let url = checkEarlierRpt(event);
         let selectedVal = $('#Select_DIVISION_CODE').val();
+        selectedVal = removeAmp(selectedVal);
         url = url + "SelectedPC=" + selectedVal;
         console.log("URL: " + url);
         let encoded = encodeURI(url);
@@ -34,6 +38,7 @@ $(document).ready(function(){
         let url = checkEarlierRpt(event);
         console.log("URL: " + url);
         let selectedVal = $('#Select_HQ_AREA_NAME').val();
+        selectedVal = removeAmp(selectedVal);
         console.log("SELECTEDVAL: " + selectedVal);
         url = url + "SelectedHQDept=" + selectedVal;
         let encoded = encodeURI(url);
@@ -47,6 +52,7 @@ $(document).ready(function(){
         let url = checkEarlierRpt(event);
         url = clearHq(url);
         let selectedVal = $('#Select_UNIONS_SELECTED').val();
+        selectedVal = removeAmp(selectedVal);
         url = url + "&SelectedUnion=" + selectedVal;
         let encoded = encodeURI(url);
         location.href = encoded;
@@ -58,6 +64,7 @@ $(document).ready(function(){
         event.preventDefault();
         let url = checkEarlierRpt(event);
         let selectedVal = $('#Select_LDOffice').val();
+        selectedVal = removeAmp(selectedVal);
         url = url + "SelectedLDOffice=" + selectedVal;
         console.log("URL: " + url);
         let encoded = encodeURI(url);
@@ -72,6 +79,7 @@ $(document).ready(function(){
         event.preventDefault();
         let url = checkEarlierRpt(event);
         let selectedVal = $('#Select_CaseCategory').val();
+        selectedVal = removeAmp(selectedVal);
         url = url + "SelectedCategory=" + selectedVal;
         console.log("URL: " + url);
         let encoded = encodeURI(url);
@@ -117,6 +125,16 @@ $(document).ready(function(){
             urlString = urlString.replace(hqSubStr,"SelectedHQDept=6X // HQ Labor Relations");
         }
         return urlString;
+    }
+
+    function removeAmp(selectString) {
+        let ampIdx = selectString.indexOf("&");
+        if(ampIdx > -1) {
+            selectString = selectString.replaceAll(/&/g, '%26');
+
+        }
+        selectString = selectString.trim();
+        return selectString;
     }
 
    
