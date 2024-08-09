@@ -230,7 +230,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_DIST_PERF_CLUSTER_CODE" id="Select_DIST_PERF_CLUSTER_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1">
+<SELECT NAME="Select_DIST_PERF_CLUSTER_CODE" id="Select_DIST_PERF_CLUSTER_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onchange="setRptSelectOption(this,'SelectedPC')" >
 
 <option value="0">Select a District . . .
 
@@ -253,7 +253,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 <!--- SelectedDiv --->
 
 
-	<SELECT NAME="Select_DIVISION_CODE" id="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" >
+	<SELECT NAME="Select_DIVISION_CODE" id="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onchange="setRptSelectOption(this,'SelectedPC')">
 
 	<option value="0">Select a Division . . . 
 
@@ -270,7 +270,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_HQ_AREA_NAME" id="Select_HQ_AREA_NAME"style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1">
+<SELECT NAME="Select_HQ_AREA_NAME" id="Select_HQ_AREA_NAME"style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1" onchange="setRptSelectOption(this,'SelectedHQDept')">
 
 <option value="0">Select a Headquarters Department . . .
 
@@ -298,7 +298,7 @@ SelectedHQDept CONTAINS "HQ Labor Relations"> --->
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_UNIONS_SELECTED" id="Select_UNIONS_SELECTED" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1">
+<SELECT NAME="Select_UNIONS_SELECTED" id="Select_UNIONS_SELECTED" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1" onChange="setRptSelectOption(this, 'SelectedUnion')">
 
 <option value="0">Select a Union . . .
 
@@ -399,7 +399,7 @@ order by office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" >
+<SELECT NAME="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" onchange="setRptSelectOption(this,'SelectedLDOffice')" >
 
 <option value="0">Select a Law Department Office . . .
 <option value="ALL">Full Report
@@ -467,7 +467,7 @@ Office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" >
+<SELECT NAME="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" onchange="setRptSelectOption(this,'SelectedCategory')">
 
 <option value="0">Select a Claim Category . . .
 <option value="ALL">ALL Categories
