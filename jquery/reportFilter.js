@@ -120,7 +120,7 @@ $(document).ready(function(){
     }
 
    
-
+   // selectedOption = selectedOption.replaceAll(/&/g,"%26");
 
     
 
