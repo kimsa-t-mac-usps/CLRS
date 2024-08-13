@@ -1,6 +1,7 @@
 
 <cfinclude template="MfaCookieCheck.cfm">
-
+<script src="jquery/jquery-3.7.1.min.js"></script>
+<script src="jquery/reportFilter.js"></script>
 <!--- 
 Included in Report.full.cfm.
 Green box in upper-right of Report. Links to New Case form, Protocol, Report format (Front Office, Corp Finance), Spreadsheet options, format options for finalizing, dropdown menus for selecting District, HQ Dept, etc., and previous Quarterly reports
