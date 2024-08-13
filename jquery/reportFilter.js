@@ -12,17 +12,21 @@ $(document).ready(function(){
         event.preventDefault();
         let url = checkEarlierRpt(event);
         let selectedVal = $('#Select_DIST_PERF_CLUSTER_CODE').val();
+        selectedVal = removeAmp(selectedVal);
         url = url + "SelectedPC=" + selectedVal;
         console.log("URL: " + url);
         let encoded = encodeURI(url);
         location.href = encoded;
         
     });
+
+    
    
     $('#Select_DIVISION_CODE').on('change',function(event) {
         event.preventDefault();
         let url = checkEarlierRpt(event);
         let selectedVal = $('#Select_DIVISION_CODE').val();
+        selectedVal = removeAmp(selectedVal);
         url = url + "SelectedPC=" + selectedVal;
         console.log("URL: " + url);
         let encoded = encodeURI(url);
@@ -34,25 +38,12 @@ $(document).ready(function(){
         let url = checkEarlierRpt(event);
         console.log("URL: " + url);
         let selectedVal = $('#Select_HQ_AREA_NAME').val();
+        selectedVal = removeAmp(selectedVal);
         console.log("SELECTEDVAL: " + selectedVal);
         url = url + "SelectedHQDept=" + selectedVal;
         let encoded = encodeURI(url);
         console.log("ENCODED: " + encoded);
-        /* if (selectedVal == "6X // HQ Labor Relations") {
-            $('#unionSelect').show();
-            $('#Select_UNIONS_SELECTED').on('change',function() {
-                let selectedUnion = $('#Select_UNIONS_SELECTED').val();
-                console.log("UNION: " + selectedUnion);
-                url = url + "&SelectedUnion=" + selectedUnion;
-                console.log("UNION URL: " + url);
-                encoded = encodeURI(url);
-                console.log("UNION ENCODED: " + encoded);
-                location.href = encoded;
-            })    
-        } else {
-            $('#unionSelect').hide();
-            
-        } */
+       
         location.href = encoded; 
     });
 
@@ -61,6 +52,7 @@ $(document).ready(function(){
         let url = checkEarlierRpt(event);
         url = clearHq(url);
         let selectedVal = $('#Select_UNIONS_SELECTED').val();
+        selectedVal = removeAmp(selectedVal);
         url = url + "&SelectedUnion=" + selectedVal;
         let encoded = encodeURI(url);
         location.href = encoded;
@@ -72,6 +64,7 @@ $(document).ready(function(){
         event.preventDefault();
         let url = checkEarlierRpt(event);
         let selectedVal = $('#Select_LDOffice').val();
+        selectedVal = removeAmp(selectedVal);
         url = url + "SelectedLDOffice=" + selectedVal;
         console.log("URL: " + url);
         let encoded = encodeURI(url);
@@ -84,8 +77,9 @@ $(document).ready(function(){
 
     $('#Select_CaseCategory').on('change',function(event) {
         event.preventDefault();
-        url = checkEarlierRpt(event);
+        let url = checkEarlierRpt(event);
         let selectedVal = $('#Select_CaseCategory').val();
+        selectedVal = removeAmp(selectedVal);
         url = url + "SelectedCategory=" + selectedVal;
         console.log("URL: " + url);
         let encoded = encodeURI(url);
@@ -97,22 +91,27 @@ $(document).ready(function(){
         console.log(event);
         let urlString = event.currentTarget.baseURI;
         let fileIndex = urlString.indexOf("Report");
-        let result = urlString.slice(fileIndex);
+        let result = decodeURI(urlString.slice(fileIndex));
+        let unionIdx = result.indexOf("SelectedUnion");
+        let hqLrIdx = result.indexOf("SelectedHQDept=6X // HQ Labor Relations");
+        let hqDeptIdx = result.indexOf("SelectedHQDept");
         if(result.indexOf("EarlierRptDate") > -1) {
             result = result + "&";
-        } else if (result.indexOf("SelectedHQDept") > -1) {
+        } else if (hqLrIdx > -1) {
             result = result + "&";
         } else {
             result = result + "?";
         }
+        if ((hqLrIdx == -1 || unionIdx > -1) || (hqLrIdx == -1 && hqDeptIdx > -1))  {
         result = clearCaseCat(result);
+        } 
         console.log("RESULT: " + result);
         return result;
 
     }
 
     function clearCaseCat(resultString) {
-        let idx = resultString.indexOf("SelectedCategory");
+        let idx = resultString.indexOf("Select");
         if(idx > -1) {
             let caseSubStr = resultString.substring(idx,resultString.length);
             resultString = resultString.replace(caseSubStr,'');
@@ -130,8 +129,18 @@ $(document).ready(function(){
         return urlString;
     }
 
-   
+    function removeAmp(selectString) {
+        let ampIdx = selectString.indexOf("&");
+        if(ampIdx > -1) {
+            selectString = selectString.replaceAll(/&/g, '%26');
 
+        }
+        selectString = selectString.trim();
+        return selectString;
+    }
+
+   
+   // selectedOption = selectedOption.replaceAll(/&/g,"%26");
 
     
 

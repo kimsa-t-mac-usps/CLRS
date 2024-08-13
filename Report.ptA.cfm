@@ -1081,6 +1081,10 @@ docTitle = document.title;
 
 <CFELSEIF IsDefined("SelectedHQDept")>
 
+<cfset ampIdx = find("%26",SelectedHQDept)>
+<cfif ampIdx gt 0>
+	<cfset SelectedHQDept = replace(SelectedHQDept,"%26", "&")>
+</cfif>
 	<CFSET Slashes_HQ_AREA_NAME_Index = Find(" // ", SelectedHQDept)>
 
 	<CFIF Slashes_HQ_AREA_NAME_Index GT 0>
@@ -1108,6 +1112,11 @@ docTitle = document.title;
 	</cfif>
 
 <CFELSEIF IsDefined("SelectedLDOffice")>
+	<cfset ampIdx = find("%26",SelectedLDOffice)>
+<cfif ampIdx gt 0>
+	<cfset SelectedLDOffice = replace(SelectedLDOffice,"%26", "&")>
+</cfif>
+
 
 	<CFSET Slashes_SelectedLDOffice_Index = Find(" // ", SelectedLDOffice)>
 
