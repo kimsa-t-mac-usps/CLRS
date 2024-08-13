@@ -344,51 +344,20 @@ SelectedHQDept CONTAINS "HQ Labor Relations">
 
 
 <CFQUERY NAME="LDOffices" DATASOURCE="contliab">
-
-
 select DISTINCT office, OFFICE_PRM_KEY, DELETE_FLAG
 from ldoffices
-where 
-
-
-
-
-trim(office) NOT LIKE 'Select%' 
-
-AND 
-trim(office) NOT LIKE 'Law Department%' 
-
-AND 
-trim(office) NOT LIKE '%List' 
-
-
-
-AND
-(
-OFFICE NOT LIKE 'Directories%'
-AND
-OFFICE NOT LIKE '%Atlanta%'
-AND
-OFFICE NOT LIKE '%Facilities%'
-AND
-OFFICE NOT LIKE '%Environmental%'
-AND
-OFFICE NOT LIKE '%General Counsel, HQ%'
-AND
-OFFICE NOT LIKE '%Business Services%'
-AND
-OFFICE NOT LIKE '%HQ Integration%'
-)
-
-
-
-
-
-
+where trim(office) NOT LIKE 'Select%' 
+AND trim(office) NOT LIKE 'Law Department%' 
+AND trim(office) NOT LIKE '%List' 
+AND (OFFICE NOT LIKE 'Directories%'
+AND OFFICE NOT LIKE '%Atlanta%'
+AND OFFICE NOT LIKE '%Facilities%'
+AND OFFICE NOT LIKE '%Environmental%'
+AND OFFICE NOT LIKE '%General Counsel, HQ%'
+AND OFFICE NOT LIKE '%Business Services%'
+AND OFFICE NOT LIKE '%HQ Integration%'
+AND OFFICE NOT LIKE '%Torts & Program Adjudication%')
 order by office
-
-
-
 </cfquery>
 
 
@@ -397,7 +366,9 @@ order by office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" onchange="setRptSelectOption(this,'SelectedLDOffice')" >
+
+<SELECT NAME="Select_LDOffice" id="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" >
+
 
 <option value="0">Select a Law Department Office . . .
 <option value="ALL">Full Report
@@ -465,7 +436,9 @@ Office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" onchange="setRptSelectOption(this,'SelectedCategory')">
+
+<SELECT NAME="Select_CaseCategory" id="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" >
+
 
 <option value="0">Select a Claim Category . . .
 <option value="ALL">ALL Categories
