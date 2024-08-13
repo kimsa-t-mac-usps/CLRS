@@ -1112,6 +1112,11 @@ docTitle = document.title;
 	</cfif>
 
 <CFELSEIF IsDefined("SelectedLDOffice")>
+	<cfset ampIdx = find("%26",SelectedLDOffice)>
+<cfif ampIdx gt 0>
+	<cfset SelectedLDOffice = replace(SelectedLDOffice,"%26", "&")>
+</cfif>
+
 
 	<CFSET Slashes_SelectedLDOffice_Index = Find(" // ", SelectedLDOffice)>
 

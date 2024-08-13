@@ -92,7 +92,7 @@ $(document).ready(function(){
         let urlString = event.currentTarget.baseURI;
         let fileIndex = urlString.indexOf("Report");
         let result = decodeURI(urlString.slice(fileIndex));
-        
+        let unionIdx = result.indexOf("SelectedUnion");
         let hqLrIdx = result.indexOf("SelectedHQDept=6X // HQ Labor Relations");
         if(result.indexOf("EarlierRptDate") > -1) {
             result = result + "&";
@@ -101,9 +101,9 @@ $(document).ready(function(){
         } else {
             result = result + "?";
         }
-        if (hqLrIdx == -1) {
+        if (hqLrIdx == -1 || unionIdx > -1) {
         result = clearCaseCat(result);
-        }
+        } 
         console.log("RESULT: " + result);
         return result;
 
