@@ -1007,7 +1007,7 @@ ThisReportDateCompare = #ThisReportDateCompare#
 	<CFQUERY NAME="Get_HQ" DATASOURCE="ContLiab">
 	
 	SELECT AREA_CODE,
-	NAME 
+	NAME
 	
 	from areas_districts
 	

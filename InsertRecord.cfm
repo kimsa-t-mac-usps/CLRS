@@ -4,6 +4,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<!---<meta http-equiv="X-UA-Compatible" content="IE=edge">--->
 <title>CONFIDENTIAL Law Department Contingent Liabilities: Add New Case</title>
 
 <style>
@@ -1108,7 +1109,7 @@ from which the case arose.
 
 	<SELECT NAME="DIVISION_CODE" style="font-family:arial; font-size:9pt; margin-top:2pt; margin-bottom:5pt; padding-bottom:1; background:khaki" SIZE="1">
 
-	<option value="0" style="color:white;background:maroon">Select a Division . . . 
+	<option value="0" style="color:white;background:maroon">Select a Division . . .
 
 	<CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
 

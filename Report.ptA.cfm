@@ -767,7 +767,7 @@ OR
 --->
 
 <body id="DocBody" onLoad="openInfoChgCompatView(); newCaseWindow = null; hideOrShowLinksDivs(); rotate()">
-<!---<cfinclude template="AddHeader.cfm">--->
+
 
 <CFIF
 (
@@ -977,8 +977,7 @@ docTitle = document.title;
 
 <div style="color:maroon; margin-bottom:35pt">
 
-<CFIF IsDefined("url.SelectedPC")>
-	<!--- <cfdump var="#url.SelectedPC#"> --->
+<CFIF IsDefined("SelectedPC")>
 
 	<CFSET Slashes_DIST_PERF_CLUSTER_CODE_Index = Find(" // ", SelectedPC)>
 	<CFSET Slashes_Next_Word = Slashes_DIST_PERF_CLUSTER_CODE_Index + 4>
