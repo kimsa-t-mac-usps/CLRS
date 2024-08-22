@@ -135,16 +135,17 @@ location.href='Spreadsheet.MgmtSched.cfm?RptDate=' + selectedDate;
 function setRptSelectOption(thisSelect_Option, optionTypeParm) {
 
 
+<!---
+	<SELECT NAME="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="(this, 'SelectedDiv')">
+--->
 
-	/*<SELECT NAME="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="(this, 'SelectedDiv')">*/
-
-
-//alert("thisSelect_Option.options[thisSelect_Option.selectedIndex] = '" + thisSelect_Option.options[thisSelect_Option.selectedIndex] + "'");
+<!---
+alert("thisSelect_Option.options[thisSelect_Option.selectedIndex] = '" + thisSelect_Option.options[thisSelect_Option.selectedIndex] + "'");
+--->
 
 
 selectedOption = thisSelect_Option.options[thisSelect_Option.selectedIndex].value;
-
-selectedOption = selectedOption.replaceAll(/&/g,"%26");
+//selectedOption = selectedOption.replaceAll(/&/g,"%26");
 
 // alert("Report.topjs.cfm at 148: selectedOption = '" + selectedOption + "'");
 
