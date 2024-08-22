@@ -1,7 +1,14 @@
-
 <cfinclude template="MfaCookieCheck.cfm">
+<<<<<<< HEAD
 <script src="jquery/jquery-3.7.1.min.js"></script>
 <script src="jquery/reportFilter.js"></script>
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 68a57280e16e39d06ee9f306c53cceb4cb7dc6d0
+
+>>>>>>> working-branch
 <!--- 
 Included in Report.full.cfm.
 Green box in upper-right of Report. Links to New Case form, Protocol, Report format (Front Office, Corp Finance), Spreadsheet options, format options for finalizing, dropdown menus for selecting District, HQ Dept, etc., and previous Quarterly reports
@@ -229,7 +236,11 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 </cfoutput>
 &middot;&nbsp;
 
+<<<<<<< HEAD
 <SELECT NAME="Select_DIST_PERF_CLUSTER_CODE" id="Select_DIST_PERF_CLUSTER_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onchange="setRptSelectOption(this,'SelectedPC')" >
+=======
+<SELECT NAME="Select_DIST_PERF_CLUSTER_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="setRptSelectOption(this, 'SelectedPC')">
+>>>>>>> 68a57280e16e39d06ee9f306c53cceb4cb7dc6d0
 
 <option value="0">Select a District . . .
 
@@ -252,9 +263,13 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 <!--- SelectedDiv --->
 
 
+<<<<<<< HEAD
 	<SELECT NAME="Select_DIVISION_CODE" id="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onchange="setRptSelectOption(this,'SelectedPC')">
+=======
+	<SELECT NAME="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="setRptSelectOption(this, 'SelectedPC')">
+>>>>>>> 68a57280e16e39d06ee9f306c53cceb4cb7dc6d0
 
-	<option value="0">Select a Division . . . 
+	<option value="0">Select a Division . . .
 
 	<CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
 
@@ -269,7 +284,11 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 </cfoutput>
 &middot;&nbsp;
 
+<<<<<<< HEAD
 <SELECT NAME="Select_HQ_AREA_NAME" id="Select_HQ_AREA_NAME"style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1" onchange="setRptSelectOption(this,'SelectedHQDept')">
+=======
+<SELECT NAME="Select_HQ_AREA_NAME" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1" onChange="setRptSelectOption(this, 'SelectedHQDept')">
+>>>>>>> 68a57280e16e39d06ee9f306c53cceb4cb7dc6d0
 
 <option value="0">Select a Headquarters Department . . .
 
@@ -289,15 +308,24 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 <CFIF IsDefined("SelectedHQDept")
 AND
+<<<<<<< HEAD
 SelectedHQDept CONTAINS "HQ Labor Relations"> 
 <!--- <div id="unionSelect"> --->
+=======
+SelectedHQDept CONTAINS "HQ Labor Relations">
+
+>>>>>>> 68a57280e16e39d06ee9f306c53cceb4cb7dc6d0
 
 <cfoutput>
 <p style="margin-top:#TopRightLinksMarginTop#; margin-left:10pt">
 </cfoutput>
 &middot;&nbsp;
 
+<<<<<<< HEAD
 <SELECT NAME="Select_UNIONS_SELECTED" id="Select_UNIONS_SELECTED" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1" onChange="setRptSelectOption(this, 'SelectedUnion')">
+=======
+<SELECT NAME="Select_UNIONS_SELECTED" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1" onChange="setRptSelectOption(this, 'SelectedUnion')">
+>>>>>>> 68a57280e16e39d06ee9f306c53cceb4cb7dc6d0
 
 <option value="0">Select a Union . . .
 
@@ -324,8 +352,13 @@ SelectedHQDept CONTAINS "HQ Labor Relations">
 
 
 </select>
+<<<<<<< HEAD
 <!--- </div> --->
 
+=======
+
+
+>>>>>>> 68a57280e16e39d06ee9f306c53cceb4cb7dc6d0
 </cfif>
 
 
@@ -367,9 +400,17 @@ order by office
 </cfoutput>
 &middot;&nbsp;
 
+<<<<<<< HEAD
 
 <SELECT NAME="Select_LDOffice" id="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" >
 
+=======
+<<<<<<< HEAD
+<SELECT NAME="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" onchange="setRptSelectOption(this,'SelectedLDOffice')" >
+=======
+<SELECT NAME="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" onChange="setRptSelectOption(this, 'SelectedLDOffice')">
+>>>>>>> 68a57280e16e39d06ee9f306c53cceb4cb7dc6d0
+>>>>>>> working-branch
 
 <option value="0">Select a Law Department Office . . .
 <option value="ALL">Full Report
@@ -437,9 +478,17 @@ Office
 </cfoutput>
 &middot;&nbsp;
 
+<<<<<<< HEAD
 
 <SELECT NAME="Select_CaseCategory" id="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" >
 
+=======
+<<<<<<< HEAD
+<SELECT NAME="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" onchange="setRptSelectOption(this,'SelectedCategory')">
+=======
+<SELECT NAME="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" onChange="setRptSelectOption(this, 'SelectedCategory')">
+>>>>>>> 68a57280e16e39d06ee9f306c53cceb4cb7dc6d0
+>>>>>>> working-branch
 
 <option value="0">Select a Claim Category . . .
 <option value="ALL">ALL Categories
@@ -510,3 +559,6 @@ Office
 
 
 </div>
+
+
+

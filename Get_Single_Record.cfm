@@ -30,6 +30,10 @@ TextHighlight EQ "Disabled"
 <CFSET This_CurrentRow = 0>
 <CFSET RowColor = "linen">
 <CFSET CLRC_Query_Name = "Get_Single_Record">
+
+
+
+
 <CFINCLUDE TEMPLATE="CheckUserAuth.cfm">
 
 <CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="contliab" result=singleResult>

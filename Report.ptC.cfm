@@ -28,7 +28,6 @@ AND NOT
 IsDefined("EarlierRptDate")>
 
 	<CFOUTPUT>
-		
 	<div id="TableBorder_#This_CurrentRow#" style="border:thin solid maroon; width:100%; margin-bottom:10pt; padding:5pt">
 	</cfoutput>
 
@@ -57,8 +56,11 @@ IsDefined("EarlierRptDate")>
 
 
 <CFOUTPUT>
+<<<<<<< HEAD
 	<cfinclude template="AddHeader.cfm">
 	<!---<cfinclude template="AddHeaderA.cfm">--->
+=======
+>>>>>>> working-branch
 <table id="RecTable_#This_CurrentRow#" cellpadding="4" cellspacing="4" width="100%" style="margin-bottom:15pt; background:#RowColor#" border=0>
 </cfoutput>
 
@@ -91,7 +93,6 @@ SelectedCategory CONTAINS "Non-HQ"
 <tr Report.ptC.cfm at 97>
 
 <CFOUTPUT>
-	<!---<cfinclude template="AddHeader.cfm">--->
 <div id="CaseRecord_#This_CurrentRow#">
 </cfoutput>
 
