@@ -288,7 +288,7 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 
 
 					<CFIF IsDefined("SelectedPC")>
-						
+
 						<CFSET Slashes_DIST_PERF_CLUSTER_CODE_Index = Find(" // ", SelectedPC)>
 	
 						<CFIF Slashes_DIST_PERF_CLUSTER_CODE_Index GT 0>
@@ -308,15 +308,9 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 								AND clr.DIST_PERF_CLUSTER_CODE = '#This_DIST_PERF_CLUSTER_CODE#'
 
 							</cfif>
-							
 
 						</cfif>
-					<cfif findNoCase("Division",SelectedPC) gt 0>
-						AND clr.DIVISION_CODE = '#SelectedPC#'
-						<cflog text="Division: #SelectedPC#" type="information" file="clrs_qry">
-					<cfelse>
-						<cflog text="THIS IS SO BAD" type="information" file="clrs_qrybad">
-					</cfif>
+
 					<CFELSEIF IsDefined("SelectedHQDept")>
 	
 						<CFSET Slashes_HQ_AREA_NAME_Index = Find(" // ", SelectedHQDept)>

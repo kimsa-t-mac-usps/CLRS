@@ -56,11 +56,6 @@ IsDefined("EarlierRptDate")>
 
 
 <CFOUTPUT>
-<<<<<<< HEAD
-	<cfinclude template="AddHeader.cfm">
-	<!---<cfinclude template="AddHeaderA.cfm">--->
-=======
->>>>>>> working-branch
 <table id="RecTable_#This_CurrentRow#" cellpadding="4" cellspacing="4" width="100%" style="margin-bottom:15pt; background:#RowColor#" border=0>
 </cfoutput>
 
