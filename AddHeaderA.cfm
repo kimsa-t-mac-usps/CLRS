@@ -15,7 +15,7 @@
   <p></p>
 </div>
 
-<table style="width:100%" border="right">
+<table>
   <tr></tr>
  
 </table>
