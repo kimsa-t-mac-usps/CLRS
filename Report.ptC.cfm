@@ -18,8 +18,12 @@ Query CONTINGENT_LIAB_GetRecord_PrevRpt in Get_Single_Record.cfm
 
 
 <link Report.ptC.cfm rel="stylesheet" type="text/css" href="stylesheet.css">
-
-
+<CFOUTPUT>
+	
+	<!---New code added for Header and Sub-Header 8.30.24">--->
+<table id="RecTable_#This_CurrentRow#" cellpadding="4" cellspacing="4" width="100%" style="margin-bottom:15pt; background:#RowColor#" border=0 >
+	<h1 style="font-size:20px;text-align: center;margin: 30px;padding: 30px; background:LightGray">#Case_Name#</h1>
+</cfoutput>
 
 <CFIF DATE_LAST_UPDATE EQ "" 
 AND 
@@ -30,6 +34,7 @@ IsDefined("EarlierRptDate")>
 	<CFOUTPUT>
 	<div id="TableBorder_#This_CurrentRow#" style="border:thin solid maroon; width:100%; margin-bottom:10pt; padding:5pt">
 	</cfoutput>
+	
 
 <CFELSE>
 
@@ -55,9 +60,7 @@ IsDefined("EarlierRptDate")>
 
 
 
-<CFOUTPUT>
-<table id="RecTable_#This_CurrentRow#" cellpadding="4" cellspacing="4" width="100%" style="margin-bottom:15pt; background:#RowColor#" border=0>
-</cfoutput>
+
 
 
 <CFIF NOT
@@ -88,7 +91,8 @@ SelectedCategory CONTAINS "Non-HQ"
 <tr Report.ptC.cfm at 97>
 
 <CFOUTPUT>
-<div id="CaseRecord_#This_CurrentRow#">
+	<!---<cfinclude template="AddHeader.cfm">--->
+<div id="CaseRecord_#This_CurrentRow#"><!---<cfoutput>#Case_Name#</cfoutput>--->
 </cfoutput>
 
 
@@ -109,7 +113,8 @@ SelectedCategory CONTAINS "Non-HQ"
 	</CFOUTPUT>
 
 </cfif>
-
+<!---KIMSA 8.29.24 --->
+<!---<cfdump var="#CASE_NAME#"><br><br>--->
 
 
 <CFIF NOT (IsDefined("PkeyBkmarkFlag") AND PkeyBkmarkFlag EQ "yes")>
