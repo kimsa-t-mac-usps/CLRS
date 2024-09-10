@@ -76,7 +76,7 @@ Get_Single_Record.cfm at 69: CLRC_Query_Name = "#CLRC_Query_Name#"
 
 
 
-<CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="contliab">
+<CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="contliab" result=singleResult>
 
 SELECT
 

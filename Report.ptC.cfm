@@ -18,12 +18,25 @@ Query CONTINGENT_LIAB_GetRecord_PrevRpt in Get_Single_Record.cfm
 
 
 <link Report.ptC.cfm rel="stylesheet" type="text/css" href="stylesheet.css">
+<!---Add New code for Header and Sub-Header 8.30.24">--->
+
 <CFOUTPUT>
+	<cfset sub1 = mid(#CASE_TYPE_LABEL#,5,70)>
+	<cfset sub2 = mid(#ASSESSMENT_PROBABILITY_Label#,4,20)>
+	<cfset sub3 = mid(#CLAIM_CATEGORY_Label#,4,20)>
 	
-	<!---New code added for Header and Sub-Header 8.30.24">--->
+
 <table id="RecTable_#This_CurrentRow#" cellpadding="4" cellspacing="4" width="100%" style="margin-bottom:15pt; background:#RowColor#" border=0 >
-	<h1 style="font-size:20px;text-align: center;margin: 30px;padding: 30px; background:LightGray">#Case_Name#</h1>
+	<div id="section_headers" style="background:LightGray; padding:15pt">
+		<h4 style="text-align: center" >Section-header: #sub1#</h4>
+		<h5 style="text-align: center">Sub-header: #sub2# & #sub3#</h5>
+		<!---<h1 style="font-size:20px;text-align: center;margin: 30px;padding: 30px; background:LightGray">#Case_Name#</h1>--->
+	</div>
 </cfoutput>
+<!---<cfdump var=#CASE_TYPE_Label#><br>
+<cfdump var=#ASSESSMENT_PROBABILITY_Label# ><br>
+<cfdump var=#CLAIM_CATEGORY_Label# ><br--->
+
 
 <CFIF DATE_LAST_UPDATE EQ "" 
 AND 
