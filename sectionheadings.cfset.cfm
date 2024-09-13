@@ -186,14 +186,14 @@ IsDefined("This_CASE_TYPE")>
         
     <!--- KS2 --->
 	<!---<CFOUTPUT>
-		<!---<br />
+		<br />
 		Program = "SectionHeading.cfSet.cfm at 154 -- KS2"
 		<br />
 		Case_Type = #Case_Type#
 		<br />
 		Assess_Cutoff_List_Index = #Assess_Cutoff_List_Index#
 		<br />
-		CASE_TYPE_Label = #CASE_TYPE_Label#--->
+		CASE_TYPE_Label = #CASE_TYPE_Label#
 		<br />
 		<!---<a #AParm#><h3 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 115> KS--->
 		

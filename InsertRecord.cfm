@@ -1917,7 +1917,7 @@ FROM VIEW_CONTING_GET_CHECKLISTQUES
 --->
 <!---Kimsa test header --->
 
-<input TYPE="SUBMIT" VALUE="Submit" onClick="return checkSelected(CaseForm)" disabled="true">
+<input TYPE="SUBMIT" VALUE="Submit" onClick="return checkSelected(CaseForm)">
 
 
 

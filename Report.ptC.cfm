@@ -15,21 +15,28 @@ Query CONTINGENT_LIAB_GetRecord_PrevRpt in Get_Single_Record.cfm
 
 
 --->
-
-
-<link Report.ptC.cfm rel="stylesheet" type="text/css" href="stylesheet.css">
 <!---Add New code for Header and Sub-Header 8.30.24">--->
 
-<CFOUTPUT>
-	<cfset sub1 = mid(#CASE_TYPE_LABEL#,5,70)>
-	<cfset sub2 = mid(#ASSESSMENT_PROBABILITY_Label#,4,20)>
-	<cfset sub3 = mid(#CLAIM_CATEGORY_Label#,4,20)>
+<link Report.ptC.cfm rel="stylesheet" type="text/css" href="stylesheet.css">
 	
+
+
+<CFOUTPUT>
+	<cfset sub1 = CASE_TYPE_LABEL>
+	<cfset sub2 = ASSESSMENT_PROBABILITY_Label>
+	<cfset sub3 = CLAIM_CATEGORY_Label>
+	<CFIF NOT IsDefined("CASE_TYPE")
+AND
+IsDefined("This_CASE_TYPE")>
+
+	<CFSET CASE_TYPE = This_CASE_TYPE>
+
+</CFIF>
 
 <table id="RecTable_#This_CurrentRow#" cellpadding="4" cellspacing="4" width="100%" style="margin-bottom:15pt; background:#RowColor#" border=0 >
 	<div id="section_headers" style="background:LightGray; padding:15pt">
-		<h4 style="text-align: center" >Section-header: #sub1#</h4>
-		<h5 style="text-align: center">Sub-header: #sub2# & #sub3#</h5>
+		<h4 style="text-align: center" >Section-header:#sub1#</h4>
+		<h5 style="text-align: center">Sub-header:#sub2# & #sub3#</h5>
 		<!---<h1 style="font-size:20px;text-align: center;margin: 30px;padding: 30px; background:LightGray">#Case_Name#</h1>--->
 	</div>
 </cfoutput>
@@ -70,8 +77,12 @@ IsDefined("EarlierRptDate")>
 	
 
 </cfif>
+<CFOUTPUT>
+	<!---<cfinclude template="AddHeader.cfm">--->
+	<!---<cfinclude template="AddHeaderA.cfm">--->
+<table id="RecTable_#This_CurrentRow#" cellpadding="4" cellspacing="4" width="100%" style="margin-bottom:15pt; background:#RowColor#" border=0>
 
-
+</cfoutput>
 
 
 
@@ -104,7 +115,7 @@ SelectedCategory CONTAINS "Non-HQ"
 <tr Report.ptC.cfm at 97>
 
 <CFOUTPUT>
-	<!---<cfinclude template="AddHeader.cfm">--->
+	<!---<cfinclude template="AddHeaderA.cfm">--->
 <div id="CaseRecord_#This_CurrentRow#"><!---<cfoutput>#Case_Name#</cfoutput>--->
 </cfoutput>
 

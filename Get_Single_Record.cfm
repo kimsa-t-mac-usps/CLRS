@@ -35,7 +35,7 @@ TextHighlight EQ "Disabled"
 
 
 <CFINCLUDE TEMPLATE="CheckUserAuth.cfm">
-<!---Kimsa add result --->
+
 <CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="contliab" result=singleResult>
 
 SELECT
