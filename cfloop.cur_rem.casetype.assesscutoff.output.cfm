@@ -165,6 +165,7 @@ Same CFLOOP bypasses in:
     
     						<CFINCLUDE TEMPLATE="Report.ptB.cfm">
     						<CFELSE>
+    						<p> rrrrrr1</p>
 								<CFINCLUDE TEMPLATE="Report.ptC.cfm">
 							<CFINCLUDE TEMPLATE="Report.ptD.cfm">
 							<CFINCLUDE TEMPLATE="Report.ptE.cfm">

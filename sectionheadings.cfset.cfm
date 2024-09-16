@@ -1,5 +1,8 @@
 <cfinclude template="MfaCookieCheck.cfm">
-
+<!---<CFOUTPUT>
+		Program = "bbbbb.ptC.cfm at 4"
+	</CFOUTPUT>
+--->
 <!---------------------- SectionHeading.cfset.cfm ---------------------------->
 <!---------------------------------------------------------------------------->
 <!--- KS1 --->
@@ -159,7 +162,9 @@ IsDefined("This_CASE_TYPE")>
 			)>
 	
 				<br>
-				<!---<hr style="width:350pt; color:lightgrey" sectionheadings.cfset.cfm at 83>--->
+				
+				
+				<!---hr style="width:350pt; color:red" sectionheadings.cfset.cfm at 83>--->
 	
 			</cfif>
 
@@ -173,11 +178,19 @@ IsDefined("This_CASE_TYPE")>
 			AND	
 			Assess_Cutoff_List_Index EQ "NewTenMillionAndAbove"
 			)>
-
+<cfdump var="#AParm#" >
+				
+					
+				<CFDUMP var="#CASE_TYPE_Label#">
+				<CFIF CASE_TYPE EQ 1 AND Assess_Cutoff_List_Index EQ "TenMillionAndAbove">
 				<CFOUTPUT>
+					
+					<!---<div>aaaaaaaaaaaaaaaaaaa</div> Kimsa 9.15.24--->
 				<a sectionheadings.cfset.cfm at 89 #AParm#><h5>#CASE_TYPE_Label#</h5></a>
-				</cfoutput>
-
+				
+				<!---<p>endaaaaaaaaaaaaaaaa</p>--->
+				</CFOUTPUT>
+</CFIF>
 			</CFIF>
 
 
