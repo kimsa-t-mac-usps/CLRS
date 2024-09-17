@@ -23,11 +23,11 @@
 .header {
      position:fixed;
      top: 0mm;
-     height: 60px; /* Change with top of #container */
+     height: 0px; /* Change with top of #container */
      color: #eee;
      background-color:#679dd3;
      width: 100%;
-     padding: 36px;
+     padding: 0px;
      margin-left:-8px;
    }
 #container {
@@ -44,9 +44,9 @@
   <h2>Contingent Liabilities Single Record_TEST KIMSAssdas</h2>
   <p>sub-headers</p>
 </div>--->
-<!---<div class="header">
-  <strong>III. Contingent Liabilities: Assessed At or Above $10 Million</strong>
- </div></div>--->
+<div class="header">
+  <!---<strong>III. Contingent Liabilities: Assessed At or Above $10 Million</strong>--->
+ </div></div>
 
 
 </body>
