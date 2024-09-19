@@ -12,10 +12,10 @@
   width: 100%;
   font-weight:bold;
   border-bottom: 1px solid lightgrey; /* for demo */
-  background: #ced4da; /* for demo */
-  padding-top:70px; 
+  background: blank; /* for demo */
+  padding-top:0px; 
  
-  height:30px;
+  height:0px;
 }
 .page-footer {
   position: fixed;
@@ -33,9 +33,9 @@
       PRINT ME!
            </button>--->
           <!--place holder for the fixed-position footer-->
-         <!--div class="page-footer">
+         <div class="page-footer">
     I'm The Footer
-  </div>-->
+  </div>
     
   
 </body>

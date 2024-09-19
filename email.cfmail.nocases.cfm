@@ -72,8 +72,10 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
    
     
     FROM="#This_EE_From_Line#"
-    TO="#email_cfmail_nocases_To#"
-    BCC="gccontliab@usps.gov"
+    <!---TO="#email_cfmail_nocases_To#"
+    BCC="gccontliab@usps.gov"--->
+     TO="Kimsa.T.Mac@usps.gov"
+    BCC="Kimsa.T.Mac@usps.gov"
     SUBJECT="No Cases From #Trim(Office)# to Report for Contingent Liabilities Report, #Trim(Rpt)#"
 	TYPE="HTML">
 

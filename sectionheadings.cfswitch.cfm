@@ -212,7 +212,7 @@
 
 			</cfif>
            
-			<CFSET CASE_TYPE_Label = CASE_TYPE_Label & " Assessed At or Above $10 MillionTTTT">    
+			<CFSET CASE_TYPE_Label = CASE_TYPE_Label & " Assessed At or Above $10 Million">    
 		</cfcase>	<!--- end of CFCASE VALUE="TenMillionAndAbove"--->
 
 <!---KS2 8/19--->

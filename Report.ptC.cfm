@@ -22,9 +22,9 @@ Query CONTINGENT_LIAB_GetRecord_PrevRpt in Get_Single_Record.cfm
 
 
 <CFOUTPUT>
-	<cfset sub1 = CASE_TYPE_LABEL>
-	<cfset sub2 = ASSESSMENT_PROBABILITY_Label>
-	<cfset sub3 = CLAIM_CATEGORY_Label>
+	<cfset sub1 = mid(#CASE_TYPE_LABEL#,5,70)>
+	<cfset sub2 = mid(#ASSESSMENT_PROBABILITY_Label#,4,20)>
+	<cfset sub3 = mid(#CLAIM_CATEGORY_Label#,4,20)>
 
 
 <table id="RecTable_#This_CurrentRow#" cellpadding="4" cellspacing="4" width="100%" style="margin-bottom:15pt; background:#RowColor#" border=0 >
