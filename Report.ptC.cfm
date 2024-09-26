@@ -3,9 +3,9 @@
 <!------------------------- Report.ptC.cfm ----------------------------------->
 <!---------------------------------------------------------------------------->
 <!--- KS1 --->
-	<CFOUTPUT>
+	<!---<CFOUTPUT>
 		Program = "Report.ptC.cfm at 4"
-	</CFOUTPUT>
+	</CFOUTPUT>--->
 
 <!---
 
@@ -18,7 +18,7 @@ Query CONTINGENT_LIAB_GetRecord_PrevRpt in Get_Single_Record.cfm
 <!---Add New code for Header and Sub-Header 8.30.24">--->
 
 <link Report.ptC.cfm rel="stylesheet" type="text/css" href="stylesheet.css">
-<!---<p>raoooooooooooooooooooooooo</p>--->	<!---Kimsa 9.15.24 --->
+<!---<p>raooooooooooooooooooooossooo</p>--->	<!---Kimsa 9.15.24 --->
 
 
 <CFOUTPUT>
