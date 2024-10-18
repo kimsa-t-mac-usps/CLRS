@@ -156,7 +156,7 @@ Get_Auth_User_Office.OFFICE_PRM_KEY = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 <CFOUTPUT>
 --->
 
-<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+
 <CFQUERY NAME="CONTINGENT_LIAB_GetRecord_Current_Count" DATASOURCE="contliab">
 
 SELECT COUNT(*) AS Current_Count
@@ -767,8 +767,7 @@ OR
 --->
 
 <body id="DocBody" onLoad="openInfoChgCompatView(); newCaseWindow = null; hideOrShowLinksDivs(); rotate()">
-<!---Index page KS --->
-<!---<cfinclude template="AddHeaderA.cfm">--->
+
 
 <CFIF
 (

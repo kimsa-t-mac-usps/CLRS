@@ -13,7 +13,7 @@ Included by cfloop.cur_rem.casetype.assesscutoff.output.cfm
 Query CONTINGENT_LIAB_GetRecord_PrevRpt in Report.cfm
 
 --->
-<p>&&&&&&&&&&&&&&&</p>
+
 <tr>
 <td class="CorpFin">
 

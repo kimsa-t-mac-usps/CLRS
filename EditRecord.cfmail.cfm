@@ -97,10 +97,8 @@ CHR(32) = space
 <CFMAIL
    
      FROM="#This_EE_From_Line#"
-    <!---TO="#EditRecord_cfmail_To#"
-    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"--->
-    TO="Kimsa.T.Mac@usps.gov"
-    BCC="Kimsa.T.Mac@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
+    TO="#EditRecord_cfmail_To#"
+    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
     SUBJECT="#Form.CASE_NAME#: #ASSESSMENT_AMOUNT_Change# in Contingent Liabilities Assessment"
 	TYPE="HTML">
 

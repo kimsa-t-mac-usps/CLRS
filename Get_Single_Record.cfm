@@ -197,10 +197,10 @@ CL Case:
 #CASE_NAME#
 </CFOUTPUT>
 </title>
-<!---<p>111111111111111111111</p>--->
+
 
 <CFINCLUDE TEMPLATE="Report.ptC.cfm">
-<!---<p>2222222222222222222222</p>--->
+
 
 <CFINCLUDE TEMPLATE="Report.ptD.cfm">
 

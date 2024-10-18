@@ -39,15 +39,13 @@ Assess_Cutoff_List_Index = #Assess_Cutoff_List_Index#
 HeaderParm = #HeaderParm#
 <p>
 </cfoutput>--->
-<!---<cfdump var="#Form#" > updated header KS 8.28.24--->
-
+<!---<cfdump var="#Form#" >--->
 <!---ks2 -------------------------------------------------------------------------------------->
 	<CFIF (This_CASE_TYPE EQ 2
 		and CASE_TYPE_Label EQ "II. Contingent Receivables: Assessed Below $10 Million"
 			and CASE_TYPE_Label NEQ Old_CASE_TYPE_Label
 				and Assess_Cutoff_List_Index EQ "UnderTenMillion")>
 		<CFOUTPUT>
-			<!---<cfinclude template="AddHeader.cfm">--->
 			<a #AParm#><h5 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h5></a>
 		</cfoutput>
 	<CFELSEIF (This_CASE_TYPE EQ 11
@@ -90,7 +88,7 @@ IsDefined("This_CASE_TYPE")>
     </cfif>
 
 
-	<CFIF HeaderParm EQ "TopIndex"> 
+	<CFIF HeaderParm EQ "TopIndex">
 		<CFSET AParm = 'href = "##' & CASE_TYPE_Label & '"'>
 	<CFELSE>
 		<CFSET AParm = 'name = "' & CASE_TYPE_Label & '"'>
@@ -195,9 +193,9 @@ IsDefined("This_CASE_TYPE")>
 		<br />
 		CASE_TYPE_Label = #CASE_TYPE_Label#
 		<br />
-		<!---<a #AParm#><h3 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 115> KS--->
+		<!---<a #AParm#><h3 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 115>--->
 		
-	</CFOUTPUT>    --->
+	</CFOUTPUT> --->   
         
 
 		<CFIF This_RecordCount EQ 0>
@@ -671,14 +669,11 @@ IsDefined("This_CASE_TYPE")>
 	<CFELSE>
 
 		<CFOUTPUT>
-			
 		<a #AParm#><h4 class="SectionHead" style="sectionheadings.cfset.cfm at 442">#ASSESSMENT_PROBABILITY_Label##RemoteAssessedNote#</h4></a>
-		
 		</cfoutput>
 
 	</cfif>
         
-
 
 	<CFSET ASSESSMENT_PROBABILITY_Label_Count = ASSESSMENT_PROBABILITY_Label_Count + 1> 
 	<CFSET Old_ASSESSMENT_PROBABILITY_Label = ASSESSMENT_PROBABILITY_Label>
@@ -705,7 +700,6 @@ IsDefined("This_CASE_TYPE")>
 
 
 	<CFOUTPUT>
-		
 	<a #AParm#>#CLAIM_CATEGORY_Label#</a>
 	</cfoutput>
 

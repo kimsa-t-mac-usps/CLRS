@@ -48,7 +48,7 @@ OR
 
 function openCLCaseWindow(prKey, thisRptDate, prevRptDate) {
 
-/*alert("raoooo");*/
+
 if (document.getElementById("TextHighlightingDisable").checked) {
 
 	textHighlightParm = "&TextHighlight=Disabled";

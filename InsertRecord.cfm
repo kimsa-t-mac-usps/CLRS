@@ -1915,7 +1915,7 @@ FROM VIEW_CONTING_GET_CHECKLISTQUES
 <!---
 <input TYPE="SUBMIT" VALUE="Submit" onClick="return showUnionsSelected(this); return checkSelected()">
 --->
-<!---Kimsa test header --->
+
 
 <input TYPE="SUBMIT" VALUE="Submit" onClick="return checkSelected(CaseForm)">
 

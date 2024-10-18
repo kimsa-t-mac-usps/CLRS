@@ -345,8 +345,7 @@ IsDefined("Form.Alt_Approval_Flag")>
 	    FROM="#This_EE_From_Line#"
 	    TO="#ToLine#"
 	    CC="#CCLine#"
-	    <!---BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"--->
-	    BCC="Kimsa.T.Mac@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
+	    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
 	    SUBJECT="#ApprWordSubj#: New Contingent Liabilities Case Record"
 		TYPE="HTML">
 	
