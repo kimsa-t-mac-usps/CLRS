@@ -1,6 +1,9 @@
 
 <CFSET RptDateToFmt_CalYear = DatePart("yyyy", RptDateToFmt)>
+
+
 <CFSET RptDateToFmt_CalQuarter = DatePart("q", RptDateToFmt)>
+
 <CFSET RptDateToFmt_CalQuarter_Num = LSParseNumber(RptDateToFmt_CalQuarter)>
 
 <CFIF RptDateToFmt_CalQuarter_Num EQ 4>

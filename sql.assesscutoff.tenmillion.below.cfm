@@ -45,7 +45,7 @@ clr.ASSESSMENT_AMOUNT < #FiveMillion#
 
 
 (
---line 46 tenmillion.below.cfm
+--line 46 tenmillion.below.cfm 
 clr.ASSESSMENT_AMOUNT IS NULL
 OR
 
@@ -58,8 +58,8 @@ clr.ASSESSMENT_AMOUNT < #FiveMillion#
 clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#FiveMillion#">
 --->
 
-
-clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
+<!---KS Updated Above HightEnd  --->
+clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> AND clr.ASSESSMENT_AMOUNT NOT IN (5100000) AND clr.ASSESSMENT_AMOUNT_UPPER NOT IN (63000000)
 
 
 )

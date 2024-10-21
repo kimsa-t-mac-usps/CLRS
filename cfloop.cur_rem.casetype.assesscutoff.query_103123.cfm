@@ -159,7 +159,7 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 <CFOUTPUT>
 --->
 
-
+	
 					<CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="contliab">
 
 					SELECT
@@ -630,8 +630,8 @@ NOT:
 							AND
 							clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
 
-							AND
-							clr.ASSESSMENT_AMOUNT IS NOT NULL
+							OR
+							clr.ASSESSMENT_AMOUNT IS NULL
 
 
 
@@ -690,10 +690,10 @@ NOT:
 --->
 
 						--line 641
-						<!---clr.ASSESSMENT_AMOUNT IS NOT NULL--->
-						
-						(clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> or clr.ASSESSMENT_AMOUNT IS NULL)
-						AND clr.ASSESSMENT_AMOUNT NOT IN (5100000) AND clr.ASSESSMENT_AMOUNT_UPPER NOT IN (63000000)
+						<!---clr.ASSESSMENT_AMOUNT IS NOT NULL
+						clr.ASSESSMENT_AMOUNT IS NOT NULL
+						AND--->
+						(clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> or clr.assessment_amount is null)
 						AND
 						(
 						clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
@@ -1083,8 +1083,6 @@ ASSESSMENT_AMOUNT < 1000000
 
 
 					</cfquery>
-
-
 
 <!---
 </CFOUTPUT>
