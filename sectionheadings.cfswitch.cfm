@@ -113,7 +113,8 @@
 				<CFSET CASE_TYPE_Label = CASE_TYPE_Label & "Contingent Receivables: ">
 
 		</cfcase>
-
+<p>CASE_TYPE_Label</p>
+<p>rao</p>
 		<CFCASE VALUE="11">
 
 			<!---<CFSET CASE_TYPE_Label = "II. Cases To Be Removed -- Contingent Liabilities:">--->

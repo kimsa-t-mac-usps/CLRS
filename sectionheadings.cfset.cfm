@@ -46,8 +46,10 @@ HeaderParm = #HeaderParm#
 			and CASE_TYPE_Label NEQ Old_CASE_TYPE_Label
 				and Assess_Cutoff_List_Index EQ "UnderTenMillion")>
 		<CFOUTPUT>
+			<cfdump var="#CASE_TYPE_Label#" >
 			<a #AParm#><h5 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h5></a>
 		</cfoutput>
+		
 	<CFELSEIF (This_CASE_TYPE EQ 11
 		and CASE_TYPE_Label EQ "III. Cases To Be Removed - Contingent Liabilities: Assessed Below $10 Million"
 			and CASE_TYPE_Label NEQ Old_CASE_TYPE_Label
@@ -89,9 +91,11 @@ IsDefined("This_CASE_TYPE")>
 
 
 	<CFIF HeaderParm EQ "TopIndex">
+		
 		<CFSET AParm = 'href = "##' & CASE_TYPE_Label & '"'>
 	<CFELSE>
 		<CFSET AParm = 'name = "' & CASE_TYPE_Label & '"'>
+		
 	</cfif>
 
 
@@ -216,11 +220,14 @@ IsDefined("This_CASE_TYPE")>
 
 
 		<CFIF CASE_TYPE_Label DOES NOT CONTAIN "I. Contingent Liabilities">
-
+<p>kim1</p>
 	    	<cfoutput>
+	    		
+	    		<h5>#CASE_TYPE_LABEL#rao</h5>
+		
 			<a #AParm#><h3 class="SectionHead">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 102>
 			</cfoutput>
-
+<p>kim2</p>
 		<CFELSE>
 
 <!---
@@ -237,13 +244,13 @@ IsDefined("This_CASE_TYPE")>
 			CASE_TYPE_Label CONTAINS "Assessed At or Above $10 Million">
     
 				<CFOUTPUT>
-				<a #AParm#><h3 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 115>
+				<a #AParm#><h3 class="SectionHeadAfterFirst">TESTA_#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 115>
 				</cfoutput>
 
 			<CFELSE>
 
 				<cfoutput>
-				<a #AParm#><h3 class="SectionHead">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 121>
+				<a #AParm#><h3 class="SectionHead">TESTB_#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 121>
 				</cfoutput>
 
 			</cfif>
