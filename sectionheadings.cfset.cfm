@@ -220,14 +220,14 @@ IsDefined("This_CASE_TYPE")>
 
 
 		<CFIF CASE_TYPE_Label DOES NOT CONTAIN "I. Contingent Liabilities">
-<p>kim1</p>
+<p>kimsa1</p>
 	    	<cfoutput>
 	    		
 	    		<h5>#CASE_TYPE_LABEL#rao</h5>
 		
 			<a #AParm#><h3 class="SectionHead">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 102>
 			</cfoutput>
-<p>kim2</p>
+<p>kimsa2</p>
 		<CFELSE>
 
 <!---
