@@ -16,15 +16,43 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 
 <CFOUTPUT>
-<div id="TopRightLinks" TopRightLinksDiv.cfm style="position:absolute; top:20; right:58; background:##CCFFCC; padding:5pt; text-align:left; font-weight:bold; font-size:#TopRightLinksFontSize#; font-family:verdana">
+<div id="TopRightLinks" style="position:absolute; top:20; right:58; background:CCFFCC; padding:5pt; text-align:left; font-weight:bold; font-size:#TopRightLinksFontSize#; font-family:verdana">
 </cfoutput>
 
+<!---
+<CFIF IsDefined("Form.CorpFinFormat")>
 
+<CFOUTPUT>
+Form.CorpFinFormat = "#Form.CorpFinFormat#"
+</CFOUTPUT>
+
+<CFELSE>
+	Form.CorpFinFormat NOT DEFINED.
+</CFIF>
+
+<br />
+
+<CFIF IsDefined("Form.FrontOffcReviewFormat")>
+
+<CFOUTPUT>
+Form.FrontOffcReviewFormat = "#Form.FrontOffcReviewFormat#"
+</CFOUTPUT>
+
+<CFELSE>
+
+Form.FrontOffcReviewFormat NOT DEFINED.
+
+</CFIF>
+
+<br />
+--->
 
 
 &middot;&nbsp;<a href="InsertRecord.cfm">New Case for This Quarter</a>
 
-
+<!---
+https://lawdept.usps.gov/inhouse/framed/conting.liab.htm
+--->
 
 
 <CFOUTPUT>
@@ -72,12 +100,17 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 	<p style="margin-top:#TopRightLinksMarginTop#">
 
-
+<!---
+	&middot;&nbsp;<a href="" onClick="setCorpFinFormat('PDF'); return false">Report for Corp Finance</a>&nbsp;&nbsp;
+--->
 
 	&middot;&nbsp;<a href="" target="_blank" onClick="setCorpFinFormat(); return false">Report for Corp Finance</a>&nbsp;&nbsp;
 
 	<div style="font-weight:normal; margin-left:5pt">
-
+<!---
+   	&middot;&nbsp;<a href="" target="_blank" onClick="setCorpFinFormat('PDF'); return false">PDF</a>
+	<br />
+--->
 	&middot;&nbsp;<a href="" onClick="setCorpFinFrontOffcFormat(); return false">Front Office Version</a>
 	<br />
 	&middot;&nbsp;<a href="" onClick="setCorpFinFormat_STL(); return false">Short-term Liabilities Only</a>
@@ -105,7 +138,19 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 
 <CFOUTPUT>
+<!---
+&middot;&nbsp;Spreadsheets&nbsp;&nbsp;<span style="font-size:7pt"><a href="Spreadsheet.CL.cfm?RptScope=Areas#SpreadsheetRptDateParm#">Area Totals</a>&nbsp;|&nbsp;<a href="Spreadsheet.CL.cfm?RptScope=Districts#SpreadsheetRptDateParm#">District Totals</a>&nbsp;|&nbsp;<a href="Spreadsheet.CL.cfm?RptScope=Cases#SpreadsheetRptDateParm#">Case List</a></span>
+--->
 
+
+<!---
+&middot;&nbsp;Spreadsheets&nbsp;<span style="font-size:7pt"><a href="Spreadsheet.CL.cfm?RptScope=Cases#SpreadsheetRptDateParm#">Case List</a>&nbsp;|&nbsp;<a href="Spreadsheet.CL.cfm?RptScope=Areas#SpreadsheetRptDateParm#">Area Totals</a>&nbsp;|&nbsp;<a href="Spreadsheet.CL.cfm?RptScope=Districts#SpreadsheetRptDateParm#">District Totals</a></span>
+
+
+
+
+<div style="margin-top:0pt; margin-left:5pt; font-weight:normal; font-size:7pt">[Only MC-approved & Finalized Liabilities cases]</div>
+--->
 
 
 &middot;&nbsp;Spreadsheets&nbsp;<span style="font-weight:normal; font-size:7pt">[Only MC-approved & Finalized Liabilities cases]</span>
@@ -113,6 +158,9 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 <div style="font-weight:normal; margin-left:5pt">
 
+<!---
+&middot;&nbsp;<a href="Spreadsheet.CL.cfm?RptScope=Cases#SpreadsheetRptDateParm#">Case List</a>&nbsp;|&nbsp;<a href="Spreadsheet.CL.cfm?RptScope=Areas#SpreadsheetRptDateParm#">Area Totals</a>&nbsp;|&nbsp;<a href="Spreadsheet.CL.cfm?RptScope=Districts#SpreadsheetRptDateParm#">District Totals</a>
+--->
 
 
 &middot;&nbsp;<a href="Spreadsheet.CL.cfm?RptScope=Cases#SpreadsheetRptDateParm#">Case List</a>
@@ -121,36 +169,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 <br />
 
-
-
-
-&middot;&nbsp;Management Sched Updates</a>&nbsp;&nbsp;&nbsp;<SELECT NAME="Select_Quarter_RptDate" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:##ffffcc" SIZE="1" onChange="setMgmtSchedSelect(this)">
-
-<option value="" style="background:##ffffcc">Select Quarter . . .
-
-<CFLOOP INDEX="ReportDatesList_Index" LIST="#ReportDatesList#">
-
-<CFSET RptDateToFmt = ReportDatesList_Index>
-<CFSET Fmt_RptDateToFmt = DateFormat(RptDateToFmt, "mm/dd/yyyy")>
-
-
-
-<CFINCLUDE TEMPLATE="RptDateFYQFmt.cfm">
-
-
-<CFOUTPUT>
-<option value="#Fmt_RptDateToFmt#">#RptDateFmtString#
-</cfoutput>
-
-<!---
-</cfif>
---->
-
-</cfloop>
-
-</select>
-
-
+&middot;&nbsp;<a href="Spreadsheet.MgmtSched.cfm" target="_blank">Management Schedule Updates</a>&nbsp;<span style="font-weight:normal; font-size:7pt">[Current Quarter only]</span>
 
 </div>
 
@@ -159,8 +178,8 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 <CFIF NOT IsDefined("EarlierRptDate")>
 <cfoutput>
-<div id="removeDRAFTLink"><p style="margin-top:#TopRightLinksMarginTop#">
-&middot;&nbsp;<a href="" onClick="removeDRAFT(); return false">Remove "DRAFT"</a></div>
+<span id="removeDRAFTLink"><p style="margin-top:#TopRightLinksMarginTop#">
+&middot;&nbsp;<a href="" onClick="removeDRAFT(); return false">Remove "DRAFT"</a></span>
 </cfoutput>
 </cfif>
 
@@ -175,7 +194,10 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 <CFIF IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat">
 
-
+<!---
+<p style="margin-top:#TopRightLinksMarginTop#">
+&middot;&nbsp;<a href="" onClick="CounselCoCounselList_Form.submit(); return false"><span id="HideShowIndexCaseNumLabel">List Counsel / Co-Counsel</span></a>
+--->
 
 
 <p style="margin-top:#TopRightLinksMarginTop#">
@@ -217,12 +239,6 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 <CFIF IsDefined("OfficeScope")>
 
-
-
-
-
-<CFSET DropdownList = "District">
-
 <cfoutput>
 <p style="margin-top:#TopRightLinksMarginTop#">
 </cfoutput>
@@ -230,37 +246,19 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 
 <SELECT NAME="Select_DIST_PERF_CLUSTER_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="setRptSelectOption(this, 'SelectedPC')">
 
+<!---
+<option value="0">Select a Performance Cluster . . .
+--->
+
+
 <option value="0">Select a District . . .
+
+
+<option value="FULL">Full Report
 
 <CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
 
 </select>
-
-
-<CFIF Get_Divisions.RecordCount GT 0>
-
-
-	<cfoutput>
-	<p style="margin-top:#TopRightLinksMarginTop#">
-	</cfoutput>
-	&middot;&nbsp;
-
-
-	<CFSET DropdownList = "Division">
-
-<!--- SelectedDiv --->
-
-
-	<SELECT NAME="Select_DIVISION_CODE" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:khaki" SIZE="1" onChange="setRptSelectOption(this, 'SelectedPC')">
-
-	<option value="0">Select a Division . . .
-
-	<CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
-
-	</select>
-
-</CFIF>
-
 
 
 <cfoutput>
@@ -268,7 +266,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_HQ_AREA_NAME" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1" onChange="setRptSelectOption(this, 'SelectedHQDept')">
+<SELECT NAME="Select_HQ_AREA_NAME" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:ffd5aa" SIZE="1" onChange="setRptSelectOption(this, 'SelectedHQDept')">
 
 <option value="0">Select a Headquarters Department . . .
 
@@ -296,12 +294,15 @@ SelectedHQDept CONTAINS "HQ Labor Relations">
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_UNIONS_SELECTED" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffd5aa" SIZE="1" onChange="setRptSelectOption(this, 'SelectedUnion')">
+<SELECT NAME="Select_UNIONS_SELECTED" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:ffd5aa" SIZE="1" onChange="setRptSelectOption(this, 'SelectedUnion')">
 
 <option value="0">Select a Union . . .
 
 <option value="FULL_LR">Full HQ LR Report
 
+<!---
+<CFINCLUDE TEMPLATE="hq.dept.dropdown.FromTable.cfm">
+--->
 
 
 
@@ -322,6 +323,12 @@ SelectedHQDept CONTAINS "HQ Labor Relations">
 </CFLOOP>
 
 
+
+
+
+
+
+
 </select>
 
 
@@ -330,6 +337,21 @@ SelectedHQDept CONTAINS "HQ Labor Relations">
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--- Close <CFIF IsDefined("OfficeScope")> --->
 </cfif>
 
 
@@ -344,51 +366,9 @@ SelectedHQDept CONTAINS "HQ Labor Relations">
 
 
 <CFQUERY NAME="LDOffices" DATASOURCE="contliab">
-
-
-select DISTINCT office, OFFICE_PRM_KEY, DELETE_FLAG
-from ldoffices
-where 
-
-
-
-
-trim(office) NOT LIKE 'Select%' 
-
-AND 
-trim(office) NOT LIKE 'Law Department%' 
-
-AND 
-trim(office) NOT LIKE '%List' 
-
-
-
-AND
-(
-OFFICE NOT LIKE 'Directories%'
-AND
-OFFICE NOT LIKE '%Atlanta%'
-AND
-OFFICE NOT LIKE '%Facilities%'
-AND
-OFFICE NOT LIKE '%Environmental%'
-AND
-OFFICE NOT LIKE '%General Counsel, HQ%'
-AND
-OFFICE NOT LIKE '%Business Services%'
-AND
-OFFICE NOT LIKE '%HQ Integration%'
-)
-
-
-
-
-
-
-order by office
-
-
-
+SELECT *
+FROM VIEW_CONTING_LDOFFICES_INIT
+where office_prm_key is not null
 </cfquery>
 
 
@@ -397,7 +377,7 @@ order by office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#bfdfff" SIZE="1" onChange="setRptSelectOption(this, 'SelectedLDOffice')">
+<SELECT NAME="Select_LDOffice" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:bfdfff" SIZE="1" onChange="setRptSelectOption(this, 'SelectedLDOffice')">
 
 <option value="0">Select a Law Department Office . . .
 <option value="ALL">Full Report
@@ -465,12 +445,18 @@ Office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#edcdaf" SIZE="1" onChange="setRptSelectOption(this, 'SelectedCategory')">
+<SELECT NAME="Select_CaseCategory" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:edcdaf" SIZE="1" onChange="setRptSelectOption(this, 'SelectedCategory')">
 
 <option value="0">Select a Claim Category . . .
 <option value="ALL">ALL Categories
 
 
+<!---
+From LabelLists.cfm:
+<CFSET CLAIM_CATEGORY_Labels = "Business,Labor,Tort">
+
+<CFSET CLAIM_CATEGORY_Labels_Select = "Business,Labor,Labor -- Non-HQ,Tort">
+--->
 
 
 
@@ -510,9 +496,9 @@ Office
 </cfoutput>
 &middot;&nbsp;
 
-<SELECT NAME="Select_Earlier_RptDate" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:#ffffcc" SIZE="1" onChange="setRptSelect(this)">
+<SELECT NAME="Select_Earlier_RptDate" style="font-family:verdana; font-size:7.5pt; margin-left:-2pt; margin-top:-2pt; margin-bottom:-2pt; background:ffffcc" SIZE="1" onChange="setRptSelect(this)">
 
-<option value="" style="background:#ffffcc">Select another Quarter Report . . .
+<option value="" style="background:ffffcc">Select another report . . .
 
 <CFLOOP INDEX="ReportDatesList_Index" LIST="#ReportDatesList#">
 

@@ -3,6 +3,7 @@
 <!--- Used in cfloop.cur_rem.casetype.assesscutoff.query.cfm --->
 
 <CFOUTPUT>
+
 <!--- Exclude cases "New This Quarter": --->
 
 AND NOT
