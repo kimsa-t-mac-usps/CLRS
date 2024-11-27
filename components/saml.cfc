@@ -1,5 +1,5 @@
 component {
-    if(cgi.SERVER_NAME != "127.0.0.1") {
+
     public void function doMfaInit(relayPage, queryString) {
         //writeLog(text="saml.cfc: relayPage: #arguments.relayPage# | querystring: #arguments.queryString#", type="information",file="ContLiab_samlcfc");
         if(len(arguments.queryString) > 0) {
@@ -14,5 +14,4 @@ component {
         };
         initSamlAuthRequest(samlConfig);
     }
-}
 }
