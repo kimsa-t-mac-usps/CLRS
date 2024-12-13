@@ -160,7 +160,7 @@
 		<!--- Corp Fin only --->
 		<CFCASE VALUE="Addendum">
 			<CFSET CASE_TYPE_Label = "IV. Addendum:">
-			<!---<CFSET CASE_TYPE_Label = "V. Addendum:">--->
+			<!---<CFSET CASE_TYPE_Label = "V. Addendum:"> --->
 		</cfcase>   <!--- end of CFCASE VALUE="Addendum" ---->
 
 	</cfswitch>  <!---end of CFSWITCH EXPRESSION="#This_CASE_TYPE#"--->
