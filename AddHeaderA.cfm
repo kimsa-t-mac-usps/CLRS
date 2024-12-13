@@ -38,6 +38,25 @@
      overflow: hidden ;
    }
 </style>
+<script type="text/javascript">
+	function myFunction() {
+	alert("fffffxxxxxxxxxxxxxxxffffffaadddddddddddddddaaaaaa");
+//	var element = document.getElementById("myP");
+//	element.style.color = "red";
+//	var element3 = document.getElementById("myP3");
+//	element3.style.color = "red";
+//	var element1 = document.getElementById("myP1");
+//	element1.style.color = "green";
+//	var element4 = document.getElementById("myP4");
+//	element4.style.color = "green";
+//	var element5 = document.getElementById("myP5");
+//	element5.style.color = "red";
+	//var element2 = document.getElementById("myP2");
+	//element2.style.color = "aqua";
+	
+}
+
+</script>
 </head>
 <body>
 <!---<div class="myDiv">

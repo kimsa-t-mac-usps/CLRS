@@ -41,17 +41,13 @@ HeaderParm = #HeaderParm#
 </cfoutput>--->
 <!---<cfdump var="#Form#" >--->
 <!---ks2 -------------------------------------------------------------------------------------->
-
 	<CFIF (This_CASE_TYPE EQ 2
 		and CASE_TYPE_Label EQ "II. Contingent Receivables: Assessed Below $10 Million"
 			and CASE_TYPE_Label NEQ Old_CASE_TYPE_Label
 				and Assess_Cutoff_List_Index EQ "UnderTenMillion")>
 		<CFOUTPUT>
-        <CFIF HeaderParm EQ "TopIndex"><!---remove doubleline II 12.4.24 KS --->
-            <a #AParm#><h5 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h5></a>
-          
-        </cfif>
-		
+			<!---<cfdump var="#CASE_TYPE_Label#" >--->
+			<a #AParm#><h5 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h5></a>
 		</cfoutput>
 		
 	<CFELSEIF (This_CASE_TYPE EQ 11
@@ -97,10 +93,9 @@ IsDefined("This_CASE_TYPE")>
 	<CFIF HeaderParm EQ "TopIndex">
 		
 		<CFSET AParm = 'href = "##' & CASE_TYPE_Label & '"'>
-
 	<CFELSE>
 		<CFSET AParm = 'name = "' & CASE_TYPE_Label & '"'>
-	
+		
 	</cfif>
 
 
@@ -221,31 +216,18 @@ IsDefined("This_CASE_TYPE")>
 <!--- From <CFIF HeaderParm EQ "TopIndex"> --->
 	<CFELSE>
 	
-		</table sectionheadings.cfset.cfm at 119>
+		<!---</table sectionheadings.cfset.cfm at 119>--->
 
 
 		<CFIF CASE_TYPE_Label DOES NOT CONTAIN "I. Contingent Liabilities">
-
+<!---<p>kimsa1</p>--->
 	    	<cfoutput>
 	    		
 	    		<!---<h5>#CASE_TYPE_LABEL#rao</h5>--->
 		
-			<a #AParm#><h3 class="SectionHead">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 102>
-<!---			<CFIF HeaderParm EQ "TopIndex">
-<cfdump var="tran index 2" >
-	
-<cfdump var="#CASE_TYPE_Label#" > 
-<cfdump var="#AParm#">  	
-<cfdump var="tran 2" >
-         
-<CFELSE>
-<cfdump var="tran name 2">
-
-<cfdump var="#CASE_TYPE_Label#" >
-<cfdump var="#AParm#" >
-<cfdump var="tran name 2">	         	        
-</cfif>--->
+			<!---<a #AParm#><h3 class="SectionHead">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 102>--->
 			</cfoutput>
+<!---<p>kimsa2</p>--->
 		<CFELSE>
 
 <!---
@@ -262,13 +244,13 @@ IsDefined("This_CASE_TYPE")>
 			CASE_TYPE_Label CONTAINS "Assessed At or Above $10 Million">
     
 				<CFOUTPUT>
-				<a #AParm#><h3 class="SectionHeadAfterFirst">TESTA_#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 115>
+				<a #AParm#><h3 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 115>
 				</cfoutput>
 
 			<CFELSE>
 
 				<cfoutput>
-				<a #AParm#><h3 class="SectionHead">TESTB_#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 121>
+				<a #AParm#><h3 class="SectionHead">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 121>
 				</cfoutput>
 
 			</cfif>
@@ -901,6 +883,5 @@ This_CASE_TYPE = #This_CASE_TYPE#
 Assess_Cutoff_List_Index = #Assess_Cutoff_List_Index#
 <p>
 </cfoutput>--->
-
 
 
