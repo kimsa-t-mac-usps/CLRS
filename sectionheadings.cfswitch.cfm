@@ -113,8 +113,7 @@
 				<CFSET CASE_TYPE_Label = CASE_TYPE_Label & "Contingent Receivables: ">
 
 		</cfcase>
-<p>CASE_TYPE_Label</p>
-<p>rao</p>
+
 		<CFCASE VALUE="11">
 
 			<!---<CFSET CASE_TYPE_Label = "II. Cases To Be Removed -- Contingent Liabilities:">--->
@@ -160,7 +159,7 @@
 		<!--- Corp Fin only --->
 		<CFCASE VALUE="Addendum">
 			<CFSET CASE_TYPE_Label = "IV. Addendum:">
-			<!---<CFSET CASE_TYPE_Label = "V. Addendum:"> --->
+			<!---<CFSET CASE_TYPE_Label = "V. Addendum:">--->
 		</cfcase>   <!--- end of CFCASE VALUE="Addendum" ---->
 
 	</cfswitch>  <!---end of CFSWITCH EXPRESSION="#This_CASE_TYPE#"--->
