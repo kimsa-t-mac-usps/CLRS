@@ -232,18 +232,18 @@ IsDefined("This_CASE_TYPE")>
 		
 			<a #AParm#><h3 class="SectionHead">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 102>
 <!---			<CFIF HeaderParm EQ "TopIndex">
-<cfdump var="tran index 2" >
+<cfdump var="KS index 2" >
 	
 <cfdump var="#CASE_TYPE_Label#" > 
 <cfdump var="#AParm#">  	
-<cfdump var="tran 2" >
+<cfdump var="KS 2" >
          
 <CFELSE>
-<cfdump var="tran name 2">
+<cfdump var="KS name 2">
 
 <cfdump var="#CASE_TYPE_Label#" >
 <cfdump var="#AParm#" >
-<cfdump var="tran name 2">	         	        
+<cfdump var="KS name 2">	         	        
 </cfif>--->
 			</cfoutput>
 		<CFELSE>
@@ -262,13 +262,13 @@ IsDefined("This_CASE_TYPE")>
 			CASE_TYPE_Label CONTAINS "Assessed At or Above $10 Million">
     
 				<CFOUTPUT>
-				<a #AParm#><h3 class="SectionHeadAfterFirst">TESTA_#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 115>
+				<a #AParm#><h3 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 115>
 				</cfoutput>
 
 			<CFELSE>
 
 				<cfoutput>
-				<a #AParm#><h3 class="SectionHead">TESTB_#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 121>
+				<a #AParm#><h3 class="SectionHead">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 121>
 				</cfoutput>
 
 			</cfif>

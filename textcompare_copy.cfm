@@ -1,0 +1,811 @@
+<cfinclude template="MfaCookieCheck.cfm">
+<!--- KS1 --->
+	<CFOUTPUT>
+		Program = "Report.ptC.cfm at 4"
+	</CFOUTPUT>
+<br>
+
+<CFOUTPUT>
+
+OldList = #OldList#
+<p><br>
+NewList = #NewList#
+<p>
+</cfoutput>
+<br>
+
+<!---   ---->
+<!---Status_compare_flag is not defined
+<CFIF IsDefined("Status_Compare_Flag")>
+	<CFOUTPUT>
+	Test text compare = textcompare.cfm line 18
+	Status_Compare_Flag = #Status_Compare_Flag#
+    <br />
+	</CFOUTPUT>
+    
+<CFELSE>
+Status_Compare_Flag NOT DEFINED.
+<br />
+</CFIF>
+--->
+
+
+<!---  sets DiffFlag to no  ---->
+<CFSET DiffFlag = "no">
+
+<!--- sets ThisNewList variable to NewList from report.ptc.cfm
+line 384 This_DIST_PERF_CLUSTER_NAME variable set NewList to thisnewlist ---->
+<CFSET ThisNewList = NewList>
+<CFOUTPUT><br>**line 35 NewList: #NewList#</CFOUTPUT><br>
+<CFSET ThisNewList = Replace(ThisNewList, "   ", " ", "ALL")>
+<CFOUTPUT>**line 37 NewList: #NewList#</CFOUTPUT><br>
+<CFSET ThisNewList = Replace(ThisNewList, "  ", " ", "ALL")>
+<CFOUTPUT>**line 38 NewList: #NewList#</CFOUTPUT><br>
+<CFSET ThisNewList = Replace(ThisNewList,"\", "", "ALL")>
+<CFOUTPUT>**line 40 NewList: #NewList#</CFOUTPUT><br>
+<CFSET ThisNewList = Replace(ThisNewList, "''''", "'", "ALL")>
+<CFOUTPUT>**line 42 NewList: #NewList#</CFOUTPUT><br>
+<CFSET ThisNewList = Replace(ThisNewList, "''", "'", "ALL")>
+<CFOUTPUT>**line 44 NewList: #NewList#</CFOUTPUT><br>
+<CFSET ThisNewList = Replace(ThisNewList, "''", "'", "ALL")>
+<CFOUTPUT>**line 46 NewList: #NewList#</CFOUTPUT><br>
+<CFSET newArrayLine = ListToArray(ThisNewList, "|")>
+<cfset newArrayLen = ArrayLen(newArrayLine)>
+<br>
+<!---above two cfset:  newArrayLine splits the ThisNewList string to word objects. so if ThisNewList - California 3 District (HQ Human Resources)
+it will have 1: california 2: 1 3: distritct 4: hq 5: human 6: resource
+second cfset newArrayLen shows the number of array which is 6 for the example above
+   ---->
+<cfoutput>
+	 ThisNewList has word count of : line 48--- #newArrayLen#
+</cfoutput>
+
+<!---
+<CFIF UpdateNeededFlag EQ "yes" AND NewList DOES NOT CONTAIN "[Yes or No]">
+--->
+
+<!---  does not hit the for district/division/area part of the code  ---->
+<CFIF IsDefined("UpdateNeededFlag") 
+AND 
+UpdateNeededFlag EQ "yes" 
+AND 
+NewList DOES NOT CONTAIN "[Yes or No]" 
+AND 
+NewList DOES NOT CONTAIN "[Unspecified]">
+
+
+<!---
+ThisNewList =
+--->
+
+<!---<CFOUTPUT>**line 67 NewList: #NewList#</CFOUTPUT><br>
+	<CFOUTPUT>
+	#ThisNewList# 
+	</cfoutput>--->
+
+<CFELSE>
+<!---goes into this cfelse but does not go into the below cfif statement
+BUT DOES GO INTO THE CFELSE BELOW AND SETS THE ******* ThisOldList****variable --->
+	<CFIF ThisReportDate EQ EarliestReportDate 
+	OR 
+	(
+	IsDefined("Status_Compare_Flag") 
+	AND 
+	Status_Compare_Flag EQ "yes" AND OldList EQ ""
+	)>
+
+<!---
+ThisNewList =
+--->
+<!---	<CFOUTPUT>**line 85 NewList: #NewList#</CFOUTPUT><br>
+		<CFOUTPUT>
+		#ThisNewList#
+		</cfoutput>
+		--->
+
+	<CFELSE>
+<!---gets executed for ditstrict/division/area part of the code --->
+		<CFSET ThisOldList = REReplace(OldList, "&quot;", """", "ALL")>
+		<CFOUTPUT><br>**line 92  ThisOldList: #ThisOldList#</CFOUTPUT><br>
+		<CFSET ThisOldList = Replace(ThisOldList, "   ", " ", "ALL")>
+		<CFOUTPUT><br>**line 94  ThisOldList: #ThisOldList#</CFOUTPUT><br>
+		<CFSET ThisOldList = Replace(ThisOldList, "  ", " ", "ALL")>
+		<CFOUTPUT><br>**line 96 ThisOldList: #ThisOldList#</CFOUTPUT><br>
+		<CFSET ThisOldList = Replace(ThisOldList,"\", "", "ALL")>
+		<CFOUTPUT><br>**line 98 ThisOldList: #ThisOldList#</CFOUTPUT><br>
+		<CFSET ThisOldList = Replace(ThisOldList, "''''", "'", "ALL")>
+		<CFOUTPUT><br>**line 100 ThisOldList: #ThisOldList#</CFOUTPUT><br>
+		<CFSET ThisOldList = Replace(ThisOldList, "''", "'", "ALL")>
+		<CFOUTPUT><br>**line 102 ThisOldList: #ThisOldList#</CFOUTPUT><br>
+		<CFSET ThisOldList = Replace(ThisOldList, "''", "'", "ALL")>
+		<CFOUTPUT><br>**line 104 ThisOldList: #ThisOldList#</CFOUTPUT><br>
+		<CFOUTPUT><br>**line 105 ThisOldList: #ThisOldList#</CFOUTPUT><br>
+		
+<CFSET oldArrayLine = ListToArray(ThisOldList, "|")>
+<cfset oldArrayLen = ArrayLen(oldArrayLine)>
+<br>
+<!---<cfoutput>
+	 ThisOldList has word count of : line 113 #oldArrayLen#
+</cfoutput>
+
+<br>
+<CFOUTPUT>
+Compare(ThisOldList, ThisNewList) = #Compare(ThisOldList, ThisNewList)#
+</CFOUTPUT>
+--->
+
+<!---for district/division/area part of the code this executes if the new district or division or area is different
+from last previous case and current case.  If the fields change then this executes --->
+		<CFIF Compare(ThisOldList, ThisNewList) NEQ 0>
+<!---if ThisOldList and ThisNewList are different then it will not equal (NEQ) TO 0;  ABOVE IS TRUE --->
+			<CFSET DiffFlag = "yes">
+<!---SETS DiffFlag to yes --->
+
+<!---<CFOUTPUT>
+<p>
+At 103: DiffFlag = "#DiffFlag#"
+<p>
+</CFOUTPUT>--->
+
+
+		<!---sets ThisOldList and ThisNewList again using JSStringFormat 
+		what isJSStringFormat ???look it up--->
+			<CFSET ThisOldList = JSStringFormat(ThisOldList)>
+			<CFSET ThisOldList = Replace(ThisOldList, "\r\n", "<br>", "ALL")>
+			<CFOUTPUT><br>**line 129  ThisOldList: #ThisOldList#</CFOUTPUT><br>
+			<CFSET ThisOldList = Replace(ThisOldList, "<br><br>", "<br><br> ", "ALL")>
+			<CFOUTPUT><br>**line 131  ThisOldList: #ThisOldList#</CFOUTPUT><br>
+			<CFSET ThisOldList = Replace(ThisOldList,"\", "", "ALL")>
+			<CFOUTPUT><br>**line 133  ThisOldList: #ThisOldList#</CFOUTPUT><br>
+			<CFSET ThisOldList = Replace(ThisOldList, "''''", "'", "ALL")>
+			<CFOUTPUT><br>**line 135  ThisOldList: #ThisOldList#</CFOUTPUT><br>
+			<CFSET ThisOldList = Replace(ThisOldList, "''", "'", "ALL")>
+			<CFOUTPUT><br>**line 136  ThisOldList: #ThisOldList#</CFOUTPUT><br>
+			<CFSET ThisOldList = Replace(ThisOldList, "''", "'", "ALL")>
+			<CFOUTPUT><br>**line 137  ThisOldList: #ThisOldList#</CFOUTPUT><br>
+	<!---below gets set. explained what is above comment on similar variable name 
+	this is an object so have to use cfdump to display. do not use cfoutput--->
+			<CFSET OldArray = ListToArray(ThisOldList, " ")>
+
+			<CFSET ThisNewList = JSStringFormat(ThisNewList)>
+			<CFOUTPUT><br>**line 145  ThisNewList: #ThisNewList#</CFOUTPUT><br>
+			<CFSET ThisNewList = Replace(ThisNewList, "\r\n", "<br>", "ALL")>
+			<CFOUTPUT><br>**line 146  ThisNewList: #ThisNewList#</CFOUTPUT><br>
+			<CFSET ThisNewList = Replace(ThisNewList, "<br><br>", "<br><br> ", "ALL")>
+			<CFOUTPUT><br>**line 147  ThisNewList: #ThisNewList#</CFOUTPUT><br>
+			<CFSET ThisNewList = Replace(ThisNewList,"\", "", "ALL")>
+			<CFOUTPUT><br>**line 150  ThisNewList: #ThisNewList#</CFOUTPUT><br>
+			<CFSET ThisNewList = Replace(ThisNewList, "''''", "'", "ALL")>
+			<CFOUTPUT><br>**line 152  ThisNewList: #ThisNewList#</CFOUTPUT><br>
+			<CFSET ThisNewList = Replace(ThisNewList, "''", "'", "ALL")>
+			<CFOUTPUT><br>**line 154  ThisNewList: #ThisNewList#</CFOUTPUT><br>
+			<CFSET ThisNewList = Replace(ThisNewList, "''", "'", "ALL")>
+			<CFOUTPUT><br>**line 156  ThisNewList: #ThisNewList#</CFOUTPUT><br>
+	<!---below gets set. explained what is above comment on similar variable name
+	this is an object so have to use cfdump to display. do not use cfoutput--->
+			<CFSET NewArray = ListToArray(ThisNewList, " ")>
+			<!---sets newListExtraLength to 0 -- so its assumed to be numberic--->
+			<CFSET NewListExtraLength = 0>
+			<!--- sets CrxList  to nothing so its assumed to be string--->
+			<CFSET CrxList = "">
+		<!--- sets OldArrayLen and New ArrayLen which will return a count number
+		of the array above on 186 for example
+		
+		see lines 55 - 58 for explaination--->
+			<CFSET OldArrayLen = ArrayLen(OldArray)>
+			
+			<CFSET NewArrayLen = ArrayLen(NewArray)>
+			
+			
+<!---<CFOUTPUT>
+<p>
+OldArrayLen = #OldArrayLen#
+<p>
+NewArrayLen = #NewArrayLen#
+<p>
+</cfoutput>--->
+<!---KS 12.31.24 Test Array list 1 
+<br>
+<cfset OldArrayLen = compare("OldArray", "OldArray")>
+OldArrayLen to OldArrayLen : <cfdump var="#OldArrayLen#" / ><br>
+
+<cfset NewArrayLen = compare("OldArray", "NewArray")>
+OldArrayLen To NewArrayLen : <cfdump var="#NewArrayLen#" / ><br>
+
+<cfset OldArrayLen = compare("NewArray", "OldArray")>
+NewArrayLen To OldArrayLen: <cfdump var="#OldArrayLen#" / ><br>
+ --->
+
+<!---<CFOUTPUT>
+Compare(ThisOldList, ThisNewList) = #Compare(ThisOldList, ThisNewList)#
+</CFOUTPUT>--->
+
+<!---KS 12.31.24 Test Array list2  ---><br><!---
+<cfset ThisOldList1 = compare("ThisOldList", "ThisOldList")>
+OldArrayLen to OldArrayLen1 : <cfdump var="#ThisOldList1#" / ><br>
+
+<cfset ThisNewList2 = compare("ThisOldList", "ThisNewList")>
+ThisOldList To ThisNewList2 : <cfdump var="#ThisNewList2#" / ><br>
+
+<cfset ThisNewList3 = compare("ThisNewList", "ThisOldList")>
+ThisNewList To ThisOldList3: <cfdump var="#ThisNewList3#" / ><br>
+<cfoutput>new array len #NewArrayLen#</cfoutput><br>
+<cfoutput>old array lent = #OldArrayLen#</cfoutput><br>--->
+
+<!---if newArrayLen is less than oldArrayLen 
+or oldArrayLen equal to 0 and newArrayLen greater than 0
+or ooldArrayLen equal to 1 and NewArrayLen equal to 1  --->
+			<CFIF NewArrayLen LT OldArrayLen 
+			OR 
+			(
+			OldArrayLen EQ 0 
+			AND 
+			NewArrayLen GT 0
+			) 
+			OR 
+			(
+			OldArrayLen EQ 1 
+			AND 
+			NewArrayLen EQ 1
+			)>
+
+				<CFSET ThisNewList = "<strong>line 251" & ThisNewList & "</strong>">
+				
+   <!---the above if statement is skipped due to the if statement not being true
+   sothe cfesle statement executes and the two cfoutputs were added as test--->
+			<CFELSE>
+			<CFOUTPUT>Line 255</CFOUTPUT><br>
+			<CFOUTPUT>This is used for the cfloop below as max loops #OldArrayLen#</CFOUTPUT><br>
+				<CFSET StartCrx = 0>
+				<CFSET EndCrx = 0>
+				<CFSET NewArrayIndex = 0>
+	<!---cfloop executes --->			
+				<CFLOOP INDEX="OldArrayIndex" FROM="1" TO="#OldArrayLen#">
+
+
+<!---<CFOUTPUT>
+<script language="javascript">
+alert("Outer Loop: StartCrx = #StartCrx#; EndCrx = #EndCrx#; NewArrayIndex = #NewArrayIndex#")
+</script>
+</cfoutput>
+--->
+
+
+
+
+
+					<CFIF NewArrayIndex EQ 0>
+					
+                    	<CFSET NewArrayComparIndex = OldArrayIndex>
+                    	<cfoutput>NewArrayIndex eq 0 --- this is within the cfloop newArrayCompareIndex is #NewArrayComparIndex#</cfoutput><br>
+                    	
+					
+                    <CFELSE>
+
+						<CFIF NewArrayIndex LT NewArrayLen>
+							<CFSET NewArrayIndex = NewArrayIndex + 1>
+						</cfif>
+	
+						<CFSET NewArrayComparIndex = NewArrayIndex> 
+					
+                    </cfif>
+
+
+
+
+
+<!---<CFOUTPUT>
+<p>
+Outer Loop: 
+<br />
+StartCrx = #StartCrx#
+<br />
+EndCrx = #EndCrx#
+<br />
+NewArrayIndex = #NewArrayIndex#
+<br />
+NewArrayComparIndex = #NewArrayComparIndex#
+<p>
+</cfoutput>--->
+
+
+
+
+<!---
+<CFOUTPUT>
+<script language="javascript">
+alert("OldArray[#OldArrayIndex#] = #OldArray[OldArrayIndex]#; NewArray[#NewArrayComparIndex#] = #NewArray[NewArrayComparIndex]#")
+</script>
+</cfoutput>
+--->
+
+
+
+<CFOUTPUT>
+	line 325
+<p>
+OldArray[#OldArrayIndex#] = #OldArray[OldArrayIndex]#
+<br />
+NewArray[#NewArrayComparIndex#] = #NewArray[NewArrayComparIndex]#
+<p>
+</cfoutput>
+
+
+
+                    <CFSET PhraseFlag = "">
+
+					<CFIF OldArray[OldArrayIndex] NEQ NewArray[NewArrayComparIndex]>
+
+<!---
+<CFIF (NewArray[NewArrayComparIndex] CONTAINS "<br>")>
+
+<CFOUTPUT>
+<script language="javascript">
+alert("NewArray[#NewArrayComparIndex#] = '#NewArray[NewArrayComparIndex]#'")
+</script>
+</cfoutput>
+
+</cfif>
+--->
+
+<!---
+<CFSET PunctuationList = ListAppend(PunctuationList, '"')>
+<CFSET PunctuationList = ListAppend(PunctuationList, "'")>
+<CFSET PunctuationList = ListAppend(PunctuationList, ".")>
+<CFSET PunctuationList = ListAppend(PunctuationList, ";")>
+<CFSET PunctuationList = ListAppend(PunctuationList, "/")>
+<CFSET PunctuationList = ListAppend(PunctuationList, "\")>
+--->
+
+	                   	<CFSET OldArrayString = OldArray[OldArrayIndex]>
+
+
+<CFOUTPUT>
+<br>
+OldArrayString Before: #OldArrayString#
+</cfoutput>
+
+
+                    	<CFSET OldArrayString = ReplaceList(OldArrayString, PunctuationList, BlankList)>
+                    	<CFSET OldArrayString = Replace(OldArrayString, ",", "")>
+
+
+<CFOUTPUT>
+<br>
+OldArrayString After: #OldArrayString#
+<br>
+</cfoutput>
+
+
+                    	<CFSET NewArrayString = NewArray[NewArrayComparIndex]>
+
+
+<CFOUTPUT>
+<br>
+NewArrayString Before: #NewArrayString#
+</cfoutput>
+
+
+                    	<CFSET NewArrayString = ReplaceList(NewArrayString, PunctuationList, BlankList)>
+                    	<CFSET NewArrayString = Replace(NewArrayString, ",", "")>
+
+
+<CFOUTPUT>
+<br>
+NewArrayString After: #NewArrayString#
+<br>
+</cfoutput>
+
+
+
+
+<CFIF OldArrayString NEQ NewArrayString>
+	line402  Old, New different
+	<br>
+<CFELSE>
+	Old, New SAME
+	<br>
+</cfif>
+
+
+
+                    	<CFIF NewArrayString NEQ OldArrayString>
+
+                    		<CFIF StartCrx EQ 0>
+
+                    			<CFSET StartCrx = NewArrayComparIndex>
+
+<!---
+<CFOUTPUT>
+<script language="javascript">
+alert("StartCrx = #StartCrx#")
+</script>
+</cfoutput>
+--->
+
+
+<!---
+<CFOUTPUT>
+StartCrx = #StartCrx#
+<br />
+</cfoutput>
+--->
+
+
+                    		</cfif>
+
+<!---
+<CFSET NewArrayIndexStart = NewArrayComparIndex + 1>
+--->
+
+							<CFLOOP INDEX="NewArrayIndex" FROM="#(NewArrayComparIndex + 1)#" TO="#NewArrayLen#">
+							
+                    			<CFIF OldArray[OldArrayIndex] NEQ NewArray[NewArrayIndex]>
+                    				<CFSET EndCrx = NewArrayIndex>
+
+<!---
+<CFOUTPUT>
+<script language="javascript">
+alert("Inner Loop: EndCrx = #EndCrx#")
+</script>
+</cfoutput>
+---> 
+
+
+                    			<CFELSE>
+
+<!---
+<CFOUTPUT>
+<script language="javascript">
+alert("Inner Loop: Match; EndCrx = #EndCrx#")
+</script>
+</cfoutput>
+--->
+
+									<CFLOOP INDEX="PhraseWordIndex" FROM="1" TO="2">
+	
+										<CFSET OldArrayIndexLookAhead = OldArrayIndex + PhraseWordIndex>
+										
+										<CFSET NewArrayIndexLookAhead = NewArrayIndex + PhraseWordIndex>
+										
+									
+										
+										<CFIF OldArrayIndexLookAhead LE OldArrayLen AND NewArrayIndexLookAhead LE NewArrayLen>
+	
+											<CFIF OldArray[OldArrayIndexLookAhead] EQ NewArray[NewArrayIndexLookAhead]>
+		
+												<CFSET PhraseFlag = "PhraseMatch">
+		
+											</cfif>
+	
+										<CFELSE>
+	
+											<CFSET PhraseFlag = "PhraseMatch">
+	
+										</cfif>
+	
+									</cfloop>
+
+
+
+									<CFIF IsDefined("PhraseFlag") AND PhraseFlag EQ "PhraseMatch">
+
+										<CFIF EndCrx EQ 0>
+											<CFSET EndCrx = NewArrayIndex - 1>
+										</cfif>
+	
+										<CFSET CrxList = ListAppend(CrxList, "#StartCrx#,#EndCrx#", ";")>
+
+<!---
+<CFOUTPUT>
+<script language="javascript">
+alert("CrxList = #CrxList#")
+</script>
+</cfoutput>
+--->
+
+<!---
+<CFOUTPUT>
+CrxList = #CrxList#
+<br />
+</cfoutput>
+--->
+
+
+										<CFSET StartCrx = 0>
+										<CFSET EndCrx = 0>
+
+<!---
+<CFOUTPUT>
+<script language="javascript">
+alert("StartCrx = #StartCrx#; EndCrx = #EndCrx#")
+</script>
+</cfoutput>
+--->
+
+
+										<CFBREAK>
+	
+									</cfif>
+	
+								</cfif>
+
+							</cfloop>
+
+
+							<CFIF NewArrayIndex GT NewArrayLen>
+								<CFSET NewArrayIndex = StartCrx>
+							</cfif>
+
+<!--- Close <CFIF NewArrayString NEQ OldArrayString> --->
+						</cfif>
+
+
+<!---
+<CFOUTPUT>
+<script language="javascript">
+alert("After Inner Loop: NewArrayIndex = #NewArrayIndex#")
+</script>
+</cfoutput>
+--->
+
+					<CFELSEIF StartCrx GT 0>
+                    
+						<CFSET EndCrx = NewArrayIndex - 1>
+						<CFSET CrxList = ListAppend(CrxList, "#StartCrx#,#EndCrx#", ";")>
+
+<!---
+	<CFOUTPUT>
+	<script language="javascript">
+	alert("CrxList = #CrxList#")
+	</script>
+	</cfoutput>
+--->
+
+						<CFSET StartCrx = 0>
+						<CFSET EndCrx = 0>
+
+<!---
+	<CFOUTPUT>
+	<script language="javascript">
+	alert("StartCrx = #StartCrx#; EndCrx = #EndCrx#")
+	</script>
+	</cfoutput>
+--->
+
+					</cfif>
+
+				</cfloop>
+
+<!--- If text was completely replaced:
+--->
+				<CFIF CrxList EQ "" AND EndCrx EQ NewArrayLen>
+					<CFSET CrxList = ListAppend(CrxList, "#StartCrx#,#EndCrx#", ";")>
+				</cfif>
+
+<!---
+<CFOUTPUT>
+<b>
+CrxList = "#CrxList#"</b>
+<p>
+</cfoutput>
+--->
+
+				<CFIF CrxList NEQ "">
+
+<!---
+<CFOUTPUT>
+<b>CrxList = "#CrxList#"</b>
+<p>
+</cfoutput>
+--->
+
+					<CFSET CrxArray = ListToArray(CrxList, ";")>
+					<CFSET CrxArrayLen = ArrayLen(CrxArray)>
+
+					<CFLOOP INDEX="CrxArrayIndex" FROM="1" TO="#CrxArrayLen#">
+
+						<CFSET StartCrx = ListGetAt(CrxArray[CrxArrayIndex], 1)>
+
+<!---
+<CFOUTPUT>
+StartCrx = #StartCrx#
+<br>
+</cfoutput>
+--->
+
+						<CFSET NewStartCrxVal = "<strong>line608" & ListGetAt(ThisNewList, StartCrx, " ")>
+
+<!---
+<CFOUTPUT>
+NewStartCrxVal = "#NewStartCrxVal#"
+<br />
+</CFOUTPUT>
+--->
+
+
+
+						<CFSET ThisNewList = ListSetAt(ThisNewList, StartCrx, "#NewStartCrxVal#", " ")>
+
+						<CFSET EndCrx = ListGetAt(CrxArray[CrxArrayIndex], 2)>
+
+<!---
+<CFOUTPUT>
+EndCrx = #EndCrx#
+<p>
+</cfoutput>
+--->
+
+						<CFSET NewEndCrxVal = ListGetAt(ThisNewList, EndCrx, " ") & "lin630</strong>">
+
+<!---
+<CFOUTPUT>
+NewEndCrxVal = "#NewEndCrxVal#"
+<br />
+</CFOUTPUT>
+--->
+
+
+
+						<CFSET ThisNewList = ListSetAt(ThisNewList, EndCrx, "#NewEndCrxVal#", " ")>
+
+						<CFSET NewListExtraLength = NewListExtraLength + (EndCrx - StartCrx) + 1>
+
+					</cfloop>
+
+
+<!---
+<CFOUTPUT>
+
+ListLen(ThisNewList, " ") = #ListLen(ThisNewList, " ")#
+<br />
+
+ListLen(ThisOldList, " ") = #ListLen(ThisOldList, " ")#
+<br />
+
+NewListExtraLength = #NewListExtraLength#
+<br />
+
+</CFOUTPUT>
+--->
+
+
+
+					<CFIF ListLen(ThisNewList, " ") GT (ListLen(ThisOldList, " ") + NewListExtraLength)>
+
+						<CFSET NewStartCrxPos = ListLen(ThisOldList, " ") + NewListExtraLength + 1>
+
+						<CFSET NewStartCrxVal = "<strong>lin3669" & ListGetAt(ThisNewList, NewStartCrxPos, " ")>
+
+						<CFSET ThisNewList = ListSetAt(ThisNewList, NewStartCrxPos, NewStartCrxVal, " ")>
+
+<!---
+<CFSET NewEndCrxVal = ListLast(NewList, " ") & "</strong>">
+<CFSET NewList = ListSetAt(NewList, NewEndCrxPos, "#NewEndCrxVal#", " ")>
+--->
+
+						<CFSET ThisNewList = ThisNewList & "line678</strong>">
+
+					</cfif>
+
+
+<!--- From <CFIF CrxList NEQ ""> --->
+				<CFELSE>
+<!--- If new text not equal to old, but no changes found within old version, assume new text added at end: --->
+
+					<CFIF NewArrayLen GT 1>
+                   
+	                    <CFIF ListLen(ThisNewList, " ") EQ ListLen(ThisOldList, " ")>
+							<CFSET NewStartCrxPos = ListLen(ThisNewList, " ")>                    
+						<CFELSE>
+							<CFSET NewStartCrxPos = ListLen(ThisOldList, " ") + 1>
+						</CFIF>
+
+					<CFELSE>
+
+						<CFSET NewStartCrxPos = 1>
+
+					</cfif>
+                    
+<!---                
+<!---  Added to stop error message for user JPT --->                    
+					<CFSET NewStartCrxPos = NewStartCrxPos - 1>
+<!---  Added to stop error message for user JPT --->                      
+--->
+
+
+					<CFSET NewStartCrxVal = "<strong>708" & ListGetAt(ThisNewList, NewStartCrxPos, " ")>
+
+
+					<CFSET ThisNewList = ListSetAt(ThisNewList, NewStartCrxPos, NewStartCrxVal, " ")>
+
+
+					<CFSET ThisNewList = ThisNewList & "714</strong>">
+
+
+<!--- Close <CFIF CrxList NEQ ""> --->
+				</cfif>
+	
+
+
+<!--- Close <CFIF NewArrayLen LT OldArrayLen>: --->
+			</cfif>
+
+
+			<CFIF IsDefined("Form.CorpFinFormat") 
+			AND 
+			Form.CorpFinFormat EQ "CorpFinFormat" 
+			AND NOT 
+			(
+			IsDefined("Form.CorpFinFormatFrontOffcVersion") 
+			AND 
+			Form.CorpFinFormatFrontOffcVersion EQ "CorpFinFormatFrontOffcVersion"
+			)>
+
+				<CFSET ThisNewList = RedBoldToggleSpan & ThisNewList & "</span>">
+
+			</cfif>
+
+
+
+<!---
+ThisNewList =
+--->
+
+			<CFOUTPUT>
+			#ThisNewList#
+			</cfoutput>
+
+<!--- From <CFIF Compare(ThisOldList, ThisNewList) NEQ 0> --->
+		<CFELSE>
+
+
+			<CFIF IsDefined("Form.CorpFinFormat") 
+			AND 
+			Form.CorpFinFormat EQ "CorpFinFormat" 
+			AND NOT 
+			(
+			IsDefined("Form.CorpFinFormatFrontOffcVersion") 
+			AND 
+			Form.CorpFinFormatFrontOffcVersion EQ "CorpFinFormatFrontOffcVersion"
+			)>
+
+				<CFSET ThisOldList = RedBoldToggleSpan & ThisOldList & "</span>">
+
+			</cfif>
+
+
+<!---
+ThisOldList =
+--->
+
+			<CFOUTPUT>
+			#ThisOldList# 
+			</cfoutput>
+
+<!---
+<br>
+[No Changes]
+--->
+
+<!--- Close <!--- From <CFIF Compare(ThisOldList, ThisNewList) NEQ 0> ---> --->
+		</cfif>
+
+<!--- Close <CFIF ThisReportDate EQ EarliestReportDate OR (IsDefined("Status_Compare_Flag") AND Status_Compare_Flag EQ "yes" AND OldList EQ "")> --->
+	</cfif>
+
+
+<!--- Close <CFIF IsDefined("UpdateNeededFlag") AND UpdateNeededFlag EQ "yes" AND NewList DOES NOT CONTAIN "[Yes or No]" AND NewList DOES NOT CONTAIN "[Unspecified]"> --->
+</cfif>
+
+<!---
+<CFOUTPUT>
+<p>
+DiffFlag = "#DiffFlag#"
+<p>
+</CFOUTPUT>
+--->
+
+
+
+
