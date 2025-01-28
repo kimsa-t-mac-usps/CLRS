@@ -135,17 +135,7 @@ At 103: DiffFlag = "#DiffFlag#"
 
 			<CFSET OldArrayLen = ArrayLen(OldArray)>
 			<CFSET NewArrayLen = ArrayLen(NewArray)>
-			
-<!---<cfset OldArrayLen = compare("OldArray", "NewArray")>
-OldArrayLen to NewArrayLen1 : <cfdump var="#OldArrayLen#" / ><br>
-<cfif len(newArray) eq len(oldArray)>
-	<cfloop from="1" to="#arraylen(oldarray)#" index="i" >
-		<cfif compare(oldarray[i],newarray[i]) eq 0>
-			<!--- keep the text black --->
-		<cfelse>
-		<!--- new array val needs to be red --->
-	</cfloop>
-</cfif>--->
+
 
 <!---
 <CFOUTPUT>

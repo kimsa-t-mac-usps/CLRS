@@ -32,5 +32,11 @@
 	<cfset newAreaName = "<strong>" & This_AREA_NAME & "</strong>">
 </cfif>
 
-<cfset ThisNewList = newDistrict & " District (" & newAreaName & ")">
-<cfoutput>#ThisNewList#</cfoutput>
+<CFIF ThisNewList contains "MULTIPLE">
+	<CFSET ThisNewList = newDistrict  & " ("& newAreaName & ")">
+	<cfoutput>#ThisNewList#</cfoutput>
+<CFELSE>	
+	<cfset ThisNewList = newDistrict & " District (" & newAreaName & ")">
+	<cfoutput>#ThisNewList#</cfoutput>
+</CFIF>
+

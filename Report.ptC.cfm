@@ -441,9 +441,13 @@ Case Number
 				<CFSET OldList = OldList>
 				<CFSET PREV_AREA_NAME  = PREV_AREA_NAME>
 				<!---<CFOUtput>OLD LIST = #OldList#</CFOUtput>--->
-					
-				
+				<!---1/17/2025 START -- ADDED BECAUSE PREV_AREA_NAME IS NULL--->
+			<CFELSE>		
+			<CFSET PREV_AREA_NAME = "NONE IS AVAIL">
+				<!---1/17/2025 -- END OF -- ADDED BECAUSE PREV_AREA_NAME IS NULL--->
     		</CFIF>
+    						
+    		
             <!---end 1/2/2025 new code below --->
 			<CFINCLUDE TEMPLATE="textcompareDistrict_Division_Areas.cfm">
 	
