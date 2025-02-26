@@ -333,7 +333,7 @@ Case Number
 
 	<CFELSE>
     
-		<CFSET This_DIVISION_CODE = "">
+		<CFSET This_DIVISION_CODE = "did not have prev are code">
 
 	</CFIF>
 

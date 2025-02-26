@@ -405,6 +405,15 @@ WHERE USERPRMKEY = 361
 
 	</CFIF>
 
+
+
+
+
+
+
+
+
+
 	<CFQUERY NAME="GetUserInfo" DATASOURCE="ContLiab">
 	
 	SELECT b.LASTNAME, b.FIRSTNAME, a.LONGEMAIL, b.PRIMARYKEY, b.AD_USERID, b.AD_MAILNICKNAME, Trim(a.LASTNAME) || ', ' || Trim(a.FIRSTNAME) AS FULLNAME
@@ -418,6 +427,8 @@ WHERE USERPRMKEY = 361
 	AND (SEPARATFLG != 'S' OR SEPARATFLG IS NULL OR SEPARATFLG = '0')
 	
 	</cfquery>
+	
+	
 	
 	<CFIF GetUserInfo.RecordCount NEQ 1>
 	
@@ -436,7 +447,7 @@ WHERE USERPRMKEY = 361
 		    name="QueryGetDisplayName"
 		    attributes="displayName, mail"
 			maxrows="10000"
-			timeout="30000" <!---Testing 2.24.25 9000--->
+			timeout="9000"
 		    start="#startstr#"
 			filter="(&(objectClass=user)(|(extensionAttribute13=#GetUserInfo.AD_USERID#)(mailNickName=#GetUserInfo.AD_MAILNICKNAME#)))"
 			scope="subtree"
@@ -460,10 +471,15 @@ WHERE USERPRMKEY = 361
 	
 		<CFSET TrimUserLastName = Trim(GetUserInfo.LASTNAME)>
 		<CFSET TrimUserFirstName = Trim(GetUserInfo.FIRSTNAME)>
-		
+	
+	
 	</cfif>
 
+
+
 	<CFINCLUDE TEMPLATE="Query.Get_Bus_Serv_Contact.cfm">
+
+
 
 <!---
     dn="#LDAPDistingName#"
@@ -492,11 +508,14 @@ WHERE USERPRMKEY = 361
 	</cftry>
 	<CFSET This_BusServContact_From_Line = '"' & Trim(QueryGetBusServContactDisplayName.displayName) & '"' & ' <' & Trim(QueryGetBusServContactDisplayName.mail) & '>'>
 	
+	
+	
 	<CFQUERY NAME="Get_All_ReportDates" DATASOURCE="ContLiab">
 	SELECT DATE_RPT_FMT
 	FROM view_conting_all_rptdates_fmt
 	</cfquery>
-		
+	
+	
 	<CFSET ReportDatesList = ValueList(Get_All_ReportDates.DATE_RPT_FMT)>
 
 <!---
@@ -506,6 +525,8 @@ ReportDatesList = "#ReportDatesList#"
 <p>
 </CFOUTPUT>
 --->
+
+
 
 	<CFSET ReportDatesList_ListLen = ListLen(ReportDatesList)>
 
@@ -575,6 +596,8 @@ PrevReportDate = "#PrevReportDate#"
 <p>
 </CFOUTPUT>
 --->
+
+
 
 
 <!---
@@ -1313,6 +1336,10 @@ ValueList(Get_PrevReport_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) =
 	WHERE UPPER(AD_USERID) LIKE UPPER('#RespondingUser_Id#%')
 	OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#RespondingUser_Id#%')
 	</cfquery>
+
+
+
+
 
 <!--- Used in Report with
 (CONTINGENT_LIAB_GetRecord_Current_Count.Current_Count GT IndexOnlyCaseCountCutoff

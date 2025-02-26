@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="RemoteSearchPage">
-		<item value="false" key="includeArchives"/>
-		<item value="false" key="fileNameRegex"/>
-		<item value="false" key="caseSensitive"/>
-		<item value="false" key="includeSubfolders"/>
-		<item value="1" key="dataSize"/>
-		<item value="false" key="stringRegex"/>
-		<item value="true" key="fileNameCaseSensitive"/>
-	</section>
-	<section name="RemoteSearchPage.data0">
-		<item value="5CD238B5J0" key="profileName"/>
-		<item value="font-weight:bold;" key="searchString"/>
-		<item value="false" key="includeArchives"/>
-		<item value="false" key="fileNameRegex"/>
-		<item value="false" key="caseSensitive"/>
-		<item value="false" key="includeSubfolders"/>
-		<item value="false" key="stringRegex"/>
-		<item value="true" key="fileNameCaseSensitive"/>
-		<item value="Local" key="connectionName"/>
-		<item value="W:\web\cf\cfusion\wwwroot\ClientService\ContingentLiabilities\V1.0" key="folderName"/>
-		<item value="*" key="fileNames"/>
 	</section>
 </section>
