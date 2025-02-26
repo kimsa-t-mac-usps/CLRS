@@ -436,7 +436,7 @@ WHERE USERPRMKEY = 361
 		    name="QueryGetDisplayName"
 		    attributes="displayName, mail"
 			maxrows="10000"
-			timeout="9000"
+			timeout="30000" <!---Testing 2.24.25 9000--->
 		    start="#startstr#"
 			filter="(&(objectClass=user)(|(extensionAttribute13=#GetUserInfo.AD_USERID#)(mailNickName=#GetUserInfo.AD_MAILNICKNAME#)))"
 			scope="subtree"

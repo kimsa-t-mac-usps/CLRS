@@ -2,51 +2,50 @@
 <html>
 <head>
 <style>
-.myDiv {
-  border: 1px solid black;
-  background-color: lightblue;    
-  text-align: center;
+table.report-container{
+	page-break-before:always;
+	width:100%;
+	margin-top:10px;
 }
-  .page-header {
-  position: fixed;
-  top: 0mm;
-  margin-left:-8px;
-  height:inherit;
-  width: 100%;
-  font-weight:bold;
-  border-bottom: 1px solid lightgrey; /* for demo */
-  background: #ced4da; /* for demo */
-  padding-top:10px; 
- 
-  height:30px;
+thead.report-header{
+	display:table-header-group;
+	background-color:lightblue;
+	color:darkblue;
+	top:0;
+	width:100%;
 }
-.header {
-     position:fixed;
-     top: 0mm;
-     height: 0px; /* Change with top of #container */
-     color: #eee;
-     background-color:#679dd3;
-     width: 100%;
-     padding: 0px;
-     margin-left:-8px;
-   }
-#container {
-     position: fixed;
-     top: 10px; /* Change with Height of #header */
-     bottom: 0;
-     width: 100%;
-     overflow: hidden ;
-   }
+thead.report-header-addendum-hid {
+	display:none;
+}
+tfoot.report-footer{
+	display:table-footer-group;
+   	bottom:1px;
+	border-bottom: 1px solid black;
+margin-bottom:50px;
+	
+}
+ div.header-stky {
+	position:sticky;
+	top:0px;
+	page-break-before:always;
+	
+}
+div.header-stk {
+background: lightblue;
+padding-bottom:4px;
+padding-top:10px;
+
+}
+.page {
+   width:100%;
+   height:90%;
+   border:1px solid red;
+   top:0px;
+} 
 </style>
 </head>
 <body>
-<!---<div class="myDiv">
-  <h2>Contingent Liabilities Single Record_TEST KIMSAssdas</h2>
-  <p>sub-headers</p>
-</div>--->
-<div class="header">
-  <!---<strong>III. Contingent Liabilities: Assessed At or Above $10 Million</strong>--->
- </div></div>
+
 
 
 </body>
