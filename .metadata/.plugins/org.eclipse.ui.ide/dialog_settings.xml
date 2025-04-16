@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+		<item value="com.adobe.ide.coldfusion.feature:3.1.4.201705171143"/>
+		<item value="com.adobe.ide.coldfusion.rcp.feature:3.1.4.201705171143"/>
+		<item value="de.anbos.eclipse.logviewer.feature:0.9.9.201705171143"/>
+		<item value="org.eclipse.draw2d:3.10.1.201508170204"/>
+		<item value="org.eclipse.emf.common:2.11.1.v20160208-0816"/>
+		<item value="org.eclipse.emf.ecore:2.11.2.v20160208-0816"/>
+		<item value="org.eclipse.gef:3.10.1.201508170204"/>
+		<item value="org.eclipse.help:2.1.2.v20160212-1500"/>
+		<item value="org.eclipse.jdt:3.11.2.v20160212-1500"/>
+		<item value="org.eclipse.platform:4.5.2.v20160212-1500"/>
+		<item value="org.eclipse.rcp:4.5.2.v20160212-1500"/>
+		<item value="org.eclipse.rse.core:3.7.0.201505221634"/>
+		<item value="org.eclipse.rse.dstore:3.7.0.201505221634"/>
+		<item value="org.eclipse.rse.ftp:3.7.0.201505221634"/>
+		<item value="org.eclipse.rse.local:3.7.0.201505221634"/>
+		<item value="org.eclipse.rse.ssh:3.7.0.201505221634"/>
+		<item value="org.eclipse.rse.telnet:3.7.0.201505221634"/>
+		<item value="org.eclipse.rse:3.7.0.201505221634"/>
+	</list>
+	<section name="ResourceNavigator">
+		<item value="" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
+		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
+	</section>
+</section>
