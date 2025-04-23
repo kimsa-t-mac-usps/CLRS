@@ -52,7 +52,7 @@ clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#FiveMillion#"
 --->
 
 
-clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
+clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> OR ASSESSMENT_AMT_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
 
 
 

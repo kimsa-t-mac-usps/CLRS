@@ -318,7 +318,6 @@ Case Number
 	<p style='margin-top:5pt'>
 	HQ&nbsp;Dept
 	<p style='margin-top:10pt'>
-	
 	</th>
 	
 	
@@ -334,7 +333,7 @@ Case Number
 
 	<CFELSE>
     
-		<CFSET This_DIVISION_CODE = "">
+		<CFSET This_DIVISION_CODE = "did not have prev are code">
 
 	</CFIF>
 
@@ -344,9 +343,8 @@ Case Number
 		<CFSET This_DIVISION_NAME = DIVISION_NAME>
 
 	<CFELSE>
-    
-
-
+   
+		<!---12/24/2024 ?? CFSET This_DIVISION_NAME = ""--->
 		<CFSET This_DIVISION_NAME = This_DIVISION_CODE>
 
 	</CFIF>
@@ -365,7 +363,7 @@ Case Number
  		<CFSET SelectDistrict = "yes">
  
 		<strong>[Select New District]&nbsp;<span class='ClickEdit'>Click "Edit This Case Record" to select</span></strong>
-
+		<!---<span>[Select New District]&nbsp;<span class='ClickEdit'>Click "Edit This Case Record" to select</span></span>--->
 	    
 	<CFELSE>
     
@@ -380,7 +378,7 @@ Case Number
 
 		<CFIF This_AREA_NAME NEQ "">
         
-        
+        <!--- 1/2/2025 commented out for new texcompareDistictDivisionAreas code
         	<CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
         
 				<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District (" & This_AREA_NAME & ")">
@@ -390,39 +388,74 @@ Case Number
 				<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " (" & This_AREA_NAME & ")">
                 
 			</CFIF>
+               
+               end  1/2/2025 commented out for new texcompareDistictDivisionAreas code---> 
+               
+               <!---1/2/2025 new code below --->
+             <CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
+        
+				<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME>
+				<CFSET This_AREA_NAME = This_AREA_NAME>
                 
-                            
+			<CFELSE>
+            
+				<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME>
+                <CFSET This_AREA_NAME = This_AREA_NAME>
+			</CFIF>
+			<!---end 1/2/2025 new code below --->
+			         
 		</cfif>
 
 
 	
 		<CFSET NewList = This_DIST_PERF_CLUSTER_NAME>
         
+        <!--- 1/2/2025 commented out for new texcompareDistictDivisionAreas code
+        <CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District"> 
         
-        <CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
-        
-        	<CFSET NewList = NewList & " District">
+        	<CFSET NewList = NewList & " District -- report.ptc line 403">
             
 		</CFIF>             
-        
+          end  1/2/2025 commented out for new texcompareDistictDivisionAreas code---> 
 	
 
 
 		<CFIF ThisReportDate NEQ EarliestReportDate AND PrevReportDate NEQ "">
             
 			<CFSET OldList = CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>
-				
+			
+			<!--- 1/2/2025 commented out for new texcompareDistictDivisionAreas code	
 			<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
-				<CFSET OldList = OldList & " District">
+				<!---12/20 COMMENTED OUT FOR BELOW 2 LINES <CFSET OldList = OldList & " District">--->
+				<CFSET PREV_AREA_NAME = #CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME#>
+				<CFSET OldList = OldList & " District (" & PREV_AREA_NAME & ")">
+				<!---<CFOUtput>OLD LIST = #OldList#</CFOUtput>--->
+					
+				
     		</CFIF>
-            
-			<CFINCLUDE TEMPLATE="textcompare.cfm">
+            end  1/2/2025 commented out for new texcompareDistictDivisionAreas code---> 
+             <!---1/2/2025 new code below --->
+            <CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
+				<!---12/20 COMMENTED OUT FOR BELOW 2 LINES <CFSET OldList = OldList & " District">--->
+				<CFSET PREV_AREA_NAME = #CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME#>
+				<CFSET OldList = OldList>
+				<CFSET PREV_AREA_NAME  = PREV_AREA_NAME>
+				<!---<CFOUtput>OLD LIST = #OldList#</CFOUtput>--->
+				<!---1/17/2025 START -- ADDED BECAUSE PREV_AREA_NAME IS NULL--->
+			<CFELSE>		
+			<CFSET PREV_AREA_NAME = "NONE IS AVAIL">
+				<!---1/17/2025 -- END OF -- ADDED BECAUSE PREV_AREA_NAME IS NULL--->
+    		</CFIF>
+    						
+    		
+            <!---end 1/2/2025 new code below --->
+			<CFINCLUDE TEMPLATE="textcompareDistrict_Division_Areas.cfm">
 	
 	
 		<CFELSE>
 
 			<CFOUTPUT>
-			#NewList#
+			 #NewList#
     		</cfoutput>
 
 		</CFIF>
@@ -448,7 +481,7 @@ Case Number
 			<CFSET OldList = This_AREA_NAME>
 
 
-			<CFINCLUDE TEMPLATE="textcompare.cfm">
+			<CFINCLUDE TEMPLATE="textcompareDistrict_Division_Areas2.cfm">
 	
 	
 		<CFELSE>
@@ -479,7 +512,7 @@ Case Number
             
 		</CFIF>            
 
-
+<!---
 		<CFIF IsDefined("This_DIST_PERF_CLUSTER_NAME")
 		AND
 		This_DIST_PERF_CLUSTER_NAME NEQ CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>
@@ -492,10 +525,10 @@ Case Number
 
         		<CFOUTPUT>
 				#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME#]
-				</CFOUTPUT>
+				</CFOUTPUT><br/>
         
     	    <CFELSE>
-        
+        ---><!---
 	    	    <CFOUTPUT>
 				#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District]
 				</CFOUTPUT>
@@ -503,8 +536,36 @@ Case Number
     	    </CFIF>
         
         
-        </CFIF>
+        </CFIF>--->
+     
+ 			<CFIF IsDefined("This_DIST_PERF_CLUSTER_NAME") AND This_DIST_PERF_CLUSTER_NAME NEQ CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME> 
+		
+	    	<!---[Previously reported as: --->
+		<!---12/26/2024 during the call to get rid of the previous reported section when choosing the previously recorded-
+		commented out the [Prviously reported as: - above, added the or section in the cfif below and commented out the 1st  <cfoutput> beolw--->
+		
+		<!---BEFORE CODE
+		[Previously reported as:
+		<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME CONTAINS "MULTIPLE"> --->
         
+			<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME CONTAINS "MULTIPLE" 
+			or CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME eq DIST_PERF_CLUSTER_NAME>
+			
+        		<!---CFOUTPUT>
+        			what does this do
+				#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME#]
+				</CFOUTPUT---<br/--->
+        
+    	    <CFELSE>
+        		[Previously reported as:
+	    	    <CFOUTPUT>
+				#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District]
+				</CFOUTPUT>
+        
+    	    </CFIF>
+        
+        
+        </CFIF>   
         
 		</div>
 	
@@ -585,7 +646,7 @@ Case Number
 		
 		   	<CFSET OldList = "">
 	
-			<CFINCLUDE TEMPLATE="textcompare.cfm">
+			<!---<CFINCLUDE TEMPLATE="textcompare.cfm">--->
 		
         	</div>
         

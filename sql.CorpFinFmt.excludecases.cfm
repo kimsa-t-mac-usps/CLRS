@@ -13,7 +13,7 @@ ASSESSMENT_AMOUNT >= 1000000
 --->
 
 (
-clr.ASSESSMENT_AMOUNT >= #OneMillion#
+clr.ASSESSMENT_AMOUNT >= #OneMillion# OR clr.ASSESSMENT_AMT_HIGH_END >= #OneMillion#
 
 <!---
 OR
@@ -37,7 +37,7 @@ ASSESSMENT_AMOUNT >= 1000000
 --->
 
 (
-clr.ASSESSMENT_AMOUNT >= #OneMillion#
+clr.ASSESSMENT_AMOUNT >= #OneMillion# OR clr.ASSESSMENT_AMT_HIGH_END >= #OneMillion#
 
 <!---
 OR
@@ -81,7 +81,7 @@ AND
 clr.ASSESSMENT_AMOUNT < #OneMillion#
 --->
 
-clr.ASSESSMENT_AMOUNT < #TenMillion#
+clr.ASSESSMENT_AMOUNT < #TenMillion# AND clr.ASSESSMENT_AMT_HIGH_END < 10000000
 
 
 AND
