@@ -177,7 +177,8 @@ TO: #ToMCLine#
 --->
 
 <!--- Bob Sindermann 12/5/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
-        <CFSET This_Server = "eagnmnss146">
+<!---KS 4.7.25 Changed this_server <CFSET This_Server = "lawdept1"> --->
+        <CFSET This_Server = "lawdept">
 
 </cfif>
 
@@ -191,7 +192,6 @@ TO: #ToMCLine#
 
 
 A new Contingent Liabilities case record has been entered in the system for your approval:
-<a href="https://eagnmnss146:8550/ContingentLiabilities/V1.0/Report.full.cfm?RecIDParm=#Get_CONTINGENT_LIAB_REPORT_Currval.CONTINGENT_LIAB_REPORT_CURRVAL#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
 
 <!---
 <a href="https://<cfoutput>#This_Server#</cfoutput>/InHouse/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#Get_CONTINGENT_LIAB_REPORT_Currval.CONTINGENT_LIAB_REPORT_CURRVAL#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
