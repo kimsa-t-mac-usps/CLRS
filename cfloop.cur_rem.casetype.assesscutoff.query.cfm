@@ -693,7 +693,9 @@ NOT:
 						<!---clr.ASSESSMENT_AMOUNT IS NOT NULL--->
 						
 						(clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> or clr.ASSESSMENT_AMOUNT IS NULL)
-						AND clr.ASSESSMENT_AMOUNT NOT IN (5100000) AND clr.ASSESSMENT_AMOUNT_UPPER NOT IN (63000000)
+						AND clr.ASSESSMENT_AMOUNT NOT IN (5100000) 
+						AND clr.ASSESSMENT_AMOUNT_UPPER NOT IN (63000000)
+						<!---AND clr.ASSESSMENT_AMOUNT_UPPER NOT IN (10100000)--->
 						AND
 						(
 						clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
@@ -704,8 +706,8 @@ NOT:
 						clr.ASSESSMENT_AMT_UPPER_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
 						)
 						)
-
-
+				<!---KS20250422 --->
+						AND (clr.ASSESSMENT_AMOUNT_UPPER < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> OR clr.ASSESSMENT_AMOUNT_UPPER IN (10100000))
 
 
 						)
