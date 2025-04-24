@@ -1,4 +1,4 @@
-<!---<!DOCTYPE html> Kimsa updated 4.23.25--
+<!---<!DOCTYPE html>
 <html>
 <head>
 <style>
