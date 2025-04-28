@@ -808,6 +808,10 @@ NOT:
 					    clr.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 						OR
 					    clr.ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
+					    
+					    <!---KS20250425 --->
+					    
+					    OR clr.LAW_DEPT_OFFICE in (Select Office_Prm_Key from LDOffices)
 					    )
 
 
