@@ -809,9 +809,21 @@ NOT:
 						OR
 					    clr.ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 					    
+					    
+					    
+					    
+					    <!---KS ===================================================================== --->
+					    <!---KS ===================================================================== --->
+					    
 					    <!---KS20250425 --->
 					    
-					    OR clr.LAW_DEPT_OFFICE in (Select Office_Prm_Key from LDOffices)
+					    OR 
+					    	(
+					    	clr.LAW_DEPT_OFFICE in (Select Office_Prm_Key from LDOffices)
+					    	and clr.counsel_Law_Dept in (Select userprmkey from BUSINESSSERVUSERS)
+					   		)
+					    
+					    
 					    )
 
 
