@@ -51,9 +51,10 @@ clr.ASSESSMENT_AMOUNT >= #FiveMillion#
 clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#FiveMillion#">
 --->
 
-
-clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> OR ASSESSMENT_AMT_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
-
+(
+(clr.ASSESSMENT_AMOUNT is not null AND clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">) 
+OR (clr.ASSESSMENT_AMT_HIGH_END is not null AND clr.ASSESSMENT_AMT_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">)
+)
 
 
 
