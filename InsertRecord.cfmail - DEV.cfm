@@ -147,9 +147,9 @@ ORDER BY c.SORTORDER, a.LASTNAME
 
 
 <CFMAIL
-    FROM="Kimsa.T.Mac@usps.gov" <!---#This_EE_From_Line#--->
-    TO="Kimsa.T.Mac@usps.gov" <!---#InsertRecord_cfmail_To#--->
-    BCC="Kimsa.T.Mac@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#" <!---gccontliab@usps.gov--->
+    FROM="#This_EE_From_Line#"
+    TO="#InsertRecord_cfmail_To#"
+    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
     SUBJECT="New Contingent Liabilities Case Record For Approval"
 	TYPE="HTML">
 
