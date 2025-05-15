@@ -1,5 +1,5 @@
 <cfinclude template="MfaCookieCheck.cfm">
-<!--- test 05052025
+<!--- test 051225
 <cfset Init_User_Id = TRIM(UCASE(RemoveChars(auth_user,1,find('\',auth_user))))>
 Init_User_Id variable equals: <cfoutput>"#Init_User_Id#"</cfoutput> <br>--->
 

@@ -34,7 +34,9 @@
            </button>--->
           <!--place holder for the fixed-position footer-->
          <div class="page-footer">
-    I'm The Footer
+    <div style="text-align: center; padding: 10px;">
+      I'm The Footer Test 
+    </div>
   </div>
     
   

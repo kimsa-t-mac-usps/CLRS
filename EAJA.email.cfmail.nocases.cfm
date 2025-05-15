@@ -80,9 +80,9 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 
 <CFMAIL
     
-    FROM="Kimsa.T.Mac@usps.gov" <!---#This_EE_From_Line#--->
-    TO="Kimsa.T.Mac@usps.gov"						<!---#EAJA_email_cfmail_nocases_To#--->
-    BCC="Kimsa.T.Mac@usps.gov"				<!---gccontliab@usps.gov--->
+    FROM="#This_EE_From_Line#"
+    TO="#EAJA_email_cfmail_nocases_To#"
+    BCC="gccontliab@usps.gov"
     SUBJECT="No EAJA Cases For #trim(Office)# to Report for #trim(Rpt)#"
 	TYPE="HTML">
 <div style="font-family:arial; font-size:10pt">
