@@ -142,7 +142,9 @@ CONTINGENT_LIAB_AUTH = 'T' = Tort Claim cases only (St. Louis)
         (
         trim(a.OFFICE) = trim(b.OFFICE)
 		AND
-		trim(a.OFFICE) != 'General Law Service Center' 
+		
+		trim(a.OFFICE) != 'General Law Service Center' <!---220 --->
+		
 		)
         
 		OR
@@ -156,7 +158,7 @@ CONTINGENT_LIAB_AUTH = 'T' = Tort Claim cases only (St. Louis)
 --->		
 		
         AND
-        trim(b.OFFICE) = 'National Tort Center' 
+        trim(b.OFFICE) = 'National Tort Center' <!---330 --->
 		)
 
 		)
@@ -182,7 +184,7 @@ CONTINGENT_LIAB_AUTH = 'T' = Tort Claim cases only (St. Louis)
 <CFOUTPUT>
 <p></p>
 CheckUserAuth.cfm at 89:
-<br />
+<br />                                                 
 
 
 Get_Auth_User_Office.RecordCount = #Get_Auth_User_Office.RecordCount#

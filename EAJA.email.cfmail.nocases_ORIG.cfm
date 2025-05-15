@@ -4,14 +4,14 @@
 
 <html>
 <head>
-<title>E-mail: No Cases for Office</title>
+<title>E-mail: No EAJA Cases for Office</title>
 </head>
 
 <body style="font-family:arial; font-size:10pt" onLoad="setTimeout('window.close();',10000)">
 
 <b>U.S. Postal Service Law Department</b>
 <br>
-<b>Contingent Liabilities and Receivables</b>
+<b>EAJA Cases</b>
 <br>
 
 <CFIF IsDefined("Rpt")>
@@ -27,6 +27,7 @@
 <CFIF NOT (IsDefined("From") AND IsDefined("Office") AND IsDefined("Rpt"))>
 
 Sorry, there was an error in sending the e-mail message. Please send an e-mail message through Outlook.
+
 
 <CFELSE>
 
@@ -56,10 +57,19 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 <CFSET TrimEMailAddr = TrimEMailAddr & "@usps.gov">
 --->
 
+
 <CFIF IsDefined("Test_Email_Addr")>
-	<CFSET email_cfmail_nocases_To = Test_Email_Addr>
+	<CFSET EAJA_email_cfmail_nocases_To = Test_Email_Addr>
 <CFELSE>
-	<CFSET email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>
+	<CFSET EAJA_email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>
+</CFIF>
+
+
+
+<CFIF IsDefined("Test_Email_Addr")>
+	<CFSET EAJA_email_cfmail_nocases_To = Test_Email_Addr>
+<CFELSE>
+	<CFSET EAJA_email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>
 </CFIF>
 
 
@@ -69,41 +79,18 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 --->
 
 <CFMAIL
-   
     
-    FROM="#This_EE_From_Line#"
-    TO="#email_cfmail_nocases_To#"
-    BCC="gccontliab@usps.gov"
-    SUBJECT="No Cases From #Trim(Office)# to Report for Contingent Liabilities Report, #Trim(Rpt)#"
+    FROM="Kimsa.T.Mac@usps.gov" <!---#This_EE_From_Line#--->
+    TO="Kimsa.T.Mac@usps.gov"						<!---#EAJA_email_cfmail_nocases_To#--->
+    BCC="Kimsa.T.Mac@usps.gov"				<!---gccontliab@usps.gov--->
+    SUBJECT="No EAJA Cases For #trim(Office)# to Report for #trim(Rpt)#"
 	TYPE="HTML">
-
-<!--- Kimsa test email --->
-<!---<CFIF IsDefined("Test_Email_Addr")>
-	<CFSET email_cfmail_nocases_To = Test_Email_Addr>
-<CFELSE>
-	<CFSET email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>
-</CFIF>
-
-
-
-<!---
-    FROM="#TrimEMailAddr#"
---->
-
-<CFMAIL
-    FROM="#This_EE_From_Line#"
-    TO="#email_cfmail_nocases_To#"
-    BCC="LawDeptSurvey@usps.gov"
-    SUBJECT="No Cases From #Office# to Report for Contingent Liabilities Report, #Rpt#"
-	TYPE="HTML">
---->
-
-
 <div style="font-family:arial; font-size:10pt">
 
+
 <CFOUTPUT>
-#Trim(Office)#
-has no cases to report for the Contingent Liabilities Report, #Rpt#.
+#trim(Office)#
+has no EAJA cases to report for #Rpt#.
 <p>
 Please let me know if you have any questions or need anything else.
 <p>
@@ -119,11 +106,9 @@ Thank you,
 <h3>Thanks for your message!</h3>
 
 <CFOUTPUT>
-We will note your response that #Office# has <b>no cases</b> to report for the current Contingent Liabilities and Receivables Report.
+We will note your response that #Office# has <b>no EAJA cases</b> to report for the current Quarter.
 </cfoutput>
 
-<p>
-Please let me know if you have any questions.
 <p>
 
 <CFOUTPUT>
@@ -139,6 +124,7 @@ or
 <CFOUTPUT>
 <a href="mailto:#Trim(QueryGetBusServContactDisplayName.mail)#?subject=Contingent Liabilities Question"><b>e-mail</b></a>
 </CFOUTPUT>
+
 
 
 </cfif>
