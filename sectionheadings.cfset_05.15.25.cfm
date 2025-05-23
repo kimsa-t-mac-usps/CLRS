@@ -41,20 +41,13 @@ HeaderParm = #HeaderParm#
 </cfoutput>--->
 <!---<cfdump var="#Form#" >--->
 <!---ks2 -------------------------------------------------------------------------------------->
-
 	<CFIF (This_CASE_TYPE EQ 2
 		and CASE_TYPE_Label EQ "II. Contingent Receivables: Assessed Below $10 Million"
 			and CASE_TYPE_Label NEQ Old_CASE_TYPE_Label
 				and Assess_Cutoff_List_Index EQ "UnderTenMillion")>
 		<CFOUTPUT>
-			<!---Task4: Fixing double headers that appear when users send out email. 5.15.25 KS --->
-        <CFIF HeaderParm EQ "TopIndex">
-            <a #AParm#><h5 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h5></a>
-          
-        </cfif>
-		
+			<a #AParm#><h5 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h5></a>
 		</cfoutput>
-		
 	<CFELSEIF (This_CASE_TYPE EQ 11
 		and CASE_TYPE_Label EQ "III. Cases To Be Removed - Contingent Liabilities: Assessed Below $10 Million"
 			and CASE_TYPE_Label NEQ Old_CASE_TYPE_Label
@@ -96,12 +89,9 @@ IsDefined("This_CASE_TYPE")>
 
 
 	<CFIF HeaderParm EQ "TopIndex">
-		
 		<CFSET AParm = 'href = "##' & CASE_TYPE_Label & '"'>
-
 	<CFELSE>
 		<CFSET AParm = 'name = "' & CASE_TYPE_Label & '"'>
-	
 	</cfif>
 
 
@@ -228,25 +218,9 @@ IsDefined("This_CASE_TYPE")>
 		<CFIF CASE_TYPE_Label DOES NOT CONTAIN "I. Contingent Liabilities">
 
 	    	<cfoutput>
-	    		
-	    		<!---<h5>#CASE_TYPE_LABEL#rao</h5>--->
-		
 			<a #AParm#><h3 class="SectionHead">#CASE_TYPE_Label#</h3></a sectionheadings.cfset.cfm at 102>
-<!---			<CFIF HeaderParm EQ "TopIndex">
-<cfdump var="KS index 2" >
-	
-<cfdump var="#CASE_TYPE_Label#" > 
-<cfdump var="#AParm#">  	
-<cfdump var="KS 2" >
-         
-<CFELSE>
-<cfdump var="KS name 2">
-
-<cfdump var="#CASE_TYPE_Label#" >
-<cfdump var="#AParm#" >
-<cfdump var="KS name 2">	         	        
-</cfif>--->
 			</cfoutput>
+
 		<CFELSE>
 
 <!---
@@ -902,6 +876,5 @@ This_CASE_TYPE = #This_CASE_TYPE#
 Assess_Cutoff_List_Index = #Assess_Cutoff_List_Index#
 <p>
 </cfoutput>--->
-
 
 
