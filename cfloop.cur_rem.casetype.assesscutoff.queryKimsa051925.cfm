@@ -806,56 +806,24 @@ NOT:
 						AND 
     					(
 					    clr.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
-						OR
-					    clr.ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
-					    
-					    
-					    
-					    
-					    <!---KS ===================================================================== --->
-					    <!---KS ===================================================================== --->
-					    
-					    <!---KS20250506 --->
-					    
-					    OR 
-					    	(
-					    		
-					    	<!---clr.LAW_DEPT_OFFICE in (Select Office_Prm_Key from LDOffices)
-					    	and clr.counsel_Law_Dept in (Select userprmkey from BUSINESSSERVUSERS)--->
-					    	
-					    	
-					    	<!---clr.LAW_DEPT_OFFICE in (Select Office_Prm_Key from LDOffices)
-					    	and clr.counsel_Law_Dept in 
-					    						(Select TB.userprmkey from BUSINESSSERVUSERS TB
-					    							where TB.UserPrmKey = clr.counsel_Law_Dept
-					    							)
-					    			and clr.counsel_Law_Dept = 18	
-					    			and 	clr.LAW_DEPT_OFFICE = 330--->			
-					    							
-					    	<!---and 	clr.LAW_DEPT_OFFICE = 330		
-					    	and clr.counsel_Law_Dept = 18--->
-					    	
-					    	
-					    	
-							clr.LAW_DEPT_OFFICE in (select TR.LAW_DEPT_OFFICE
+						OR clr.ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
+						
+						<!---OR clr.LAW_DEPT_OFFICE = 220
+						OR clr.LAW_DEPT_OFFICE in (select TR.LAW_DEPT_OFFICE
 							       from CONTINGENT_LIAB_REPORT TR, 
 							            Businessservusers TB
 							       where TB.USERPRMKEY = TR.Counsel_law_Dept
-							       and TR.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
-							       
-							       
-							       <!---and TR.LAW_DEPT_OFFICE = 330 
-							       and TR.Counsel_law_Dept = 18--->
-							       
-							       )
-					    	
-					   		)
-					    
-					    
+							       and TR.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#)--->
+						
+						
 					    )
 
-
-
+  
+					<!---clr.LAW_DEPT_OFFICE in (select TR.LAW_DEPT_OFFICE
+							       from CONTINGENT_LIAB_REPORT TR, 
+							            Businessservusers TB
+							       where TB.USERPRMKEY = TR.Counsel_law_Dept
+							       and TR.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#--->
 
 <!--- Check for Business cases authorization (B) or Torts authorization (T) (St Louis) --->
 						<CFIF IsDefined("ThisCONTINGENT_LIAB_AUTH")>

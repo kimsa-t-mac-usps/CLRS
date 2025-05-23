@@ -9,7 +9,7 @@ table.report-container{
 }
 thead.report-header{
 	display:table-header-group;
-	background-color:lightblue;
+	background-color:SteelBlue;
 	color:darkblue;
 	top:0;
 	width:100%;
@@ -31,7 +31,7 @@ margin-bottom:50px;
 	
 }
 div.header-stk {
-background: lightblue;
+background: SteelBlue;
 padding-bottom:4px;
 padding-top:10px;
 

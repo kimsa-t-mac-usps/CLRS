@@ -77,7 +77,7 @@ AND clr.ASSESSMENT_AMOUNT NOT IN (5100000) AND clr.ASSESSMENT_AMOUNT_UPPER NOT I
 )--->		
 
 
-AND (clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">)
+<!---AND (clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">)--->
 
 AND (clr.ASSESSMENT_AMT_HIGH_END is null OR clr.ASSESSMENT_AMT_HIGH_END < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">)
 

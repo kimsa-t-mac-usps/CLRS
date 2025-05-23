@@ -1,5 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="RemoteSearchPage.data8">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="We will note your response that HQ " key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data7">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="SendEmailForm" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\InHouse\ContingLiabAdmin" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
 	<section name="RemoteSearchPage">
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="9" key="dataSize"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+	</section>
+	<section name="RemoteSearchPage.data4">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="If your office has no EAJA cases to" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data3">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="CFMail" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data6">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="Hello --" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\InHouse\ContingLiabAdmin" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data5">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="EAJA cases" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data0">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="textcompareDistrict_Division_Areas2" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data2">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="HQ Legal Strategy has no EAJA cases" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data1">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="AddHeaderA.cfm" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
 	</section>
 </section>

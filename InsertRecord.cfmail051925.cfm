@@ -147,9 +147,9 @@ ORDER BY c.SORTORDER, a.LASTNAME
 
 
 <CFMAIL
-    FROM="Kimsa.T.Mac@usps.gov" <!---#This_EE_From_Line#--->
-    TO="Kimsa.T.Mac@usps.gov" <!---#InsertRecord_cfmail_To#--->
-    BCC="Kimsa.T.Mac@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#" <!---gccontliab@usps.gov--->
+    FROM="#This_EE_From_Line#"
+    TO="#InsertRecord_cfmail_To#"
+    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
     SUBJECT="New Contingent Liabilities Case Record For Approval"
 	TYPE="HTML">
 
@@ -177,8 +177,7 @@ TO: #ToMCLine#
 --->
 
 <!--- Bob Sindermann 12/5/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
-<!---KS 4.7.25 Changed this_server <CFSET This_Server = "lawdept1"> --->
-        <CFSET This_Server = "lawdept">
+        <CFSET This_Server = "lawdept1">
 
 </cfif>
 

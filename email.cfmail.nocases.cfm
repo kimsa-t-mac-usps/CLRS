@@ -30,32 +30,6 @@ Sorry, there was an error in sending the e-mail message. Please send an e-mail m
 
 <CFELSE>
 
-<!---
-<CFQUERY NAME="Get_ReplyUser" DATASOURCE="ContLiab">
-SELECT LAWDEPARTMENT.LASTNAME, LAWDEPARTMENT.FIRSTNAME, LAWDEPARTMENT.LONGEMAIL
-FROM LAWDEPARTMENT, LDEXTRA
-WHERE LAWDEPARTMENT.PRIMARYKEY = LDEXTRA.PRIMARYKEY
-AND
-(UPPER(AD_USERID) LIKE UPPER('#From#%')
-OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
-</cfquery>
-
-<CFSET TrimLastName = Trim(Get_ReplyUser.LASTNAME)>
-<CFSET TrimFirstName = Trim(Get_ReplyUser.FIRSTNAME)>
-<CFSET TrimEMailAddr = Trim(Get_ReplyUser.LONGEMAIL)>
-
-<CFIF TrimEMailAddr EQ "">
-	<CFSET DefaultLongEmailFirstName = Replace(TrimFIRSTNAME, " ", ".", "ALL")>
-	<CFSET DefaultLongEmailFirstName = Replace(DefaultLongEmailFirstName, "..", "", "ALL")>
-	<CFIF Right(DefaultLongEmailFirstName, 1) NEQ ".">
-		<CFSET DefaultLongEmailFirstName = DefaultLongEmailFirstName & ".">
-	</cfif>
-	<CFSET TrimEMailAddr = DefaultLongEmailFirstName & TrimLASTNAME>
-</cfif>
-
-<CFSET TrimEMailAddr = TrimEMailAddr & "@usps.gov">
---->
-
 <CFIF IsDefined("Test_Email_Addr")>
 	<CFSET email_cfmail_nocases_To = Test_Email_Addr>
 <CFELSE>
@@ -71,9 +45,9 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 <CFMAIL
    
     
-    FROM="#This_EE_From_Line#"
-    TO="#email_cfmail_nocases_To#"
-    BCC="gccontliab@usps.gov"
+    FROM="Virginia.Whitehead@usps.gov"
+    TO="Kimsa.T.Mac@usps.gov"
+    BCC="Kimsa.T.Mac@usps.gov"
     SUBJECT="No Cases From #Trim(Office)# to Report for Contingent Liabilities Report, #Trim(Rpt)#"
 	TYPE="HTML">
 
