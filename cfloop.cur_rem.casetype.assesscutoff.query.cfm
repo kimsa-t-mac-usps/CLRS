@@ -809,6 +809,7 @@ NOT:
 						OR
 					    clr.ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 					    
+					    <!---OR clr.LAW_DEPT_OFFICE = 220--->
 					    
 					    
 					    
@@ -817,6 +818,7 @@ NOT:
 					    
 					    <!---KS20250506 --->
 					    
+					   					    
 					    OR 
 					    	(
 					    		
@@ -837,15 +839,49 @@ NOT:
 					    	
 					    	
 					    	
-							clr.LAW_DEPT_OFFICE in (select TR.LAW_DEPT_OFFICE
+							<!---clr.LAW_DEPT_OFFICE in (select TR.LAW_DEPT_OFFICE
 							       from CONTINGENT_LIAB_REPORT TR, 
 							            Businessservusers TB
 							       where TB.USERPRMKEY = TR.Counsel_law_Dept
-							       and TR.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
+							       <!---and TR.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#--->
 							       
 							       
-							       <!---and TR.LAW_DEPT_OFFICE = 330 
-							       and TR.Counsel_law_Dept = 18--->
+							       <!---and TR.LAW_DEPT_OFFICE = 220--->
+							       and TR.Counsel_law_Dept = 18
+							       <!---and TB.UserprmKey = clr.PRIMARYKEY--->--->
+							       
+							       
+							       <!---clr.LAW_DEPT_OFFICE in (select TR.LAW_DEPT_OFFICE
+							       from CONTINGENT_LIAB_REPORT TR, 
+							            Businessservusers TB
+							       where TB.USERPRMKEY = TR.Counsel_law_Dept
+							       <!---and TR.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#--->
+							       
+							       
+							       <!---and TR.LAW_DEPT_OFFICE = 220--->
+							       <!---and TR.Counsel_law_Dept = 18--->
+							       <!---and TB.UserprmKey = clr.PRIMARYKEY--->
+							       and TR.LAW_DEPT_OFFICE = TR.LAW_DEPT_OFFICE
+							       and TR.LAW_DEPT_OFFICE = clr.LAW_DEPT_OFFICE--->
+							       
+	clr.LAW_DEPT_OFFICE in (Select b.office_prm_key
+				    FROM LAWDEPARTMENT a, LDOFFICES b
+				    
+				    WHERE trim(a.OFFICE) = trim(b.OFFICE)
+				    
+				    AND a.PRIMARYKEY = 18
+				    
+				    AND a.PRIMARYKEY in (SELECT c.USERPRMKEY
+				        FROM BUSINESSSERVUSERS c, LDEXTRA d
+				        WHERE c.USERPRMKEY = d.PRIMARYKEY
+				        <!---and a.PRIMARYKEY = clr.PRIMARYKEY--->
+				        and (c.AD_USERID = d.Ad_USERID OR c.AD_MAILNICKNAME = d.AD_MAILNICKNAME)
+				        
+				              )
+    
+    
+							       
+							       
 							       
 							       )
 					    	

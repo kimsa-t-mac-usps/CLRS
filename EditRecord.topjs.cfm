@@ -95,14 +95,6 @@ promptUpdateFacts(fieldLabel);
 	
 }
 
-
-
-
-
-
-
-
-
 function checkHQ_AREA_NAME(thisHQ_AREA_NAME) {
 
 thisHQ_AREA_NAME = thisHQ_AREA_NAME.options[thisHQ_AREA_NAME.selectedIndex].value;
@@ -1698,6 +1690,7 @@ if (!confirm("This will delete this record from the Report." +
 "Are you sure you want to do this?")) return false;
 
 }
+
 
 
 function removeConfirm(thisForm) {
