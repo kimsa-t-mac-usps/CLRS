@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_iKhPADGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_iKhPATGiEfCZR4Zw_x2-Vg" bindingContexts="_iKh4zDGiEfCZR4Zw_x2-Vg">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList/>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.adobe.editor.cfml.CFMLMultiPageEditor&quot; name=&quot;index.cfm&quot; tooltip=&quot;CLRS_DEV/CLRS_DEV/index.cfm&quot;>&#xD;&#xA;&lt;persistable path=&quot;/CLRS_DEV/CLRS_DEV/index.cfm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_iKhPATGiEfCZR4Zw_x2-Vg" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_iKhPAjGiEfCZR4Zw_x2-Vg" x="0" y="0" width="1024" height="768">
@@ -116,7 +116,14 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_iKh29DGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.editorss" selectedElement="_g_8nsTUjEfCDzc0JZx8coQ">
-      <children xsi:type="basic:PartStack" xmi:id="_g_8nsTUjEfCDzc0JZx8coQ" elementId="PartStack@716fb083"/>
+      <children xsi:type="basic:PartStack" xmi:id="_g_8nsTUjEfCDzc0JZx8coQ" elementId="PartStack@716fb083" selectedElement="_t-O0sDzGEfCUZqlmmItijQ">
+        <children xsi:type="basic:Part" xmi:id="_t-O0sDzGEfCUZqlmmItijQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="ColdFusion Builder : Getting Started" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.adobe.ide.coldfusion.startup.startpage.editor&quot; name=&quot;Web Browser&quot; partName=&quot;ColdFusion Builder : Getting Started&quot; title=&quot;ColdFusion Builder : Getting Started&quot; tooltip=&quot;file:/C:/ColdFusionBuilder2016/plugins/com.adobe.ide.coldfusion.startup_3.1.3.201705031620/GettingStarted/index.html&quot;>&#xD;&#xA;&lt;input factoryID=&quot;com.adobe.ide.coldfusion.startup.startpage.StartPageEditorInput&quot; style=&quot;20&quot; url=&quot;file:/C:/ColdFusionBuilder2016/plugins/com.adobe.ide.coldfusion.startup_3.1.3.201705031620/GettingStarted/index.html&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>com.adobe.ide.coldfusion.startup.startpage.editor</tags>
+          <tags>removeOnHide</tags>
+        </children>
+      </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_iKh3ADGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.views.ResourceNavigator" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Navigator" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/filenav_nav.png" tooltip="" closeable="true">
       <tags>View</tags>
@@ -308,7 +315,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3NTGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_JK4E8DtCEfCDReVAZ-suzA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_iKie-DGiEfCZR4Zw_x2-Vg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_PbFJgDzIEfCVN5xw_gAUpQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_iKie-DGiEfCZR4Zw_x2-Vg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3QTGiEfCZR4Zw_x2-Vg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -344,7 +351,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3aTGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_JK5TEztCEfCDReVAZ-suzA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_iKiejzGiEfCZR4Zw_x2-Vg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_PbG-sDzIEfCVN5xw_gAUpQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_iKiejzGiEfCZR4Zw_x2-Vg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3czGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.DefaultTextEditor" visible="false">
         <tags>Draggable</tags>
@@ -1086,6 +1093,14 @@
     <tags>menuContribution:popup</tags>
   </menuContributions>
   <menuContributions xmi:id="_KQHOsDtCEfCDReVAZ-suzA" elementId="com.adobe.ide.coldfusion.appcodegeneration:975316968" positionInParent="before=additions" parentId="popup">
+    <tags>scheme:popup</tags>
+    <tags>menuContribution:popup</tags>
+  </menuContributions>
+  <menuContributions xmi:id="_t98g0DzGEfCUZqlmmItijQ" elementId="com.adobe.ide.coldfusion.appcodegeneration:508000580" positionInParent="before=additions" parentId="popup">
+    <tags>scheme:popup</tags>
+    <tags>menuContribution:popup</tags>
+  </menuContributions>
+  <menuContributions xmi:id="_P2ghQDzIEfCVN5xw_gAUpQ" elementId="com.adobe.ide.coldfusion.appcodegeneration:1050196275" positionInParent="before=additions" parentId="popup">
     <tags>scheme:popup</tags>
     <tags>menuContribution:popup</tags>
   </menuContributions>
