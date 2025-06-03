@@ -339,12 +339,13 @@ IsDefined("Form.Alt_Approval_Flag")>
 	<CFELSE>
 		<CFSET SendEmailFromMC_To = ToLine>
 	</CFIF>
-
+<cfdump var="#ToLine#">
+<cfabort>
 
 	<CFMAIL
 	    FROM="Kimsa.T.Mac@usps.gov" <!---#This_EE_From_Line#--->
-	    TO="#ToLine#"
-	    CC="#CCLine#"
+	    TO="Kimsa.T.Mac@usps.gov" <!---#ToLine#--->
+	    CC="Kimsa.T.Mac@usps.gov" <!---#CCLine#--->
 	    BCC="Kimsa.T.Mac@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#" <!---gccontliab@usps.gov--->
 	    SUBJECT="#ApprWordSubj#: New Contingent Liabilities Case Record"
 		TYPE="HTML">
@@ -373,7 +374,7 @@ IsDefined("Form.Alt_Approval_Flag")>
 	
 	<CFIF IsDefined("Test_Email_Addr")>
 	
-	TO="#ToLine#"
+	TO="Kimsa.T.Mac@usps.gov" <!---#ToLine#--->
 	<p>
 	
 	</cfif>

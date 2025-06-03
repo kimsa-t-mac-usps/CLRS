@@ -1,7 +1,6 @@
 <cfinclude template="MfaCookieCheck.cfm">
 
 <!----------------- cfloop.cur_rem.casetype.assesscutoff.query.cfm ----------->
-<!---------------------------------------------------------------------------->
 <!--- KS --->
 	<!---<CFOUTPUT>
 		<br />
@@ -813,79 +812,114 @@ NOT:
 					    
 					    
 					    
+					    
+					    
 					    <!---KS ===================================================================== --->
 					    <!---KS ===================================================================== --->
 					    
 					    <!---KS20250506 --->
 					    
+					    <!---Kimsa test 6.2.25 --->
+					    
+					    
+					    OR
+					    
+					    clr.LAW_DEPT_OFFICE in (SELECT e.office_prm_key
+					    
+					    <!---clr.PRIMARYKEY in (SELECT a.USERPRMKEY--->
+
+						FROM BUSINESSSERVUSERS a, LDEXTRA b, LAWDEPARTMENT c, ldoffices e
+						
+						WHERE a.USERPRMKEY = b.PRIMARYKEY
+						
+						AND c.PRIMARYKEY = b.PRIMARYKEY
+						
+						
+						and trim(c.OFFICE) = trim(e.OFFICE)
+						and (a.AD_USERID = b.Ad_USERID OR a.AD_MAILNICKNAME = b.AD_MAILNICKNAME)
+						
+						
+						
+						and clr.LAW_DEPT_OFFICE = e.office_prm_key
+						
+						and clr.LAW_DEPT_OFFICE = 220
+						
+						<!---and e.office_prm_key = #Get_Auth_User_Office.OFFICE_PRM_KEY#--->
+						
+						and clr.LAW_DEPT_OFFICE in (220, 330)
+						<!---and  a.USERPRMKEY = 18--->
+						
+						)
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+					    <!---or clr.LAW_DEPT_OFFICE = 220--->	
+					    <!---or clr.counsel_Law_Dept = 18--->
+					   	<!---or clr.PRIMARYKEY =	18--->			    
 					   					    
-					    OR 
+					    <!---OR 
 					    	(
-					    		
-					    	<!---clr.LAW_DEPT_OFFICE in (Select Office_Prm_Key from LDOffices)
-					    	and clr.counsel_Law_Dept in (Select userprmkey from BUSINESSSERVUSERS)--->
-					    	
-					    	
-					    	<!---clr.LAW_DEPT_OFFICE in (Select Office_Prm_Key from LDOffices)
-					    	and clr.counsel_Law_Dept in 
-					    						(Select TB.userprmkey from BUSINESSSERVUSERS TB
-					    							where TB.UserPrmKey = clr.counsel_Law_Dept
-					    							)
-					    			and clr.counsel_Law_Dept = 18	
-					    			and 	clr.LAW_DEPT_OFFICE = 330--->			
-					    							
-					    	<!---and 	clr.LAW_DEPT_OFFICE = 330		
-					    	and clr.counsel_Law_Dept = 18--->
-					    	
-					    	
-					    	
-							<!---clr.LAW_DEPT_OFFICE in (select TR.LAW_DEPT_OFFICE
-							       from CONTINGENT_LIAB_REPORT TR, 
-							            Businessservusers TB
-							       where TB.USERPRMKEY = TR.Counsel_law_Dept
-							       <!---and TR.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#--->
-							       
-							       
-							       <!---and TR.LAW_DEPT_OFFICE = 220--->
-							       and TR.Counsel_law_Dept = 18
-							       <!---and TB.UserprmKey = clr.PRIMARYKEY--->--->
-							       
-							       
-							       <!---clr.LAW_DEPT_OFFICE in (select TR.LAW_DEPT_OFFICE
-							       from CONTINGENT_LIAB_REPORT TR, 
-							            Businessservusers TB
-							       where TB.USERPRMKEY = TR.Counsel_law_Dept
-							       <!---and TR.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#--->
-							       
-							       
-							       <!---and TR.LAW_DEPT_OFFICE = 220--->
-							       <!---and TR.Counsel_law_Dept = 18--->
-							       <!---and TB.UserprmKey = clr.PRIMARYKEY--->
-							       and TR.LAW_DEPT_OFFICE = TR.LAW_DEPT_OFFICE
-							       and TR.LAW_DEPT_OFFICE = clr.LAW_DEPT_OFFICE--->
-							       
+					    	       
 	clr.LAW_DEPT_OFFICE in (Select b.office_prm_key
 				    FROM LAWDEPARTMENT a, LDOFFICES b
 				    
 				    WHERE trim(a.OFFICE) = trim(b.OFFICE)
+				     <!---and a.PRIMARYKEY = clr.PRIMARYKEY--->
+				    
 				    
 				    AND a.PRIMARYKEY = 18
 				    
 				    AND a.PRIMARYKEY in (SELECT c.USERPRMKEY
 				        FROM BUSINESSSERVUSERS c, LDEXTRA d
 				        WHERE c.USERPRMKEY = d.PRIMARYKEY
-				        <!---and a.PRIMARYKEY = clr.PRIMARYKEY--->
+				        
+				        <!---and d.PRIMARYKEY = clr.PRIMARYKEY--->
+				        
+				        
 				        and (c.AD_USERID = d.Ad_USERID OR c.AD_MAILNICKNAME = d.AD_MAILNICKNAME)
 				        
+				        
+				        
+				        
+				        
+				        
+				        
+	<!---clr.LAW_DEPT_OFFICE in (SELECT e.office_prm_key
+
+						FROM BUSINESSSERVUSERS a, LDEXTRA b, LAWDEPARTMENT c, ldoffices e
+						
+						WHERE a.USERPRMKEY = b.PRIMARYKEY
+						
+						AND c.PRIMARYKEY = b.PRIMARYKEY
+						
+						
+						and trim(c.OFFICE) = trim(e.OFFICE)
+						
+						and  a.USERPRMKEY = 18--->
+
+
+
 				              )
-    
-    
-							       
-							       
-							       
-							       )
+    						       )
+    						       
+    						       
+    						       
+    						       
+    						       
+    						       
 					    	
-					   		)
+					   		)--->
+					    
+					    
+					    
+					    
+					    
+					    
+					    
 					    
 					    
 					    )
