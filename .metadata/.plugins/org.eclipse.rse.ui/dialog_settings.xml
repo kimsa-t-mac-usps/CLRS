@@ -26,12 +26,25 @@
 		<item value="X:\web\cf\cfusion\wwwroot\InHouse\ContingLiabAdmin" key="folderName"/>
 		<item value="*" key="fileNames"/>
 	</section>
+	<section name="RemoteSearchPage.data9">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="NOTE: Case Evaluation Checklist " key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
 	<section name="RemoteSearchPage">
 		<item value="false" key="includeArchives"/>
 		<item value="false" key="fileNameRegex"/>
 		<item value="false" key="caseSensitive"/>
 		<item value="false" key="includeSubfolders"/>
-		<item value="9" key="dataSize"/>
+		<item value="11" key="dataSize"/>
 		<item value="false" key="stringRegex"/>
 		<item value="true" key="fileNameCaseSensitive"/>
 	</section>
@@ -77,6 +90,19 @@
 	<section name="RemoteSearchPage.data5">
 		<item value="5CD238B5J0" key="profileName"/>
 		<item value="EAJA cases" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data10">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="This will delete this record from the Report" key="searchString"/>
 		<item value="false" key="includeArchives"/>
 		<item value="false" key="fileNameRegex"/>
 		<item value="false" key="caseSensitive"/>
