@@ -1,7 +1,6 @@
 <cfinclude template="MfaCookieCheck.cfm">
 
 <!----------------- cfloop.cur_rem.casetype.assesscutoff.query.cfm ----------->
-<!---------------------------------------------------------------------------->
 <!--- KS --->
 	<!---<CFOUTPUT>
 		<br />
@@ -710,14 +709,7 @@ NOT:
 							<!---AND clr.ASSESSMENT_AMOUNT_UPPER NOT IN (10100000)--->
 						AND
 							(
-								<!---CommentOut line#714 Added new line#716 --->
-							<!---clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">--->	
-							
-							(clr.ASSESSMENT_AMOUNT_UPPER is not null and clr.ASSESSMENT_AMOUNT_UPPER >= 500000)
-							
-							
-							
-							
+							clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
 							<!---OR
 							(
 							clr.ASSESSMENT_AMT_UPPER_HIGH_END IS NOT NULL
@@ -815,6 +807,121 @@ NOT:
 					    clr.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 						OR
 					    clr.ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
+					    
+					    <!---OR clr.LAW_DEPT_OFFICE = 220--->
+					    
+					    
+					    
+					    
+					    
+					    <!---KS ===================================================================== --->
+					    <!---KS ===================================================================== --->
+					    
+					    <!---KS20250506 --->
+					    
+					    <!---Kimsa test 6.2.25 --->
+					    
+					    
+					    OR
+					    
+					    clr.LAW_DEPT_OFFICE in (SELECT e.office_prm_key
+					    
+					    <!---clr.PRIMARYKEY in (SELECT a.USERPRMKEY--->
+
+						FROM BUSINESSSERVUSERS a, LDEXTRA b, LAWDEPARTMENT c, ldoffices e
+						
+						WHERE a.USERPRMKEY = b.PRIMARYKEY
+						
+						AND c.PRIMARYKEY = b.PRIMARYKEY
+						
+						
+						and trim(c.OFFICE) = trim(e.OFFICE)
+						and (a.AD_USERID = b.Ad_USERID OR a.AD_MAILNICKNAME = b.AD_MAILNICKNAME)
+						
+						
+						
+						and clr.LAW_DEPT_OFFICE = e.office_prm_key
+						
+						and clr.LAW_DEPT_OFFICE = 220
+						
+						<!---and e.office_prm_key = #Get_Auth_User_Office.OFFICE_PRM_KEY#--->
+						
+						and clr.LAW_DEPT_OFFICE in (220, 330)
+						<!---and  a.USERPRMKEY = 18--->
+						
+						)
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+					    <!---or clr.LAW_DEPT_OFFICE = 220--->	
+					    <!---or clr.counsel_Law_Dept = 18--->
+					   	<!---or clr.PRIMARYKEY =	18--->			    
+					   					    
+					    <!---OR 
+					    	(
+					    	       
+	clr.LAW_DEPT_OFFICE in (Select b.office_prm_key
+				    FROM LAWDEPARTMENT a, LDOFFICES b
+				    
+				    WHERE trim(a.OFFICE) = trim(b.OFFICE)
+				     <!---and a.PRIMARYKEY = clr.PRIMARYKEY--->
+				    
+				    
+				    AND a.PRIMARYKEY = 18
+				    
+				    AND a.PRIMARYKEY in (SELECT c.USERPRMKEY
+				        FROM BUSINESSSERVUSERS c, LDEXTRA d
+				        WHERE c.USERPRMKEY = d.PRIMARYKEY
+				        
+				        <!---and d.PRIMARYKEY = clr.PRIMARYKEY--->
+				        
+				        
+				        and (c.AD_USERID = d.Ad_USERID OR c.AD_MAILNICKNAME = d.AD_MAILNICKNAME)
+				        
+				        
+				        
+				        
+				        
+				        
+				        
+	<!---clr.LAW_DEPT_OFFICE in (SELECT e.office_prm_key
+
+						FROM BUSINESSSERVUSERS a, LDEXTRA b, LAWDEPARTMENT c, ldoffices e
+						
+						WHERE a.USERPRMKEY = b.PRIMARYKEY
+						
+						AND c.PRIMARYKEY = b.PRIMARYKEY
+						
+						
+						and trim(c.OFFICE) = trim(e.OFFICE)
+						
+						and  a.USERPRMKEY = 18--->
+
+
+
+				              )
+    						       )
+    						       
+    						       
+    						       
+    						       
+    						       
+    						       
+					    	
+					   		)--->
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+					    
+					    
 					    )
 
 

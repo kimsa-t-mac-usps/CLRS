@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="330" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="330"/>
+			<item value="220"/>
+			<item value="18"/>
+			<item value="clr"/>
 			<item value="Delete"/>
 			<item value="This will delete this record"/>
 			<item value="NOTE: Case Evaluation Checklist "/>
 			<item value="#Get_Auth_User_Office"/>
-			<item value="QueryGetBusServContactDisplayName"/>
-			<item value="Get"/>
-			<item value="This_Server"/>
-			<item value="Trim_Counsel_EMailAddr"/>
 		</list>
 		<list key="replacehistory">
 		</list>
