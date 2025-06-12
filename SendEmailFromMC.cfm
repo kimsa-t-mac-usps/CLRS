@@ -1,10 +1,6 @@
 <cfinclude template="MfaCookieCheck.cfm">
-<cfoutput >
-	Hello Kimsa: <b>Please send email to MC !!!!!!!!!</b>
-</cfoutput>
 
-
-<!---<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
 <html>
 <head>
@@ -341,16 +337,15 @@ IsDefined("Form.Alt_Approval_Flag")>
 <CFIF IsDefined("Test_Email_Addr")>
 		<CFSET SendEmailFromMC_To = Test_Email_Addr>
 	<CFELSE>
-		<CFSET SendEmailFromMC_To = Kimsa.T.Mac@usps.gov>
+		<CFSET SendEmailFromMC_To = ToLine>
 	</CFIF>
-<cfdump var="#Kimsa.T.Mac@usps.gov#">
-<cfabort>
+
 
 	<CFMAIL
-	    FROM="DEV58 TEST EMail" <!---#This_EE_From_Line#--->
-	    TO="Kimsa.T.Mac@usps.gov" <!---#ToLine#--->
-	    CC="Kimsa.T.Mac@usps.gov" <!---#CCLine#--->
-	    BCC="Kimsa.T.Mac@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#" <!---gccontliab@usps.gov--->
+	    FROM="#This_EE_From_Line#"
+	    TO="#ToLine#"
+	    CC="#CCLine#"
+	    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
 	    SUBJECT="#ApprWordSubj#: New Contingent Liabilities Case Record"
 		TYPE="HTML">
 	
@@ -376,9 +371,9 @@ IsDefined("Form.Alt_Approval_Flag")>
 	<CFOUTPUT>
 	
 	
-	<CFIF IsDefined("Test_Email_Addr")>	
-	TO="#ToLine#" 
+	<CFIF IsDefined("Test_Email_Addr")>
 	
+	TO="#ToLine#"
 	<p>
 	
 	</cfif>
@@ -390,9 +385,7 @@ IsDefined("Form.Alt_Approval_Flag")>
 	
 	
 	<!--- Bob Sindermann 12/6/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
-	<!---KS 4.7.25 Updated Server: changed lawdept1.usps.gov to lawdept.usps.gov --->
-	I have <b>#ApprWordText#</b> this Contingent Liabilities Case Record: <a href="https://eagnmnss58b:8182/InHouse/ContingentLiabilities/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
-
+	I have <b>#ApprWordText#</b> this Contingent Liabilities Case Record: <a href="https://lawdept1.usps.gov/ClientService/ContingentLiabilities/V1.0/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
 	
 	
 	<CFIF IsDefined("Form.DisapprovalComment") AND ((IsDefined("Form.MC_Approval_Flag") AND Form.MC_Approval_Flag EQ "2") OR (IsDefined("Form.Alt_Approval_Flag") AND Form.Alt_Approval_Flag EQ "2"))>
@@ -462,4 +455,3 @@ ReturnForm.submit();
 
 
 
---->

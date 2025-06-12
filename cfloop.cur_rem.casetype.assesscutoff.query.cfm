@@ -1,6 +1,7 @@
 <cfinclude template="MfaCookieCheck.cfm">
 
 <!----------------- cfloop.cur_rem.casetype.assesscutoff.query.cfm ----------->
+<!---------------------------------------------------------------------------->
 <!--- KS --->
 	<!---<CFOUTPUT>
 		<br />
@@ -45,6 +46,22 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 --->
 
 <!--- KS1 --->
+<!---<CFOUTPUT>
+		<br />
+		Program = "cfloop.cur_rem.casetype.assesscutoff.query.cfm at 46"
+		<br />
+		Current_Removed_List = #Current_Removed_List#
+		<br />
+		<!---Current_Removed_List_Index = #Current_Removed_List_Index#
+		<br />--->
+		Case_Type_List	= #Case_Type_List#
+		<br />
+		Assess_Cutoff_List = #Assess_Cutoff_List#
+		<br />
+	</CFOUTPUT>--->
+
+
+
 	
 <!--- Included in Report.ptA.cfm --->
 
@@ -104,6 +121,43 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 --->
 
 					<CFSET CLRC_Query_Name = QueryNamePrefix & "_" & "CONTINGENT_LIAB_GetRecord_Current" & "_" & Current_Removed_List_Index & "_" & Case_Type_List_Index & "_" & Assess_Cutoff_List_Index>
+
+
+
+<!--- KS2 --->
+<!---<CFOUTPUT>
+		<br />
+		Program = "cfloop.cur_rem.casetype.assesscutoff.query.cfm at 125"
+		<br />
+		Current_Removed_List = #Current_Removed_List#
+		<br />
+		<!---Current_Removed_List_Index = #Current_Removed_List_Index#
+		<br />--->
+		Case_Type_List	= #Case_Type_List#
+		<br />
+		Assess_Cutoff_List = #Assess_Cutoff_List#
+		<br />
+	</CFOUTPUT>--->
+
+
+
+
+
+<!---
+<p>
+In cfloop.cur_rem.casetype.assesscutoff.query.cfm at 100:
+<br />
+
+<CFOUTPUT>
+CLRC_Query_Name = "#CLRC_Query_Name#"
+</CFOUTPUT>
+
+<p>
+
+
+
+<CFOUTPUT>
+--->
 
 
 					<CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="contliab">
@@ -335,7 +389,21 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 							(
 							clr.CASE_TYPE = 1
                             
-                     
+<!---                            
+                            <CFIF IsDefined("Get_PrevReport_CASE_REC_ID_SEQUENCE.RecordCount")
+							AND
+							Get_PrevReport_CASE_REC_ID_SEQUENCE.RecordCount GT 0>
+                            
+								OR
+    	                        (
+        	                    CASE_TYPE = 11
+								AND
+								CASE_REC_ID_SEQUENCE IN
+								(#ValueList(Get_PrevReport_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE)#)
+								)
+                            
+                            </CFIF>
+--->                            
                             
 							)
 
@@ -440,6 +508,31 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 
 					<CFELSEIF Assess_Cutoff_List_Index EQ "NewTenMillionAndAbove">
 
+<!---
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_2" value="2" onClick="hideShowButton('No Change', 1, this.value)" CHECKED />No Change Since Last Report 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_7" value="7" onClick="hideShowButton('Update', 1, this.value)"  />Change in Liability Assessment 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_4" value="4" onClick="hideShowButton('', 1, this.value)"  />Change in Damages Assessment or Amount Sought (Still Meets Threshold) 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_9" value="9" onClick="hideShowButton('Update', 1, this.value)"  />Revised Most Likely Payout 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_8" value="8" onClick="hideShowButton('Update', 1, this.value)"  />Additional Facts 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_5" value="5" onClick="hideShowButton('Update', 1, this.value)"  />Settlement, Not Yet Final and Paid 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_6" value="6" onClick="hideShowButton('Update', 1, this.value)"  />Unfavorable Decision, Not Yet Final and Paid 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_11" value="11" onClick="hideShowButton('Remove', 1, this.value)"  />Favorable Decision 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_12" value="12" onClick="hideShowButton('Remove', 1, this.value)"  />Unfavorable Decision, Final and Paid 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_13" value="13" onClick="hideShowButton('Remove', 1, this.value)"  />Settlement, Final and Paid 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_14" value="14" onClick="hideShowButton('Remove', 1, this.value)"  />Withdrawn 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_15" value="15" onClick="hideShowButton('Remove', 1, this.value)"  />Reassessed; No Longer Meets Threshold 
+
+
+NOT:
+
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_11" value="11" onClick="hideShowButton('Remove', 1, this.value)"  />Favorable Decision 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_12" value="12" onClick="hideShowButton('Remove', 1, this.value)"  />Unfavorable Decision, Final and Paid 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_13" value="13" onClick="hideShowButton('Remove', 1, this.value)"  />Settlement, Final and Paid 
+<input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_14" value="14" onClick="hideShowButton('Remove', 1, this.value)"  />Withdrawn 
+
+--->
+
+
 						(
 
 						(
@@ -448,7 +541,11 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 						clr.ASSESSMENT_PROBABILITY IN (1,2)
 						AND
 						(
-											
+							
+						<!---clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">--->
+						<!---KS20250523 --->
+						<!---clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">--->
+						
 						(clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
 							OR clr.ASSESSMENT_AMT_HIGH_END is not null AND clr.ASSESSMENT_AMT_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
 							)
@@ -565,14 +662,44 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 
 							)
 
+
+
 							)
 
 
 						</cfif>
 
+<!---
+					<CFELSEIF Assess_Cutoff_List_Index EQ "MostLikelyUnder1Million_MaxReasonableOver1Million">
+
+
+					<CFELSEIF Assess_Cutoff_List_Index EQ "MostLikelyUnderTenMillion_MaxReasonableOverTenMillion">
+
+--->
+
+
+
+
+
 					<CFELSEIF Assess_Cutoff_List_Index EQ "MostLikelyUnderTenMillion_MaxReasonableOverOneMillion">
 
+
 						(
+<!---
+						clr.ASSESSMENT_AMOUNT IS NOT NULL
+						AND
+						clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
+						AND
+						(
+						clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
+						OR
+						(
+						clr.ASSESSMENT_AMT_UPPER_HIGH_END IS NOT NULL
+						AND
+						clr.ASSESSMENT_AMT_UPPER_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
+						)
+						)
+--->
 
 						--line 641
 						<!---clr.ASSESSMENT_AMOUNT IS NOT NULL--->
@@ -583,8 +710,35 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 							<!---AND clr.ASSESSMENT_AMOUNT_UPPER NOT IN (10100000)--->
 						AND
 							(
-							clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
+								<!---CommentOut line#714 Added new line#716 --->
+							<!---clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">--->	
+							
+							(clr.ASSESSMENT_AMOUNT_UPPER is not null and clr.ASSESSMENT_AMOUNT_UPPER >= 500000)
+							
+							
+							
+							
+							<!---OR
+							(
+							clr.ASSESSMENT_AMT_UPPER_HIGH_END IS NOT NULL
+							AND
+							clr.ASSESSMENT_AMT_UPPER_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
+							)--->
+							)
+				<!---KS20250422 --->
+						<!---AND---> 
+							<!---(
+						    (clr.ASSESSMENT_AMOUNT_UPPER < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> 
+									OR clr.ASSESSMENT_AMOUNT_UPPER IN (10100000))
 
+							OR
+							(clr.ASSESSMENT_AMOUNT_UPPER < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> 
+									OR clr.ASSESSMENT_AMOUNT_UPPER IN (200900000))
+							)--->
+
+							
+						    <!---(clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">)
+							 AND--->
 							 
 							AND
 							(clr.ASSESSMENT_AMT_HIGH_END is null  
@@ -661,41 +815,10 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 					    clr.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 						OR
 					    clr.ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
-					    
-					    <!---OR clr.LAW_DEPT_OFFICE = 220--->
-					    
-							    
-					    <!---Kimsa test 6.2.25 --->
-					    
-					    
-					    OR
-					    
-					    clr.LAW_DEPT_OFFICE in (SELECT e.office_prm_key
-					    
-					    <!---clr.PRIMARYKEY in (SELECT a.USERPRMKEY--->
+					    )
 
-						FROM BUSINESSSERVUSERS a, LDEXTRA b, LAWDEPARTMENT c, ldoffices e
-						
-						WHERE a.USERPRMKEY = b.PRIMARYKEY
-						
-						AND c.PRIMARYKEY = b.PRIMARYKEY
-						
-						
-						and trim(c.OFFICE) = trim(e.OFFICE)
-						and (a.AD_USERID = b.Ad_USERID OR a.AD_MAILNICKNAME = b.AD_MAILNICKNAME)
-						
-						
-						
-						and clr.LAW_DEPT_OFFICE = e.office_prm_key
-						
-						and clr.LAW_DEPT_OFFICE = 220
-						
-						<!---and e.office_prm_key = #Get_Auth_User_Office.OFFICE_PRM_KEY#--->
-						
-						and clr.LAW_DEPT_OFFICE in (220, 330)
-						<!---and  a.USERPRMKEY = 18--->
-						)
-				    )
+
+
 
 <!--- Check for Business cases authorization (B) or Torts authorization (T) (St Louis) --->
 						<CFIF IsDefined("ThisCONTINGENT_LIAB_AUTH")>
@@ -776,6 +899,10 @@ STATUS_CODE <= 10
 
 							(
 
+<!---
+ASSESSMENT_AMOUNT < 1000000
+--->
+
 							(
 							clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
 							OR
@@ -813,7 +940,15 @@ STATUS_CODE <= 10
 							clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
 							OR
 
-						(
+
+<!--- For CorpFin, Addendum, incl Narrative: --->
+
+							(
+
+<!---
+ASSESSMENT_AMOUNT < 1000000
+--->
+
 							(
 							clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
 							OR
@@ -846,7 +981,13 @@ STATUS_CODE <= 10
 							clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
 							OR
 
+<!--- For CorpFin, Addendum, incl Narrative: --->
+
 							(
+
+<!---
+ASSESSMENT_AMOUNT < 1000000
+--->
 
 							(
 							clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
@@ -882,9 +1023,27 @@ STATUS_CODE <= 10
 
 							clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
                             
+<!---                            
+							OR
+							clr.ASSESSMENT_AMOUNT_UPPER >= #TenMillion#
+--->
 
 							OR
 
+<!--- For CorpFin, Addendum, incl narrative: --->
+
+							(
+							<!---Begin New code block for assessment unknown--->
+						<!---	(
+							clr.ASSESSMENT_AMOUNT_UPPER >= #TenMillion#
+							and
+							clr.ASSESSMENT_AMOUNT is null
+							and 
+							clr.ASSESSMENT_AMT_UNKNOWN = 1
+							)
+
+							OR--->
+							<!---End New code block for assessment unknown--->
 							(
 							clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
 							OR
@@ -961,15 +1120,58 @@ STATUS_CODE <= 10
 					</cfquery>
 
 
+
+<!---
+</CFOUTPUT>
+
+<cfabort>
+--->
+
+
+<!---
+</CFIF>
+--->
+
+
+
+<!---
+<CFOUTPUT>
+cfloop.cur_rem.casetype.assesscutoff.query.cfm at 1014:
+<p>
+CLRC_Query_Name = "#CLRC_Query_Name#"
+
+<table>
+
+<CFLOOP QUERY="#CLRC_Query_Name#">
+
+<tr>
+<td>
+#PRIMARYKEY#
+<td>
+#CASE_NAME#
+
+</cfloop>
+
+</table>
+
+</CFOUTPUT>
+--->
+
+
+
+<!--- Close <CFIF Skip_CLRC_Query EQ "no"> --->
 				</cfif>
 
+<!--- Close <CFLOOP INDEX="Assess_Cutoff_List_Index" LIST="#Assess_Cutoff_List#"> --->
 			</cfloop>
 
+<!--- Close <CFIF Skip_Assess_Cutoff_List EQ "no"> --->
 		</cfif>
 
-
+<!--- Close <CFLOOP INDEX="Case_Type_List_Index" LIST="#Case_Type_List#"> --->
 	</cfloop>
 
+<!--- Close <CFLOOP INDEX="Current_Removed_List_Index" LIST="#Current_Removed_List#"> --->
 </cfloop>
 
 

@@ -156,7 +156,7 @@ CONTINGENT_LIAB_AUTH = 'T' = Tort Claim cases only (St. Louis)
 --->		
 		
         AND
-        trim(b.OFFICE) = 'National Tort Center' 
+        trim(b.OFFICE) = 'National Tort Center'
 		)
 
 		)
@@ -214,13 +214,46 @@ Get_Auth_User_Office.OFFICE_PRM_KEY = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 
 	   		</CFIF>
 
+<!---
+<CFOUTPUT>
+<br />
+OfficeScope = "#OfficeScope#"
+<p>
+</CFOUTPUT>
+--->
 
+<!---
+<CFABORT>
+--->
 
 
 			<CFSET DefaultOffice = Get_Auth_User_Office.OFFICE_PRM_KEY>
 		
 		    <CFQUERY NAME="Find_Office_Concur" DATASOURCE="contliab">
         
+<!---        
+			SELECT b.USERPRMKEY
+	        FROM LAWDEPARTMENT a, BUSINESSSERVUSERS b
+	        WHERE a.PRIMARYKEY = b.USERPRMKEY
+			AND b.CONTINGENT_LIAB_CONCUR = 2
+	        AND a.OFFICE LIKE '#OfficeScope#%'
+		
+        
+        
+        FROM LAWDEPARTMENT a, LDOFFICES b
+		
+
+<!---
+        trim(a.OFFICE) = trim(b.OFFICE)
+--->
+        
+        (
+        trim(a.OFFICE) = trim(b.OFFICE)
+        OR
+		trim(a.OFFICE) = trim(b.OFFCOLD)
+        )
+
+--->		
         
 			SELECT bususers.USERPRMKEY
 
