@@ -711,13 +711,10 @@ NOT:
 						AND
 							(
 								<!---CommentOut line#714 Added new line#716 --->
-							<!---clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">--->	
-							
-							(clr.ASSESSMENT_AMOUNT_UPPER is not null and clr.ASSESSMENT_AMOUNT_UPPER >= 500000)
-							
-							
-							
-							
+							<!---clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">--->
+							(clr.ASSESSMENT_AMOUNT_UPPER is not null and clr.ASSESSMENT_AMOUNT_UPPER >= 1000000
+										or clr.ASSESSMENT_AMT_UPPER_HIGH_END is not null and clr.ASSESSMENT_AMT_UPPER_HIGH_END >= 1000000)
+
 							<!---OR
 							(
 							clr.ASSESSMENT_AMT_UPPER_HIGH_END IS NOT NULL
@@ -744,6 +741,12 @@ NOT:
 							(clr.ASSESSMENT_AMT_HIGH_END is null  
 									OR clr.ASSESSMENT_AMT_HIGH_END < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">)
 						)
+						
+						
+
+						
+						
+						
 
 <!--- For "Under5Million" --->
 					<CFELSE>
