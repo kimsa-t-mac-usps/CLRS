@@ -818,11 +818,37 @@ NOT:
 					    clr.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 						OR
 					    clr.ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
-					    )
+					<!---Kimsa updated GL office for MC --->    
+					    OR
+					    clr.LAW_DEPT_OFFICE in (SELECT e.office_prm_key
+					    
+					    <!---clr.PRIMARYKEY in (SELECT a.USERPRMKEY--->
+
+						FROM BUSINESSSERVUSERS a, LDEXTRA b, LAWDEPARTMENT c, ldoffices e
+						
+						WHERE a.USERPRMKEY = b.PRIMARYKEY
+						
+						AND c.PRIMARYKEY = b.PRIMARYKEY
+						
+						
+						and trim(c.OFFICE) = trim(e.OFFICE)
+						and (a.AD_USERID = b.Ad_USERID OR a.AD_MAILNICKNAME = b.AD_MAILNICKNAME)
+						
+						
+						
+						and clr.LAW_DEPT_OFFICE = e.office_prm_key
+						
+						and clr.LAW_DEPT_OFFICE = 220
+						
+						<!---and e.office_prm_key = #Get_Auth_User_Office.OFFICE_PRM_KEY#--->
+						
+						and clr.LAW_DEPT_OFFICE in (220, 330)
+						<!---and  a.USERPRMKEY = 18--->
+						)
+				    )
 
 
-
-
+					<!---End --->
 <!--- Check for Business cases authorization (B) or Torts authorization (T) (St Louis) --->
 						<CFIF IsDefined("ThisCONTINGENT_LIAB_AUTH")>
 

@@ -177,7 +177,7 @@ TO: #ToMCLine#
 --->
 
 <!--- Bob Sindermann 12/5/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
-        <CFSET This_Server = "lawdept1">
+        <CFSET This_Server = "lawdept">
 
 </cfif>
 

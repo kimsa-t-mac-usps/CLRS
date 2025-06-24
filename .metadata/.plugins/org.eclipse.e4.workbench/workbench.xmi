@@ -55,7 +55,7 @@
           <tags>persp.newWizSC:org.eclipse.ui.wizards.new.file</tags>
           <tags>persp.newWizSC:org.eclipse.ui.wizards.new.folder</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPBTGiEfCZR4Zw_x2-Vg" selectedElement="_iKhPBjGiEfCZR4Zw_x2-Vg" horizontal="true">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPBjGiEfCZR4Zw_x2-Vg" containerData="1000" selectedElement="_iKhPCTGiEfCZR4Zw_x2-Vg">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPBjGiEfCZR4Zw_x2-Vg" containerData="1754" selectedElement="_iKhPCTGiEfCZR4Zw_x2-Vg">
               <children xsi:type="basic:PartStack" xmi:id="_iKhPBzGiEfCZR4Zw_x2-Vg" elementId="left" toBeRendered="false" containerData="7000">
                 <children xsi:type="advanced:Placeholder" xmi:id="_iKhPCDGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.views.ResourceNavigator" toBeRendered="false" ref="_iKh3ADGiEfCZR4Zw_x2-Vg"/>
               </children>
@@ -65,10 +65,10 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_iKhPCzGiEfCZR4Zw_x2-Vg" elementId="com.adobe.ide.fileexplorer.view.CFFileExplorerView:*" toBeRendered="false" ref="_iKh3KzGiEfCZR4Zw_x2-Vg"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPDDGiEfCZR4Zw_x2-Vg" containerData="9000" selectedElement="_iKhPDTGiEfCZR4Zw_x2-Vg" horizontal="true">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPDDGiEfCZR4Zw_x2-Vg" containerData="8246" selectedElement="_iKhPDTGiEfCZR4Zw_x2-Vg" horizontal="true">
               <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPDTGiEfCZR4Zw_x2-Vg" containerData="6558" selectedElement="_iKh2EDGiEfCZR4Zw_x2-Vg">
                 <children xsi:type="advanced:Placeholder" xmi:id="_iKh2EDGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.editorss" containerData="8000" ref="_iKh29DGiEfCZR4Zw_x2-Vg"/>
-                <children xsi:type="basic:PartStack" xmi:id="_iKh2ETGiEfCZR4Zw_x2-Vg" elementId="bottom" visible="false" containerData="2000" selectedElement="_iKh2EjGiEfCZR4Zw_x2-Vg">
+                <children xsi:type="basic:PartStack" xmi:id="_iKh2ETGiEfCZR4Zw_x2-Vg" elementId="bottom" visible="false" containerData="2000" selectedElement="_iKh2FTGiEfCZR4Zw_x2-Vg">
                   <tags>Minimized</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_iKh2EjGiEfCZR4Zw_x2-Vg" elementId="com.adobe.coldfusion.server.ui.view.ServerView" ref="_iKh3DzGiEfCZR4Zw_x2-Vg"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_iKh2EzGiEfCZR4Zw_x2-Vg" elementId="com.adobe.ide.coldfusion.mobile.phonegap.StatusView" ref="_iKh3EjGiEfCZR4Zw_x2-Vg"/>
@@ -116,7 +116,7 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_iKh29DGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.editorss">
-      <children xsi:type="basic:PartStack" xmi:id="_UGs_oUq0EfCIM5PnEKQf_w" elementId="PartStack@60cc749d"/>
+      <children xsi:type="basic:PartStack" xmi:id="_rTU4YUuSEfC8ZeppoaBoOQ" elementId="PartStack@408db405"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_iKh3ADGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.views.ResourceNavigator" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Navigator" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/filenav_nav.png" tooltip="" closeable="true">
       <tags>View</tags>
@@ -171,7 +171,7 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_iKh3ETGiEfCZR4Zw_x2-Vg" elementId="com.adobe.coldfusion.server.ui.view.ServerView"/>
+      <toolbar xmi:id="_iKh3ETGiEfCZR4Zw_x2-Vg" elementId="com.adobe.coldfusion.server.ui.view.ServerView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_iKh3EjGiEfCZR4Zw_x2-Vg" elementId="com.adobe.ide.coldfusion.mobile.phonegap.StatusView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="PhoneGap Status" iconURI="platform:/plugin/com.adobe.ide.coldfusion.ui/icons/Phonegap_Status_16x16.png" tooltip="" closeable="true">
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
@@ -211,7 +211,7 @@
         <tags>popup:org.eclipse.ui.views.ProblemView</tags>
         <tags>popup:org.eclipse.ui.ide.MarkersView</tags>
       </menus>
-      <toolbar xmi:id="_iKh3GDGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.views.ProblemView" visible="false"/>
+      <toolbar xmi:id="_iKh3GDGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.views.ProblemView"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_iKh3GTGiEfCZR4Zw_x2-Vg" elementId="de.anbos.eclipse.logviewer.plugin.LogViewer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Log Viewer" iconURI="platform:/plugin/de.anbos.eclipse.logviewer.plugin/icons/logviewer.gif" tooltip="" closeable="true">
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
@@ -308,7 +308,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3NTGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_g6URgEqzEfCIM5PnEKQf_w" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_iKie-DGiEfCZR4Zw_x2-Vg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_6ZFzEEuREfC8ZeppoaBoOQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_iKie-DGiEfCZR4Zw_x2-Vg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3QTGiEfCZR4Zw_x2-Vg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -344,7 +344,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3aTGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_g6WtwkqzEfCIM5PnEKQf_w" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_iKiejzGiEfCZR4Zw_x2-Vg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_6ZI2YEuREfC8ZeppoaBoOQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_iKiejzGiEfCZR4Zw_x2-Vg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3czGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.DefaultTextEditor" visible="false">
         <tags>Draggable</tags>
@@ -1109,6 +1109,10 @@
     <tags>menuContribution:popup</tags>
   </menuContributions>
   <menuContributions xmi:id="_hgm1cEqzEfCIM5PnEKQf_w" elementId="com.adobe.ide.coldfusion.appcodegeneration:508000580" positionInParent="before=additions" parentId="popup">
+    <tags>scheme:popup</tags>
+    <tags>menuContribution:popup</tags>
+  </menuContributions>
+  <menuContributions xmi:id="_6-7EAEuREfC8ZeppoaBoOQ" elementId="com.adobe.ide.coldfusion.appcodegeneration:1060251152" positionInParent="before=additions" parentId="popup">
     <tags>scheme:popup</tags>
     <tags>menuContribution:popup</tags>
   </menuContributions>
