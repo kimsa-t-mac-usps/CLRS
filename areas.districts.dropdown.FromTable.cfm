@@ -10,18 +10,14 @@
 		<CFSET This_District_Code = DIST_PERF_CLUSTER_CODE>
 		<CFSET This_District_Name = NAME>
 		<CFSET This_District_Area = AREA_CODE>
-		
 		<CFIF This_District_Code EQ "">
         	<CFSET This_District_Code = This_District_Name>
 			
         </CFIF>
-			
-    
-	
 		<CFIF This_District_Code NEQ Prev_This_District_Code>
 			
 			<CFSET Prev_This_District_Code = This_District_Code>
-			<CFIF IsDefined("prev_dist_perf_cluster_code") AND prev_dist_perf_cluster_code EQ This_District_Code>
+			<CFIF IsDefined("This_DIST_PERF_CLUSTER_CODE") AND This_DIST_PERF_CLUSTER_CODE EQ This_District_Code>
 				<CFSET SelectedWord = "SELECTED">
 			<CFELSE>
 				<CFSET SelectedWord = "">
@@ -47,6 +43,7 @@
 			<CFOUTPUT>
 			<option value="#This_District_Code# // #This_District_Name##This_District_Area_Option#" #SelectedWord#>#This_District_DropdownEntry# #This_District_Area_Option_Area_Name#
 			</CFOUTPUT>
+			
 	
 		</CFIF>
 	
@@ -57,7 +54,21 @@
 	
 	<CFLOOP QUERY="Get_Divisions">
 		<CFSET This_Division_Name = NAME>
-		<CFIF (IsDefined("SelectedPC") AND SelectedPC EQ This_Division_Name ) OR (IsDefined("This_Division_Code") AND This_Division_Code EQ This_Division_Name) OR (isdefined("prev_DIVISION_CODE") and prev_division_code eq This_division_name)>
+		<!--- 12/24/2024 KIMSA COMMENTD OUT THIS <CFIF (IsDefined("SelectedPC") AND SelectedPC EQ This_Division_Name ) OR (IsDefined("This_Division_Code") AND This_Division_Code EQ This_Division_Name) OR (isdefined("prev_DIVISION_CODE") and prev_division_code eq This_division_name)>--->	
+		<CFIF 
+		(
+		IsDefined("SelectedPC") 
+		AND 
+		SelectedPC EQ This_Division_Name 
+		)
+		OR 
+		(
+		IsDefined("This_Division_Code")
+		AND 
+		This_Division_Code EQ This_Division_Name
+		
+		)>
+			
 			<CFSET SelectedWord = "SELECTED">
 		<CFELSE>
 			<CFSET SelectedWord = "">
