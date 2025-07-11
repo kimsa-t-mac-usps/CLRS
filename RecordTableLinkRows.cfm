@@ -557,7 +557,9 @@ Get_Case_WithoutChecklist.RecordCount GT 0
 					
 					<CFOUTPUT>
 					
-					<span id="ApprDisapprLinkDiv_#This_CurrentRow#" style="position:absolute; left:31pt; font-size:8pt; font-weight:bold; background:white; color:maroon; border:thin solid maroon; padding:3pt; margin-bottom:-5pt">#ApproveAttn#:&nbsp;<a href="" onClick="setMCEmailForm('#FormPrefix#', 1, #This_CurrentRow#); return false">Approve</a>&nbsp;/&nbsp;<a href="" onClick="setMCEmailForm('#FormPrefix#', 2, #This_CurrentRow#); return false">Disapprove</a>&nbsp;New&nbsp;Case</span>
+					<span id="ApprDisapprLinkDiv_#This_CurrentRow#" style="position:absolute; left:31pt; font-size:8pt; font-weight:bold; background:white;
+					 color:maroon; border:thin solid maroon; padding:3pt; margin-bottom:-5pt">#ApproveAttn#:&nbsp;
+					 <a href="" onClick="setMCEmailForm('#FormPrefix#', 1, #This_CurrentRow#); return false">Approve</a>&nbsp;/&nbsp;<a href="" onClick="setMCEmailForm('#FormPrefix#', 2, #This_CurrentRow#); return false">Disapprove</a>&nbsp;New&nbsp;Case</span>
 					
 					</cfoutput>
 
