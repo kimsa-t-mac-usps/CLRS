@@ -1281,11 +1281,9 @@ ValueList(Get_PrevReport_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) =
 	<!--- Dropped status_code 3, is now split between 7 (chg in liab assessment) and 4 (chg in damages assessment) --->
 	<!--- Status_code labels in cfswitch.status_code.cfm --->
 	<CFSET Status_Code_Order = "1,2,7,4,9,8,5,6,11,12,13,14,15">
-	
-	
+		
 	<CFSET Status_Code_To_Be_Removed_List = "11,12,13,14,15">
-	
-	
+		
 	<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="ContLiab">
 	SELECT *
 	FROM VIEW_CONTING_GET_CHECKLISTQUES
