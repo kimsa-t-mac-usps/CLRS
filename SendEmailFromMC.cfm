@@ -386,8 +386,8 @@ IsDefined("Form.Alt_Approval_Flag")>
 	
 	<!--- Bob Sindermann 12/6/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
 	I have <b>#ApprWordText#</b> this Contingent Liabilities Case Record: 
-	<!---<a href="https://eagnmnss58b:8182/InHouse/ContingentLiabilities/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.--->
-	<a href="https://lawdept2.usps.gov/ContingentLiabilities/V1.0/Report.full.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
+	<a href="https://eagnmnss58b:8182/InHouse/ContingentLiabilities/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
+	<!---<a href="https://lawdept2.usps.gov/ContingentLiabilities/V1.0/Report.full.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.--->
 	
 	
 	<CFIF IsDefined("Form.DisapprovalComment") AND ((IsDefined("Form.MC_Approval_Flag") AND Form.MC_Approval_Flag EQ "2") OR (IsDefined("Form.Alt_Approval_Flag") AND Form.Alt_Approval_Flag EQ "2"))>

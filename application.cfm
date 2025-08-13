@@ -475,7 +475,9 @@ WHERE USERPRMKEY = 361
 		maxrows="10000"
 		timeout="9000"
 	    start="#startstr#"
-		filter="(&(objectClass=user)(employeeID=#NumberFormat(Get_Bus_Serv_Contact.EMPLOYEE_ID, '00000000')#))"
+		<!---filter="(&(objectClass=user)(employeeID=#NumberFormat(Get_Bus_Serv_Contact.EMPLOYEE_ID, '00000000')#))"--->
+		
+		filter="(&(objectClass=user)(|(extensionAttribute13=#GetUserInfo.AD_USERID#)(mailNickName=#GetUserInfo.AD_MAILNICKNAME#)))"
 		scope="subtree"
 		sort="name"
 	    server="#LDAPServerName#"
