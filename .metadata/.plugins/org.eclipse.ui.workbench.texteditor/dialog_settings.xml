@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="LDAP" key="selection"/>
+		<item value="lddb" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="LDAP"/>
-			<item value="datasou"/>
-			<item value="330"/>
-			<item value="220"/>
-			<item value="18"/>
-			<item value="clr"/>
-			<item value="Delete"/>
-			<item value="This will delete this record"/>
+			<item value="contliab"/>
+			<item value="If this is "/>
+			<item value="Questions 33 - 37 "/>
+			<item value="lddb"/>
+			<item value="Conta"/>
+			<item value="InsertRecord"/>
+			<item value="Submit"/>
+			<item value="par"/>
 		</list>
 		<list key="replacehistory">
+			<item value="lddb"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

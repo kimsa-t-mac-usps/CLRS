@@ -2,7 +2,7 @@
 
 
 <!---
-<CFQUERY NAME="GetUserInfo" DATASOURCE="contliab">
+<CFQUERY NAME="GetUserInfo" DATASOURCE="lddb">
 
 SELECT LDEXTRA.LASTNAME, LDEXTRA.FIRSTNAME, LAWDEPARTMENT.LONGEMAIL, LDEXTRA.PRIMARYKEY
 
@@ -29,7 +29,7 @@ AND (UPPER(AD_USERID) LIKE UPPER('#RespondingUser_Id#%') OR UPPER(AD_MAILNICKNAM
 --->
 
 
-<CFQUERY NAME="GetAll_Auth_Users_Office" DATASOURCE="contliab">
+<CFQUERY NAME="GetAll_Auth_Users_Office" DATASOURCE="lddb">
 
 SELECT DISTINCT a.LASTNAME, a.FIRSTNAME, a.LONGEMAIL, a.PRIMARYKEY, c.SORTORDER
 
@@ -149,7 +149,7 @@ ORDER BY c.SORTORDER, a.LASTNAME
 <CFMAIL
     FROM="#This_EE_From_Line#"
     TO="#InsertRecord_cfmail_To#"
-    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
+    BCC="gclddb@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
     SUBJECT="New Contingent Liabilities Case Record For Approval"
 	TYPE="HTML">
 

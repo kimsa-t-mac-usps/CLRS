@@ -491,7 +491,8 @@ Get_Case_WithoutChecklist.RecordCount GT 0
 
 
 					<CFOUTPUT>
-					<span style="font-size:9pt; font-weight:bold; background:#SignalColor#; text-align:center; color:white; width:13; height:10; padding-left:1px; border: 1px solid white">D</span>&nbsp;<span id="ApprDisapprStatusDiv_#This_CurrentRow#" style="font-size:8pt; font-weight:bold; background:khaki; padding:3pt">New&nbsp;Case&nbsp;Record&nbsp;Disapproved</span>
+					<span style="font-size:9pt; font-weight:bold; background:#SignalColor#; text-align:center; color:white; width:13; height:10; padding-left:1px; border: 1px solid white">D</span>
+					&nbsp;<span id="ApprDisapprStatusDiv_#This_CurrentRow#" style="font-size:8pt; font-weight:bold; background:khaki; padding:3pt">New&nbsp;Case&nbsp;Record&nbsp;Disapproved</span>
 					</cfoutput>
 					
 					<CFSET MCApprovePosTop = "-5pt">

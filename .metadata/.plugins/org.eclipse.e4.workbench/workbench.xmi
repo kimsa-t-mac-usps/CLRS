@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_iKhPADGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_iKhPATGiEfCZR4Zw_x2-Vg" bindingContexts="_iKh4zDGiEfCZR4Zw_x2-Vg">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;com.adobe.editor.cfml.CFMLMultiPageEditor&quot; name=&quot;cfloop.cur_rem.casetype.assesscutoff.query.cfm&quot; tooltip=&quot;RemoteSystemsTempFiles/LOCALHOST/y/web/cf/cfusion/wwwroot/ContingentLiabilities/V1.0/cfloop.cur_rem.casetype.assesscutoff.query.cfm&quot;>&#xD;&#xA;&lt;persistable path=&quot;/RemoteSystemsTempFiles/LOCALHOST/y/web/cf/cfusion/wwwroot/ContingentLiabilities/V1.0/cfloop.cur_rem.casetype.assesscutoff.query.cfm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList/>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_iKhPATGiEfCZR4Zw_x2-Vg" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_iKhPAjGiEfCZR4Zw_x2-Vg" x="0" y="0" width="1024" height="768">
@@ -55,7 +55,7 @@
           <tags>persp.newWizSC:org.eclipse.ui.wizards.new.file</tags>
           <tags>persp.newWizSC:org.eclipse.ui.wizards.new.folder</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPBTGiEfCZR4Zw_x2-Vg" selectedElement="_iKhPBjGiEfCZR4Zw_x2-Vg" horizontal="true">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPBjGiEfCZR4Zw_x2-Vg" containerData="1754" selectedElement="_iKhPCTGiEfCZR4Zw_x2-Vg">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPBjGiEfCZR4Zw_x2-Vg" containerData="2073" selectedElement="_iKhPCTGiEfCZR4Zw_x2-Vg">
               <children xsi:type="basic:PartStack" xmi:id="_iKhPBzGiEfCZR4Zw_x2-Vg" elementId="left" toBeRendered="false" containerData="7000">
                 <children xsi:type="advanced:Placeholder" xmi:id="_iKhPCDGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.views.ResourceNavigator" toBeRendered="false" ref="_iKh3ADGiEfCZR4Zw_x2-Vg"/>
               </children>
@@ -65,8 +65,8 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_iKhPCzGiEfCZR4Zw_x2-Vg" elementId="com.adobe.ide.fileexplorer.view.CFFileExplorerView:*" toBeRendered="false" ref="_iKh3KzGiEfCZR4Zw_x2-Vg"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPDDGiEfCZR4Zw_x2-Vg" containerData="8246" selectedElement="_iKhPDTGiEfCZR4Zw_x2-Vg" horizontal="true">
-              <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPDTGiEfCZR4Zw_x2-Vg" containerData="6558" selectedElement="_iKh2EDGiEfCZR4Zw_x2-Vg">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPDDGiEfCZR4Zw_x2-Vg" containerData="7927" selectedElement="_iKhPDTGiEfCZR4Zw_x2-Vg" horizontal="true">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_iKhPDTGiEfCZR4Zw_x2-Vg" containerData="5429" selectedElement="_iKh2EDGiEfCZR4Zw_x2-Vg">
                 <children xsi:type="advanced:Placeholder" xmi:id="_iKh2EDGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.editorss" containerData="8000" ref="_iKh29DGiEfCZR4Zw_x2-Vg"/>
                 <children xsi:type="basic:PartStack" xmi:id="_iKh2ETGiEfCZR4Zw_x2-Vg" elementId="bottom" visible="false" containerData="2000" selectedElement="_iKh2FTGiEfCZR4Zw_x2-Vg">
                   <tags>Minimized</tags>
@@ -79,7 +79,7 @@
                   <children xsi:type="advanced:Placeholder" xmi:id="_iKh2GDGiEfCZR4Zw_x2-Vg" elementId="com.adobe.ide.coldfusion.appcodegeneration.extensionview" toBeRendered="false" ref="_iKh3GzGiEfCZR4Zw_x2-Vg"/>
                 </children>
               </children>
-              <children xsi:type="basic:PartSashContainer" xmi:id="_iKh2GTGiEfCZR4Zw_x2-Vg" toBeRendered="false" containerData="3442">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_iKh2GTGiEfCZR4Zw_x2-Vg" toBeRendered="false" containerData="4571">
                 <children xsi:type="basic:PartStack" xmi:id="_iKh2GjGiEfCZR4Zw_x2-Vg" elementId="right" toBeRendered="false" containerData="6500">
                   <children xsi:type="advanced:Placeholder" xmi:id="_iKh2GzGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.views.ContentOutline" toBeRendered="false" ref="_iKh3AzGiEfCZR4Zw_x2-Vg"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_iKh2HDGiEfCZR4Zw_x2-Vg" elementId="com.adobe.rds.client.core.views.DatabaseView" toBeRendered="false" ref="_iKh3BjGiEfCZR4Zw_x2-Vg"/>
@@ -115,8 +115,8 @@
       <tags>View</tags>
       <tags>categoryTag:Help</tags>
     </sharedElements>
-    <sharedElements xsi:type="advanced:Area" xmi:id="_iKh29DGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.editorss">
-      <children xsi:type="basic:PartStack" xmi:id="_rTU4YUuSEfC8ZeppoaBoOQ" elementId="PartStack@408db405"/>
+    <sharedElements xsi:type="advanced:Area" xmi:id="_iKh29DGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.editorss" selectedElement="_u396cWQVEfCq37sgVw044Q">
+      <children xsi:type="basic:PartStack" xmi:id="_u396cWQVEfCq37sgVw044Q" elementId="PartStack@128a8787"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_iKh3ADGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.views.ResourceNavigator" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Navigator" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/filenav_nav.png" tooltip="" closeable="true">
       <tags>View</tags>
@@ -308,7 +308,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3NTGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6ZFzEEuREfC8ZeppoaBoOQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_iKie-DGiEfCZR4Zw_x2-Vg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_tpzyIGP9EfCq37sgVw044Q" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_iKie-DGiEfCZR4Zw_x2-Vg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3QTGiEfCZR4Zw_x2-Vg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -344,7 +344,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3aTGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6ZI2YEuREfC8ZeppoaBoOQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_iKiejzGiEfCZR4Zw_x2-Vg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_tp1nUmP9EfCq37sgVw044Q" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_iKiejzGiEfCZR4Zw_x2-Vg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_iKh3czGiEfCZR4Zw_x2-Vg" elementId="org.eclipse.ui.DefaultTextEditor" visible="false">
         <tags>Draggable</tags>
@@ -1113,6 +1113,14 @@
     <tags>menuContribution:popup</tags>
   </menuContributions>
   <menuContributions xmi:id="_6-7EAEuREfC8ZeppoaBoOQ" elementId="com.adobe.ide.coldfusion.appcodegeneration:1060251152" positionInParent="before=additions" parentId="popup">
+    <tags>scheme:popup</tags>
+    <tags>menuContribution:popup</tags>
+  </menuContributions>
+  <menuContributions xmi:id="_1u_pcFwOEfCHrbnx8ZoOAg" elementId="com.adobe.ide.coldfusion.appcodegeneration:47511166" positionInParent="before=additions" parentId="popup">
+    <tags>scheme:popup</tags>
+    <tags>menuContribution:popup</tags>
+  </menuContributions>
+  <menuContributions xmi:id="_uNpfAGP9EfCq37sgVw044Q" elementId="com.adobe.ide.coldfusion.appcodegeneration:1052362101" positionInParent="before=additions" parentId="popup">
     <tags>scheme:popup</tags>
     <tags>menuContribution:popup</tags>
   </menuContributions>
