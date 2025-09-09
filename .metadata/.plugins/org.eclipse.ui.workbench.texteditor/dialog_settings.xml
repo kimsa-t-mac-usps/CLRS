@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+<<<<<<< HEAD
 			<item value="contliab"/>
 			<item value="If this is "/>
 			<item value="Questions 33 - 37 "/>
@@ -16,6 +17,16 @@
 			<item value="InsertRecord"/>
 			<item value="Submit"/>
 			<item value="par"/>
+=======
+			<item value="ldap"/>
+			<item value="SendTo"/>
+			<item value="DRAFT Message "/>
+			<item value="This_Server"/>
+			<item value="setMCEmailForm"/>
+			<item value="Approval"/>
+			<item value="LDAP"/>
+			<item value="datasou"/>
+>>>>>>> e5980d9badbe1e26dfce2ce8af143e34031c0d15
 		</list>
 		<list key="replacehistory">
 			<item value="lddb"/>

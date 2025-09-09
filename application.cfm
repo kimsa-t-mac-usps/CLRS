@@ -8,16 +8,11 @@ SEARCHIMPLICITSCOPES="True">
 
 
 <!--- Previous:
-
 requestTimeout = "1300"
-
 --->
-
 <!---
 <CFSETTING requestTimeout = "1800">
 --->
-
-
 
 <CFSETTING requestTimeout = "5000">
 
@@ -475,7 +470,9 @@ WHERE USERPRMKEY = 361
 		maxrows="10000"
 		timeout="9000"
 	    start="#startstr#"
-		filter="(&(objectClass=user)(employeeID=#NumberFormat(Get_Bus_Serv_Contact.EMPLOYEE_ID, '00000000')#))"
+		<!---filter="(&(objectClass=user)(employeeID=#NumberFormat(Get_Bus_Serv_Contact.EMPLOYEE_ID, '00000000')#))"--->
+		
+		filter="(&(objectClass=user)(|(extensionAttribute13=#GetUserInfo.AD_USERID#)(mailNickName=#GetUserInfo.AD_MAILNICKNAME#)))"
 		scope="subtree"
 		sort="name"
 	    server="#LDAPServerName#"
@@ -1281,11 +1278,9 @@ ValueList(Get_PrevReport_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) =
 	<!--- Dropped status_code 3, is now split between 7 (chg in liab assessment) and 4 (chg in damages assessment) --->
 	<!--- Status_code labels in cfswitch.status_code.cfm --->
 	<CFSET Status_Code_Order = "1,2,7,4,9,8,5,6,11,12,13,14,15">
-	
-	
+		
 	<CFSET Status_Code_To_Be_Removed_List = "11,12,13,14,15">
-	
-	
+		
 	<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="ContLiab">
 	SELECT *
 	FROM VIEW_CONTING_GET_CHECKLISTQUES
