@@ -166,14 +166,7 @@ Estimated_Time_Resolution_ValueList = "2,100,200"
 Estimated_Time_Resolution_LabelList = "Less Than 1 Year,1 - 5 Years,Over 5 Years"
 
 Assess_Cutoff_List set in Report.ptA.cfm
-
-
 --->
-
-
-
-
-
 
 <CFQUERY NAME="Get_PW" DATASOURCE="ContLiab">
 SELECT PW, AD_MAILNICKNAME
@@ -181,100 +174,31 @@ FROM BUSINESSSERVUSERS
 WHERE USERPRMKEY = 361
 </cfquery>
 
-
-
-
-
-
-
 <cfset startstr = "dc=usa,dc=dce,dc=usps,dc=gov">
 
 <CFSET LDAPDistingName = "CN=Sindermann Jr\, Robert P,OU=Users,OU=HQ,OU=Users & Workstations," & startstr>
 <CFSET LDAPServerName = "eagandcs-sha2.usa.dce.usps.gov">
 <!---<CFSET LDAPServerName = "eagandcs.usa.dce.usps.gov">--->
-
-
 <CFSET todayDate = Now()>
 <CFSET todayDateFmt = DateFormat(todayDate, "mm/dd/yyyy")>
 
-<!---
-<CFSET Spreadsheets_Uploads_Dir = "D:\Inetpub\wwwroot\InHouse\ContingentLiabilities\Spreadsheets\">
---->
-
-<!---
-<CFSET Spreadsheets_Uploads_Dir = "D:\Inetpub\wwwroot\ClientService\ContingentLiabilities\Spreadsheets\">
---->
-
-
-<!---
-<CFSET CFFILE_Uploads_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.LitigationHold\Matters\">
-<CFSET CFFILE_Uploads_Dir_URL = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.LitigationHold/Matters/">
---->
-
-<!---
-<CFSET Spreadsheets_Uploads_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
---->
-
-
-
 <CFSET Spreadsheets_Uploads_Dir = "D:\web\inetpub\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
-
-
-
-
-<!---
-<CFSET Spreadsheets_Uploads_Dir_URL = "../Spreadsheets/">
-
-<CFSET Spreadsheets_Uploads_Dir_URL = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
-
---->
-
-
-<!---
-<CFSET Spreadsheets_Uploads_Dir_URL = "https://eagnmnss29c:8182/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
---->
-
-
-
 <CFSET Spreadsheets_Uploads_Dir_URL = "/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
-
-
 
 
 <!---
 <CFSET CFFILE_Spsheet_Uploads_Dir_Link = "/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/">
 --->
 
-
-
-
-
-
 <CFSET NewCLProtocolReportDate = "06/30/2010">
-
-
 <CFSET PostRedesignReportDate = "09/30/2011">
-
-
 <CFSET PostDistDivReorgRptDate = "06/30/2021">
 
-
-
 <CFSET RowColorGreen = "CCFFCC">
-
-
-
-
-
 <CFSET ThisTemplatePath = GetDirectoryFromPath(GetBaseTemplatePath())>
-
 <CFSET ThisTemplatePath = RemoveChars(ThisTemplatePath, Len(ThisTemplatePath), 1)>
 
-
-
-
 <CFSET BackslashIndex = 1>
-
 
 <CFLOOP CONDITION="BackslashIndex GT 0">
 
@@ -283,8 +207,6 @@ WHERE USERPRMKEY = 361
 	<CFSET BackslashIndex = Find("\", ThisTemplatePath, LastBackslash + 1)>
 
 </cfloop>
-
-
 <CFSET ThisTemplateFolder = Right(ThisTemplatePath, Len(ThisTemplatePath) - LastBackslash)>
 
 <!---
@@ -307,8 +229,6 @@ WHERE USERPRMKEY = 361
 
 		<CFSET This_Server = CGI.SERVER_NAME>
 
-
-
 </cfif>
 
 <CFIF IsDefined("Test_Server_Folder")>
@@ -326,15 +246,10 @@ WHERE USERPRMKEY = 361
 	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
 </cfif>
 
-
-
-
 <!---
 <!--- User test: Jim Schlett KV83HK / schletjg --->
 <cfset Init_User_Id = "schletjg">
 --->
-
-
 
 <CFIF GetFileFromPath(GetBaseTemplatePath()) DOES NOT CONTAIN "NotAuthorized.cfm">
 
@@ -598,32 +513,21 @@ PrevReportDate = "#PrevReportDate#"
 		<CFSET PrevCFFILE_Destination_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
 --->	
 
-
 		<CFSET PrevCFFILE_Destination_Dir = Spreadsheets_Uploads_Dir & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
-
-
-
 
     
 <!---	
 		<CFSET PrevCFFILE_Uploads_Dir_Link = "/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
 --->
 
-
-
 <!---
 		<CFSET PrevCFFILE_Uploads_Dir_Link = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
 --->
 
-
-
 		<CFSET PrevCFFILE_Uploads_Dir_Link = Spreadsheets_Uploads_Dir_URL & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
-
-
 	<CFELSEIF ReportDatesList_ListLen GT 1
 	AND
    	ThisReportDate EQ EarliestReportDate>
-
 
 		<CFSET PrevRptDate_String = "">
 	
@@ -632,10 +536,8 @@ PrevReportDate = "#PrevReportDate#"
 	    <CFSET PrevRptDateToFmt_FYQuarter = "">
 
 
-
 	</CFIF>
-
-    
+  
     
 
 
@@ -913,9 +815,7 @@ ThisReportDateCompare = #ThisReportDateCompare#
 	OR
 	START_DATE_REPORT  <= to_date('#ThisReportDate#', 'mm/dd/yyyy')
 	)
-    
-    
-
+  
 	AND
     
     (
@@ -927,10 +827,6 @@ ThisReportDateCompare = #ThisReportDateCompare#
 	ORDER BY upper(NAME)
 	
 	</cfquery>
-
-
-
-
 
 	<CFQUERY NAME="Get_Divisions" DATASOURCE="ContLiab">
 
@@ -952,9 +848,7 @@ ThisReportDateCompare = #ThisReportDateCompare#
 	OR
 	START_DATE_REPORT  <= to_date('#ThisReportDate#', 'mm/dd/yyyy')
 	)
-    
-    
-
+   
 	AND
     
     (
@@ -969,13 +863,6 @@ ThisReportDateCompare = #ThisReportDateCompare#
     upper(NAME)
 
 	</CFQUERY>
-
-
-
-
-
-
-
 
 	<CFQUERY NAME="Get_HQ" DATASOURCE="ContLiab">
 	
@@ -995,7 +882,6 @@ OR
 AREA_CODE = 'Mult'
 )
 --->
-
 
 	AND
 	AREA_CODE LIKE '6%'
@@ -1028,9 +914,6 @@ AREA_CODE = 'Mult'
 	
 
 
-
-
-
 <!---
 <CFOUTPUT>
 PrevReportDate = "#PrevReportDate#"
@@ -1045,14 +928,7 @@ Get_Single_Record
 
 	<CFIF GetFileFromPath(GetBaseTemplatePath()) DOES NOT CONTAIN "Get_Single_Record">
 
-
-
 		<CFSET PrevReportDate_Fmt = DateFormat(PrevReportDate, 'mm/dd/yyyy')>
-
-
-
-
-
 
 <!--- Cases in prev report below Corp Fin thresholds: --->
 		<CFQUERY NAME="Get_PrevReport_CASE_REC_ID_SEQUENCE" DATASOURCE="ContLiab">
@@ -1061,42 +937,10 @@ Get_Single_Record
 		SELECT DISTINCT CASE_REC_ID_SEQUENCE
 		FROM CONTINGENT_LIAB_REPORT
 		WHERE
-
-
 		DATE_REPORT = to_date('#DateFormat(PrevReportDate, "mm/dd/yyyy")#', 'mm/dd/yyyy')
-
 		AND
-
-
-<!---
-		DATE_REPORT = to_date('<cfqueryparam value="#DateFormat(PrevReportDate, "mm/dd/yyyy")#" cfsqltype="cf_sql_date">', 'mm/dd/yyyy')
---->
-
-
-<!---
-		DATE_REPORT = to_date('<cfqueryparam value="#DateFormat(PrevReportDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_date">', 'mm/dd/yyyy')
-		
---->
-
-
-<!---
-		DATE_REPORT = to_date('<cfqueryparam value="#DateFormat(PrevReportDate, 'mm/dd/yyyy')#" cfsqltype="cf_sql_char">', 'mm/dd/yyyy')
---->
-
-
-<!---
-		DATE_REPORT = to_date('<cfqueryparam value="#PrevReportDate_Fmt#" cfsqltype="cf_sql_date">', 'mm/dd/yyyy')
-        AND
---->
-
-
-
-
-
-
         CASE_TYPE = 1
-        
-        
+         
 		AND
 		DELETED_FLAG IS NULL
 		
@@ -1105,16 +949,13 @@ Get_Single_Record
 		(
 		ASSESSMENT_PROBABILITY IN (1,2)
 		AND
-		
+	
 		(
 		
 		ASSESSMENT_AMT_UNKNOWN = 1
 		
 		OR
 		(
-		
-		
-		
 		(
         
 <!---        
@@ -1139,21 +980,15 @@ Get_Single_Record
 		ASSESSMENT_AMT_UPPER_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
 		)
 		)
-		
 		)
-		
 		)
-		
-		
 		)
-		
+
 		OR
 		
 		(
 		ASSESSMENT_PROBABILITY = 3
 		AND
-		
-		
 		
 		(
 		
@@ -1188,15 +1023,11 @@ Get_Single_Record
 		AND NOT
 		(
 		
-		
-		
-
 		(
 		ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
 		OR
 		ASSESSMENT_AMOUNT IS NULL
 		)
-
 
 		AND
 		(
@@ -1214,16 +1045,10 @@ Get_Single_Record
 		)
 		
 		)
-		
-		
 		)
-		
-		
 		)
 		
 		ORDER BY CASE_REC_ID_SEQUENCE
-
-
 
 		</cfquery>
 
