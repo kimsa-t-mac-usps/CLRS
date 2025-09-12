@@ -28,11 +28,6 @@ NOTE: <CFQUERY NAME="#CLRC_Query_Name#" occurs in cfloop.cur_rem.casetype.assess
 
 --->
 
-
-
-
-
-
 <!---
 <CFOUTPUT>
 GetFileFromPath(GetBaseTemplatePath()) = #GetFileFromPath(GetBaseTemplatePath())#
