@@ -385,8 +385,16 @@ IsDefined("Form.Alt_Approval_Flag")>
 	
 	
 	<!--- Bob Sindermann 12/6/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
-	I have <b>#ApprWordText#</b> this Contingent Liabilities Case Record: <a href="https://eagnmnss146:8550/ContingentLiabilities/V1.0/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
+<<<<<<< HEAD
+	I have <b>#ApprWordText#</b> this Contingent Liabilities Case Record: <a href="https://lawdept1.usps.gov/ClientService/ContingentLiabilities/V1.0/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
+	<!---I have KIMSA <b>#ApprWordText#</b> this Contingent Liabilities Case Record: 
+	<a href="https://eagnmnss58b:8182/InHouse/ContingentLiabilities/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.--->
+=======
+	I have <b>#ApprWordText#</b> this Contingent Liabilities Case Record: 
+	<a href="https://eagnmnss58b:8182/InHouse/ContingentLiabilities/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
+	<!---<a href="https://lawdept2.usps.gov/ContingentLiabilities/V1.0/Report.full.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.--->
 	
+>>>>>>> e5980d9badbe1e26dfce2ce8af143e34031c0d15
 	
 	<CFIF IsDefined("Form.DisapprovalComment") AND ((IsDefined("Form.MC_Approval_Flag") AND Form.MC_Approval_Flag EQ "2") OR (IsDefined("Form.Alt_Approval_Flag") AND Form.Alt_Approval_Flag EQ "2"))>
 	

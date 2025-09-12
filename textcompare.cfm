@@ -136,7 +136,6 @@ At 103: DiffFlag = "#DiffFlag#"
 			<CFSET OldArrayLen = ArrayLen(OldArray)>
 			<CFSET NewArrayLen = ArrayLen(NewArray)>
 
-
 <!---
 <CFOUTPUT>
 <p>
@@ -146,8 +145,7 @@ NewArrayLen = #NewArrayLen#
 <p>
 </cfoutput>
 --->
-<!---<cfdump var="#NewArray#" ><br>
-<cfdump var="#OldArray#" >--->
+
 
 			<CFIF NewArrayLen LT OldArrayLen 
 			OR 

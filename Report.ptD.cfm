@@ -119,7 +119,7 @@ Status
 		--->
 		
 		
-		<strong>Change in Assessment or Amount Sought (Still Meets Threshold)</strong>
+		<strong>Change in Assessment or Amount Sought (Still Meets Threshold test)</strong>
 		
 		
 	<CFELSEIF STATUS_CODE EQ 3 AND IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount") AND CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount EQ 1>

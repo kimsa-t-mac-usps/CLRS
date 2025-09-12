@@ -34,12 +34,12 @@ NOTES:
 
 
 <!--- Dropped status_code 3, which is now split between 7 (chg in liab assessment) and 4 (chg in damages assessment) --->
-<!---
+
 <CFCASE VALUE="3">
 	<CFSET Status_Code_Label = "Change in Damages Assessment or Amount Sought (Still Meets Threshold)">
     <CFSET HideShowButton_String = "Update">
 </cfcase>
---->
+
 
 <!---
 3/27/08 Status Code 4 added and used only as workaround for CILO cases not previously entered in this system, where below reporting threshold
@@ -48,8 +48,7 @@ NOTES:
 <CFCASE VALUE="4">
 
 	<CFSET Status_Code_Label = 'Change in Damages Assessment or Amount Sought (Still Meets Threshold)'>
-	<CFSET Status_Code_Label = '<span id="StillMeetsThresholdNote">' & Status_Code_Label & '</span>'>
-
+	<!---<CFSET Status_Code_Label = '<span id="StillMeetsThresholdNote">' & Status_Code_Label & '</span>'>--->
     <CFSET HideShowButton_String = "">
 
 </cfcase>

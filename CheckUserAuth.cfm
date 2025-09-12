@@ -142,7 +142,7 @@ CONTINGENT_LIAB_AUTH = 'T' = Tort Claim cases only (St. Louis)
         (
         trim(a.OFFICE) = trim(b.OFFICE)
 		AND
-		trim(a.OFFICE) != 'General Law Service Center'
+		trim(a.OFFICE) != 'General Law Service Center' 
 		)
         
 		OR

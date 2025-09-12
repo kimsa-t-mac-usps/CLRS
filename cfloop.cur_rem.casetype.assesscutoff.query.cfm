@@ -541,8 +541,14 @@ NOT:
 						clr.ASSESSMENT_PROBABILITY IN (1,2)
 						AND
 						(
-						clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
+							
+						<!---clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">--->
+						<!---KS20250523 --->
+						<!---clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">--->
 						
+						(clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
+							OR clr.ASSESSMENT_AMT_HIGH_END is not null AND clr.ASSESSMENT_AMT_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
+							)
                         
 <!---                        
 						OR
@@ -558,7 +564,13 @@ NOT:
 						clr.ASSESSMENT_PROBABILITY = 3
 						AND
 						(
-						clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
+							<!---KS20250523 --->
+						<!---clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">--->
+						
+						(clr.ASSESSMENT_AMOUNT >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
+							OR clr.ASSESSMENT_AMT_HIGH_END is not null AND clr.ASSESSMENT_AMT_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#TenMillion#">
+							)
+						
 
 <!---
 						OR
@@ -692,23 +704,49 @@ NOT:
 						--line 641
 						<!---clr.ASSESSMENT_AMOUNT IS NOT NULL--->
 						
-						(clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> or clr.ASSESSMENT_AMOUNT IS NULL)
-						AND clr.ASSESSMENT_AMOUNT NOT IN (5100000) AND clr.ASSESSMENT_AMOUNT_UPPER NOT IN (63000000)
+							(clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> or clr.ASSESSMENT_AMOUNT IS NULL)
+							AND clr.ASSESSMENT_AMOUNT NOT IN (5100000) 
+							AND clr.ASSESSMENT_AMOUNT_UPPER NOT IN (63000000)
+							<!---AND clr.ASSESSMENT_AMOUNT_UPPER NOT IN (10100000)--->
 						AND
-						(
-						clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
-						OR
-						(
-						clr.ASSESSMENT_AMT_UPPER_HIGH_END IS NOT NULL
-						AND
-						clr.ASSESSMENT_AMT_UPPER_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
+							(
+								<!---CommentOut line#714 Added new line#716 --->
+							<!---clr.ASSESSMENT_AMOUNT_UPPER >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">--->
+							(clr.ASSESSMENT_AMOUNT_UPPER is not null and clr.ASSESSMENT_AMOUNT_UPPER >= 1000000
+										or clr.ASSESSMENT_AMT_UPPER_HIGH_END is not null and clr.ASSESSMENT_AMT_UPPER_HIGH_END >= 1000000)
+
+							<!---OR
+							(
+							clr.ASSESSMENT_AMT_UPPER_HIGH_END IS NOT NULL
+							AND
+							clr.ASSESSMENT_AMT_UPPER_HIGH_END >= <cfqueryparam cfsqltype="numeric" value="#OneMillion#">
+							)--->
+							)
+				<!---KS20250422 --->
+						<!---AND---> 
+							<!---(
+						    (clr.ASSESSMENT_AMOUNT_UPPER < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> 
+									OR clr.ASSESSMENT_AMOUNT_UPPER IN (10100000))
+
+							OR
+							(clr.ASSESSMENT_AMOUNT_UPPER < <cfqueryparam cfsqltype="numeric" value="#TenMillion#"> 
+									OR clr.ASSESSMENT_AMOUNT_UPPER IN (200900000))
+							)--->
+
+							
+						    <!---(clr.ASSESSMENT_AMOUNT < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">)
+							 AND--->
+							 
+							AND
+							(clr.ASSESSMENT_AMT_HIGH_END is null  
+									OR clr.ASSESSMENT_AMT_HIGH_END < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">)
 						)
-						)
+						
+						
 
-
-
-
-						)
+						
+						
+						
 
 <!--- For "Under5Million" --->
 					<CFELSE>
@@ -780,11 +818,37 @@ NOT:
 					    clr.LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 						OR
 					    clr.ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
-					    )
+					<!---Kimsa updated GL office for MC --->    
+					    OR
+					    clr.LAW_DEPT_OFFICE in (SELECT e.office_prm_key
+					    
+					    <!---clr.PRIMARYKEY in (SELECT a.USERPRMKEY--->
+
+						FROM BUSINESSSERVUSERS a, LDEXTRA b, LAWDEPARTMENT c, ldoffices e
+						
+						WHERE a.USERPRMKEY = b.PRIMARYKEY
+						
+						AND c.PRIMARYKEY = b.PRIMARYKEY
+						
+						
+						and trim(c.OFFICE) = trim(e.OFFICE)
+						and (a.AD_USERID = b.Ad_USERID OR a.AD_MAILNICKNAME = b.AD_MAILNICKNAME)
+						
+						
+						
+						and clr.LAW_DEPT_OFFICE = e.office_prm_key
+						
+						and clr.LAW_DEPT_OFFICE = 220
+						
+						<!---and e.office_prm_key = #Get_Auth_User_Office.OFFICE_PRM_KEY#--->
+						
+						and clr.LAW_DEPT_OFFICE in (220, 330)
+						<!---and  a.USERPRMKEY = 18--->
+						)
+				    )
 
 
-
-
+					<!---End --->
 <!--- Check for Business cases authorization (B) or Torts authorization (T) (St Louis) --->
 						<CFIF IsDefined("ThisCONTINGENT_LIAB_AUTH")>
 

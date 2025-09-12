@@ -2,22 +2,41 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="lddb" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="ReportB"/>
+<<<<<<< HEAD
+			<item value="contliab"/>
+			<item value="If this is "/>
+			<item value="Questions 33 - 37 "/>
+			<item value="lddb"/>
+			<item value="Conta"/>
+			<item value="InsertRecord"/>
+			<item value="Submit"/>
+			<item value="par"/>
+=======
+			<item value="ldap"/>
+			<item value="SendTo"/>
+			<item value="DRAFT Message "/>
+			<item value="This_Server"/>
+			<item value="setMCEmailForm"/>
+			<item value="Approval"/>
+			<item value="LDAP"/>
+			<item value="datasou"/>
+>>>>>>> e5980d9badbe1e26dfce2ce8af143e34031c0d15
 		</list>
 		<list key="replacehistory">
+			<item value="lddb"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="840" key="DIALOG_X_ORIGIN"/>
-		<item value="274" key="DIALOG_Y_ORIGIN"/>
+		<item value="1343" key="DIALOG_X_ORIGIN"/>
+		<item value="484" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

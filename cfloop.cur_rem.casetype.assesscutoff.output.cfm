@@ -162,117 +162,13 @@ Same CFLOOP bypasses in:
 						OR
 						Assess_Cutoff_List_Index EQ "MostLikelyUnderTenMillion_MaxReasonableOverOneMillion"
 						)>
-  <CFOUTPUT>
-  <cfinclude template="AddHeaderA.cfm">	
-<div  class="header-stky">
-  <div id="section_headers" class="header-stk">
-		<h5 style="text-align: center" >#CASE_TYPE_LABEL#</h5>
-		<h5 style="text-align: center">#ASSESSMENT_PROBABILITY_Label# & #CLAIM_CATEGORY_Label#</h5>
-		
-   </div>
-   </div>	
-	
- 
-<!---<cfdump var="#This_CurrentRow#">--->	
-<table class="report-containerr" id="RecTable_#This_CurrentRow#" width="100%">
-	<thead class="report-header report-header-addendum-hid" >
-		<tr>
-			<th class="report-header-cell">
-				<div>
-					<br>
-					<center><b>#CASE_TYPE_LABEL#</b><br />#ASSESSMENT_PROBABILITY_Label# & #CLAIM_CATEGORY_Label#</center>
-					<br>
-				</div>
-			</th>
-		</tr>
-	</thead>
-	<tfoot class="report-footer">
-		<tr>
-			<th class="report-header-cell"><!---KS add new line code 11.15.24  --->
-				<div class="footer-info">
-					<center style="color:lightgrey;border-top:1px dotted lightgrey;margin-left:200px;padding-top:10px;width:100%;">end of page</center>
-				</div>
-			</th>
-		</tr>
-			
-	</tfoot>
-	
-
-<tbody>
-		<tr>
-			<td class="report-content-cell">
-				<div class="main"><br />				
-					<CFINCLUDE TEMPLATE="Report.ptB.cfm">
-				</div>
-				
-			</td>
-		</tr>
-		<tr>
-			<td class="report-content-cell">
-				<div class="main"><br />				
-					<!---<div style="padding-left:480px;font-size:14px;margin-top:0px;bottom:10px;"><img src="https://davidwalsh.name/demo/page-break.gif" /></div>--->
-				</div>
-				
-			</td>
-		</tr>
-		
-	</tbody>
-    </table> 
-    				
-    </cfoutput>	
-    	<!---<CFINCLUDE TEMPLATE="Report.ptB.cfm">--->
-    	<!---<div style="color:lightgrey;padding-left:380px;font-size:14px;margin-top:0px;bottom:10px;"><img src="https://davidwalsh.name/demo/page-break.gif" /></div>--->
-				
-    	
+    
+    						<CFINCLUDE TEMPLATE="Report.ptB.cfm">
     						<CFELSE>
-    						<CFOUTPUT>
-    							
-    <cfinclude template="AddHeaderA.cfm">
-	<table class="report-container" id="RecTable_#This_CurrentRow#" cellpadding="4" cellspacing="4" width="100%">
-	<thead class="report-header">
-		<tr>
-			<th class="report-header-cell">
-				<div>
-					<br>
-					<center><b>#CASE_TYPE_LABEL#</b><br />#ASSESSMENT_PROBABILITY_Label# & #CLAIM_CATEGORY_Label#</center>
-					<br>
-				</div>
-			</th>
-		</tr>
-	</thead>
-	<tfoot class="report-footer">
-		<tr>
-			<td class="report-footer-cell">
-				<div class="footer-info">					
-					<center style="color:lightgrey;border-top:0px dotted lightgrey;margin-top:0px;padding-top:0px;">end of page</center>				
-				</div>
-			</td>
-		</tr>
-			
-	</tfoot>
-	
-	</CFOUTPUT>
-	<tbody>
-		<tr>
-			<td class="report-content-cell">
-				<div class="main">
-					<CFINCLUDE TEMPLATE="Report.ptC.cfm">
-				</div>
-				<div class="main">
-					<CFINCLUDE TEMPLATE="Report.ptD.cfm">
-				</div>
-				<div class="main">
-					<CFINCLUDE TEMPLATE="Report.ptE.cfm">
-				</div>
-			</td>
-		</tr>
-		
-	</tbody>
-    </table>    
-							<!---	<CFINCLUDE TEMPLATE="Report.ptC.cfm">
+								<CFINCLUDE TEMPLATE="Report.ptC.cfm">
 							<CFINCLUDE TEMPLATE="Report.ptD.cfm">
 							<CFINCLUDE TEMPLATE="Report.ptE.cfm">
-	--->
+	
 	
 							</table>
 	
