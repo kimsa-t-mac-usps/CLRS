@@ -27,7 +27,7 @@ to:
 
 */
 <cfoutput>
-location.href = "https://<cfoutput>#This_Server#</cfoutput>/ClientService/ContingentLiabilities/#ServerFolder#Report.full.cfm" + searchString + thisHash;
+/*location.href = "https://<cfoutput>#This_Server#</cfoutput>/ClientService/ContingentLiabilities/#ServerFolder#Report.full.cfm" + searchString + thisHash;*/
 </cfoutput>
 
 }

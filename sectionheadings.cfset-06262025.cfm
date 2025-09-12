@@ -46,17 +46,7 @@ HeaderParm = #HeaderParm#
 			and CASE_TYPE_Label NEQ Old_CASE_TYPE_Label
 				and Assess_Cutoff_List_Index EQ "UnderTenMillion")>
 		<CFOUTPUT>
-<<<<<<< HEAD
-	<!---Task4: Fixing double headers that appear when users send out email. 5.15.25 KS --->
-  <CFIF HeaderParm EQ "TopIndex">
 			<a #AParm#><h5 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h5></a>
-			 </cfif>
-=======
-	<!---Task4: Fixing double headers that appear when users send out email. 7.3.25 KS --->
- <CFIF HeaderParm EQ "TopIndex">
-			<a #AParm#><h5 class="SectionHeadAfterFirst">#CASE_TYPE_Label#</h5></a>
-  </cfif>
->>>>>>> e5980d9badbe1e26dfce2ce8af143e34031c0d15
 		</cfoutput>
 	<CFELSEIF (This_CASE_TYPE EQ 11
 		and CASE_TYPE_Label EQ "III. Cases To Be Removed - Contingent Liabilities: Assessed Below $10 Million"

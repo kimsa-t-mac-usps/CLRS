@@ -1,7 +1,5 @@
 <cfinclude template="MfaCookieCheck.cfm">
-
 <html>
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<!---<meta http-equiv="X-UA-Compatible" content="IE=edge">--->

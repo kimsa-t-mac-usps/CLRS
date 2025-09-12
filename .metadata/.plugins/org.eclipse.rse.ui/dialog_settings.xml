@@ -5,7 +5,11 @@
 		<item value="false" key="fileNameRegex"/>
 		<item value="false" key="caseSensitive"/>
 		<item value="false" key="includeSubfolders"/>
-		<item value="12" key="dataSize"/>
+<<<<<<< HEAD
+		<item value="14" key="dataSize"/>
+=======
+		<item value="16" key="dataSize"/>
+>>>>>>> e5980d9badbe1e26dfce2ce8af143e34031c0d15
 		<item value="false" key="stringRegex"/>
 		<item value="true" key="fileNameCaseSensitive"/>
 	</section>
@@ -22,6 +26,27 @@
 		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
 		<item value="*" key="fileNames"/>
 	</section>
+	<section name="RemoteSearchPage.data13">
+		<item value="5CD238B5J0" key="profileName"/>
+<<<<<<< HEAD
+		<item value="MC: " key="searchString"/>
+=======
+		<item value="DD32J0" key="searchString"/>
+>>>>>>> e5980d9badbe1e26dfce2ce8af143e34031c0d15
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+<<<<<<< HEAD
+		<item value="X:\web\inetpub\wwwroot2\ClientService\ContingentLiabilities\V1.0" key="folderName"/>
+=======
+		<item value="X:\web\cf\cfusion\wwwroot\LegalLibs" key="folderName"/>
+>>>>>>> e5980d9badbe1e26dfce2ce8af143e34031c0d15
+		<item value="*" key="fileNames"/>
+	</section>
 	<section name="RemoteSearchPage.data7">
 		<item value="5CD238B5J0" key="profileName"/>
 		<item value="SendEmailForm" key="searchString"/>
@@ -35,9 +60,56 @@
 		<item value="X:\web\cf\cfusion\wwwroot\InHouse\ContingLiabAdmin" key="folderName"/>
 		<item value="*" key="fileNames"/>
 	</section>
+	<section name="RemoteSearchPage.data12">
+		<item value="5CD238B5J0" key="profileName"/>
+<<<<<<< HEAD
+		<item value="MC: Approve / Disapprove New Case" key="searchString"/>
+=======
+		<item value="setMCEmailForm" key="searchString"/>
+>>>>>>> e5980d9badbe1e26dfce2ce8af143e34031c0d15
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+<<<<<<< HEAD
+		<item value="X:\web\inetpub\wwwroot2\ClientService\ContingentLiabilities\V1.0" key="folderName"/>
+=======
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data15">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="DRAFT Message" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\InHouse\ContingLiabAdmin" key="folderName"/>
+>>>>>>> e5980d9badbe1e26dfce2ce8af143e34031c0d15
+		<item value="*" key="fileNames"/>
+	</section>
 	<section name="RemoteSearchPage.data9">
 		<item value="5CD238B5J0" key="profileName"/>
 		<item value="NOTE: Case Evaluation Checklist " key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data14">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="Thanks for your message!" key="searchString"/>
 		<item value="false" key="includeArchives"/>
 		<item value="false" key="fileNameRegex"/>
 		<item value="false" key="caseSensitive"/>
