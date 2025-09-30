@@ -2,11 +2,9 @@
 
 <!---
 Included in:
-
 Report.ptB.cfm
 Report.ptD.cfm
 EditRecord.ptC.cfm
-
 --->
 
 <!---
@@ -14,8 +12,6 @@ NOTES:
 -- Status Code range 11-30 reserved for Codes for cases to be removed from report
 -- "CFSET Status_Code_Order" in application.cfm
 --->
-
-
 
 <CFSWITCH EXPRESSION="#Status_Code_Var#">
 
@@ -28,7 +24,6 @@ NOTES:
 	<CFSET Status_Code_Label = "No Change Since Last Report">
     <CFSET HideShowButton_String = "No Change">
 </cfcase>
-
 
 <!--- Dropped status_code 3, which is now split between 7 (chg in liab assessment) and 4 (chg in damages assessment) --->
 <!---<CFCASE VALUE="3">
