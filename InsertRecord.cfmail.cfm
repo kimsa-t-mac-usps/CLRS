@@ -2,7 +2,7 @@
 
 
 <!---
-<CFQUERY NAME="GetUserInfo" DATASOURCE="lddb">
+<CFQUERY NAME="GetUserInfo" DATASOURCE="contliab">
 
 SELECT LDEXTRA.LASTNAME, LDEXTRA.FIRSTNAME, LAWDEPARTMENT.LONGEMAIL, LDEXTRA.PRIMARYKEY
 
@@ -29,7 +29,7 @@ AND (UPPER(AD_USERID) LIKE UPPER('#RespondingUser_Id#%') OR UPPER(AD_MAILNICKNAM
 --->
 
 
-<CFQUERY NAME="GetAll_Auth_Users_Office" DATASOURCE="lddb">
+<CFQUERY NAME="GetAll_Auth_Users_Office" DATASOURCE="contliab">
 
 SELECT DISTINCT a.LASTNAME, a.FIRSTNAME, a.LONGEMAIL, a.PRIMARYKEY, c.SORTORDER
 
@@ -149,7 +149,7 @@ ORDER BY c.SORTORDER, a.LASTNAME
 <CFMAIL
     FROM="#This_EE_From_Line#"
     TO="#InsertRecord_cfmail_To#"
-    BCC="gclddb@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
+    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
     SUBJECT="New Contingent Liabilities Case Record For Approval"
 	TYPE="HTML">
 
@@ -177,7 +177,7 @@ TO: #ToMCLine#
 --->
 
 <!--- Bob Sindermann 12/5/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
-        <CFSET This_Server = "lawdept">
+        <CFSET This_Server = "lawdept1">
 
 </cfif>
 

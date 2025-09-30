@@ -1,38 +1,52 @@
 <cfinclude template="MfaCookieCheck.cfm">
+
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<!---<meta http-equiv="X-UA-Compatible" content="IE=edge">--->
 <title>CONFIDENTIAL Law Department Contingent Liabilities: Add New Case</title>
+
 <style>
+
 /*
 FFFFCC
 */
+
 body {font-family:arial,sans-serif;font-size:10pt; background:linen}
+
 div.quesSet {margin-top:5pt; margin-bottom:5pt; padding:5pt}
+
 td {font-family:arial,sans-serif;font-size:10pt}
 td.header {font-family:arial,sans-serif;font-size:8pt}
 textarea {font-family:arial,sans-serif;font-size:10pt}
 th {font-family:arial,sans-serif;font-size:10pt; font-weight:bold; width:10%; align:right}
+
 A:hover {background:black; color:white; text-decoration:none; font-family:arial; font-size:10pt; font-weight:bold}
 A:active {background:white; color:black; text-decoration:none; font-family:arial; font-size:10pt; font-weight:bold}
+
 </style>
+
 
 <CFSET ThisPage = "InsertRecord">
 <CFINCLUDE TEMPLATE="CheckUserAuth.cfm">
+
 <!---
 Check CONTINGENT_LIAB_BLOCK_NEW flag in BUSINESSSERVUSERS table for dummy user surname "Contingent Liabilities" (WHERE USERPRMKEY = 13). System blocks users from entering new cases if flag = "Y"
 --->
-<CFQUERY NAME="Check_CONTINGENT_LIAB_BLOCK_NEW" DATASOURCE="lddb">
+<CFQUERY NAME="Check_CONTINGENT_LIAB_BLOCK_NEW" DATASOURCE="contliab">
 
 SELECT CONTINGENT_LIAB_BLOCK_NEW
 
 FROM BUSINESSSERVUSERS
 
 WHERE USERPRMKEY = 13
+
 AND
 CONTINGENT_LIAB_BLOCK_NEW IS NOT NULL
+
 </cfquery>
+
 
 <CFIF Check_CONTINGENT_LIAB_BLOCK_NEW.RecordCount EQ 1
 AND
@@ -302,6 +316,11 @@ function showUnionsSelected(thisForm) {
 
 
 }
+
+
+
+
+
 
 function checkSelected(CaseForm) {
 
@@ -759,7 +778,7 @@ Add New Case
 
 <CFIF IsDefined("Get_Indiv_User.PRIMARYKEY")>
 
-<CFQUERY NAME="Check_Atty" DATASOURCE="lddb">
+<CFQUERY NAME="Check_Atty" DATASOURCE="contliab">
 SELECT LAWDEPARTMENT.PRIMARYKEY, ldoffices.OFFICE_PRM_KEY
 FROM LAWDEPARTMENT, ldoffices
 WHERE LAWDEPARTMENT.OFFICE = ldoffices.OFFICE
@@ -832,13 +851,13 @@ OR title LIKE 'Executive Program%')
 
 
 
-<CFQUERY NAME="EeList" DATASOURCE="lddb">
+<CFQUERY NAME="EeList" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_EE_LIST
 </cfquery>
 
 
-<CFQUERY NAME="LDOffices" DATASOURCE="lddb">
+<CFQUERY NAME="LDOffices" DATASOURCE="contliab">
 
 <!---
 SELECT *
@@ -1760,7 +1779,7 @@ Comment / Notes
 <p>
 
 <!---
-<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="contliab">
 SELECT TRIM(QUESNUM) AS QUESNUM_TRIM, QUESTEXT, SORTORDER
 FROM PCESSURVEYQUES
 WHERE SURVEY LIKE 'Conting Liability Checklist%'
@@ -1769,7 +1788,7 @@ ORDER BY SORTORDER
 --->
 
 <!---
-<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_GET_CHECKLISTQUES
 </cfquery>
