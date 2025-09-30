@@ -11,7 +11,7 @@
 
 
 
-<CFQUERY NAME="Get_ReportDate" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ReportDate" DATASOURCE="contliab">
 SELECT *
 FROM view_conting_get_reportdate
 </cfquery>
@@ -23,7 +23,7 @@ FROM view_conting_get_reportdate
 <CFOUTPUT>
 --->
 
-<CFQUERY NAME="CONTINGENT_LIAB_Insert" DATASOURCE="lddb">
+<CFQUERY NAME="CONTINGENT_LIAB_Insert" DATASOURCE="contliab">
 
 
 INSERT INTO CONTINGENT_LIAB_REPORT
@@ -160,6 +160,10 @@ Form.UNIONS_SELECTED NEQ ""
 </CFIF>
 --->
 
+
+
+
+
 <CFIF IsDefined("Form.UNIONS_SELECTED_ALL")
 AND
 Form.UNIONS_SELECTED_ALL NEQ "">
@@ -167,6 +171,20 @@ Form.UNIONS_SELECTED_ALL NEQ "">
 	UNIONS_SELECTED,
 
 </CFIF>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 STATUS_CODE_SELECTED,
 
@@ -269,6 +287,9 @@ to_date('#DateFiledFmt#', 'mm/dd/yyyy'),
 
 </cfif>
 
+
+
+
 <CFIF IsDefined("Form.ASSESSMENT_AMOUNT_UPPER") AND Form.ASSESSMENT_AMOUNT_UPPER NEQ "">
 
 <CFSET ThisString = Form.ASSESSMENT_AMOUNT_UPPER>
@@ -281,6 +302,8 @@ to_date('#DateFiledFmt#', 'mm/dd/yyyy'),
 
 </cfif>
 
+
+
 <CFIF IsDefined("Form.ASSESSMENT_AMT_UPPER_HIGH_END") AND Form.ASSESSMENT_AMT_UPPER_HIGH_END NEQ "">
 
 <CFSET ThisString = Form.ASSESSMENT_AMT_UPPER_HIGH_END>
@@ -292,6 +315,9 @@ to_date('#DateFiledFmt#', 'mm/dd/yyyy'),
 #ASSESSMENT_AMT_UPPER_HIGH_END_Dollars#,
 
 </cfif>
+
+
+
 
 <CFIF IsDefined("Form.ASSESSMENT_AMOUNT_UNKNOWN") AND Form.ASSESSMENT_AMOUNT_UNKNOWN NEQ "">
 #Form.ASSESSMENT_AMOUNT_UNKNOWN#,
@@ -317,6 +343,9 @@ to_date('#DateFiledFmt#', 'mm/dd/yyyy'),
 <CFIF IsDefined("Form.NATL_GATS_NUMBER") AND Form.NATL_GATS_NUMBER NEQ "">
 '#Form.NATL_GATS_NUMBER#',
 </cfif>
+
+
+
 
 <CFIF IsDefined("Form.DIST_PERF_CLUSTER_CODE") AND Form.DIST_PERF_CLUSTER_CODE NEQ "0">
 
@@ -354,8 +383,15 @@ to_date('#DateFiledFmt#', 'mm/dd/yyyy'),
 
 	</cfif>
 
+
+
 <CFELSEIF IsDefined("Form.DIVISION_CODE") AND Form.DIVISION_CODE NEQ "0">
+
+
 	'#Form.DIVISION_CODE#',
+
+
+
 <CFELSEIF IsDefined("Form.HQ_AREA_NAME") AND Form.HQ_AREA_NAME NEQ "0">
 
 	<CFSET Slashes_HQ_AREA_NAME_Index = Find(" // ", Form.HQ_AREA_NAME)>
@@ -410,6 +446,25 @@ Form.UNIONS_SELECTED_ALL NEQ "">
 	'#Form.UNIONS_SELECTED_ALL#',
 
 </CFIF>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -481,7 +536,7 @@ CONTINGENT_LIAB_SEQUENCE.NEXTVAL)
 Record Inserted.
 --->
 
-<CFQUERY NAME="Get_Currval" DATASOURCE="lddb">
+<CFQUERY NAME="Get_Currval" DATASOURCE="contliab">
 SELECT CONTINGENT_LIAB_SEQUENCE.CURRVAL AS SEQ_CURRVAL
 FROM DUAL
 </cfquery>
@@ -497,7 +552,7 @@ Currval = #Get_Currval.SEQ_CURRVAL#
 <CFIF Form.LM_MATTER_NUMBER NEQ "">
 
 
-	<CFQUERY NAME="Get_Matter_Key" DATASOURCE="lddb">
+	<CFQUERY NAME="Get_Matter_Key" DATASOURCE="contliab">
 
 	select
 	c.matter_key
@@ -514,7 +569,7 @@ Currval = #Get_Currval.SEQ_CURRVAL#
 	<CFIF Get_Matter_Key.RecordCount GT 0>
 
 
-		<CFQUERY NAME="CONTINGENT_LIAB_Update" DATASOURCE="lddb">
+		<CFQUERY NAME="CONTINGENT_LIAB_Update" DATASOURCE="contliab">
 		UPDATE CONTINGENT_LIAB_REPORT
 		SET
 
@@ -537,7 +592,7 @@ Currval = #Get_Currval.SEQ_CURRVAL#
 
 
 <!---
-<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="lddb">
+<CFQUERY NAME="Get_ChecklistQues" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_GET_CHECKLISTQUES
 </cfquery>
@@ -555,7 +610,7 @@ FROM VIEW_CONTING_GET_CHECKLISTQUES
 Save Checklist Reponses:
 --->
 
-<CFQUERY NAME="Save_Checklist_Reponses" DATASOURCE="lddb">
+<CFQUERY NAME="Save_Checklist_Reponses" DATASOURCE="contliab">
 
 INSERT INTO CONTINGENT_LIAB_C_E_CHECKLIST
 
@@ -621,7 +676,7 @@ SYSDATE,
 </cfquery>
 
 
-<CFQUERY NAME="Get_CONTINGENT_LIAB_REPORT_Currval" DATASOURCE="lddb">
+<CFQUERY NAME="Get_CONTINGENT_LIAB_REPORT_Currval" DATASOURCE="contliab">
 SELECT CONTINGENT_LIAB_REPORT_PRMKEY.CURRVAL AS CONTINGENT_LIAB_REPORT_CURRVAL
 FROM DUAL
 </cfquery>
