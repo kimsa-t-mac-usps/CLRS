@@ -9,9 +9,6 @@ EditRecord.ptC.cfm
 
 --->
 
-
-
-
 <!---
 NOTES: 
 -- Status Code range 11-30 reserved for Codes for cases to be removed from report
@@ -34,12 +31,10 @@ NOTES:
 
 
 <!--- Dropped status_code 3, which is now split between 7 (chg in liab assessment) and 4 (chg in damages assessment) --->
-
-<CFCASE VALUE="3">
+<!---<CFCASE VALUE="3">
 	<CFSET Status_Code_Label = "Change in Damages Assessment or Amount Sought (Still Meets Threshold)">
     <CFSET HideShowButton_String = "Update">
-</cfcase>
-
+</cfcase>--->
 
 <!---
 3/27/08 Status Code 4 added and used only as workaround for CILO cases not previously entered in this system, where below reporting threshold
