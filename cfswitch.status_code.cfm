@@ -6,19 +6,13 @@ Included in:
 Report.ptB.cfm
 Report.ptD.cfm
 EditRecord.ptC.cfm
-
 --->
-
-
-
 
 <!---
 NOTES: 
 -- Status Code range 11-30 reserved for Codes for cases to be removed from report
 -- "CFSET Status_Code_Order" in application.cfm
 --->
-
-
 
 <CFSWITCH EXPRESSION="#Status_Code_Var#">
 
@@ -32,37 +26,19 @@ NOTES:
     <CFSET HideShowButton_String = "No Change">
 </cfcase>
 
-
 <!--- Dropped status_code 3, which is now split between 7 (chg in liab assessment) and 4 (chg in damages assessment) --->
-
 <!---<CFCASE VALUE="3">
-	<CFSET Status_Code_Label = "Change in Damages Assessment or Amount Sought (Still Meets Threshold)hhhhhhhhhhh">
-    <CFSET HideShowButton_String = "Update">
-    <cfoutput >
-	Status_Code_Label3: #Status_Code_Label#
-</cfoutput>
+	<CFSET Status_Code_Label = "Change in Damages Assessment or Amount Sought (Still Meets Threshold)">
+    <CFSET HideShowButton_String = "Update"> 
 </cfcase>
 --->
-
-<!---
-3/27/08 Status Code 4 added and used only as workaround for CILO cases not previously entered in this system, where below reporting threshold
---->
-<!--- 3/4/09 Added status_code 4: Dropped status_code 3, which is now split between 7 (chg in liab assessment) and 4 (chg in damages assessment) --->
+<!---  Added status_code 4: Dropped status_code 3, which is now split between 7 (chg in liab assessment) and 4 (chg in damages assessment) --->
 <CFCASE VALUE="4">
 
 	<CFSET Status_Code_Label = 'Change in Damages Assessment or Amount Sought (Still Meets Threshold)'>
-	<!---<cfoutput >
-	Status_Code_Label1: #Status_Code_Label#
-</cfoutput>--->
-<!---<br>--->
-	<!---<CFSET Status_Code_Label = '<span id="StillMeetsThresholdNote">' & Status_Code_Label & '</span>'>--->
-<!---<cfoutput >
-	Status_Code_Label2: #Status_Code_Label#
-</cfoutput><br>--->
     <CFSET HideShowButton_String = "">
 
 </cfcase>
-
 
 <CFCASE VALUE="5">
 	<CFSET Status_Code_Label = "Settlement, Not Yet Final and Paid">
@@ -74,30 +50,21 @@ NOTES:
     <CFSET HideShowButton_String = "Update">
 </cfcase>
 
-
 <CFCASE VALUE="7">
 	<CFSET Status_Code_Label = "Change in Liability Assessment">
     <CFSET HideShowButton_String = "Update">
-    <!---<cfoutput >
-	Status_Code_Label4: #Status_Code_Label#
-</cfoutput>--->
+  
 </cfcase>
-
-
 <CFCASE VALUE="8">
-
 
 <!--- Added "or Revision in Text" -- At request of Maria Valentin (Bob Sindermann 3/30/2015) --->
 	<CFSET Status_Code_Label = "Additional Facts or Revision in Text">
     <CFSET HideShowButton_String = "Update">
 </cfcase>
 
-
 <CFCASE VALUE="9">
-
-
 <!--- Added "or Maximum Reasonable Payout" -- At request of Maria Valentin (Bob Sindermann 3/30/2015) --->
-    
+   
 	<CFSET Status_Code_Label = "Revised Most Likely Payout or Maximum Reasonable Payout">
     <CFSET HideShowButton_String = "Update">
 </cfcase>
@@ -137,14 +104,11 @@ NOTE: Status Code range 11-30 reserved for Codes for cases to be removed from re
     <CFSET HideShowButton_String = "Remove">
 </cfcase>
 
-
-
 <CFDEFAULTCASE>
 	<CFSET Status_Code_Label = "[Unspecified]">
 </CFDEFAULTCASE>
 
 </cfswitch>
-
 
 <!---
 Either
