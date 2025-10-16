@@ -2,3 +2,9 @@
 .settings/*.
 .vs/*.
 .vscode/*
+.metadata/*
+RemoteSystemsTempFiles/*
+.metadata/.plugins/*
+
+.metadata/.lock
+.metada/version.ini
