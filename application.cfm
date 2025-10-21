@@ -13,7 +13,6 @@ SESSIONTIMEOUT=#CreateTimeSpan(0,0,10,0)#
 SESSIONMANAGEMENT="Yes"
 SEARCHIMPLICITSCOPES="True">
 <!--- Previous:
-
 requestTimeout = "1300"
 --->
 <!---
