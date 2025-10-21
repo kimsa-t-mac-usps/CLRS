@@ -117,8 +117,7 @@ alert('checkUserAtty.cfm at 114: AuthorizedFlag = "#AuthorizedFlag#"');
 
 </script>
 --->
-        
-        
+       
         
         
         
@@ -267,8 +266,7 @@ alert('checkUserAtty.cfm at 265: AuthorizedFlag = "#AuthorizedFlag#"');
 </cfoutput>
 
 </script>
---->
-            
+--->           
             
             
             
