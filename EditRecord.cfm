@@ -150,9 +150,6 @@ Added form field STATUS_CODE_SELECTED_ALL to hold concatenated string of STATUS_
 --->
 
 
-
-
-
 <!---
 	<form name="CaseForm_#CONTINGENT_LIAB_GetRecord.CurrentRow#" METHOD="POST" ACTION="EditRecord.Action.cfm"
 	onSubmit="return showStatusCodeSelected(this); return showUnionsSelected(this); return checkupdFactsFlagArray(this, this.name)">
@@ -165,12 +162,6 @@ Added form field STATUS_CODE_SELECTED_ALL to hold concatenated string of STATUS_
 
 	<form name="CaseForm_#CONTINGENT_LIAB_GetRecord.CurrentRow#" METHOD="POST" ACTION="EditRecord.Action.cfm"
 	onSubmit="return showStatusCodeSelected(this); return checkupdFactsFlagArray(this, this.name)">
-
-
-
-
-
-
     
 	</CFOUTPUT>
 	
@@ -233,8 +224,6 @@ onSubmit attribute in CFFORM tag appears not to work anymore, maybe because of u
 	</div>
 	
 	</blockquote>
-	
-	
 	
 	<CFOUTPUT>
 	

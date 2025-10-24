@@ -1,6 +1,5 @@
 
 <!---------------------  Assessment_probabily_Label_Count.loop.cfm ------------>
-<!---KIMSA test --->
 <CFLOOP CONDITION="(ASSESSMENT_PROBABILITY_Label_Count NEQ ThisASSESSMENT_PROBABILITY) AND (ASSESSMENT_PROBABILITY_Label_Count LE ASSESSMENT_PROBABILITY_Label_List_Len) AND (HeaderParm EQ 'TopIndex')">
 
 <p>

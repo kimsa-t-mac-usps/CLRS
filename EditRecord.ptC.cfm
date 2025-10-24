@@ -2,7 +2,6 @@
 
 <!--- Query CONTINGENT_LIAB_GetRecord in EditRecord.ptA --->
 
-
 <tr>
 
 <th align="right" valign="top">
@@ -10,7 +9,6 @@
 <!---
 <span style="color:red; font-size:9pt">[NEW]</span>&nbsp;
 --->
-
 Change in
 Status
 
@@ -31,12 +29,8 @@ Before: STATUS_CODE = "#STATUS_CODE#"
 </CFIF>
 --->
 
-
-
 <!--- Default STATUS_CODE = 0 (No code) --->
 <CFSET This_STATUS_CODE = 0>
-
-
 
 <!---
 <CFOUTPUT>

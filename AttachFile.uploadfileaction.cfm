@@ -51,10 +51,6 @@ Form.FileReplace EQ "yes">
 
 </CFIF>
 
-
-
-
-
 <CFIF IsDefined("Form.FileReplace")
 AND
 Form.FileReplace EQ "yes">
@@ -65,8 +61,6 @@ Form.FileReplace EQ "yes">
     	    file="#FileToDelete#">
 
 </CFIF>
-
-
 
 <cffile action="upload"
         destination="#CFFILE_Destination_Dir#"

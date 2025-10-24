@@ -48,10 +48,6 @@ ORDER BY c.SORTORDER, a.LASTNAME
 
 </cfquery>
 
-
-
-
-
 <CFSET ToMCLine = "">
 
 <CFSET AlertToLine = "">

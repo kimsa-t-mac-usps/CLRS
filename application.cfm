@@ -134,11 +134,9 @@ WHERE USERPRMKEY = 361
 <CFSET LDAPServerName = "eagandcs-sha2.usa.dce.usps.gov">
 <CFSET todayDate = Now()>
 <CFSET todayDateFmt = DateFormat(todayDate, "mm/dd/yyyy")>
-
 <!---
 <CFSET Spreadsheets_Uploads_Dir = "D:\Inetpub\wwwroot\InHouse\ContingentLiabilities\Spreadsheets\">
 --->
-
 <!---
 <CFSET Spreadsheets_Uploads_Dir = "D:\Inetpub\wwwroot\ClientService\ContingentLiabilities\Spreadsheets\">
 --->

@@ -1,6 +1,5 @@
 <cfinclude template="MfaCookieCheck.cfm">
 
-
 <!--- Check whether user authorized to access CL system and scope of authorization: Department-wide, Office-wide, case-only, or none --->
 
 <!--- Included separately in Report.ptA.cfm, InsertRecord.cfm, EditRecord.cfm --->
@@ -16,11 +15,6 @@ alert('CheckUserAuth.cfm at 11: AuthorizedFlag = "#AuthorizedFlag#"');
 
 </script>
 --->
-
-
-
-
-
 
 <!---
 CONTINGENT_LIAB_AUTH = 'A' = Full Access
@@ -39,7 +33,6 @@ OR UPPER(b.AD_MAILNICKNAME) LIKE UPPER('#RespondingUser_Id#%'))
 </cfquery>
 --->
 
-
 <CFINCLUDE TEMPLATE="Query.Check_Auth_User_A.cfm">
 
 <!---
@@ -52,13 +45,9 @@ alert('CheckUserAuth.cfm at 46: Check_Auth_User_A.RecordCount = "#Check_Auth_Use
 </script>
 --->
 
-
-
-
 <CFIF Check_Auth_User_A.RecordCount EQ 1>
 	<CFSET AuthorizedFlag = "Yes">
 	<CFSET OfficeScope = "All Law Department Offices">
-
 
 <!---
 <script>
@@ -69,8 +58,6 @@ alert('CheckUserAuth.cfm at 51: AuthorizedFlag = "#AuthorizedFlag#"');
 
 </script>
 --->
-
-
 
 <CFELSE>
 
@@ -99,7 +86,6 @@ alert('CheckUserAuth.cfm at 95: Get_Auth_User_PRMKEY.RecordCount = "#Get_Auth_Us
 
 </script>
 --->
-
 	
 	<CFIF Get_Auth_User_PRMKEY.RecordCount EQ 1>
 	
@@ -114,10 +100,7 @@ alert('CheckUserAuth.cfm at 85: AuthorizedFlag = "#AuthorizedFlag#"');
 
 </script>
 --->    
-    
-    
-    
-		<CFSET ThisCONTINGENT_LIAB_AUTH = Get_Auth_User_PRMKEY.CONTINGENT_LIAB_AUTH>
+  	<CFSET ThisCONTINGENT_LIAB_AUTH = Get_Auth_User_PRMKEY.CONTINGENT_LIAB_AUTH>
 
 <!---
 CONTINGENT_LIAB_AUTH = 'O' = Office-wide Authorization
@@ -200,8 +183,6 @@ Get_Auth_User_Office.OFFICE_PRM_KEY = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 <cfabort>
 --->
 
-
-
 		<CFIF Get_Auth_User_Office.RecordCount EQ 1>
 		
 			<CFIF Trim(Get_Auth_User_Office.OFFICE) CONTAINS "General Law">
@@ -225,9 +206,7 @@ OfficeScope = "#OfficeScope#"
 <!---
 <CFABORT>
 --->
-
-
-			<CFSET DefaultOffice = Get_Auth_User_Office.OFFICE_PRM_KEY>
+		<CFSET DefaultOffice = Get_Auth_User_Office.OFFICE_PRM_KEY>
 		
 		    <CFQUERY NAME="Find_Office_Concur" DATASOURCE="contliab">
         
@@ -429,22 +408,17 @@ AND (COUNSEL_LAW_DEPT = #Get_Indiv_User.PRIMARYKEY#
 OR COCOUNSEL_LAW_DEPT = #Get_Indiv_User.PRIMARYKEY#)
 </cfif>
 --->
-
-
 				AND 
 				(COUNSEL_LAW_DEPT = #Get_Indiv_User.PRIMARYKEY#
 				OR COCOUNSEL_LAW_DEPT = #Get_Indiv_User.PRIMARYKEY#)
 				
 				</cfquery>
 
-
 <!---
 </CFOUTPUT>                
                 
 <cfabort>
 --->
-
-
 
 <!---
 <script>
@@ -455,12 +429,7 @@ alert('CheckUserAuth.cfm at 288: Get_Indiv_User_Cases.RecordCount = "#Get_Indiv_
 
 </script>
 --->
-
-
-
-                
-				
-				<CFIF Get_Indiv_User_Cases.RecordCount GT 0>
+			<CFIF Get_Indiv_User_Cases.RecordCount GT 0>
 					<CFSET AuthorizedFlag = "Yes">
 				    
 <!---                
@@ -472,10 +441,7 @@ alert('CheckUserAuth.cfm at 290: AuthorizedFlag = "#AuthorizedFlag#"');
 
 </script>
 --->
-                    
-                    
-                    
-                    
+                
 				<CFELSEIF Get_Indiv_User_Cases.RecordCount EQ 0 AND IsDefined("EarlierRptDate")>
 					<CFSET AuthorizedFlag = "Yes">
 				
@@ -515,12 +481,6 @@ AuthorizedFlag = "#AuthorizedFlag#"
 <cfabort>
 --->
 
-
-
-
-
-
-
 	<CFIF 
 	NOT 
 	(
@@ -550,14 +510,10 @@ alert('CheckUserAuth.cfm at 367: AuthorizedFlag = "#AuthorizedFlag#"');
 </script>
 --->
     
-
 			<script language="javascript">
 			location.href = 'NotAuthorized.cfm';
 			</script>
-
-            
-            
-            
+      
 		</cfif>
 
 	</cfif>
