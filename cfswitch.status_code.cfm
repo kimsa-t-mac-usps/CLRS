@@ -1,5 +1,4 @@
 <cfinclude template="MfaCookieCheck.cfm">
-
 <!---
 Included in:
 
@@ -7,7 +6,6 @@ Report.ptB.cfm
 Report.ptD.cfm
 EditRecord.ptC.cfm
 --->
-
 <!---
 NOTES: 
 -- Status Code range 11-30 reserved for Codes for cases to be removed from report
@@ -68,7 +66,6 @@ NOTES:
 	<CFSET Status_Code_Label = "Revised Most Likely Payout or Maximum Reasonable Payout">
     <CFSET HideShowButton_String = "Update">
 </cfcase>
-
 
 <CFCASE VALUE="10">
 	<CFSET Status_Code_Label = "[Unused]">

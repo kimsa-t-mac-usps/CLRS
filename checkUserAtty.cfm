@@ -3,10 +3,7 @@
 Included on InHouse Web site Welcome page (iframe on InHouse/frametest/welcome.main.htm): Checks if user gets links to Contingent Liabilities for report, adding new case, accessing Protocol
 --->
 
-
 <cfset RespondingUser_Id = TRIM(UCASE(RemoveChars(auth_user,1,find('\',auth_user))))>
-
-
 
 <CFQUERY NAME="Get_LatestReportDate" DATASOURCE="contliab">
 
@@ -57,9 +54,6 @@ alert('checkUserAtty.cfm at 53: AuthorizedFlag = "#AuthorizedFlag#"');
 </script>
 --->
 
-
-
-
 <CFQUERY NAME="Check_Auth_User_A" DATASOURCE="contliab">
 SELECT USERPRMKEY
 FROM BUSINESSSERVUSERS
@@ -84,11 +78,7 @@ alert('checkUserAtty.cfm at 80: AuthorizedFlag = "#AuthorizedFlag#"');
 </script>
 --->
 
-
-
-
 <CFELSE>
-
 
 	<CFQUERY NAME="Get_Auth_User_PRMKEY" DATASOURCE="contliab">
 	
@@ -117,12 +107,7 @@ alert('checkUserAtty.cfm at 114: AuthorizedFlag = "#AuthorizedFlag#"');
 
 </script>
 --->
-       
-        
-        
-        
-        
-        
+    
 		<CFSET ThisCONTINGENT_LIAB_AUTH = Get_Auth_User_PRMKEY.CONTINGENT_LIAB_AUTH>
 		
 		

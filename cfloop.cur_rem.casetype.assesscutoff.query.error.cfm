@@ -89,7 +89,6 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 
 					<CFSET CLRC_Query_Name = QueryNamePrefix & "_" & "CONTINGENT_LIAB_GetRecord_Current" & "_" & Current_Removed_List_Index & "_" & Case_Type_List_Index & "_" & Assess_Cutoff_List_Index>
 
-
 <!---
 <p>
 In cfloop.cur_rem.casetype.assesscutoff.query.cfm at 87:
@@ -105,7 +104,6 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 <!---
 <CFOUTPUT>
 --->
-
 
 					<CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="contliab">
 
