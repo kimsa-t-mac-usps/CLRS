@@ -33,15 +33,20 @@ alert("CaseForm_1.STATUS_CODE = " + CaseForm_1.STATUS_CODE.value);
 </script>
 --->
 
+
+
 <CFIF IsDefined("Form.RecID")>
 	<CFSET ThisRecID = Form.RecID>
 <CFELSEIF IsDefined("RecIDParm")>
 	<CFSET ThisRecID = RecIDParm>
 </cfif>
 
+
+
 <CFIF IsDefined("Form.ActionButton") 
 AND 
 Form.ActionButton EQ "Delete This Record">
+
 
 	<CFQUERY NAME="CONTINGENT_LIAB_Delete_Record" DATASOURCE="contliab">
 	
@@ -54,8 +59,12 @@ Form.ActionButton EQ "Delete This Record">
 	WHERE PRIMARYKEY = #ThisRecID#
 	
 	</cfquery>
+	
+
 
 <CFELSEIF IsDefined("LockFlag")>
+
+
 	<CFIF LockFlag EQ "Lock">
 	
 		<CFQUERY NAME="CONTINGENT_LIAB_LockRecord" DATASOURCE="contliab">
@@ -189,7 +198,7 @@ UndoApprFlag EQ "UndoAppr">
 		WHERE CASE_REC_ID_SEQUENCE = #Form.CASE_REC_ID_SEQUENCE#
 		
 		</cfquery>
-	
+		
 		
 	<CFELSE>
 		
@@ -258,7 +267,9 @@ UndoApprFlag EQ "UndoAppr">
 		
 		</CFIF>
 		
-
+		
+		
+		
 		<CFQUERY NAME="CONTINGENT_LIAB_Update" DATASOURCE="contliab">
 		
 		UPDATE CONTINGENT_LIAB_REPORT
@@ -321,7 +332,8 @@ UndoApprFlag EQ "UndoAppr">
 				AMOUNT_SOUGHT_UNKNOWN = 0,
 
 			</cfif>
-					
+			
+		
 			<CFIF IsDefined("Form.AMOUNT_SOUGHT_UPPER")>
 			
 				<CFIF Form.AMOUNT_SOUGHT_UPPER NEQ "">
@@ -384,7 +396,8 @@ UndoApprFlag EQ "UndoAppr">
 				</cfif>
 			
 			</cfif>
-			
+		
+		
 		
 			<CFIF IsDefined("Form.ASSESSMENT_AMOUNT_UPPER")>
 			
@@ -445,7 +458,9 @@ UndoApprFlag EQ "UndoAppr">
 				STATUS_CODE_SELECTED = '#Form.STATUS_CODE#',
 
 			</CFIF>
-	
+
+		
+		
 			<CFIF IsDefined("Form.PAYOUT_AMOUNT")>
 			
 				<CFIF Form.PAYOUT_AMOUNT NEQ "">
@@ -468,6 +483,9 @@ UndoApprFlag EQ "UndoAppr">
 				PAYOUT_AMOUNT = NULL,
 			
 			</cfif>
+		
+		
+		
 			<CFIF IsDefined("Form.PAYOUT_LT_100K")>
 			
 				<CFIF Form.PAYOUT_LT_100K NEQ "">
@@ -489,6 +507,8 @@ UndoApprFlag EQ "UndoAppr">
 				PAYOUT_LT_100K = NULL,
 			
 			</cfif>
+		
+		
 		
 			<CFIF IsDefined("Form.PAYOUT_DATE")>
 			
@@ -594,6 +614,8 @@ UndoApprFlag EQ "UndoAppr">
 	
 					</CFIF>                
 
+
+
 				<CFELSE>
 
 
@@ -687,6 +709,8 @@ UndoApprFlag EQ "UndoAppr">
 			</CFIF>
 
 --->
+
+
 
 			<CFIF IsDefined("Form.UNIONS_SELECTED_ALL")
 			AND

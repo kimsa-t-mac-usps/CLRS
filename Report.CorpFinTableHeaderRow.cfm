@@ -36,11 +36,6 @@
 	<th class="CorpFin">
 	Status
 
-
-
-
-
-    
 <!--- If Liability (1) or Receivable (2) Removed (+10 = 11 or 12), show outcome --->
 	<CFIF CASE_TYPE EQ 11 OR CASE_TYPE EQ 12>
 

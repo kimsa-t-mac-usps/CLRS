@@ -252,12 +252,6 @@ if (eval(thisUnkFormField)) eval(thisUnkFormField).checked = false;
 }
 
 
-
-
-
-
-
-
 function showUnionsSelected(thisForm) {
 
 

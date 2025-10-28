@@ -36,12 +36,17 @@
 	
 	</cfquery>
 	
+	
 	<!---
 	<CFOUTPUT>
 	<form name="ReturnForm" METHOD="POST" ACTION="Report.cfm###Form.RecID#">
 	</cfoutput>
 	</form>
 	--->
+	
+	
+	
+	
 	
 	
 	<CFIF IsDefined("Form.RecordDisplay_Parm") AND Form.RecordDisplay_Parm EQ "Single"
@@ -63,7 +68,8 @@
 		<CFSET ReturnFormAction_PrevReportDate_Parm = PrevReportDate_Parm>
 	
 	</cfif>
-		
+	
+	
 	<CFIF IsDefined("ReturnFormAction_ThisReportDate_Parm") AND IsDefined("ReturnFormAction_PrevReportDate_Parm")>
 	
 		<CFOUTPUT>
@@ -79,6 +85,9 @@
 		</cfoutput>
 	
 	</CFIF>
+	
+	
+	
 	
 	
 	<script language="javascript">

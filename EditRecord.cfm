@@ -1,5 +1,7 @@
 <cfinclude template="MfaCookieCheck.cfm">
+
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<!---<meta http-equiv="X-UA-Compatible" content="IE=edge">--->
@@ -150,6 +152,7 @@ Added form field STATUS_CODE_SELECTED_ALL to hold concatenated string of STATUS_
 --->
 
 
+
 <!---
 	<form name="CaseForm_#CONTINGENT_LIAB_GetRecord.CurrentRow#" METHOD="POST" ACTION="EditRecord.Action.cfm"
 	onSubmit="return showStatusCodeSelected(this); return showUnionsSelected(this); return checkupdFactsFlagArray(this, this.name)">
@@ -162,7 +165,7 @@ Added form field STATUS_CODE_SELECTED_ALL to hold concatenated string of STATUS_
 
 	<form name="CaseForm_#CONTINGENT_LIAB_GetRecord.CurrentRow#" METHOD="POST" ACTION="EditRecord.Action.cfm"
 	onSubmit="return showStatusCodeSelected(this); return checkupdFactsFlagArray(this, this.name)">
-    
+   
 	</CFOUTPUT>
 	
 <!--- 4/24/09:

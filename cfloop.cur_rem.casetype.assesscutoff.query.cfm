@@ -10,9 +10,7 @@
 	</CFOUTPUT>--->
 
 <!--- Settings for ranges in queries for assessments in case categories --->
-
 <!---
-
 Most Likely Payout Range:
 ASSESSMENT_AMOUNT
 ASSESSMENT_AMT_HIGH_END
@@ -20,13 +18,8 @@ ASSESSMENT_AMT_HIGH_END
 Maximum Reasonable Payout Range:
 ASSESSMENT_AMOUNT_UPPER
 ASSESSMENT_AMT_UPPER_HIGH_END
-
-
 ASSESSMENT_PROBABILITY 
 =1:Probable, =2:Reas Possible, =3:Remote
-
-
-
 5/21/09 Changed SQL references to 5000000 cutoff: Use ASSESSMENT_AMOUNT instead of ASSESSMENT_AMOUNT_UPPER
 
 
@@ -44,7 +37,7 @@ Same CFLOOP bypasses in:
 <!---
 See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 --->
-
+	
 <!--- Included in Report.ptA.cfm --->
 
 <CFLOOP INDEX="Current_Removed_List_Index" LIST="#Current_Removed_List#">
@@ -104,20 +97,7 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 
 					<CFSET CLRC_Query_Name = QueryNamePrefix & "_" & "CONTINGENT_LIAB_GetRecord_Current" & "_" & Current_Removed_List_Index & "_" & Case_Type_List_Index & "_" & Assess_Cutoff_List_Index>
 
-<!--- KS2 --->
-<!---<CFOUTPUT>
-		<br />
-		Program = "cfloop.cur_rem.casetype.assesscutoff.query.cfm at 125"
-		<br />
-		Current_Removed_List = #Current_Removed_List#
-		<br />
-		<!---Current_Removed_List_Index = #Current_Removed_List_Index#
-		<br />--->
-		Case_Type_List	= #Case_Type_List#
-		<br />
-		Assess_Cutoff_List = #Assess_Cutoff_List#
-		<br />
-	</CFOUTPUT>--->
+
 <!---
 <p>
 In cfloop.cur_rem.casetype.assesscutoff.query.cfm at 100:
@@ -126,9 +106,13 @@ In cfloop.cur_rem.casetype.assesscutoff.query.cfm at 100:
 <CFOUTPUT>
 CLRC_Query_Name = "#CLRC_Query_Name#"
 </CFOUTPUT>
+
 <p>
+
 <CFOUTPUT>
 --->
+
+
 					<CFQUERY NAME="#CLRC_Query_Name#" DATASOURCE="contliab">
 
 					SELECT
@@ -188,6 +172,8 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 
 <!--- Add Approving MC --->                    
 					lde.MC_Name
+
+
 					FROM CONTINGENT_LIAB_REPORT clr
 
 <!--- Add LOJ for Approving MC --->
@@ -248,6 +234,8 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 							</CFIF>
 
 						</CFLOOP>
+
+
     
     				</CFIF>
 
@@ -306,9 +294,10 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
                             	</CFIF>
                             
                             </CFIF>
-                        
+                            
         
 						</cfif>
+
 	
 					<CFELSEIF IsDefined("SelectedLDOffice")>
     
@@ -388,7 +377,9 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 								clr.STATUS_CODE_SELECTED NOT LIKE '%2%'
 							</CFIF>
 
+
 						</cfif>
+
 
 					<CFELSEIF Current_Removed_List_Index EQ "Removed">
 
@@ -430,7 +421,9 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 						<CFINCLUDE TEMPLATE="sql.assesscutoff.fivemillion.above.cfm">
 --->
 
+
 						<CFINCLUDE TEMPLATE="sql.assesscutoff.tenmillion.above.cfm">
+
 
 						)
 
@@ -462,6 +455,7 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 
 							</CFIF>
 
+
 						</cfif>
 
 
@@ -481,6 +475,7 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 <input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_14" value="14" onClick="hideShowButton('Remove', 1, this.value)"  />Withdrawn 
 <input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_15" value="15" onClick="hideShowButton('Remove', 1, this.value)"  />Reassessed; No Longer Meets Threshold 
 
+
 NOT:
 
 <input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_11" value="11" onClick="hideShowButton('Remove', 1, this.value)"  />Favorable Decision 
@@ -489,6 +484,7 @@ NOT:
 <input type="checkbox" name="STATUS_CODE" id="STATUS_CODE_14" value="14" onClick="hideShowButton('Remove', 1, this.value)"  />Withdrawn 
 
 --->
+
 
 						(
 
@@ -511,7 +507,7 @@ NOT:
 						OR
 						clr.ASSESSMENT_AMOUNT_UPPER >= #OneMillion#
 --->
-					
+						
 						)
 						)
 
@@ -570,6 +566,7 @@ NOT:
 
 						</CFIF>
 
+
 						)
 
 						)
@@ -618,7 +615,10 @@ NOT:
 
 							)
 
+
+
 							)
+
 
 						</cfif>
 
@@ -631,7 +631,11 @@ NOT:
 --->
 
 
+
+
+
 					<CFELSEIF Assess_Cutoff_List_Index EQ "MostLikelyUnderTenMillion_MaxReasonableOverOneMillion">
+
 
 						(
 <!---
@@ -690,6 +694,12 @@ NOT:
 							(clr.ASSESSMENT_AMT_HIGH_END is null  
 									OR clr.ASSESSMENT_AMT_HIGH_END < <cfqueryparam cfsqltype="numeric" value="#TenMillion#">)
 						)
+						
+						
+
+						
+						
+						
 
 <!--- For "Under5Million" --->
 					<CFELSE>
@@ -730,6 +740,7 @@ NOT:
 
 							</CFIF>
 
+
 						</cfif>
 
 					</cfif>
@@ -748,9 +759,12 @@ NOT:
 					AND 
 					IsDefined("Get_Auth_User_Office.OFFICE_PRM_KEY")>
 
+
 <!---
 						<CFINCLUDE TEMPLATE="SQL.CheckForOfficeOverlap.cfm">
 --->
+
+
 
 						AND 
     					(
@@ -758,6 +772,8 @@ NOT:
 						OR
 					    clr.ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 					    )
+
+
 
 
 <!--- Check for Business cases authorization (B) or Torts authorization (T) (St Louis) --->
@@ -1060,6 +1076,7 @@ ASSESSMENT_AMOUNT < 1000000
 					</cfquery>
 
 
+
 <!---
 </CFOUTPUT>
 
@@ -1095,6 +1112,7 @@ CLRC_Query_Name = "#CLRC_Query_Name#"
 
 </CFOUTPUT>
 --->
+
 
 
 <!--- Close <CFIF Skip_CLRC_Query EQ "no"> --->

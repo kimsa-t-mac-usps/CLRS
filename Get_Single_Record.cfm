@@ -1,11 +1,7 @@
 <cfinclude template="MfaCookieCheck.cfm">
-
-
 <!---
 <CFINCLUDE TEMPLATE="string_compare.routine.cfm">
 --->
-
-
 
 <CFIF NOT
 (
@@ -18,8 +14,6 @@ TextHighlight EQ "Disabled"
 
 </CFIF>
 
-
-
 <CFSET RptDateToFmt = ThisReportDate>
 <CFINCLUDE TEMPLATE="RptDateFYQFmt.cfm">
 
@@ -30,9 +24,6 @@ TextHighlight EQ "Disabled"
 <CFSET This_CurrentRow = 0>
 <CFSET RowColor = "linen">
 <CFSET CLRC_Query_Name = "Get_Single_Record">
-
-
-
 
 <CFINCLUDE TEMPLATE="CheckUserAuth.cfm">
 
@@ -200,11 +191,7 @@ CL Case:
 
 
 <CFINCLUDE TEMPLATE="Report.ptC.cfm">
-
-
 <CFINCLUDE TEMPLATE="Report.ptD.cfm">
-
-
 <CFINCLUDE TEMPLATE="Report.ptE.cfm">
 
 </table>
