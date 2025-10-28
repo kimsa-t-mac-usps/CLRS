@@ -9,6 +9,8 @@
 	
 <CFLOOP CONDITION="(CLAIM_CATEGORY_Label_Count NEQ ThisCLAIM_CATEGORY) AND (CLAIM_CATEGORY_Label_Count LE CLAIM_CATEGORY_Label_List_Len) AND (HeaderParm EQ 'TopIndex')">
 
+
+
 	<CFIF NOT
 	(
 	IsDefined("SelectedCategory")

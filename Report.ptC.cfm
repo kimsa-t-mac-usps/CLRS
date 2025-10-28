@@ -16,10 +16,7 @@ Query CONTINGENT_LIAB_GetRecord_PrevRpt in Get_Single_Record.cfm
 
 --->
 
-
 <link Report.ptC.cfm rel="stylesheet" type="text/css" href="stylesheet.css">
-
-
 
 <CFIF DATE_LAST_UPDATE EQ "" 
 AND 
@@ -32,7 +29,6 @@ IsDefined("EarlierRptDate")>
 	</cfoutput>
 
 <CFELSE>
-
 
 	<CFIF IsDefined("PrevSTLNote") AND PrevSTLNote NEQ "">
 	
@@ -52,7 +48,6 @@ IsDefined("EarlierRptDate")>
 	
 
 </cfif>
-
 
 
 <CFOUTPUT>
@@ -109,7 +104,6 @@ SelectedCategory CONTAINS "Non-HQ"
 	</CFOUTPUT>
 
 </cfif>
-
 
 
 <CFIF NOT (IsDefined("PkeyBkmarkFlag") AND PkeyBkmarkFlag EQ "yes")>

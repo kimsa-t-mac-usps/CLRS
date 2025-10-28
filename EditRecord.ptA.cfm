@@ -1,5 +1,4 @@
 <cfinclude template="MfaCookieCheck.cfm">
-
 <!--- Deleted Query GetMC as duplicate with application.cfm --->
 
 <!---
@@ -22,6 +21,7 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#RespondingUser_Id#%'))
 <!---
 <cfoutput>
 --->
+
 <CFQUERY NAME="CONTINGENT_LIAB_GetRecord" DATASOURCE="contliab">
 
 SELECT
@@ -134,11 +134,6 @@ AND LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 
 
 
-
-
-
-
-
 <CFIF IsDefined("ThisCONTINGENT_LIAB_AUTH")>
 
 <CFIF ThisCONTINGENT_LIAB_AUTH EQ "B">
@@ -215,6 +210,9 @@ alert('EditRecord.ptA.cfm at 197: CONTINGENT_LIAB_GetRecord.RecordCount = #CONTI
 --->
 
 
+
+
+
 <CFIF CONTINGENT_LIAB_GetRecord.RecordCount NEQ 1>
 
 
@@ -284,12 +282,23 @@ DRAFT Report for
 </small>
 <p>
 
+
+
+
+
 <!--- CFFILE_Destination_Dir and CFFILE_Uploads_Dir_Link defined in application.cfm --->
 <!---
 <CFSET CFFILE_Destination_Dir = "D:\Inetpub\wwwroot\InHouse\ContingentLiabilities\Spreadsheets\FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
 
 <CFSET CFFILE_Uploads_Dir_Link = "../Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
 --->
+
+
+
+
+
+
+
 
 <!---
 <CFOUTPUT>
@@ -359,6 +368,9 @@ IsDefined("RecIDParm")
 --->
 
 </h2>
+
+
+
 
 <div style="position: absolute; top: 20; right: 60; background:FFD5AA; padding:5pt; text-align:left">
 

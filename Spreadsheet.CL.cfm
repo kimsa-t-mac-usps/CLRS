@@ -1,7 +1,4 @@
 <cfinclude template="MfaCookieCheck.cfm">
-
-
-
 <CFIF IsDefined("RptDate")>
 	<CFSET RptDateToFmt = RptDate>
 
@@ -40,8 +37,6 @@ RptDateToFmt = "#RptDateToFmt#"
 <cfabort>
 --->
 
-
-
 <!---
 <CFINCLUDE TEMPLATE="CFINCLUDEs/RptDateFYQFmt.cfm">
 --->
@@ -70,8 +65,6 @@ RptDateToFmt = "#RptDateToFmt#"
 
 </CFIF>
 
-
-
 <!---
 <CFSET SpreadsheetTitle = SpreadsheetTitle & " " & RptDateToFmt>
 --->
@@ -83,7 +76,6 @@ RptDateToFmt = "#RptDateToFmt#"
 </CFOUTPUT>
 </title>
 </head>
-
 
 
 
@@ -145,9 +137,6 @@ RptScope EQ "Areas"
     when CASE_TYPE = 2 then CASE_NAME || ' [Receivable]'
     else CASE_NAME
     end "Case_Name",
-
-
-
     
     
     CASE_NUMBER AS "Case_Number",
@@ -156,15 +145,11 @@ RptScope EQ "Areas"
 	ASSESSMENT_PROBABILITY, 
 --->
 
-
 	CASE to_char(ASSESSMENT_PROBABILITY)
 	when '1' then 'Probable'
 	when '2' then 'Reasonably Possible'
 	when '3' then 'Remote'
 	END "Assessment_Probability",
-
-
-
 
 <!---
     CASE_TYPE,

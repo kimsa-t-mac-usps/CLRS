@@ -1,8 +1,5 @@
 <cfinclude template="MfaCookieCheck.cfm">
 
-
-
-
 <CFQUERY NAME="ActiveHolds_NotSentToICP" DATASOURCE="#ThisDataSource#">
 
 /*

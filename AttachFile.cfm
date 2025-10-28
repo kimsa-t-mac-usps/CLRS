@@ -15,16 +15,26 @@ if (thisForm.FiletoUpload.value == "") return false;
 
 </script>
 
+
 <!---
 width:40%
 --->
 
+
+
 <body style="background:linen; line-height:150%; font-family:Verdana; font-size:9pt; color:maroon; width:70%">
+
+
+
 <cfdirectory action="list" 
 name="dirQuery" 
 directory="#CFFILE_Destination_Dir#"
 sort="name, datelastmodified">
+
+
 <CFSET FileReplace = "no">
+
+
 
 <CFLOOP QUERY="dirQuery">
    
@@ -57,6 +67,7 @@ sort="name, datelastmodified">
 	directory="#PrevCFFILE_Destination_Dir#"
 	sort="name, datelastmodified">
 
+
 <!---
 	<CFOUTPUT>
     <p>
@@ -64,7 +75,10 @@ sort="name, datelastmodified">
     <p>
     </CFOUTPUT>
 --->
+
+
 	<CFSET PrevQSpsheetFound = "no">
+
     <CFLOOP QUERY="Prev_dirQuery">
    	
 	    <CFIF name EQ "CL.Case." & CaseRecIDSeq & ".GC.xls">
@@ -77,7 +91,9 @@ sort="name, datelastmodified">
 		</CFIF>
 
 	</CFLOOP>
+
 </CFIF>
+
 
 <!---
 <CFOUTPUT>
@@ -86,6 +102,7 @@ FileReplace = #FileReplace#
 <p>
 </CFOUTPUT>
 --->
+
 
 <CFIF IsDefined("FileReplace")
 AND
@@ -118,7 +135,7 @@ Lesson learned: Can't use OL; causes browser to display Divs with style.display=
 		<a href="#Spreadsheets_Uploads_Dir_URL#CL.CILO.Template.xls" target="_blank" style="font-weight:bold">Spreadsheet Template</a>.
         
         </CFOUTPUT>
-    
+        
         
 		<br>
 		&nbsp;&nbsp;<b>2.</b>&nbsp; Save your filled-in spreadsheet to your directory folder.
@@ -160,12 +177,15 @@ width:375pt"
 	<div id="ClickBrowseDiv" style="margin-bottom:0; width:475pt">
 
 	&nbsp;&nbsp;<b>3.</b>&nbsp; Click <b>Browse</b> and select your 
- 
+    
+
 <cfelse>
+
 
 <!---
 width:375pt"
 --->
+
 	<div id="ClickBrowseDiv" style="margin-bottom:0; margin-top:5pt; width:475pt">
 
 	To replace it with an updated spreadsheet: 
@@ -173,12 +193,20 @@ width:375pt"
 	&nbsp;&nbsp;<b>1.</b>&nbsp; Click <b>Browse</b> and select your updated
 
 </CFIF>
+
+
 spreadsheet from your directory folder&nbsp;.&nbsp;.&nbsp;.
 
+
 </div>
+
+
 <form name="UploadFile_Form" action="AttachFile.uploadfileaction.cfm" 
 enctype="multipart/form-data" method="post" style="margin-top:0; margin-left:16pt">
+
+
 <input type="hidden" 
+
 <CFIF IsDefined("FileReplace")
 AND
 FileReplace EQ "yes">
@@ -186,18 +214,24 @@ FileReplace EQ "yes">
 	<cfoutput>
 	name="FileReplace" value="#FileReplace#">
 	</cfoutput>
-   
+    
 <cfelse>
 
 	name="FileReplace"> 
 
 </cfif>
+
+
+
 <input type="hidden" 
+
+
 <CFIF IsDefined("CaseRecIDSeq")>
+
 	<cfoutput>
 	name="CaseRecIDSeq" value="#CaseRecIDSeq#">
 	</cfoutput>
- 
+    
 <cfelse>
 
 	name="CaseRecIDSeq">
@@ -258,7 +292,10 @@ FileReplace EQ "no">
 
 Then click&nbsp;&nbsp;<input id="AttachButton" type="submit" value="Attach Spreadsheet to Report" onClick="return checkFileSelected(this.form)" style="width:150pt; border-width:1px; background:maroon; color:white; font-weight:bold">
 
+
 </div>
+
+
 </div>
 
 <!---

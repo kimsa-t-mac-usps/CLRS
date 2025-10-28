@@ -79,10 +79,6 @@ ORDER BY c.SORTORDER, a.LASTNAME
 
 </cfquery>
 
-
-
-
-
 <CFSET ToMCLine = "">
 
 <CFSET AlertToLine = "">
@@ -97,11 +93,7 @@ ORDER BY c.SORTORDER, a.LASTNAME
 <CFSET AlertToLine = ListAppend(AlertToLine, TrimMCFirstName & " " & TrimMCLastName, "," & CHR(32))>
 --->
 
-
 <CFSET AlertToLine = ListAppend(AlertToLine, " " & TrimMCFirstName & " " & TrimMCLastName)>
-
-
-
 <CFIF TrimMCEMailAddr EQ "">
 	<CFSET DefaultMCLongEmailFirstName = Replace(TrimMCFirstName, " ", ".", "ALL")>
 	<CFSET DefaultMCLongEmailFirstName = Replace(DefaultMCLongEmailFirstName, "..", "", "ALL")>
@@ -180,25 +172,18 @@ TO: #ToMCLine#
         <CFSET This_Server = "lawdept1">
 
 </cfif>
-
-
 <CFIF IsDefined("Test_Server_Folder")>
 	<CFSET ServerFolder = Test_Server_Folder>
 <CFELSE>
 	<CFSET ServerFolder = "V1.0/">
 </cfif>
-
-
-
 A new Contingent Liabilities case record has been entered in the system for your approval:
 
 <!---
 <a href="https://<cfoutput>#This_Server#</cfoutput>/InHouse/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#Get_CONTINGENT_LIAB_REPORT_Currval.CONTINGENT_LIAB_REPORT_CURRVAL#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
 --->
 
-
 <a href="https://#This_Server#.usps.gov/ClientService/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#Get_CONTINGENT_LIAB_REPORT_Currval.CONTINGENT_LIAB_REPORT_CURRVAL#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
-
 
 </cfoutput>
 

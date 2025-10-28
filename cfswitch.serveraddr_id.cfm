@@ -1,6 +1,8 @@
 <!--- Displays server ID / name in page header --->
 
 <CFIF IsDefined("local_addr")>
+
+
 <CFSWITCH EXPRESSION="#local_addr#">
 
 <!---
@@ -31,16 +33,24 @@
 
 </CFSWITCH>
 
+
 <CFSET ServerID_NoBrackets = ServerID>
 
 <CFSET ServerID = "[" & ServerID & "]">
+
+
 <CFELSE>
+
+
 <CFSET ServerID_NoBrackets = "">
+
 <CFSET ServerID = "">
 
 <p>
 No "local_addr" defined
 <p>
+
+
 
 </CFIF>
 

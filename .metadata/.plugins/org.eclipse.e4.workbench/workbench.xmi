@@ -11,6 +11,7 @@
     <persistedState key="aggregateWorkingSetId" value="Aggregate for window 1731987166901"/>
     <persistedState key="show_in_time" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;show_in_time/>"/>
     <tags>topLevel</tags>
+    <tags>shellMaximized</tags>
     <children xsi:type="basic:PartSashContainer" xmi:id="_7Fxj0I2FEfCryqo6CNgZBw" selectedElement="_7Fxj0Y2FEfCryqo6CNgZBw" horizontal="true">
       <children xsi:type="advanced:PerspectiveStack" xmi:id="_7Fxj0Y2FEfCryqo6CNgZBw" elementId="org.eclipse.ui.ide.perspectivestack" containerData="7500" selectedElement="_7Sr-cI2FEfCryqo6CNgZBw">
         <children xsi:type="advanced:Perspective" xmi:id="_7Sr-cI2FEfCryqo6CNgZBw" elementId="com.adobe.ide.coldfusion.perspective.CFML" selectedElement="_7Sr-cY2FEfCryqo6CNgZBw" label="ColdFusion" iconURI="platform:/plugin/com.adobe.ide.coldfusion.ui/icons/cf_app_16px.png">
@@ -54,7 +55,7 @@
           <tags>persp.newWizSC:org.eclipse.ui.wizards.new.file</tags>
           <tags>persp.newWizSC:org.eclipse.ui.wizards.new.folder</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_7Sr-cY2FEfCryqo6CNgZBw" selectedElement="_7Sr-co2FEfCryqo6CNgZBw" horizontal="true">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_7Sr-co2FEfCryqo6CNgZBw" containerData="1578" selectedElement="_7Sr-dY2FEfCryqo6CNgZBw">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_7Sr-co2FEfCryqo6CNgZBw" containerData="1770" selectedElement="_7Sr-dY2FEfCryqo6CNgZBw">
               <children xsi:type="basic:PartStack" xmi:id="_7Sr-c42FEfCryqo6CNgZBw" elementId="left" toBeRendered="false" containerData="7000">
                 <children xsi:type="advanced:Placeholder" xmi:id="_7Sr-dI2FEfCryqo6CNgZBw" elementId="org.eclipse.ui.views.ResourceNavigator" toBeRendered="false" ref="_7SkpsI2FEfCryqo6CNgZBw"/>
               </children>
@@ -64,7 +65,7 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_7Sr-d42FEfCryqo6CNgZBw" elementId="com.adobe.ide.fileexplorer.view.CFFileExplorerView:*" toBeRendered="false" ref="_7SqJQI2FEfCryqo6CNgZBw"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_7Sr-eI2FEfCryqo6CNgZBw" containerData="8422" selectedElement="_7Sr-eY2FEfCryqo6CNgZBw" horizontal="true">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_7Sr-eI2FEfCryqo6CNgZBw" containerData="8230" selectedElement="_7Sr-eY2FEfCryqo6CNgZBw" horizontal="true">
               <children xsi:type="basic:PartSashContainer" xmi:id="_7Sr-eY2FEfCryqo6CNgZBw" containerData="6007" selectedElement="_7Sr-eo2FEfCryqo6CNgZBw">
                 <children xsi:type="advanced:Placeholder" xmi:id="_7Sr-eo2FEfCryqo6CNgZBw" elementId="org.eclipse.ui.editorss" containerData="8000" ref="_7SdU8I2FEfCryqo6CNgZBw"/>
                 <children xsi:type="basic:PartStack" xmi:id="_7Sr-e42FEfCryqo6CNgZBw" elementId="bottom" visible="false" containerData="2000" selectedElement="_7Sr-fo2FEfCryqo6CNgZBw">
@@ -114,8 +115,8 @@
       <tags>View</tags>
       <tags>categoryTag:Help</tags>
     </sharedElements>
-    <sharedElements xsi:type="advanced:Area" xmi:id="_7SdU8I2FEfCryqo6CNgZBw" elementId="org.eclipse.ui.editorss">
-      <children xsi:type="basic:PartStack" xmi:id="_kWoF4aVAEfCarbiiyrtZmg" elementId="PartStack@41f73b8d"/>
+    <sharedElements xsi:type="advanced:Area" xmi:id="_7SdU8I2FEfCryqo6CNgZBw" elementId="org.eclipse.ui.editorss" selectedElement="_kwx3AbQBEfCaLJfN202Bdw">
+      <children xsi:type="basic:PartStack" xmi:id="_kwx3AbQBEfCaLJfN202Bdw" elementId="PartStack@6fe73630"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_7SkpsI2FEfCryqo6CNgZBw" elementId="org.eclipse.ui.views.ResourceNavigator" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Navigator" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/filenav_nav.png" tooltip="" closeable="true">
       <tags>View</tags>
@@ -254,7 +255,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_7HXfQI2FEfCryqo6CNgZBw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_GvKDYJ49EfCarbiiyrtZmg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_4qB6OY2FEfCryqo6CNgZBw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_KM_2ULQBEfCaLJfN202Bdw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_4qB6OY2FEfCryqo6CNgZBw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_7HXfQY2FEfCryqo6CNgZBw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -290,7 +291,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_7HXfRY2FEfCryqo6CNgZBw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_GvQKAJ49EfCarbiiyrtZmg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_4qBTMo2FEfCryqo6CNgZBw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_KNBrg7QBEfCaLJfN202Bdw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_4qBTMo2FEfCryqo6CNgZBw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ncUSIJAQEfCryqo6CNgZBw" elementId="org.eclipse.ui.DefaultTextEditor" visible="false">
         <tags>Draggable</tags>
@@ -1033,6 +1034,10 @@
     <tags>menuContribution:popup</tags>
   </menuContributions>
   <menuContributions xmi:id="_Ic0fEJ49EfCarbiiyrtZmg" elementId="com.adobe.ide.coldfusion.appcodegeneration:271939721" positionInParent="before=additions" parentId="popup">
+    <tags>scheme:popup</tags>
+    <tags>menuContribution:popup</tags>
+  </menuContributions>
+  <menuContributions xmi:id="_LLF2QLQBEfCaLJfN202Bdw" elementId="com.adobe.ide.coldfusion.appcodegeneration:1433935153" positionInParent="before=additions" parentId="popup">
     <tags>scheme:popup</tags>
     <tags>menuContribution:popup</tags>
   </menuContributions>

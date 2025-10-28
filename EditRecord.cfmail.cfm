@@ -48,6 +48,7 @@ ORDER BY c.SORTORDER, a.LASTNAME
 
 </cfquery>
 
+
 <CFSET ToMCLine = "">
 
 <CFSET AlertToLine = "">
@@ -63,7 +64,6 @@ CHR(32) = space
 
 <CFSET AlertToLine = ListAppend(AlertToLine, TrimMCFirstName & " " & TrimMCLastName, "," & CHR(32))>
 --->
-
 
 <CFSET AlertToLine = ListAppend(AlertToLine, " " & TrimMCFirstName & " " & TrimMCLastName)>
 
