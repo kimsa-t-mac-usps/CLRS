@@ -639,7 +639,7 @@ ThisReportDateCompare = #ThisReportDateCompare#
 	    NAME,
     	AREA_CODE,
 	    AREA_DISTRICT_FLAG,
-        DIST_PERF_CLUSTER_CODE,
+       DIST_PERF_CLUSTER_CODE,
     	DIVISION_CODE
     	
 		from areas_districts

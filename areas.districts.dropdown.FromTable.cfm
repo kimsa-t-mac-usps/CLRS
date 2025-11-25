@@ -3,9 +3,6 @@
 <CFIF (IsDefined("DropdownList") AND DropdownList EQ "District") OR (NOT IsDefined("DropdownList") AND Get_Districts.RecordCount GT 0 )>
 	
 			<CFSET Prev_This_District_Code = "">
-	
-	
-
 	<CFLOOP QUERY="Get_Districts">	
 		<CFSET This_District_Code = DIST_PERF_CLUSTER_CODE>
 		<CFSET This_District_Name = NAME>
@@ -13,15 +10,11 @@
 		
 		<CFIF This_District_Code EQ "">
         	<CFSET This_District_Code = This_District_Name>
-			
         </CFIF>
-			
-    
-	
+
 		<CFIF This_District_Code NEQ Prev_This_District_Code>
-			
 			<CFSET Prev_This_District_Code = This_District_Code>
-			<CFIF IsDefined("prev_dist_perf_cluster_code") AND prev_dist_perf_cluster_code EQ This_District_Code>
+			<CFIF IsDefined("This_DIST_PERF_CLUSTER_CODE") AND This_DIST_PERF_CLUSTER_CODE EQ This_District_Code>
 				<CFSET SelectedWord = "SELECTED">
 			<CFELSE>
 				<CFSET SelectedWord = "">
@@ -45,7 +38,7 @@
  			</CFIF>
 	
 			<CFOUTPUT>
-			<option value="#This_District_Code# // #This_District_Name##This_District_Area_Option#" #SelectedWord#>#This_District_DropdownEntry# #This_District_Area_Option_Area_Name#
+			<option value="#This_District_Code# // #This_District_Name##This_District_Area_Option#"#SelectedWord#>#This_District_DropdownEntry# #This_District_Area_Option_Area_Name#
 			</CFOUTPUT>
 	
 		</CFIF>
