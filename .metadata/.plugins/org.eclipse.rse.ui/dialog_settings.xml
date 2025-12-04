@@ -5,7 +5,7 @@
 		<item value="false" key="fileNameRegex"/>
 		<item value="false" key="caseSensitive"/>
 		<item value="false" key="includeSubfolders"/>
-		<item value="6" key="dataSize"/>
+		<item value="7" key="dataSize"/>
 		<item value="false" key="stringRegex"/>
 		<item value="true" key="fileNameCaseSensitive"/>
 	</section>
@@ -25,6 +25,19 @@
 	<section name="RemoteSearchPage.data3">
 		<item value="5CD238B5J0" key="profileName"/>
 		<item value="ASSESSMENT_AMOUNT_UPPER &gt;= OneMillion" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\inetpub\wwwroot2\ClientService\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data6">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="Edit This Case Record" key="searchString"/>
 		<item value="false" key="includeArchives"/>
 		<item value="false" key="fileNameRegex"/>
 		<item value="false" key="caseSensitive"/>

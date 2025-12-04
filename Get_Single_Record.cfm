@@ -119,9 +119,6 @@ clr.DELETED_FLAG IS NULL
 
 </cfquery>
 
-
-
-
 <CFIF IsDefined("PrevReportDate_Parm")>
 
 <CFQUERY NAME="CONTINGENT_LIAB_GetRecord_PrevRpt" DATASOURCE="contliab">

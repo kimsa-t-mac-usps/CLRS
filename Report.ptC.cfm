@@ -297,41 +297,34 @@ Case Number
 
 
 
-
-
 <CFIF NOT (IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat")>
-
-	<tr Report.ptC.cfm at 319>
+	<tr Report.ptC.cfm at 301>
 	
-	<th Report.ptC.cfm at 321 align="right" valign="top" style="line-height:80%">
+	<th Report.ptC.cfm at 303 align="right" valign="top" style="line-height:80%">
 	
 	<p style='margin-top:10pt'>
 	District /
 	<p style='margin-top:5pt'>
 	Division /
 	<p style='margin-top:5pt'>
-	HQ&nbsp;Dept
+	HQ&nbsp;Dept /
 	<p style='margin-top:10pt'>
 	
 	</th>
-	
-	
+		
 	<td style="vertical-align:middle">
-	
-	
+		
 	<CFSET This_DIST_PERF_CLUSTER_NAME = DIST_PERF_CLUSTER_NAME>
 	<CFSET This_AREA_NAME = AREA_NAME>
-
 	<CFIF IsDefined("DIVISION_CODE")>
 
 		<CFSET This_DIVISION_CODE = DIVISION_CODE>
 
 	<CFELSE>
-    
+   
 		<CFSET This_DIVISION_CODE = "">
 
 	</CFIF>
-
 
 	<CFIF IsDefined("DIVISION_NAME")>
 
@@ -339,57 +332,35 @@ Case Number
 
 	<CFELSE>
     
-
-
 		<CFSET This_DIVISION_NAME = This_DIVISION_CODE>
 
 	</CFIF>
-
-
-
-
 
 	<CFIF This_DIST_PERF_CLUSTER_NAME NEQ ""
 	AND 
 	This_AREA_NAME DOES NOT CONTAIN "HQ"
 	AND
 	ListFind(ValueList(Get_Districts.NAME), This_DIST_PERF_CLUSTER_NAME) EQ 0>
-    
+ 	<CFSET SelectDistrict = "yes">
+  		<strong>[Select New District]&nbsp;<span class='ClickEdit'>Click "Edit This Case Record" to select</span></strong>
  
- 		<CFSET SelectDistrict = "yes">
- 
-		<strong>[Select New District]&nbsp;<span class='ClickEdit'>Click "Edit This Case Record" to select</span></strong>
-
-	    
 	<CFELSE>
-    
-		<CFSET SelectDistrict = "no">
-
+    		<CFSET SelectDistrict = "no">
 	</CFIF>
-
-	<CFIF This_DIST_PERF_CLUSTER_NAME NEQ ""
-	AND
-	SelectDistrict EQ "no">
-    
-
+	
+	<CFIF This_DIST_PERF_CLUSTER_NAME NEQ "" AND SelectDistrict EQ "no">
+  
 		<CFIF This_AREA_NAME NEQ "">
-        
-        
-        	<CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
-        
-				<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District (" & This_AREA_NAME & ")">
                 
-			<CFELSE>
-            
-				<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " (" & This_AREA_NAME & ")">
+        	<CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
+        		<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District (" & This_AREA_NAME & ")">
+ 			<CFELSE>
+            	<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " (" & This_AREA_NAME & ")">
                 
 			</CFIF>
-                
-                            
+                         
 		</cfif>
 
-
-	
 		<CFSET NewList = This_DIST_PERF_CLUSTER_NAME>
         
         
@@ -401,32 +372,30 @@ Case Number
         
 	
 
-
 		<CFIF ThisReportDate NEQ EarliestReportDate AND PrevReportDate NEQ "">
             
 			<CFSET OldList = CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>
+					
+			<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">	
+				<CFSET OldList = OldList & " District" >
 				
-			<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
-				<CFSET OldList = OldList & " District">
-    		</CFIF>
-            
-			<CFINCLUDE TEMPLATE="textcompare.cfm">
 	
+    		</CFIF>
+           
+			<CFINCLUDE TEMPLATE="textcompare.cfm">
+			
 	
 		<CFELSE>
 
 			<CFOUTPUT>
 			#NewList#
     		</cfoutput>
-
 		</CFIF>
 
 	<CFELSEIF This_AREA_NAME NEQ ""
 	AND
 	SelectDistrict EQ "no">
 	
-
-
 		<CFIF This_DIST_PERF_CLUSTER_NAME NEQ "">
 
         	<br />
@@ -440,17 +409,12 @@ Case Number
 	
 
 			<CFSET OldList = This_AREA_NAME>
-
-
-			<CFINCLUDE TEMPLATE="textcompare.cfm">
-	
-	
 		<CFELSE>
-	
+
 			<CFOUTPUT>
 			#NewList#
 			</cfoutput>
-	
+
 		</cfif>
 	
 	</CFIF>
@@ -458,20 +422,26 @@ Case Number
 
 
 	<CFIF IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount")
-	AND
-	CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME NEQ "">
-
-
-
-		<CFIF SelectDistrict EQ "yes">
 	
+	AND
+	CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME NEQ ""
+	AND
+	CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME NEQ DIST_PERF_CLUSTER_NAME>
+		<div class="PreviouslyReported">
+    	[Previously reported as: 
+		
+        <CFOUTPUT>
+		#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District]
+		</CFOUTPUT>
+        </div>
+	
+	 <!---KS old code display multible issue 12/2/2025 
+	AND	CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME NEQ "">
+		<CFIF SelectDistrict EQ "yes">
 			<div class="PreviouslyReported" style="margin-top:5pt">
-
-		<CFELSE>
-        
-			<div class="PreviouslyReported">
-            
-		</CFIF>            
+		<CFELSE>  
+			<div class="PreviouslyReported">            
+		</CFIF>--->       
 
 
 		<CFIF IsDefined("This_DIST_PERF_CLUSTER_NAME")
@@ -479,20 +449,20 @@ Case Number
 		This_DIST_PERF_CLUSTER_NAME NEQ CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>
 
 
-	    	[Previously reported as: 
+	    	<!---[Previously reported aswwwwww: --->
 		
         
 			<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME CONTAINS "MULTIPLE">
 
-        		<CFOUTPUT>
+        		<!---<CFOUTPUT>
 				#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME#]
-				</CFOUTPUT>
+				</CFOUTPUT>--->
         
     	    <CFELSE>
         
-	    	    <CFOUTPUT>
+	    	    <!---<CFOUTPUT>
 				#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District]
-				</CFOUTPUT>
+				</CFOUTPUT>--->
         
     	    </CFIF>
         
@@ -516,27 +486,12 @@ Case Number
         <br />
 
 		<CFSET NewList = This_DIVISION_CODE>
-
-
-    
-		<div>
-    
-    
-
-		<CFSET OldList = CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_CODE>
-            
-
-		<CFINCLUDE TEMPLATE="textcompare.cfm">
-	
-
+  		<div>
+    		<CFSET OldList = CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_CODE>
+  	<CFINCLUDE TEMPLATE="textcompare.cfm">
     	</div>
     
-
     </CFIF>
-
-
-
-
 	<CFIF IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount")
 	AND
 	CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME NEQ ""
@@ -558,19 +513,9 @@ Case Number
 
 	<CFIF 
 	(
-	This_DIST_PERF_CLUSTER_NAME EQ ""
-	AND
-	This_AREA_NAME EQ ""
-	AND
-	This_DIVISION_NAME EQ ""
-	AND
+	This_DIST_PERF_CLUSTER_NAME EQ "" AND  This_AREA_NAME EQ "" AND  This_DIVISION_NAME EQ "" AND
 	This_DIVISION_CODE EQ ""
 	)>
-
-
-    
-    
-    
 		<CFIF NOT IsDefined("EarlierRptDate") AND NOT (IsDefined("ALT_LAW_DEPT_OFFICE_Flag") AND ALT_LAW_DEPT_OFFICE_Flag EQ "yes")>
 
 			<div>
@@ -660,23 +605,15 @@ Case Number
 	</cfif>
 	
 	</div id="Unions_List_Div">
-	
-	
-	
-	
-	
+		
 	</td>
-	
-	
+		
 	</tr>
 
 
 
 <!--- Close <CFIF NOT (IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat")> --->
 </cfif>
-
-
-
 
 <tr Report.ptC.cfm at 895 >
 

@@ -29,7 +29,7 @@ Status_Compare_Flag NOT DEFINED.
 
 
 <CFSET ThisNewList = NewList>
-<CFSET ThisNewList = Replace(ThisNewList, "   ", " ", "ALL")>
+<CFSET ThisNewList = Replace(ThisNewList, "  ", " ", "ALL")>
 <CFSET ThisNewList = Replace(ThisNewList, "  ", " ", "ALL")>
 
 <CFSET ThisNewList = Replace(ThisNewList,"\", "", "ALL")>
@@ -171,13 +171,13 @@ NewArrayLen = #NewArrayLen#
 
 				<CFLOOP INDEX="OldArrayIndex" FROM="1" TO="#OldArrayLen#">
 
-<!---
-<CFOUTPUT>
+
+<!---<CFOUTPUT>
 <script language="javascript">
 alert("Outer Loop: StartCrx = #StartCrx#; EndCrx = #EndCrx#; NewArrayIndex = #NewArrayIndex#")
 </script>
-</cfoutput>
---->
+</cfoutput>--->
+
 
 
 
