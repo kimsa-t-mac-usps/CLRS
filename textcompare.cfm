@@ -88,30 +88,30 @@ ThisNewList =
 		<CFSET ThisOldList = Replace(ThisOldList, "''", "'", "ALL")>
 		<CFSET ThisOldList = Replace(ThisOldList, "''", "'", "ALL")>
 
-<!---
-<CFOUTPUT>
+
+<!---<CFOUTPUT>
 Compare(ThisOldList, ThisNewList) = #Compare(ThisOldList, ThisNewList)#
 <br />
-</CFOUTPUT>
---->
+</CFOUTPUT>--->
+
 
 
 		<CFIF Compare(ThisOldList, ThisNewList) NEQ 0>
 
 			<CFSET DiffFlag = "yes">
 
-<!---
-<CFOUTPUT>
+
+<!---<CFOUTPUT>
 <p>
 At 103: DiffFlag = "#DiffFlag#"
 <p>
-</CFOUTPUT>
---->
+</CFOUTPUT>--->
+
 
 
 			<CFSET ThisOldList = JSStringFormat(ThisOldList)>
 			<CFSET ThisOldList = Replace(ThisOldList, "\r\n", "<br>", "ALL")>
-			<CFSET ThisOldList = Replace(ThisOldList, "<br><br>", "<br><br> ", "ALL")>
+			<CFSET ThisOldList = Replace(ThisOldList, "<br>", "<br>", "ALL")>
 			<CFSET ThisOldList = Replace(ThisOldList,"\", "", "ALL")>
 			<CFSET ThisOldList = Replace(ThisOldList, "''''", "'", "ALL")>
 			<CFSET ThisOldList = Replace(ThisOldList, "''", "'", "ALL")>
@@ -121,7 +121,7 @@ At 103: DiffFlag = "#DiffFlag#"
 
 			<CFSET ThisNewList = JSStringFormat(ThisNewList)>
 			<CFSET ThisNewList = Replace(ThisNewList, "\r\n", "<br>", "ALL")>
-			<CFSET ThisNewList = Replace(ThisNewList, "<br><br>", "<br><br> ", "ALL")>
+			<CFSET ThisNewList = Replace(ThisNewList, "<br><br>", "<br><br>", "ALL")>
 			<CFSET ThisNewList = Replace(ThisNewList,"\", "", "ALL")>
 			<CFSET ThisNewList = Replace(ThisNewList, "''''", "'", "ALL")>
 			<CFSET ThisNewList = Replace(ThisNewList, "''", "'", "ALL")>
@@ -136,15 +136,15 @@ At 103: DiffFlag = "#DiffFlag#"
 			<CFSET OldArrayLen = ArrayLen(OldArray)>
 			<CFSET NewArrayLen = ArrayLen(NewArray)>
 
-<!---
-<CFOUTPUT>
+
+<!---<CFOUTPUT>
 <p>
 OldArrayLen = #OldArrayLen#
 <p>
 NewArrayLen = #NewArrayLen#
 <p>
-</cfoutput>
---->
+</cfoutput>--->
+
 
 
 			<CFIF NewArrayLen LT OldArrayLen 
@@ -170,7 +170,6 @@ NewArrayLen = #NewArrayLen#
 				<CFSET NewArrayIndex = 0>
 
 				<CFLOOP INDEX="OldArrayIndex" FROM="1" TO="#OldArrayLen#">
-
 
 <!---<CFOUTPUT>
 <script language="javascript">
@@ -227,15 +226,15 @@ alert("OldArray[#OldArrayIndex#] = #OldArray[OldArrayIndex]#; NewArray[#NewArray
 --->
 
 
-<!---
-<CFOUTPUT>
+
+<!---<CFOUTPUT>
 <p>
 OldArray[#OldArrayIndex#] = #OldArray[OldArrayIndex]#
 <br />
 NewArray[#NewArrayComparIndex#] = #NewArray[NewArrayComparIndex]#
 <p>
-</cfoutput>
---->
+</cfoutput>--->
+
 
 
                     <CFSET PhraseFlag = "">
@@ -265,12 +264,12 @@ alert("NewArray[#NewArrayComparIndex#] = '#NewArray[NewArrayComparIndex]#'")
 
 	                   	<CFSET OldArrayString = OldArray[OldArrayIndex]>
 
-<!---
-<CFOUTPUT>
+
+<!---<CFOUTPUT>
 <br>
 OldArrayString Before: |#OldArrayString#|
-</cfoutput>
---->
+</cfoutput>--->
+
 
                     	<CFSET OldArrayString = ReplaceList(OldArrayString, PunctuationList, BlankList)>
                     	<CFSET OldArrayString = Replace(OldArrayString, ",", "")>
@@ -486,13 +485,13 @@ alert("After Inner Loop: NewArrayIndex = #NewArrayIndex#")
 					<CFSET CrxList = ListAppend(CrxList, "#StartCrx#,#EndCrx#", ";")>
 				</cfif>
 
-<!---
-<CFOUTPUT>
+
+<!---<CFOUTPUT>
 <b>
 CrxList = "#CrxList#"</b>
 <p>
-</cfoutput>
---->
+</cfoutput>--->
+
 
 				<CFIF CrxList NEQ "">
 
@@ -582,10 +581,10 @@ NewListExtraLength = #NewListExtraLength#
 
 						<CFSET ThisNewList = ListSetAt(ThisNewList, NewStartCrxPos, NewStartCrxVal, " ")>
 
-<!---
-<CFSET NewEndCrxVal = ListLast(NewList, " ") & "</strong>">
-<CFSET NewList = ListSetAt(NewList, NewEndCrxPos, "#NewEndCrxVal#", " ")>
---->
+
+<!---<CFSET NewEndCrxVal = ListLast(NewList, " ") & "</strong>">
+<CFSET NewList = ListSetAt(NewList, NewEndCrxPos, "#NewEndCrxVal#", " ")>--->
+
 
 						<CFSET ThisNewList = ThisNewList & "</strong>">
 
