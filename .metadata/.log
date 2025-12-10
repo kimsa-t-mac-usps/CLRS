@@ -1926,3 +1926,18 @@ java.lang.NullPointerException
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+!SESSION 2025-12-10 13:26:02.981 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_112
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.adobe.editor.common 4 0 2025-12-10 13:26:32.809
+!MESSAGE Invalid thread access
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2025-12-10 13:26:34.270
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\ColdFusionBuilder2016\plugins\com.adobe.ide.coldfusion.mod.jar.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2025-12-10 13:26:34.531
+!MESSAGE Unable to acquire PluginConverter service during generation for: C:\ColdFusionBuilder2016\plugins\com.adobe.ide.coldfusion.mod.jar.
