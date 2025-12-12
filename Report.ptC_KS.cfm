@@ -377,7 +377,7 @@ Case Number
         	<CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
         		<!---12/9/2025 commenting out cfset below with the cfset under it
 				<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District (" & This_AREA_NAME & ")">--->
-                <CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District ">
+                <CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME>
 			<CFELSE>
             	<!---12/9/2025 commenting out cfset below with the cfset under it added p element--->
             	
@@ -444,7 +444,7 @@ Case Number
 
 			<CFINCLUDE TEMPLATE="textcompare.cfm">
 	
-		<cfoutput>hqdept2</cfoutput>
+		<!---<cfoutput>hqdept2</cfoutput>--->
 		<CFELSE>
 			
 			<CFOUTPUT>
@@ -521,7 +521,7 @@ Case Number
         <CFOUTPUT>
 		#CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME#]
 		</CFOUTPUT>
-         <CFINCLUDE TEMPLATE="textcompare.cfm">
+        <!--- <CFINCLUDE TEMPLATE="textcompare.cfm">--->
 		</div>
 	
 	</cfif>
