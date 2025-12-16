@@ -45,18 +45,19 @@
 	
 	</cfloop>
 
-
-<CFELSEIF (IsDefined("DropdownList") AND DropdownList EQ "Division" ) OR (NOT IsDefined("DropdownList") AND Get_Divisions.RecordCount GT 0 )>
+<!---12/16/2025  added the ' or (DropdownList eq This_Division_Name)' below in the if statement?????--->
+<CFELSEIF (IsDefined("DropdownList") AND DropdownList EQ "Division" ) OR (NOT IsDefined("DropdownList") AND Get_Divisions.RecordCount GT 0 ) or (DropdownList eq This_Division_Name)>
 	
 	<CFLOOP QUERY="Get_Divisions">
 		<CFSET This_Division_Name = NAME>
-		<CFIF (IsDefined("SelectedPC") AND SelectedPC EQ This_Division_Name ) OR (IsDefined("This_Division_Code") AND This_Division_Code EQ This_Division_Name) OR (isdefined("prev_DIVISION_CODE") and prev_division_code eq This_division_name)>
+		<CFIF (IsDefined("SelectedPC") AND SelectedPC EQ This_Division_Name ) OR (IsDefined("This_Division_Code") AND This_Division_Code EQ This_Division_Name)>
 			<CFSET SelectedWord = "SELECTED">
 		<CFELSE>
 			<CFSET SelectedWord = "">
 		</cfif>
 	<CFOUTPUT>
-		<option value="#DIVISION_CODE#" #SelectedWord#>#NAME#</OPTION>
+		<!---12/15@3:44pm replaced with below <option value="#DIVISION_CODE#" #SelectedWord#>#NAME#</OPTION> --->
+		<option value="#Division_code#" #SelectedWord#>#Name#</OPTION>
 	</CFOUTPUT>
 	</CFLOOP>
 </CFIF>

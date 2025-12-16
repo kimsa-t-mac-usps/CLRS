@@ -274,7 +274,7 @@ Case Number
 START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 <CFIF NOT (IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat")>
 	<tr><!---start of new row district--->
-		<td style ="text-align: right; font-weight: bold;">District</td>
+		<td style ="text-align: right; font-weight: bold;">District /</td>
 		<td>		
 		
 		<CFSET This_DIST_PERF_CLUSTER_NAME = DIST_PERF_CLUSTER_NAME>
@@ -337,15 +337,17 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 					<cfoutput>#OldList# </cfoutput>
 				<cfelse>
 					<!--- 12/15/2025 @ 12:39pm for below cfif <cfoutput><strong>#NewList# District</strong></cfoutput>  --->
+					<!--- 12/15/2025 @ 12:39pm  START--->
 					<cfif NewList CONTAINS "MULTIPLE">
 						<cfoutput><strong>#NewList# </strong></cfoutput>	
 					<cfelse>
 						<cfoutput><strong>#NewList# District</strong></cfoutput>
 					</cfif>
+					<!--- 12/15/2025 @ 12:39pm END--->
 				</cfif>
 			<!--- 12/12/2025 :11:50 START ADDED THE CFIF CFELSE /CFIF BEOW--->	
 			<CFELSE>
-				<CFOUTPUT>#NewList# District  </cfoutput>
+				<CFOUTPUT>#NewList# District</cfoutput>
 			</CFIF>
 			
 		<CFELSEIF This_AREA_NAME NEQ "" AND SelectDistrict EQ "no">
@@ -397,7 +399,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 		</td><!---district row col 2--->
 	</tr><!---end of district row--->
 	<tr><!---division row--->
-		<td style ="text-align: right; font-weight: bold;">Division</td><!---division row col 1--->
+		<td style ="text-align: right; font-weight: bold;">Division /</td><!---division row col 1--->
 		<td>
 		
 		<CFIF IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount") AND CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME NEQ "" AND CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME NEQ This_DIVISION_NAME>
@@ -425,7 +427,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 		</td><!---division row col 2--->
 	</tr><!---end of division row--->
 	<tr><!---hq dept row--->
-		<td style ="text-align: right; font-weight: bold;">HQ Dept</td><!---hq dept row col1--->
+		<td style ="text-align: right; font-weight: bold;">HQ DEPT</td><!---hq dept row col1--->
 		<td>
 		
 			<CFIF This_DIVISION_CODE NEQ "">
@@ -467,7 +469,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 							<CFOUTPUT>#NewList#</CFOUTPUT>
 						--->
 						<cfoutput></cfoutput>
-    				</div>
+       				</div>
     
 				</cfif>
 
