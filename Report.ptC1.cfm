@@ -274,7 +274,7 @@ Case Number
 START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 <CFIF NOT (IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat")>
 	<tr><!---start of new row district--->
-		<td style ="text-align: right; font-weight: bold;">District</td>
+		<td style ="text-align: right; font-weight: bold;">DISTRICT</td>
 		<td>		
 		
 		<CFSET This_DIST_PERF_CLUSTER_NAME = DIST_PERF_CLUSTER_NAME>
@@ -308,8 +308,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 				<CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
 					<!---12/9/2025 commenting out cfset below with the cfset under it
 					<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District (" & This_AREA_NAME & ")">--->
-					<!---12/12/2025-CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District"--->
-					<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME>
+					<!---12/12/2025-CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District"---><CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME>
 				<CFELSE>
 					<!---12/9/2025 commenting out cfset below with the cfset under it added p element--->
 					<!---CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " (" & This_AREA_NAME & ")"--->		
@@ -321,31 +320,24 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 		<CFSET NewList = This_DIST_PERF_CLUSTER_NAME>
               
 			<CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
-				<!--- 12/12/2025 @ 12:00pm replaced the cfset with cfset  <CFSET NewList = NewList & " District"--->
-				<cfset NewList = NewList>
+				<!--- 12/12/2025 @ 12:00pm replaced the cfset with cfset  <CFSET NewList = NewList & " District"---><cfset NewList = NewList>
 			</CFIF>             
         
 			<CFIF ThisReportDate NEQ EarliestReportDate AND PrevReportDate NEQ "">		
 				<CFSET OldList = CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>			
 					<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
-						<!--- 12/12/2025 @11:43am  CFSET OldList = OldList & " District"--->
-						<cfset OldList = OldList & " District">
+						<!--- 12/12/2025 @11:43am  CFSET OldList = OldList & " District"---><cfset OldList = OldList>
 					</CFIF>					
 				<!---12/12/2025@11:49  CFINCLUDE TEMPLATE="textcompare.cfm"--->		
 			<!--- 12/12/2025 :11:50 START ADDED THE CFIF CFELSE /CFIF BEOW--->	
 				<cfif NewList eq CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>
-					<cfoutput>#OldList# </cfoutput>
+					<cfoutput>#NewList#</cfoutput>
 				<cfelse>
-					<!--- 12/15/2025 @ 12:39pm for below cfif <cfoutput><strong>#NewList# District</strong></cfoutput>  --->
-					<cfif NewList CONTAINS "MULTIPLE">
-						<cfoutput><strong>#NewList# </strong></cfoutput>	
-					<cfelse>
-						<cfoutput><strong>#NewList# District</strong></cfoutput>
-					</cfif>
+					<cfoutput><strong>#NewList#</strong></cfoutput>
 				</cfif>
 			<!--- 12/12/2025 :11:50 START ADDED THE CFIF CFELSE /CFIF BEOW--->	
 			<CFELSE>
-				<CFOUTPUT>#NewList# District  </cfoutput>
+				<CFOUTPUT>#NewList# hqdept2a</cfoutput>
 			</CFIF>
 			
 		<CFELSEIF This_AREA_NAME NEQ "" AND SelectDistrict EQ "no">
@@ -377,15 +369,15 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 				<div class="PreviouslyReported" style="font-size:8pt">
             
 			</CFIF>            
-			<!---12/12/2025 @11:15am added for if---><cfset thisDistPerfClusterName = Trim(ReReplace(This_DIST_PERF_CLUSTER_NAME, "\b\b", "", "all"))>
+			<!---12/12/2025 @11:15am added for if---><cfset thisDistPerfClusterName = Trim(ReReplace(This_DIST_PERF_CLUSTER_NAME, "\bDistrict\b", "", "all"))>
 			<CFIF IsDefined("This_DIST_PERF_CLUSTER_NAME")	AND This_DIST_PERF_CLUSTER_NAME NEQ CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>		
-				<cfif This_DIST_PERF_CLUSTER_NAME CONTAINS "MULTIPLE" and This_DIST_PERF_CLUSTER_NAME NEQ thisDistPerfClusterName>
+				<cfif This_DIST_PERF_CLUSTER_NAME CONTAINS "MULTIPLE" and This_DIST_PERF_CLUSTER_NAME nEQ thisDistPerfClusterName>
 				<!---do nothing--->
 					
 				<cfelse>
-					[Previously reported as:
+					[Previously reported as LINE:
 						<!---cfoutput >#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District]</cfoutput--->
-						<cfoutput >#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District] </cfoutput>
+						<cfoutput >#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District]</cfoutput>
 				</cfif>
 		
 			</CFIF>
@@ -397,7 +389,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 		</td><!---district row col 2--->
 	</tr><!---end of district row--->
 	<tr><!---division row--->
-		<td style ="text-align: right; font-weight: bold;">Division</td><!---division row col 1--->
+		<td style ="text-align: right; font-weight: bold;">DIVISION</td><!---division row col 1--->
 		<td>
 		
 		<CFIF IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount") AND CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME NEQ "" AND CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME NEQ This_DIVISION_NAME>
@@ -417,7 +409,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 			<cfif CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME EQ "" or CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME nEQ This_DIVISION_NAME>
 				<cfoutput><strong>#This_DIVISION_NAME#</strong></cfoutput>
 			<cfelse>
-				<cfoutput>#This_DIVISION_NAME# </cfoutput>
+				<cfoutput>#This_DIVISION_NAME#</cfoutput>
 			</cfif>
 			<!--- 12/12/2025@ 2:19pm END - out comment cfoutput on this line for below <cfoutput>#This_DIVISION_NAME# - 408</cfoutput>  --->
 		</cfif>
@@ -425,7 +417,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 		</td><!---division row col 2--->
 	</tr><!---end of division row--->
 	<tr><!---hq dept row--->
-		<td style ="text-align: right; font-weight: bold;">HQ Dept</td><!---hq dept row col1--->
+		<td style ="text-align: right; font-weight: bold;">HQ DEPT</td><!---hq dept row col1--->
 		<td>
 		
 			<CFIF This_DIVISION_CODE NEQ "">

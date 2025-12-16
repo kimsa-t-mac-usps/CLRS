@@ -275,8 +275,7 @@ HQ&nbsp;Dept
 	<br />
     
 
-
-	<CFSET This_Division_Code = DIVISION_CODE>
+	<CFSET This_Division_Code = DIVISION_CODE> 
 
 <!---
 	<CFSET This_Division_Name = NAME>

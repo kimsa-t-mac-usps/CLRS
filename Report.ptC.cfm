@@ -273,9 +273,10 @@ Case Number
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 <CFIF NOT (IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat")>
+
 	<tr><!---start of new row district--->
-		<td style ="text-align: right; font-weight: bold;">DISTRICT</td>
-		<td>		
+		<td style ="text-align: right; font-weight: bold;padding-top: 0px;padding-bottom: 0px;padding-left: 0px;padding-right: 0px;">District /</td>
+		<td style ="padding-top: 0px;padding-bottom: 0px;padding-left: 5px;padding-right: 0px;">		
 		
 		<CFSET This_DIST_PERF_CLUSTER_NAME = DIST_PERF_CLUSTER_NAME>
 		<CFSET This_AREA_NAME = AREA_NAME>
@@ -292,7 +293,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 		<CFELSE>	
 			<CFSET This_DIVISION_NAME = This_DIVISION_CODE>
 		</CFIF>
-
+          
 
 		<CFIF This_DIST_PERF_CLUSTER_NAME NEQ "" AND This_AREA_NAME DOES NOT CONTAIN "HQ" AND ListFind(ValueList(Get_Districts.NAME), This_DIST_PERF_CLUSTER_NAME) EQ 0>		
 			<CFSET SelectDistrict = "yes">
@@ -308,7 +309,8 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 				<CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
 					<!---12/9/2025 commenting out cfset below with the cfset under it
 					<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District (" & This_AREA_NAME & ")">--->
-					<!---12/12/2025-CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District"---><CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME>
+					<!---12/12/2025-CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " District"--->
+					<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME>
 				<CFELSE>
 					<!---12/9/2025 commenting out cfset below with the cfset under it added p element--->
 					<!---CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " (" & This_AREA_NAME & ")"--->		
@@ -320,24 +322,33 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 		<CFSET NewList = This_DIST_PERF_CLUSTER_NAME>
               
 			<CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
-				<!--- 12/12/2025 @ 12:00pm replaced the cfset with cfset  <CFSET NewList = NewList & " District"---><cfset NewList = NewList>
+				<!--- 12/12/2025 @ 12:00pm replaced the cfset with cfset  <CFSET NewList = NewList & " District"--->
+				<cfset NewList = NewList>
 			</CFIF>             
         
 			<CFIF ThisReportDate NEQ EarliestReportDate AND PrevReportDate NEQ "">		
 				<CFSET OldList = CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>			
 					<CFIF CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
-						<!--- 12/12/2025 @11:43am  CFSET OldList = OldList & " District"---><cfset OldList = OldList>
+						<!--- 12/12/2025 @11:43am  CFSET OldList = OldList & " District"--->
+						<cfset OldList = OldList & " District">
 					</CFIF>					
 				<!---12/12/2025@11:49  CFINCLUDE TEMPLATE="textcompare.cfm"--->		
 			<!--- 12/12/2025 :11:50 START ADDED THE CFIF CFELSE /CFIF BEOW--->	
 				<cfif NewList eq CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>
-					<cfoutput>#NewList#</cfoutput>
+					<cfoutput>#OldList# </cfoutput>
 				<cfelse>
-					<cfoutput><strong>#NewList#</strong></cfoutput>
+					<!--- 12/15/2025 @ 12:39pm for below cfif <cfoutput><strong>#NewList# District</strong></cfoutput>  --->
+					<!--- 12/15/2025 @ 12:39pm  START--->
+					<cfif NewList CONTAINS "MULTIPLE">
+						<cfoutput><strong>#NewList# </strong></cfoutput>	
+					<cfelse>
+						<cfoutput><strong>#NewList# District</strong></cfoutput>
+					</cfif>
+					<!--- 12/15/2025 @ 12:39pm END--->
 				</cfif>
 			<!--- 12/12/2025 :11:50 START ADDED THE CFIF CFELSE /CFIF BEOW--->	
 			<CFELSE>
-				<CFOUTPUT>#NewList# hqdept2a</cfoutput>
+				<CFOUTPUT>#NewList# District</cfoutput>
 			</CFIF>
 			
 		<CFELSEIF This_AREA_NAME NEQ "" AND SelectDistrict EQ "no">
@@ -362,22 +373,29 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 		<!---12/10/2025 this cfif is true--->
 			<CFIF SelectDistrict EQ "yes">
 		<!---12/9/025 added font size--->
-				<div class="PreviouslyReported" style="margin-top:5pt; font-size:8pt" >
+				<div class="PreviouslyReported" style="margin-top:5pt; font-size:8pt; padding-bottom:0pt" >
 
 			<CFELSE>
-       	<!---12/9/025 added font size--->
-				<div class="PreviouslyReported" style="font-size:8pt">
+       	<!---12/9/025 added font size
+				<div class="PreviouslyReported" style="font-size:8pt; padding-bottom:0pt">--->
             
 			</CFIF>            
-			<!---12/12/2025 @11:15am added for if---><cfset thisDistPerfClusterName = Trim(ReReplace(This_DIST_PERF_CLUSTER_NAME, "\bDistrict\b", "", "all"))>
+			<!---12/12/2025 @11:15am added for if---><cfset thisDistPerfClusterName = Trim(ReReplace(This_DIST_PERF_CLUSTER_NAME, "\bDistricts\b", "", "all"))>
 			<CFIF IsDefined("This_DIST_PERF_CLUSTER_NAME")	AND This_DIST_PERF_CLUSTER_NAME NEQ CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>		
-				<cfif This_DIST_PERF_CLUSTER_NAME CONTAINS "MULTIPLE" and This_DIST_PERF_CLUSTER_NAME nEQ thisDistPerfClusterName>
-				<!---do nothing--->
-					
+				<cfif This_DIST_PERF_CLUSTER_NAME CONTAINS "MULTIPLE" and This_DIST_PERF_CLUSTER_NAME EQ thisDistPerfClusterName>
+				<!---do nothing--->	
 				<cfelse>
-					[Previously reported as LINE:
+					<cfif CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME CONTAINS "MULTIPLE">
+					<div class="PreviouslyReported" style="font-size:8pt; padding-bottom:0pt">
+						[Previously reported as:
 						<!---cfoutput >#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District]</cfoutput--->
-						<cfoutput >#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District]</cfoutput>
+						<cfoutput >#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME#]</cfoutput>
+					<cfelse> 
+					<div class="PreviouslyReported" style="font-size:8pt; padding-bottom:0pt">
+						[Previously reported as:
+							<!---cfoutput >#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District]</cfoutput--->
+							<cfoutput >#CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME# District]</cfoutput>
+					</cfif>
 				</cfif>
 		
 			</CFIF>
@@ -389,13 +407,13 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 		</td><!---district row col 2--->
 	</tr><!---end of district row--->
 	<tr><!---division row--->
-		<td style ="text-align: right; font-weight: bold;">DIVISION</td><!---division row col 1--->
-		<td>
+		<td style ="text-align: right; font-weight: bold;padding-top: 0px;padding-bottom: 0px;padding-left: 0px;padding-right: 0px;">Division /</td><!---division row col 1--->
+		<td style ="padding-top: 0px;padding-bottom: 0px;padding-left: 5px;padding-right: 0px;">
 		
 		<CFIF IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount") AND CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME NEQ "" AND CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME NEQ This_DIVISION_NAME>
-	
+	      
 			<cfoutput><strong>#This_DIVISION_NAME#</strong></cfoutput>
-			<div class="PreviouslyReported" style="font-size:8pt">
+			<div class="PreviouslyReported" style="font-size:8pt;padding-bottom:1pt">
 				
 			[Previously reported as: 
 			
@@ -405,39 +423,57 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 			
 			</div>
 		<cfelse>
-			<!--- 12/12/2025@ 2:19pm START - out comment cfoutput on this line for below <cfoutput>#This_DIVISION_NAME# - 408</cfoutput>  --->
+			<!--- 12/12/2025@ 2:19pm START - out comment cfoutput on this line for below <cfoutput>#This_DIVISION_NAME# - 408</cfoutput> --->
 			<cfif CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME EQ "" or CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_NAME nEQ This_DIVISION_NAME>
 				<cfoutput><strong>#This_DIVISION_NAME#</strong></cfoutput>
 			<cfelse>
 				<cfoutput>#This_DIVISION_NAME#</cfoutput>
 			</cfif>
-			<!--- 12/12/2025@ 2:19pm END - out comment cfoutput on this line for below <cfoutput>#This_DIVISION_NAME# - 408</cfoutput>  --->
+			<!---12/12/2025@ 2:19pm END - out comment cfoutput on this line for below <cfoutput>#This_DIVISION_NAME# - 408</cfoutput>  --->
+		</cfif>
+
+		<!---12/16/2025 @10:22am added cf below--->
+		<cfif NOt IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount")>
+			<cfoutput><strong>#This_DIVISION_NAME#</strong></cfoutput>
 		</cfif>
 
 		</td><!---division row col 2--->
 	</tr><!---end of division row--->
 	<tr><!---hq dept row--->
-		<td style ="text-align: right; font-weight: bold;">HQ DEPT</td><!---hq dept row col1--->
-		<td>
+		<td style ="text-align: right; font-weight: bold;padding-top: 0px;padding-bottom: 0px;padding-left: 0px;padding-right: 0px;">HQ Dept</td><!---hq dept row col1--->
+		<td style ="padding-top: 0px;padding-bottom: 10px;padding-left: 5px;padding-right: 0px;">
 		
-			<CFIF This_DIVISION_CODE NEQ "">
+			<!---CFIF This_DIVISION_CODE NEQ "">
     
 			<!---12/9/2025 comment out br below--->
 				<!---br /--->
 			<!---comment out 12/9/2025 oldList below with new NewList line below
 				<CFSET NewList = This_DIVISION_CODE>--->
-				<!---cfset NewList = "line519"---> 
+				<!---12/16/2025@1:44pm commented out the div  @@@@@@@@@@@START
 				<div>
 
 					<CFSET OldList = CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_CODE>
 					<!---CFINCLUDE TEMPLATE="textcompare.cfm"--->
 		
-					<cfoutput>#This_AREA_NAME#</cfoutput>
+					<cfoutput>#This_AREA_NAME# - #CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME#</cfoutput>
     			</div>
+				@@@@@@@@@@@END--->
+				<!---12/12/2025@12:25pm added cfif---><cfelse><cfoutput>#This_AREA_NAME#</cfoutput>--->
+				<!--- </CFIF>--->
+					<!---12/16/2025 @1:46 added below cfif--->
+					<cfif This_AREA_NAME NEQ CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME>
+						<cfoutput><strong>#This_AREA_NAME#</strong></cfoutput>
+						<div class="PreviouslyReported" style="font-size:8pt; padding-bottom:1pt">
+							[Previously reported as:
+							<cfoutput>#CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME#]</cfoutput>
+						</div>
+					<cfelse>
+						<cfoutput>#This_AREA_NAME#</cfoutput>	
+					</cfif>
+		
+				
 
-				<!---12/12/2025@12:25pm added cfif---><cfelse><cfoutput>#This_AREA_NAME#</cfoutput>
-
-   			 </CFIF>
+   			
 
 					
 
@@ -459,7 +495,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 							<CFOUTPUT>#NewList#</CFOUTPUT>
 						--->
 						<cfoutput></cfoutput>
-    				</div>
+       				</div>
     
 				</cfif>
 
@@ -467,6 +503,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 		
 		</td><!---hq dept row col 2--->
 	</tr><!---end of hq dept row--->
+
 </CFIF>
 <!---
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
