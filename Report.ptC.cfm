@@ -462,11 +462,21 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 				<!--- </CFIF>--->
 					<!---12/16/2025 @1:46 added below cfif--->
 					<cfif This_AREA_NAME NEQ CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME>
-						<cfoutput><strong>#This_AREA_NAME#</strong></cfoutput>
+						<!---12/22/2025@12:20 added cfif cfelse /cfif --->
+						<cfif CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME eq ""> 
+							<cfoutput><strong>#This_AREA_NAME#</strong></cfoutput>
+						<cfelse>
+							<cfoutput><strong>#This_AREA_NAME#</strong></cfoutput>
+							<div class="PreviouslyReported" style="font-size:8pt; padding-bottom:1pt">
+								[Previously reported ashq:
+								<cfoutput>#CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME#]</cfoutput>
+							</div>
+						</cfif>
+						<!---12/22/2025 (replace by above)  cfoutput><strong>#This_AREA_NAME#</strong></cfoutput>
 						<div class="PreviouslyReported" style="font-size:8pt; padding-bottom:1pt">
-							[Previously reported as:
+							[Previously reported ashq:
 							<cfoutput>#CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME#]</cfoutput>
-						</div>
+						</div--->
 					<cfelse>
 						<cfoutput>#This_AREA_NAME#</cfoutput>	
 					</cfif>
@@ -521,11 +531,11 @@ END OF NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS
 	This_AREA_NAME EQ "HQ Labor Relations">
 	
 		<tr  Report.ptC.cfm at 839 id="Unions_Selected_Row">
-	
+		
 	<CFELSE>
 	
 		<tr  Report.ptC.cfm at 843 id="Unions_Selected_Row" style="display:none">
-	
+		
 	</cfif>
 	
 	
@@ -541,18 +551,16 @@ END OF NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS
 	<CFSET This_UNIONS_SELECTED_List = UNIONS_SELECTED>
 	
 	<CFIF This_UNIONS_SELECTED_List EQ "">
-	
+		
 		[None selected]
-	
 	<CFELSE>
 
-	
 		<CFLOOP INDEX="This_UNIONS_SELECTED_List_Index" LIST="#This_UNIONS_SELECTED_List#">
 	
 			<CFOUTPUT>
-			<li>#This_UNIONS_SELECTED_List_Index#
+			<li>#This_UNIONS_SELECTED_List_Index#</li>
 			</CFOUTPUT>
-	
+
 		</CFLOOP>
 	
 	</cfif>

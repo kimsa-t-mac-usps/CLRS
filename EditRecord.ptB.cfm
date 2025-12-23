@@ -373,9 +373,9 @@ Select all that apply
 		
 		
 		<CFOUTPUT>
-		<input type="checkbox" name="Unions_Selected" value="#ListGetAt(Unions_List, Unions_List_Index)#" #Unions_Selected_CheckedWord#>#ListGetAt(Unions_List, Unions_List_Index)#
+		<input type="checkbox" name="Unions_Selected" value="#ListGetAt(Unions_List, Unions_List_Index)#"#Unions_Selected_CheckedWord#>#ListGetAt(Unions_List, Unions_List_Index)#
+				
 		</CFOUTPUT>
-		
 		<br />
 	
 	</CFLOOP>
