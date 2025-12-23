@@ -18,7 +18,7 @@ NOTES:
 <CFSWITCH EXPRESSION="#Status_Code_Var#">
 
 <CFCASE VALUE="1">
-	<CFSET Status_Code_Label = "New This Quarter">
+	<CFSET Status_Code_Label = "New This Quarter1">
     <CFSET HideShowButton_String = "">
 </cfcase>
 

@@ -1,4 +1,39 @@
-<cfinclude template="MfaCookieCheck.cfm">
+
+
+<!---<!--- Tag-based --->
+<cfset userName = "Kimsa 1">
+<cfoutput>Hello, #userName#!</cfoutput>
+
+<!--- Script-based (CFScript) --->
+<cfscript>
+    userName = "Kimsa 2";
+    writeOutput("Hello, " & userName & "!");
+</cfscript>--->
+
+<!---<cfquery name="getUsers" datasource="lddb">
+    SELECT * FROM LDDB.BUSINESSSERVUSERS 
+</cfquery>
+<cfdump var="#getUsers#" >--->
+<!---<style >
+	p{
+		color: blue;
+		text-align: center;
+	}
+</style>
+<body>
+	<p>Kimsa<p>
+	<p>Just for testing!!!</p>p>	
+</body>
+
+<div>
+	<h3>Output:</h3>
+	<cfscript>
+		Area = "District, Division";
+		newList = ListAppend(Area, "AreaList");
+		writeOutput(newList)
+	</cfscript>
+</div>--->
+<!---<cfinclude template="MfaCookieCheck.cfm">
 <!---
 <cfset Init_User_Id = TRIM(UCASE(RemoveChars(auth_user,1,find('\',auth_user))))>
 Init_User_Id variable equals: <cfoutput>"#Init_User_Id#"</cfoutput> <br>--->
@@ -235,4 +270,4 @@ Init_User_Id variable equals: <cfoutput>"#Init_User_Id#"</cfoutput> <br>--->
 		
 		</td><!---hq dept row col 2--->
 	</tr><!---end of hq dept row--->
-</CFIF>
+</CFIF>--->
