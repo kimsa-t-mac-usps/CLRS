@@ -702,10 +702,6 @@ if (CaseForm.ASSESSMENT_AMOUNT_UNKNOWN && CaseForm.ASSESSMENT_AMOUNT_UNKNOWN.che
 			<script language="JavaScript">var cal1 = new calendar5(document.CaseForm.DATE_FILED);</script>
 		</body>
 	</html>
-FactsPositionsDiv.style.display = "inline";
 
-
-
-}
 
 

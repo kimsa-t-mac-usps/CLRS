@@ -435,10 +435,6 @@ Form.UNIONS_SELECTED NEQ "">
 </CFIF>
 --->
 
-
-
-
-
 <CFIF IsDefined("Form.UNIONS_SELECTED_ALL")
 AND
 Form.UNIONS_SELECTED_ALL NEQ "">
@@ -446,27 +442,6 @@ Form.UNIONS_SELECTED_ALL NEQ "">
 	'#Form.UNIONS_SELECTED_ALL#',
 
 </CFIF>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #Form.STATUS_CODE_SELECTED#,
 
@@ -587,18 +562,12 @@ Currval = #Get_Currval.SEQ_CURRVAL#
 <!--- Close <CFIF Form.LM_MATTER_NUMBER NEQ "" AND Form.LM_MATTER_KEY EQ ""> --->
 </CFIF>
 
-
-
-
-
 <!---
 <CFQUERY NAME="Get_ChecklistQues" DATASOURCE="contliab">
 SELECT *
 FROM VIEW_CONTING_GET_CHECKLISTQUES
 </cfquery>
 --->
-
-
 
 <CFSET QuesNumList = ValueList(Get_ChecklistQues.QUESNUM_TRIM)>
 
@@ -664,9 +633,7 @@ SYSDATE,
 <CFELSE>
 <CFSET QuesNumListSQLValues = ListAppend(QuesNumListSQLValues, Evaluate_ThisFormReponse)>
 </cfif>
-
 </cfif>
-
 </cfloop>
 
 #ListQualify(QuesNumListSQLValues, "'")#
@@ -680,10 +647,6 @@ SYSDATE,
 SELECT CONTINGENT_LIAB_REPORT_PRMKEY.CURRVAL AS CONTINGENT_LIAB_REPORT_CURRVAL
 FROM DUAL
 </cfquery>
-
-
-
-
 <!---
 E-mail notice to MC, other manager(s):
 --->
@@ -703,11 +666,9 @@ E-mail notice to MC, other manager(s):
 </cfoutput>
 </form>
 
-
-
 <script language="javascript">
 
-<CFIF NOT IsDefined("Test_Server")>
+ <CFIF NOT IsDefined("Test_Server")>
 
 <CFOUTPUT>
 alert("An e-mail notice has been sent to #AlertToLine# that the new case is available for approval.");
@@ -718,8 +679,6 @@ alert("An e-mail notice has been sent to #AlertToLine# that the new case is avai
 ReturnForm.submit();
 
 </script>
-
-
 
 </body>
 </html>
