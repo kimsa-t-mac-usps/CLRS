@@ -52,6 +52,9 @@ Form.FileReplace EQ "yes">
 </CFIF>
 
 
+
+
+
 <CFIF IsDefined("Form.FileReplace")
 AND
 Form.FileReplace EQ "yes">
@@ -63,10 +66,13 @@ Form.FileReplace EQ "yes">
 
 </CFIF>
 
+
+
 <cffile action="upload"
         destination="#CFFILE_Destination_Dir#"
         nameConflict="overwrite"
         fileField="Form.FiletoUpload">
+
 
 <CFSET FileName_Ext = cffile.ClientFileName & "." & cffile.ClientFileExt>
 
@@ -77,6 +83,8 @@ Form.FileReplace EQ "yes">
 <cffile action="rename"
 	source = "#Rename_Source#"  
     destination = "#Rename_Destination#">
+
+
 
 <!---
 
@@ -112,6 +120,7 @@ WHERE PRIMARYKEY = #Form.RecID#
 
 
 </CFQUERY>
+
 
 
 

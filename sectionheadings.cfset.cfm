@@ -130,6 +130,7 @@ IsDefined("This_CASE_TYPE")>
 				Assess_Cutoff_List_Index EQ "NewOneMillionAndAbove"
 --->
 
+
 				<CFIF NOT
 				(
 				(
@@ -140,6 +141,8 @@ IsDefined("This_CASE_TYPE")>
 				AND	
 				Assess_Cutoff_List_Index EQ "NewTenMillionAndAbove"
 				)>
+
+
 
 					<br>
 					<!---<hr style="width:350pt; color:lightgrey" sectionheadings.cfset.cfm at 71>--->

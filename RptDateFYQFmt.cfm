@@ -1,5 +1,7 @@
 
 <CFSET RptDateToFmt_CalYear = DatePart("yyyy", RptDateToFmt)>
+
+
 <CFSET RptDateToFmt_CalQuarter = DatePart("q", RptDateToFmt)>
 
 <CFSET RptDateToFmt_CalQuarter_Num = LSParseNumber(RptDateToFmt_CalQuarter)>
@@ -40,6 +42,11 @@ RptDateToFmt_FYQuarter = "#RptDateToFmt_FYQuarter#"
 --->
 
 
+
+
+
+
+
 <!--- For End of Year report --->
 <CFIF RptDateToFmt GT "10/1/#RptDateToFmt_CalYear#" AND RptDateToFmt LT "12/1/#RptDateToFmt_CalYear#">
 
@@ -69,6 +76,10 @@ RptDateToFmt_FY = "#RptDateToFmt_FY#"
 <p>
 </CFOUTPUT>
 --->
+
+
+
+
 
 	<CFSWITCH EXPRESSION="#RptDateToFmt_FYQuarter#">
 

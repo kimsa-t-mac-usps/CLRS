@@ -1,10 +1,10 @@
-.metadata/*.
-.settings/*.
-.vs/*.
-.vscode/*
 .metadata/*
 RemoteSystemsTempFiles/*
 .metadata/.plugins/*
 
 .metadata/.lock
 .metada/version.ini
+.metadata\.*
+.metadata\.plugins\*
+.metadata\.lock
+.metadata\version.ini

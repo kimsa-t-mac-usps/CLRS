@@ -79,6 +79,7 @@
 		
 		
 		
+		
 	<!------------------------------------------KS1------------------------------------------>		
 	
 	<CFSWITCH EXPRESSION="#This_CASE_TYPE#">
@@ -185,7 +186,9 @@
 		<!---Value = #Value#--->
 	</CFOUTPUT>--->
    
-      
+   
+   
+   
 	<CFSWITCH EXPRESSION="#Assess_Cutoff_List_Index#">
 
 		<CFCASE VALUE="TenMillionAndAbove">

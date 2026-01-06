@@ -275,7 +275,8 @@ HQ&nbsp;Dept
 	<br />
     
 
-	<CFSET This_Division_Code = DIVISION_CODE> 
+
+	<CFSET This_Division_Code = DIVISION_CODE>
 
 <!---
 	<CFSET This_Division_Name = NAME>
@@ -373,9 +374,9 @@ Select all that apply
 		
 		
 		<CFOUTPUT>
-		<input type="checkbox" name="Unions_Selected" value="#ListGetAt(Unions_List, Unions_List_Index)#"#Unions_Selected_CheckedWord#>#ListGetAt(Unions_List, Unions_List_Index)#
-				
+		<input type="checkbox" name="Unions_Selected" value="#ListGetAt(Unions_List, Unions_List_Index)#" #Unions_Selected_CheckedWord#>#ListGetAt(Unions_List, Unions_List_Index)#
 		</CFOUTPUT>
+		
 		<br />
 	
 	</CFLOOP>
