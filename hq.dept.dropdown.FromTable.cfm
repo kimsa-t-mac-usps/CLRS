@@ -23,6 +23,8 @@
 <CFSET This_HQ_Name = HQ_Array[HQ_Array_Ct][2]>
 --->
 
+
+
 <CFIF IsDefined("This_HQ_AREA_NAME") 
 AND 
 This_HQ_AREA_NAME EQ "HQ MULTIPLE Departments">
@@ -32,6 +34,8 @@ This_HQ_AREA_NAME EQ "HQ MULTIPLE Departments">
 	<CFSET HQMultSelectedWord = "">
 
 </CFIF>
+
+
 
 <CFOUTPUT>
 <option value="Multiple // HQ MULTIPLE Departments" #HQMultSelectedWord#>HQ MULTIPLE Departments 
@@ -54,9 +58,11 @@ This_HQ_AREA_NAME EQ "HQ MULTIPLE Departments">
 		<CFSET SelectedWord = "">
 	</cfif>
 
+
 	<CFOUTPUT>
 	<option value="#This_HQ_Code# // #This_HQ_Name#" #SelectedWord#>#This_HQ_Name# 
 	</CFOUTPUT>
+
 
 </cfloop>
 

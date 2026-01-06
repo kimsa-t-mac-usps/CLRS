@@ -5,6 +5,7 @@ For attaching a spreadsheet for a case report: new spreadsheet or updated replac
 Action file: AttachFile.uploadfileaction.cfm
 --->
 
+
 <script language="javascript">
 
 function checkFileSelected(thisForm) {
@@ -60,6 +61,9 @@ sort="name, datelastmodified">
 
 </CFLOOP>
 
+
+
+
 <CFIF FileReplace EQ "no">
 
 	<cfdirectory action="list" 
@@ -79,6 +83,9 @@ sort="name, datelastmodified">
 
 	<CFSET PrevQSpsheetFound = "no">
 
+
+
+
     <CFLOOP QUERY="Prev_dirQuery">
    	
 	    <CFIF name EQ "CL.Case." & CaseRecIDSeq & ".GC.xls">
@@ -91,6 +98,9 @@ sort="name, datelastmodified">
 		</CFIF>
 
 	</CFLOOP>
+
+
+
 
 </CFIF>
 
@@ -164,15 +174,24 @@ Lesson learned: Can't use OL; causes browser to display Divs with style.display=
     
 </CFIF>
 
+
+
+
+
 <div id="FileSelectDiv" style="width:100%; height:100%">
+
+
+
 
 <CFIF IsDefined("FileReplace")
 AND
 FileReplace EQ "no">
 
+
 <!---
 width:375pt"
 --->
+
 
 	<div id="ClickBrowseDiv" style="margin-bottom:0; width:475pt">
 
@@ -193,6 +212,7 @@ width:375pt"
 	&nbsp;&nbsp;<b>1.</b>&nbsp; Click <b>Browse</b> and select your updated
 
 </CFIF>
+
 
 
 spreadsheet from your directory folder&nbsp;.&nbsp;.&nbsp;.
@@ -243,6 +263,10 @@ FileReplace EQ "yes">
 <input type="hidden" name="RecID" value="#RecIDParm#">
 </CFOUTPUT>
 
+
+
+
+
 <!--- Initial display: Div hides remnant of text field in FiletoUpload input field: --->
 
 <!---
@@ -250,6 +274,8 @@ height:21px;
 --->
 
 <div id="HideLineDiv" style="position:absolute; z-index:10; background:linen; width:7px; height:22px; left:26px"></div>
+
+
 
 <!---
 margin-left:16pt; 
@@ -264,7 +290,14 @@ margin-left:16pt;
 margin-left:30px; 
 --->
 
+
+
 <input id="FiletoUpload_Button" type="file" name="FiletoUpload" size="160" style="width:90px; margin-left:5px; font-size:10pt" onClick="this.style.width='475px'; this.style.marginLeft='0px'; ClickBrowseDiv.style.color='gray'; HideLineDiv.style.display = 'none'; AttachButtonDiv.style.display = 'inline'">
+
+
+
+
+
 
 <div style="margin-top:0">
 
@@ -290,13 +323,20 @@ FileReplace EQ "no">
 
 </CFIF>
 
+
+
 Then click&nbsp;&nbsp;<input id="AttachButton" type="submit" value="Attach Spreadsheet to Report" onClick="return checkFileSelected(this.form)" style="width:150pt; border-width:1px; background:maroon; color:white; font-weight:bold">
 
 
+
+
+
 </div>
 
 
+
 </div>
+
 
 <!---
 <CFINCLUDE TEMPLATE="AttachFile.ReturnFormFields.cfm">
@@ -306,6 +346,8 @@ Then click&nbsp;&nbsp;<input id="AttachButton" type="submit" value="Attach Sprea
 
 
 </div id="FileSelectDiv">
+
+
 
 <!---
 <p>

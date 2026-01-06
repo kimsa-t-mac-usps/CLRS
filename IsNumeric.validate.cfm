@@ -1,4 +1,6 @@
 <cfinclude template="MfaCookieCheck.cfm">
+
+
 <CFIF IsNumeric(ThisString)>
 
 	<CFSET ValidatedString = ThisString>

@@ -1,4 +1,7 @@
 <cfinclude template="MfaCookieCheck.cfm">
+
+
+
 <!--- Deleted Query GetMC as duplicate with application.cfm --->
 
 <!---
@@ -22,7 +25,12 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#RespondingUser_Id#%'))
 <cfoutput>
 --->
 
+
 <CFQUERY NAME="CONTINGENT_LIAB_GetRecord" DATASOURCE="contliab">
+
+
+
+
 
 SELECT
 
@@ -131,6 +139,11 @@ AND LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 	OR
     ALT_LAW_DEPT_OFFICE = #Get_Auth_User_Office.OFFICE_PRM_KEY#
     )
+
+
+
+
+
 
 
 

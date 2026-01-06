@@ -97,9 +97,13 @@ FROM VIEW_CONTING_ALL_REPORTDATES
 </cfif>
 --->
 
+
 <CFIF ((IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat") OR
 (IsDefined("Form.FrontOffcReviewFormat") AND Form.FrontOffcReviewFormat EQ "FrontOffcReviewFormat")) AND
 ThisReportDate NEQ EarliestReportDate AND PrevReportDate NEQ "">
+
+
+
 
 <!---
 VIEW_CONTING_PRV_CAS_RECID_SEQ
@@ -111,6 +115,7 @@ FROM view_conting_prv_recid_seq_2
 WHERE DATE_REPORT = to_date('#DateFormat(PrevReportDate, "mm/dd/yyyy")#', 'mm/dd/yyyy')
 </cfquery>
 
+
 <!---
 <CFOUTPUT>
 ValueList(CONTINGENT_LIAB_PrevRpt_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) = #ValueList(CONTINGENT_LIAB_PrevRpt_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE)#
@@ -118,7 +123,10 @@ ValueList(CONTINGENT_LIAB_PrevRpt_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) = #
 </CFOUTPUT>
 --->
 
+
 </cfif>
+
+
 
 </head>
 
@@ -126,6 +134,8 @@ ValueList(CONTINGENT_LIAB_PrevRpt_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) = #
 <!--- Moved to Report.full.cfm.  --->
 <CFINCLUDE TEMPLATE="CFINCLUDEs/CheckUserAuth.cfm">
 --->
+
+
 
 <!---
 <CFIF IsDefined("Get_Auth_User_Office.RecordCount")
@@ -140,6 +150,7 @@ Get_Auth_User_Office.OFFICE_PRM_KEY = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 
 </CFIF>
 --->
+
 
 <!---
 <CFOUTPUT>

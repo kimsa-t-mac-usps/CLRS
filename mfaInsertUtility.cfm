@@ -12,7 +12,7 @@
     5. save as the original path/file
 --->
 <cftry>
-<cfset fileList = directoryList(path="D:\web\inetpub\wwwroot2\ClientService\ContingentLiabilities\V1.0", recurse="false" ,listInfo="path" ,filter="*.cfm" ,type="all")>
+<cfset fileList = directoryList(path="D:\web\cf\cfusion\wwwroot\ContingentLiabilities\V1.0", recurse="false" ,listInfo="path" ,filter="*.cfm" ,type="all")>
 <cfdump var="#fileList#"  >
 <cfset doNotIncludeList = "application.cfm,MfaCookieCheck.cfm,cfswitch.serveraddr_id.cfm,serverName.cfm">
 <cfset writeContent = '<cfinclude template="MfaCookieCheck.cfm">'>
