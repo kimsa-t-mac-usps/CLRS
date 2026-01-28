@@ -468,7 +468,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 						<cfelse>
 							<cfoutput><strong>#This_AREA_NAME#</strong></cfoutput>
 							<div class="PreviouslyReported" style="font-size:8pt; padding-bottom:1pt">
-								[Previously reported ashq:
+								[Previously reported as :
 								<cfoutput>#CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME#]</cfoutput>
 							</div>
 						</cfif>
