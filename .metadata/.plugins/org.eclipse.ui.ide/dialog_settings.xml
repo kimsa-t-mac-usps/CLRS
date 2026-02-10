@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="installedFeatures">
-		<item value="com.adobe.ide.coldfusion.feature:3.1.4.201705171143"/>
-		<item value="com.adobe.ide.coldfusion.rcp.feature:3.1.4.201705171143"/>
-		<item value="de.anbos.eclipse.logviewer.feature:0.9.9.201705171143"/>
+		<item value="com.adobe.ide.coldfusion.feature:3.1.3.201705031620"/>
+		<item value="com.adobe.ide.coldfusion.rcp.feature:3.1.3.201705031620"/>
+		<item value="de.anbos.eclipse.logviewer.feature:0.9.9.201705031620"/>
 		<item value="org.eclipse.draw2d:3.10.1.201508170204"/>
 		<item value="org.eclipse.emf.common:2.11.1.v20160208-0816"/>
 		<item value="org.eclipse.emf.ecore:2.11.2.v20160208-0816"/>
@@ -23,5 +23,13 @@
 	<section name="ResourceNavigator">
 		<item value="" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
 		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="658" key="DIALOG_X_ORIGIN"/>
+		<item value="337" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
