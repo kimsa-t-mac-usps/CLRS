@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="LDAPServerName" key="selection"/>
+		<item value="Review" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="LDAPServerName"/>
-			<item value="LDAPserver"/>
-			<item value="LDAP"/>
-			<item value="ldap"/>
-			<item value="LDOffices"/>
-			<item value="General Law Service Center"/>
-			<item value="All Law Department Offices"/>
-			<item value="Law Department"/>
+			<item value="Review"/>
+			<item value="Keith Weidner"/>
+			<item value="Introductory"/>
+			<item value="Keith"/>
+			<item value="Hello --"/>
+			<item value="Keith Weidner’s"/>
+			<item value="Tom Marshall"/>
+			<item value="For Current Quarterly Report"/>
 		</list>
 		<list key="replacehistory">
 		</list>
