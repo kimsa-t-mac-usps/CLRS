@@ -5,9 +5,35 @@
 		<item value="false" key="fileNameRegex"/>
 		<item value="false" key="caseSensitive"/>
 		<item value="false" key="includeSubfolders"/>
-		<item value="2" key="dataSize"/>
+		<item value="5" key="dataSize"/>
 		<item value="false" key="stringRegex"/>
 		<item value="true" key="fileNameCaseSensitive"/>
+	</section>
+	<section name="RemoteSearchPage.data4">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="Hello" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\inetpub\wwwroot2\inhouse\contingliabadmin" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data3">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="Tom Marshall" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\inetpub\wwwroot2\inhouse\contingliabadmin" key="folderName"/>
+		<item value="*" key="fileNames"/>
 	</section>
 	<section name="RemoteSearchPage.data0">
 		<item value="5CD238B5J0" key="profileName"/>
@@ -20,6 +46,19 @@
 		<item value="true" key="fileNameCaseSensitive"/>
 		<item value="Local" key="connectionName"/>
 		<item value="V:\web\inetpub\wwwroot2\ClientService\ContingentLiabilities\V1.0" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data2">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="For Current Quarterly Report" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\inetpub\wwwroot2\inhouse\contingliabadmin" key="folderName"/>
 		<item value="*" key="fileNames"/>
 	</section>
 	<section name="RemoteSearchPage.data1">
