@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="movedCount" key="selection"/>
+		<item value="Kimsa" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="kimsa"/>
 			<item value="movedCount"/>
 			<item value="Review"/>
 			<item value="Keith Weidner"/>
@@ -15,7 +16,6 @@
 			<item value="Keith"/>
 			<item value="Hello --"/>
 			<item value="Keith Weidner’s"/>
-			<item value="Tom Marshall"/>
 		</list>
 		<list key="replacehistory">
 		</list>
