@@ -1,14 +1,18 @@
+<cfinclude template="MfaCookieCheck.cfm">
 <!---
     RequeueMail.cfm
     Moves all stuck ColdFusion mail files from the Undeliver folder
     back into the Spool folder so ColdFusion will attempt to resend them.
+    Configure as a scheduled task in ColdFusion Administrator
+      URL example:
+      http://<server>/ClientService/ContingentLiabilities/V1.0/RequeMailUndeliverRequeue.cfm
 --->
 
 <cfsetting requesttimeout="300" showdebugoutput="false">
 
 <!--- PATHS TO MAIL FOLDERS --->
-<cfset undeliverPath = "\\eagnmnss58b\\Mail\\Undeliver">
-<cfset spoolPath     = "\\eagnmnss58b\\Mail\\Spool">
+<cfset undeliverPath = "X:\web\cf2\cfusion\Mail\Undelivr">
+<cfset spoolPath     = "X:\web\cf2\cfusion\Mail\Spool">
 
 <!--- COUNTERS --->
 <cfset movedCount = 0>
