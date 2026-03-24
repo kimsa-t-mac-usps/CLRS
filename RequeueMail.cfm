@@ -21,7 +21,7 @@
 <!--- ENSURE PATHS EXIST --->
 <cfif NOT DirectoryExists(undeliverPath)>
     <cfthrow message="Undeliver folder does not exist: #undeliverPath#">
-</cfif>
+</cfif>My test plan, test script, and test report are about 95% complete. I’ll review everything tomorrow, and I expect to finish and upload them to Teams. After that, I’ll help look into the client survey, since there’s an issue with slow file uploads. I’ll check that next
 
 <cfif NOT DirectoryExists(spoolPath)>
     <cfdirectory action="create" directory="#spoolPath#">

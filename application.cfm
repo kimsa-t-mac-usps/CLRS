@@ -317,20 +317,24 @@ WHERE USERPRMKEY = 361
 
 
 </cfif>
-<cfoutput >
-	This_Server = #This_Server# 
-</cfoutput>
+
 <CFIF IsDefined("Test_Server_Folder")>
 	<CFSET ServerFolder = Test_Server_Folder>
 <CFELSE>
 	<CFSET ServerFolder = "V1.0/">
 </cfif>
+<!--- Centralized base URL variables (soft links) --->
+<CFSET This_Server_Base_URL = "https://" & This_Server>
+<CFSET LawDept_Base_URL = "https://lawdept-dev.usps.gov">
+<CFSET LawDept1_Base_URL = "https://lawdept-dev.usps.gov">
+<CFSET LawManager_Base_URL = "https://lawdept-dev.usps.gov/lmWeb">
+ 
 
 <!--- Moved to LabelLists.cfm
 <cfset YesNo_List = "Y,N">
 --->
 <cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME neq "eagnmnwep1431" and cgi.SERVER_NAME neq "eagnmnwep1432" >
-	<cfset Init_user_id = "YSRJ00">
+	<cfset Init_user_id = "K6GVN0">
 <cfelse>
 	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
 </cfif>
@@ -408,6 +412,15 @@ WHERE USERPRMKEY = 361
 
 	</CFIF>
 
+
+
+
+
+
+
+
+
+
 	<CFQUERY NAME="GetUserInfo" DATASOURCE="ContLiab">
 	
 	SELECT b.LASTNAME, b.FIRSTNAME, a.LONGEMAIL, b.PRIMARYKEY, b.AD_USERID, b.AD_MAILNICKNAME, Trim(a.LASTNAME) || ', ' || Trim(a.FIRSTNAME) AS FULLNAME
@@ -421,6 +434,8 @@ WHERE USERPRMKEY = 361
 	AND (SEPARATFLG != 'S' OR SEPARATFLG IS NULL OR SEPARATFLG = '0')
 	
 	</cfquery>
+	
+	
 	
 	<CFIF GetUserInfo.RecordCount NEQ 1>
 	
@@ -439,6 +454,7 @@ WHERE USERPRMKEY = 361
 		    name="QueryGetDisplayName"
 		    attributes="displayName, mail"
 			start="#startstr#"
+			<!---filter="(&(objectClass=user)(|(extensionAttribute13=#GetUserInfo.AD_USERID#)(mailNickName=#GetUserInfo.AD_MAILNICKNAME#)))"--->
 			filter="(&(objectClass=user)(|(extensionAttribute13=#GetUserInfo.AD_USERID#)(mailNickName=#GetUserInfo.AD_MAILNICKNAME#)))"
 			scope="subtree"
 			sort="name"
@@ -535,6 +551,7 @@ ReportDatesList = "#ReportDatesList#"
 		<CFIF ReportDatesList_ListLen GT 1>
 --->	
     
+
 		<CFIF ReportDatesList_ListLen GT 1
 		AND
     	ThisReportDate NEQ EarliestReportDate>
@@ -561,6 +578,8 @@ ReportDatesList = "#ReportDatesList#"
 	
 		</CFIF>
 	
+	
+	
 	<CFELSE>
 	
 		<CFSET ThisReportDate = DateFormat(ListFirst(ReportDatesList), "mm/dd/yyyy")>
@@ -586,6 +605,10 @@ PrevReportDate = "#PrevReportDate#"
 <p>
 </CFOUTPUT>
 --->
+
+
+
+
 <!---
 	<CFIF PrevReportDate NEQ "">
 --->
@@ -593,6 +616,8 @@ PrevReportDate = "#PrevReportDate#"
 	<CFIF PrevReportDate NEQ ""
 	AND NOT
 	IsDefined("PrevRptDate_String")>
+
+	
 		<CFSET RptDateToFmt = PrevReportDate>
 	
 		<CFINCLUDE TEMPLATE="RptDateFYQFmt.cfm">
@@ -602,16 +627,25 @@ PrevReportDate = "#PrevReportDate#"
 	    <CFSET PrevRptDateToFmt_FY = RptDateToFmt_FY>
 	
 	    <CFSET PrevRptDateToFmt_FYQuarter = RptDateToFmt_FYQuarter>
+
+
+
 <!---
 		<CFSET PrevCFFILE_Destination_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
 --->	
 
 
 		<CFSET PrevCFFILE_Destination_Dir = Spreadsheets_Uploads_Dir & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
-   
+
+
+
+
+    
 <!---	
 		<CFSET PrevCFFILE_Uploads_Dir_Link = "/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
 --->
+
+
 
 <!---
 		<CFSET PrevCFFILE_Uploads_Dir_Link = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
@@ -622,8 +656,10 @@ PrevReportDate = "#PrevReportDate#"
 		<CFSET PrevCFFILE_Uploads_Dir_Link = Spreadsheets_Uploads_Dir_URL & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
 
 
-	<CFELSEIF ReportDatesList_ListLen GT 1 AND
+	<CFELSEIF ReportDatesList_ListLen GT 1
+	AND
    	ThisReportDate EQ EarliestReportDate>
+
 
 		<CFSET PrevRptDate_String = "">
 	
@@ -631,7 +667,15 @@ PrevReportDate = "#PrevReportDate#"
 	
 	    <CFSET PrevRptDateToFmt_FYQuarter = "">
 
+
+
 	</CFIF>
+
+    
+    
+
+
+
 
 <!---
 	<CFSET Spreadsheets_Uploads_Dir = "D:\web\inetpub\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
@@ -655,6 +699,8 @@ PrevReportDate = "#PrevReportDate#"
 
 	<CFINCLUDE TEMPLATE="RptDateFYQFmt.cfm">
 
+
+
 <!---
 <CFOUTPUT>
 <p>
@@ -671,9 +717,17 @@ PrevReportDate = "#PrevReportDate#"
 
 --->
 
+
+
+
+
+
+
+
 <!--- Also reset in Spreadsheet.CL.cfm, for Case List spsheet: --->
 
 	<CFSET CFFILE_Spsheet_Uploads_Dir = "D:\web\inetpub\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\">
+
 
 	<CFSET CFFILE_Spsheet_Uploads_Dir_Link = "/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/">
 
@@ -694,7 +748,9 @@ application.cfm at 666: RptDateToFmt_FYQuarter = "#RptDateToFmt_FYQuarter#"
 	<CFSET CFFILE_Destination_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
 --->
 
+
 	<CFSET CFFILE_Destination_Dir = Spreadsheets_Uploads_Dir & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
+
 
 	<CFSET CFFILE_Uploads_Dir_Link = Spreadsheets_Uploads_Dir_URL & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
 
