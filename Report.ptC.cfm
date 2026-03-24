@@ -183,7 +183,9 @@ Case Number
 	
 	
 		<CFOUTPUT>
-	    (<a href="https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
+	    <!---(<a href="https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)--->
+	    	    (<a href="#LawManager_Base_URL#/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
+
 		</CFOUTPUT>
 	
 	<CFELSE>
@@ -232,7 +234,9 @@ Case Number
 		
 		
 			<CFOUTPUT>
-		    (<a href="https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">#NewList#</a>)
+		    <!---(<a href="https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">#NewList#</a>)--->
+		    		    (<a href="#LawManager_Base_URL#/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">#NewList#</a>)
+
 			</CFOUTPUT>
 		
 		
@@ -269,9 +273,7 @@ Case Number
 	</tr>
 
 </cfif>
-<!---
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
+<!---START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 <CFIF NOT (IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat")>
 
 	<tr><!---start of new row district--->
@@ -468,7 +470,7 @@ START NEW CODE 12/10/2025 PUT IT IN A 3 ROWS AND 2 COLUMNS --->
 						<cfelse>
 							<cfoutput><strong>#This_AREA_NAME#</strong></cfoutput>
 							<div class="PreviouslyReported" style="font-size:8pt; padding-bottom:1pt">
-								[Previously reported as :
+								[Previously reported as:
 								<cfoutput>#CONTINGENT_LIAB_GetRecord_PrevRpt.AREA_NAME#]</cfoutput>
 							</div>
 						</cfif>

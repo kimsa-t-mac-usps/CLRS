@@ -176,8 +176,7 @@ TO: #ToMCLine#
         <CFSET This_Server = #CGI.SERVER_NAME#>
 --->
 
-<!--- Bob Sindermann 12/5/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
-        <CFSET This_Server = "lawdept1">
+<!--- Using centralized LawDept1_Base_URL variable instead of hardcoded server name --->
 
 </cfif>
 
@@ -197,7 +196,7 @@ A new Contingent Liabilities case record has been entered in the system for your
 --->
 
 
-<a href="https://#This_Server#.usps.gov/ClientService/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#Get_CONTINGENT_LIAB_REPORT_Currval.CONTINGENT_LIAB_REPORT_CURRVAL#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
+<a href="#LawDept1_Base_URL#/ClientService/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#Get_CONTINGENT_LIAB_REPORT_Currval.CONTINGENT_LIAB_REPORT_CURRVAL#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
 
 
 </cfoutput>
