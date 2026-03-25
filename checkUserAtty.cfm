@@ -321,10 +321,6 @@ AuthorizedFlag = "#AuthorizedFlag#"
 	</cfif>
 
 
-<!---
-https://lawdept.usps.gov/inhouse/framed/conting.liab.htm
---->
-
 	<li><CFOUTPUT><a href="#LawDept_Base_URL#/InHouse/conting.liab.htm" target="_top">Contingent Liability Protocol and Reference Materials</a></CFOUTPUT>
 
 	

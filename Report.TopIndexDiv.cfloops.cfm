@@ -303,10 +303,6 @@ In report.topindexdiv.cfloops.cfm at 84:
 							    <span id="Index_CaseNum_#This_Current_IndexRow#" style="font-size:8pt; font-weight:bold; background:green; text-align:center; color:white; width:21; height:10; padding-left:1px; border: 1px solid white; display:none">#This_Current_IndexRow#</span>
 							
 								<span id="TopIndex_Gray_#This_Current_IndexRow#">
-								<!---
-								GAC - 07/08/2013 - changed image reference
-							    <img src="https://lawdept.usps.gov/inhouse/images/bulletblack.gray.GIF" width="11" height="11" style="margin-top:2px; border-bottom: 1px solid white; vertical-align:bottom">
-								--->
 							    <img src="../images/bulletblack.gray.GIF" width="11" height="11" style="margin-top:2px; border-bottom: 1px solid white; vertical-align:bottom">
 							
 							
@@ -352,11 +348,6 @@ In report.topindexdiv.cfloops.cfm at 84:
 							    <span id="Index_CaseNum_#This_Current_IndexRow#" style="font-size:8pt; font-weight:bold; background:green; text-align:center; color:white; width:21; height:10; padding-left:1px; border: 1px solid white; display:none">#This_Current_IndexRow#</span>
 							
 								<span id="TopIndex_Gray_#This_Current_IndexRow#">
-							    
-								<!---
-								GAC - 07/08/2013 - changed image reference
-							    <img src="https://lawdept.usps.gov/inhouse/images/bulletblack.gray.GIF" width="11" height="11" style="margin-top:2px; border-bottom: 1px solid white; vertical-align:bottom">
-								--->
 							    <img src="../images/bulletblack.gray.GIF" width="11" height="11" style="margin-top:2px; border-bottom: 1px solid white; vertical-align:bottom">
 							    
 							    </span>

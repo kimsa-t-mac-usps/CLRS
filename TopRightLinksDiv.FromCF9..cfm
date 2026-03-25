@@ -50,11 +50,6 @@ Form.FrontOffcReviewFormat NOT DEFINED.
 
 &middot;&nbsp;<a href="InsertRecord.cfm">New Case for This Quarter</a>
 
-<!---
-https://lawdept.usps.gov/inhouse/framed/conting.liab.htm
---->
-
-
 <CFOUTPUT>
 <p style="margin-top:#TopRightLinksMarginTop#">
 </CFOUTPUT>

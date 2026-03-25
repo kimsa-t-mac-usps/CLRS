@@ -29,11 +29,6 @@ var STR_ICONPATH = 'img/';
 
 var STR_ICONPATH = '';
 
-
-/*
-var STR_ICONPATH = 'https://lawdept.usps.gov/WebStaffDir/Admin/';
-*/
-
 // if two digit year input dates after this year considered 20 century.
 var NUM_CENTYEAR = 30;
 

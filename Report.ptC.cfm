@@ -183,8 +183,7 @@ Case Number
 	
 	
 		<CFOUTPUT>
-	    <!---(<a href="https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)--->
-	    	    (<a href="#LawManager_Base_URL#/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
+	    (<a href="#LawManager_Base_URL#/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
 
 		</CFOUTPUT>
 	
@@ -225,17 +224,8 @@ Case Number
 	
 		<CFIF LM_MATTER_KEY NEQ "">
 		
-		<!---
-		<CFOUTPUT>
-		<a href="https://56.207.31.151/lawmanager.net/exec/httpsrvr.dll/main?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#|&TYP=detail&HTYP=edit" target="_blank">#NewList#</a>
-		</CFOUTPUT>
-		--->
-		
-		
-		
 			<CFOUTPUT>
-		    <!---(<a href="https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">#NewList#</a>)--->
-		    		    (<a href="#LawManager_Base_URL#/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">#NewList#</a>)
+		    (<a href="#LawManager_Base_URL#/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">#NewList#</a>)
 
 			</CFOUTPUT>
 		

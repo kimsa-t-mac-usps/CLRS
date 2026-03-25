@@ -208,38 +208,8 @@ WHERE USERPRMKEY = 361
 <CFSET Spreadsheets_Uploads_Dir = "D:\Inetpub\wwwroot\InHouse\ContingentLiabilities\Spreadsheets\">
 --->
 
-<!---
-<CFSET Spreadsheets_Uploads_Dir = "D:\Inetpub\wwwroot\ClientService\ContingentLiabilities\Spreadsheets\">
---->
-
-
-<!---
-<CFSET CFFILE_Uploads_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.LitigationHold\Matters\">
-<CFSET CFFILE_Uploads_Dir_URL = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.LitigationHold/Matters/">
---->
-
-<!---
-<CFSET Spreadsheets_Uploads_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
---->
-
-
-
 <CFSET Spreadsheets_Uploads_Dir = "D:\web\inetpub\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
 
-
-
-
-<!---
-<CFSET Spreadsheets_Uploads_Dir_URL = "../Spreadsheets/">
-
-<CFSET Spreadsheets_Uploads_Dir_URL = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
-
---->
-
-
-<!---
-<CFSET Spreadsheets_Uploads_Dir_URL = "https://eagnmnss29c:8182/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
---->
 
 
 
@@ -294,28 +264,11 @@ WHERE USERPRMKEY = 361
 
 <CFSET ThisTemplateFolder = Right(ThisTemplatePath, Len(ThisTemplatePath) - LastBackslash)>
 
-<!---
-<CFSET Test_Server_Folder = "Test.20110325/">
---->
 
 <CFIF IsDefined("Test_Server")>
         <CFSET This_Server = Test_Server>
 <CFELSE>
-        <!---<CFSET This_Server = "lawdept">--->
-        <!---<CFSET This_Server = "eagnmnss0b6">--->
-
-<!---
-        <CFSET This_Server = CGI.SERVER_NAME & ":7443">
---->
-
-<!---
-        <CFSET This_Server = CGI.SERVER_NAME & ":8182">
---->
-
 		<CFSET This_Server = CGI.SERVER_NAME>
-
-
-
 </cfif>
 
 <CFIF IsDefined("Test_Server_Folder")>
@@ -328,13 +281,9 @@ WHERE USERPRMKEY = 361
 <CFSET LawDept_Base_URL = "https://lawdept-dev.usps.gov">
 <CFSET LawDept1_Base_URL = "https://lawdept-dev.usps.gov">
 <CFSET LawManager_Base_URL = "https://lawdept-dev.usps.gov/lmWeb">
- 
 
-<!--- Moved to LabelLists.cfm
-<cfset YesNo_List = "Y,N">
---->
 <cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME neq "eagnmnwep1431" and cgi.SERVER_NAME neq "eagnmnwep1432" >
-	<cfset Init_user_id = "K6GVN0">
+	<cfset Init_user_id = "YSRJ00">
 <cfelse>
 	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
 </cfif>
@@ -641,18 +590,6 @@ PrevReportDate = "#PrevReportDate#"
 
 
     
-<!---	
-		<CFSET PrevCFFILE_Uploads_Dir_Link = "/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
---->
-
-
-
-<!---
-		<CFSET PrevCFFILE_Uploads_Dir_Link = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
---->
-
-
-
 		<CFSET PrevCFFILE_Uploads_Dir_Link = Spreadsheets_Uploads_Dir_URL & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
 
 
