@@ -50,15 +50,10 @@ Form.FrontOffcReviewFormat NOT DEFINED.
 
 &middot;&nbsp;<a href="InsertRecord.cfm">New Case for This Quarter</a>
 
-<!---
-https://lawdept.usps.gov/inhouse/framed/conting.liab.htm
---->
-
-
 <CFOUTPUT>
 <p style="margin-top:#TopRightLinksMarginTop#">
 </CFOUTPUT>
-<CFOUTPUT>&middot;&nbsp;<a href="#LawDept_Base_URL#/inhouse/conting.liab.htm" target="_blank">Contingent Liability Protocol</a></CFOUTPUT>
+&middot;&nbsp;<a href="/InHouse/conting.liab.htm" target="_blank">Contingent Liability Protocol</a>
 
 
 <CFIF Check_Auth_User_A.RecordCount EQ 1>

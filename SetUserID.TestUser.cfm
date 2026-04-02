@@ -28,6 +28,7 @@ WHERE SETTINGUSER_PKEY = #Init_Check_Auth_User_A.USERPRMKEY#)
 
 	<cfset RespondingUser_Id = Trim(UCase(Get_TestUser_Name.AD_USERID))>
 	<CFSET ThisEEName = Trim(Get_TestUser_Name.FULLNAME)>
+			
 
 <CFELSE>
 
@@ -44,6 +45,7 @@ WHERE SETTINGUSER_PKEY = #Init_Check_Auth_User_A.USERPRMKEY#)
 	AND (UPPER(AD_USERID) LIKE UPPER('#RespondingUser_Id#%')
 	OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#RespondingUser_Id#%'))
 	</cfquery>
+		
 
 <!---
 <CFOUTPUT>
@@ -55,6 +57,7 @@ Get_Ee_ThisUser.RecordCount = #Get_Ee_ThisUser.RecordCount#
 	<CFIF Get_Ee_ThisUser.RecordCount EQ 1>
 		<CFSET ThisEEName = Trim(Get_Ee_ThisUser.FULLNAME)>
 	</cfif>
+		
 	
 </cfif>
 

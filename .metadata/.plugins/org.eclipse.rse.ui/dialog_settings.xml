@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<section name="RemoteSearchPage">
+	<section name="RemoteSearchPage.data8">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="conting.liab.htm" key="searchString"/>
+		<item value="true" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="true" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data7">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="Contingent Liabilities Materials" key="searchString"/>
 		<item value="false" key="includeArchives"/>
 		<item value="false" key="fileNameRegex"/>
 		<item value="false" key="caseSensitive"/>
 		<item value="false" key="includeSubfolders"/>
-		<item value="6" key="dataSize"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="X:\web\inetpub\wwwroot2\inhouse" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage">
+		<item value="true" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="true" key="includeSubfolders"/>
+		<item value="9" key="dataSize"/>
 		<item value="false" key="stringRegex"/>
 		<item value="true" key="fileNameCaseSensitive"/>
 	</section>
@@ -33,6 +59,19 @@
 		<item value="true" key="fileNameCaseSensitive"/>
 		<item value="Local" key="connectionName"/>
 		<item value="X:\web\inetpub\wwwroot2\inhouse\contingliabadmin" key="folderName"/>
+		<item value="*" key="fileNames"/>
+	</section>
+	<section name="RemoteSearchPage.data6">
+		<item value="5CD238B5J0" key="profileName"/>
+		<item value="WO Address1" key="searchString"/>
+		<item value="false" key="includeArchives"/>
+		<item value="false" key="fileNameRegex"/>
+		<item value="false" key="caseSensitive"/>
+		<item value="false" key="includeSubfolders"/>
+		<item value="false" key="stringRegex"/>
+		<item value="true" key="fileNameCaseSensitive"/>
+		<item value="Local" key="connectionName"/>
+		<item value="Y:\web\inetpub\wwwroot2\LegalLibs" key="folderName"/>
 		<item value="*" key="fileNames"/>
 	</section>
 	<section name="RemoteSearchPage.data5">

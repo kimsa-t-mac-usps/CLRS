@@ -69,8 +69,7 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 --->
 
 <CFMAIL
-   
-    
+ 
     FROM="#This_EE_From_Line#"
     TO="#email_cfmail_nocases_To#"
     BCC="gccontliab@usps.gov"
@@ -89,8 +88,7 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 <!---
     FROM="#TrimEMailAddr#"
 --->
-
-<CFMAIL
+<!---<CFMAIL
     FROM="#This_EE_From_Line#"
     TO="#email_cfmail_nocases_To#"
     BCC="LawDeptSurvey@usps.gov"

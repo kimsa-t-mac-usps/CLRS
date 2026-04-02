@@ -15,7 +15,7 @@
 
 <title>
 
-[<CFOUTPUT>#CGI.SERVER_NAME#</CFOUTPUT>] 
+[lawdept-sit.usps.gov] 
 
 <CFIF NOT IsDefined("EarlierRptDate")>
 DRAFT
@@ -24,7 +24,9 @@ DRAFT
 CONFIDENTIAL Law Department Contingent Liabilities
 
 </title>
-
+</head>
+<body>
+<cfinclude template="MfaCookieCheck.cfm">
 
 
 

@@ -22,13 +22,8 @@ Please complete this form in its entirety. Click the <b>Submit button at the end
 </CFIF>
 
 
-<!--
-https://lawdept.usps.gov/inhouse/framed/conting.liab.htm
--->
-
-
 <p>
-Here is a <b>summary of requirements</b> for reporting your case on this form. (See the <CFOUTPUT><a href="#LawDept_Base_URL#/inhouse/conting.liab.htm" target="_blank">Contingent Liability Protocol</a></CFOUTPUT> for further details.)
+Here is a <b>summary of requirements</b> for reporting your case on this form. (See the <a href="/InHouse/conting.liab.htm" target="_blank">Contingent Liability Protocol</a> for further details.)
 
 <div style="margin-top:25pt">
 

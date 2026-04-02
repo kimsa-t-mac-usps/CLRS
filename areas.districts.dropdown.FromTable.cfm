@@ -50,14 +50,14 @@
 	
 	<CFLOOP QUERY="Get_Divisions">
 		<CFSET This_Division_Name = NAME>
-		<CFIF (IsDefined("SelectedPC") AND SelectedPC EQ This_Division_Name ) OR (IsDefined("This_Division_Code") AND This_Division_Code EQ This_Division_Name)>
+		<CFIF (IsDefined("SelectedPC") AND SelectedPC EQ This_Division_Name ) OR (IsDefined("This_Division_Code") AND This_Division_Code EQ NAME)>
 			<CFSET SelectedWord = "SELECTED">
 		<CFELSE>
 			<CFSET SelectedWord = "">
 		</cfif>
 	<CFOUTPUT>
 		<!---12/15@3:44pm replaced with below <option value="#DIVISION_CODE#" #SelectedWord#>#NAME#</OPTION> --->
-		<option value="#Division_code#" #SelectedWord#>#Name#</OPTION>
+		<option value="#Name#" #SelectedWord#>#Name#</OPTION>
 	</CFOUTPUT>
 	</CFLOOP>
 </CFIF>

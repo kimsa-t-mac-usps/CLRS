@@ -129,14 +129,14 @@ For the Contingent Liabilities report on
 <CFELSE>
 		<!---
 		GAC-8/08/2013: changed this_server to cgi variable
-        <CFSET This_Server = "lawdept">
+        <CFSET This_Server = "lawdept-sit.usps.gov">
 		--->
-        <CFSET This_Server = #CGI.SERVER_NAME#>
+        <CFSET This_Server = "lawdept-sit.usps.gov">
         
 </cfif>
 
 
-<a href="#This_Server_Base_URL#/InHouse/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#ThisRecID#">#Form.CASE_NAME#</a>,
+<a href="https://<cfoutput>#This_Server#</cfoutput>/InHouse/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#ThisRecID#">#Form.CASE_NAME#</a>,
 
 
 

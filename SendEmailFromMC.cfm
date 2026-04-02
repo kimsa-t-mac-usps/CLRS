@@ -378,13 +378,6 @@ IsDefined("Form.Alt_Approval_Flag")>
 	
 	</cfif>
 	
-	<!---
-	GAC - 07/08/2013 - changed lawdept.usps.gov
-	I have <b>#ApprWordText#</b> this Contingent Liabilities Case Record: <a href="https://lawdept.usps.gov/InHouse/ContingentLiabilities/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
-	--->
-	
-	
-	<!--- Bob Sindermann 12/6/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
 	I have <b>#ApprWordText#</b> this Contingent Liabilities Case Record: <a href="#LawDept1_Base_URL#/ClientService/ContingentLiabilities/V1.0/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
 	
 	
