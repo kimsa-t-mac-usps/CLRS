@@ -53,7 +53,7 @@ Form.FrontOffcReviewFormat NOT DEFINED.
 <CFOUTPUT>
 <p style="margin-top:#TopRightLinksMarginTop#">
 </CFOUTPUT>
-<CFOUTPUT>&middot;&nbsp;<a href="#LawDept_Base_URL#/inhouse/conting.liab.htm" target="_blank">Contingent Liability Protocol</a></CFOUTPUT>
+&middot;&nbsp;<a href="/InHouse/conting.liab.htm" target="_blank">Contingent Liability Protocol</a>
 
 
 <CFIF Check_Auth_User_A.RecordCount EQ 1>
