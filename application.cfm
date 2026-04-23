@@ -5,38 +5,21 @@ SESSIONTIMEOUT=#CreateTimeSpan(0,0,10,0)#
 SESSIONMANAGEMENT="Yes"
 SEARCHIMPLICITSCOPES="True">
 
-
-
 <!--- Previous:
-
 requestTimeout = "1300"
-
 --->
-
 <!---
 <CFSETTING requestTimeout = "1800">
 --->
-
-
-
 <CFSETTING requestTimeout = "5000">
-
-
 
 <!-- applicationCFM at 11 -->
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
-
-
 <!---
 
 NOTE: <CFQUERY NAME="#CLRC_Query_Name#" occurs in cfloop.cur_rem.casetype.assesscutoff.query.cfm and Get_Single_Record.cfm
 
 --->
-
-
-
-
-
 
 <!---
 <CFOUTPUT>
@@ -86,7 +69,7 @@ GetFileFromPath(GetBaseTemplatePath()) = #GetFileFromPath(GetBaseTemplatePath())
 
 <!---
 <CFSET Test_Email_Addr = "Kimsa.t.mac@usps.gov">
-<CFSET Test_Server = "lawdept1-sit">
+<CFSET Test_Server = "lawdept">
 <CFSET Test_Server_Folder = ThisTemplateFolder & "/">
 --->
 
@@ -195,10 +178,12 @@ WHERE USERPRMKEY = 361
 <cfset startstr = "dc=usa,dc=dce,dc=usps,dc=gov">
 
 <CFSET LDAPDistingName = "CN=Sindermann Jr\, Robert P,OU=Users,OU=HQ,OU=Users & Workstations," & startstr>
+
+
+<!---<CFSET LDAPServerName = "eagandcs.usa.dce.usps.gov"> Updated new Server name: eagandcs-sha2.usa.dce.usps.gov--->
+
+<!---<CFSET LDAPServerName = "eagandcs.usa.dce.usps.gov">3.14.25--->
 <CFSET LDAPServerName = "eagandcs-sha2.usa.dce.usps.gov">
-<!---<CFSET LDAPServerName = "eagandcs.usa.dce.usps.gov">--->
-
-
 <CFSET todayDate = Now()>
 <CFSET todayDateFmt = DateFormat(todayDate, "mm/dd/yyyy")>
 
@@ -206,38 +191,8 @@ WHERE USERPRMKEY = 361
 <CFSET Spreadsheets_Uploads_Dir = "D:\Inetpub\wwwroot\InHouse\ContingentLiabilities\Spreadsheets\">
 --->
 
-<!---
-<CFSET Spreadsheets_Uploads_Dir = "D:\Inetpub\wwwroot\ClientService\ContingentLiabilities\Spreadsheets\">
---->
-
-
-<!---
-<CFSET CFFILE_Uploads_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.LitigationHold\Matters\">
-<CFSET CFFILE_Uploads_Dir_URL = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.LitigationHold/Matters/">
---->
-
-<!---
-<CFSET Spreadsheets_Uploads_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
---->
-
-
-
 <CFSET Spreadsheets_Uploads_Dir = "D:\web\inetpub\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
 
-
-
-
-<!---
-<CFSET Spreadsheets_Uploads_Dir_URL = "../Spreadsheets/">
-
-<CFSET Spreadsheets_Uploads_Dir_URL = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
-
---->
-
-
-<!---
-<CFSET Spreadsheets_Uploads_Dir_URL = "https://eagnmnss29c:8182/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
---->
 
 
 
@@ -292,28 +247,11 @@ WHERE USERPRMKEY = 361
 
 <CFSET ThisTemplateFolder = Right(ThisTemplatePath, Len(ThisTemplatePath) - LastBackslash)>
 
-<!---
-<CFSET Test_Server_Folder = "Test.20110325/">
---->
 
 <CFIF IsDefined("Test_Server")>
         <CFSET This_Server = Test_Server>
 <CFELSE>
-        <!---<CFSET This_Server = "lawdept">--->
-        <!---<CFSET This_Server = "eagnmnss0b6">--->
-
-<!---
-        <CFSET This_Server = CGI.SERVER_NAME & ":7443">
---->
-
-<!---
-        <CFSET This_Server = CGI.SERVER_NAME & ":8182">
---->
-
-		<CFSET This_Server = "lawdept1-sit.usps.gov">
-
-
-
+		<CFSET This_Server = CGI.SERVER_NAME>
 </cfif>
 
 <CFIF IsDefined("Test_Server_Folder")>
@@ -322,20 +260,18 @@ WHERE USERPRMKEY = 361
 	<CFSET ServerFolder = "V1.0/">
 </cfif>
 <!--- Centralized base URL variables (soft links) --->
-<CFSET This_Server_Base_URL = "http://" & This_Server>
-<CFSET LawDept_Base_URL = "http://lawdept-sit.usps.gov">
-<CFSET LawDept1_Base_URL = "http://lawdept-sit.usps.gov">
-<CFSET LawManager_Base_URL = "http://lawdept-sit.usps.gov/lmWeb">
+<CFSET This_Server_Base_URL = "https://" & This_Server>
+<CFSET LawDept_Base_URL = "https://lawdept1-dev.usps.gov">
+<CFSET LawDept1_Base_URL = "https://lawdept1-dev.usps.gov">
+<CFSET LawManager_Base_URL = "https://lawdept1-dev.usps.gov/lmWeb">
 
-<!--- Moved to LabelLists.cfm
-<cfset YesNo_List = "Y,N">
---->
-<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME eq "eagnmnwbd240" >
-	<cfset Init_user_id = "ysrj00">
+<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME eq "eagnmnss58b" and cgi.SERVER_NAME eq "lawdept1-dev.usps.gov" or cgi.SERVER_NAME eq "lawdept1-dev.usps.gov") >
+	<cfset Init_user_id = "YSRJ00">
 <cfelseif len(cgi.auth_user) neq 0>
 	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
 <cfelse>
 	<cfset Init_User_Id = "">
+
 </cfif>
 
 
@@ -411,6 +347,15 @@ WHERE USERPRMKEY = 361
 
 	</CFIF>
 
+
+
+
+
+
+
+
+
+
 	<CFQUERY NAME="GetUserInfo" DATASOURCE="ContLiab">
 	
 	SELECT b.LASTNAME, b.FIRSTNAME, a.LONGEMAIL, b.PRIMARYKEY, b.AD_USERID, b.AD_MAILNICKNAME, Trim(a.LASTNAME) || ', ' || Trim(a.FIRSTNAME) AS FULLNAME
@@ -424,6 +369,8 @@ WHERE USERPRMKEY = 361
 	AND (SEPARATFLG != 'S' OR SEPARATFLG IS NULL OR SEPARATFLG = '0')
 	
 	</cfquery>
+	
+	
 	
 	<CFIF GetUserInfo.RecordCount NEQ 1>
 	
@@ -441,13 +388,14 @@ WHERE USERPRMKEY = 361
 		<cfldap action="QUERY"
 		    name="QueryGetDisplayName"
 		    attributes="displayName, mail"
-			maxrows="10000"
-			timeout="9000"
-		    start="#startstr#"
+			start="#startstr#"
+			<!---filter="(&(objectClass=user)(|(extensionAttribute13=#GetUserInfo.AD_USERID#)(mailNickName=#GetUserInfo.AD_MAILNICKNAME#)))"--->
 			filter="(&(objectClass=user)(|(extensionAttribute13=#GetUserInfo.AD_USERID#)(mailNickName=#GetUserInfo.AD_MAILNICKNAME#)))"
 			scope="subtree"
 			sort="name"
 		    server="#LDAPServerName#"
+		    secure = "CFSSL_BASIC"
+		    port="636"
 		    username="usa\#Trim(Get_PW.AD_MAILNICKNAME)#"
 		    password="#Get_PW.PW#">
 		<cfcatch type="any">
@@ -466,10 +414,15 @@ WHERE USERPRMKEY = 361
 	
 		<CFSET TrimUserLastName = Trim(GetUserInfo.LASTNAME)>
 		<CFSET TrimUserFirstName = Trim(GetUserInfo.FIRSTNAME)>
-		
+	
+	
 	</cfif>
 
+
+
 	<CFINCLUDE TEMPLATE="Query.Get_Bus_Serv_Contact.cfm">
+
+
 
 <!---
     dn="#LDAPDistingName#"
@@ -479,13 +432,14 @@ WHERE USERPRMKEY = 361
 	<cfldap action="QUERY"
 	    name="QueryGetBusServContactDisplayName"
 	    attributes="displayName, mail"
-		maxrows="10000"
-		timeout="9000"
 	    start="#startstr#"
-		filter="(&(objectClass=user)(employeeID=#NumberFormat(Get_Bus_Serv_Contact.EMPLOYEE_ID, '00000000')#))"
+	    filter="(&(objectClass=user)(|(extensionAttribute13=#GetUserInfo.AD_USERID#)(mailNickName=#GetUserInfo.AD_MAILNICKNAME#)))"
+		<!---filter="(&(objectClass=user)(employeeID=#NumberFormat(Get_Bus_Serv_Contact.EMPLOYEE_ID, '00000000')#))"--->
 		scope="subtree"
 		sort="name"
 	    server="#LDAPServerName#"
+	    secure = "CFSSL_BASIC"
+		port="636"
 	    username="usa\#Trim(Get_PW.AD_MAILNICKNAME)#"
 	    password="#Get_PW.PW#">
 		<cfcatch type="any">
@@ -498,11 +452,14 @@ WHERE USERPRMKEY = 361
 	</cftry>
 	<CFSET This_BusServContact_From_Line = '"' & Trim(QueryGetBusServContactDisplayName.displayName) & '"' & ' <' & Trim(QueryGetBusServContactDisplayName.mail) & '>'>
 	
+	
+	
 	<CFQUERY NAME="Get_All_ReportDates" DATASOURCE="ContLiab">
 	SELECT DATE_RPT_FMT
 	FROM view_conting_all_rptdates_fmt
 	</cfquery>
-		
+	
+	
 	<CFSET ReportDatesList = ValueList(Get_All_ReportDates.DATE_RPT_FMT)>
 
 <!---
@@ -512,6 +469,8 @@ ReportDatesList = "#ReportDatesList#"
 <p>
 </CFOUTPUT>
 --->
+
+
 
 	<CFSET ReportDatesList_ListLen = ListLen(ReportDatesList)>
 
@@ -583,6 +542,8 @@ PrevReportDate = "#PrevReportDate#"
 --->
 
 
+
+
 <!---
 	<CFIF PrevReportDate NEQ "">
 --->
@@ -615,18 +576,6 @@ PrevReportDate = "#PrevReportDate#"
 
 
     
-<!---	
-		<CFSET PrevCFFILE_Uploads_Dir_Link = "/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
---->
-
-
-
-<!---
-		<CFSET PrevCFFILE_Uploads_Dir_Link = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
---->
-
-
-
 		<CFSET PrevCFFILE_Uploads_Dir_Link = Spreadsheets_Uploads_Dir_URL & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
 
 
@@ -1319,6 +1268,10 @@ ValueList(Get_PrevReport_CASE_REC_ID_SEQUENCE.CASE_REC_ID_SEQUENCE) =
 	WHERE UPPER(AD_USERID) LIKE UPPER('#RespondingUser_Id#%')
 	OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#RespondingUser_Id#%')
 	</cfquery>
+
+
+
+
 
 <!--- Used in Report with
 (CONTINGENT_LIAB_GetRecord_Current_Count.Current_Count GT IndexOnlyCaseCountCutoff

@@ -803,7 +803,7 @@ OR title LIKE 'Executive Program%')
 <CFIF AuthorizedFlag EQ "Yes">
 <div style="position: absolute; top: 20; right: 60; background:FFD5AA; padding:5pt; text-align:center">
 <p style="margin-top:3pt">
-<a href="Report.full.cfm"><b>Current Report</b></a>
+<a href="Report.cfm"><b>Current Report</b></a>
 </div>
 </cfif>
 
