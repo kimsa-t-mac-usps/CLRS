@@ -169,7 +169,8 @@ TO: #ToMCLine#
 --->
 
 <!--- Bob Sindermann 12/5/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
-        <CFSET This_Server = "lawdept1">
+        <!--- URL now derives from App_Base_URL defined in application.cfm --->
+        <CFSET This_Server = App_Base_URL>
 
 </cfif>
 <CFIF IsDefined("Test_Server_Folder")>
@@ -183,7 +184,7 @@ A new Contingent Liabilities case record has been entered in the system for your
 <a href="https://<cfoutput>#This_Server#</cfoutput>/InHouse/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#Get_CONTINGENT_LIAB_REPORT_Currval.CONTINGENT_LIAB_REPORT_CURRVAL#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
 --->
 
-<a href="https://#This_Server#.usps.gov/ClientService/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#Get_CONTINGENT_LIAB_REPORT_Currval.CONTINGENT_LIAB_REPORT_CURRVAL#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
+<a href="#This_Server#/ClientService/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#Get_CONTINGENT_LIAB_REPORT_Currval.CONTINGENT_LIAB_REPORT_CURRVAL#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
 
 </cfoutput>
 

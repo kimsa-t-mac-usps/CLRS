@@ -165,8 +165,11 @@ WHERE USERPRMKEY = 361
 <CFSET PostRedesignReportDate = "09/30/2011">
 <CFSET PostDistDivReorgRptDate = "06/30/2021">
 <CFSET RowColorGreen = "CCFFCC">
+
+<!--- Base URL for the application. Override this variable to point to a different environment. --->
+<CFSET App_Base_URL = "https://lawdept1-dev.usps.gov">
 <!---KS set URL 3.19.26 --->
-<!---<CFSET CL_Protocol_URL = "https://lawdept-cat.usps.gov/inhouse/conting.liab.htm">--->
+<CFSET CL_Protocol_URL = App_Base_URL & "/inhouse/conting.liab.htm">
 
 <CFSET ThisTemplatePath = GetDirectoryFromPath(GetBaseTemplatePath())>
 

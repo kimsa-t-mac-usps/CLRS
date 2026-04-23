@@ -384,8 +384,8 @@ IsDefined("Form.Alt_Approval_Flag")>
 	--->
 	
 	
-	<!--- Bob Sindermann 12/6/2013: Changed to Lawdept1 to correct for users still on Lawdept or BA0 server --->
-	I have <b>#ApprWordText#</b> this Contingent Liabilities Case Record: <a href="https://lawdept1.usps.gov/ClientService/ContingentLiabilities/V1.0/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
+	<!--- URL derives from App_Base_URL defined in application.cfm --->
+	I have <b>#ApprWordText#</b> this Contingent Liabilities Case Record: <a href="#App_Base_URL#/ClientService/ContingentLiabilities/V1.0/Report.cfm?RecIDParm=#Form.RecID#">#Form.CASE_NAME#, #Form.CASE_NUMBER#</a>.
 	
 	
 	<CFIF IsDefined("Form.DisapprovalComment") AND ((IsDefined("Form.MC_Approval_Flag") AND Form.MC_Approval_Flag EQ "2") OR (IsDefined("Form.Alt_Approval_Flag") AND Form.Alt_Approval_Flag EQ "2"))>

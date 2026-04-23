@@ -30,9 +30,7 @@ Green box in upper-right of Report. Links to New Case form, Protocol, Report for
 <CFOUTPUT>
 <p style="margin-top:#TopRightLinksMarginTop#">
 </CFOUTPUT>
-<!---KS Updated 3.19.26 --->
-&middot;&nbsp;<a href="https://lawdept.usps.gov/inhouse/conting.liab.htm" target="_blank">Contingent Liability Protocol</a>
-<!---&middot;&nbsp;<a href="#CL_Protocol_URL#" target="_blank">Contingent Liability Protocol</a>--->
+<CFOUTPUT>&middot;&nbsp;<a href="#CL_Protocol_URL#" target="_blank">Contingent Liability Protocol</a></CFOUTPUT>
 
 
 <CFIF Check_Auth_User_A.RecordCount EQ 1>
