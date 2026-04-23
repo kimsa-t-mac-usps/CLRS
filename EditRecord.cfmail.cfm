@@ -49,9 +49,6 @@ ORDER BY c.SORTORDER, a.LASTNAME
 </cfquery>
 
 
-
-
-
 <CFSET ToMCLine = "">
 
 <CFSET AlertToLine = "">
@@ -67,7 +64,6 @@ CHR(32) = space
 
 <CFSET AlertToLine = ListAppend(AlertToLine, TrimMCFirstName & " " & TrimMCLastName, "," & CHR(32))>
 --->
-
 
 <CFSET AlertToLine = ListAppend(AlertToLine, " " & TrimMCFirstName & " " & TrimMCLastName)>
 
@@ -96,9 +92,9 @@ CHR(32) = space
 
 <CFMAIL
    
-     FROM="Kimsa.T.MAC@usps.gov"<!---#This_EE_From_Line#--->
-    TO="Kimsa.T.Mac@usps.gov" <!---#EditRecord_cfmail_To#--->
-    BCC="Kimsa.T.Mac@usps.gov" <!---BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"--->
+     FROM="#This_EE_From_Line#"
+    TO="#EditRecord_cfmail_To#"
+    BCC="gccontliab@usps.gov,#Trim(QueryGetBusServContactDisplayName.mail)#"
     SUBJECT="#Form.CASE_NAME#: #ASSESSMENT_AMOUNT_Change# in Contingent Liabilities Assessment"
 	TYPE="HTML">
 
@@ -136,7 +132,7 @@ For the Contingent Liabilities report on
 </cfif>
 
 
-<a href="#This_Server_Base_URL#/ClientService/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#ThisRecID#">#Form.CASE_NAME#</a>,
+<a href="https://<cfoutput>#This_Server#</cfoutput>/InHouse/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#ThisRecID#">#Form.CASE_NAME#</a>,
 
 
 

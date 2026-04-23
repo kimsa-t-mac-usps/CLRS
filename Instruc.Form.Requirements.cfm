@@ -1,8 +1,5 @@
 <cfinclude template="MfaCookieCheck.cfm">
-
-
 <span class="ClickEdit" style="font-weight:bold">Revised June 2010</span>
-
 <!---
 <CFOUTPUT>
 GetBaseTemplatePath() = "#GetBaseTemplatePath()#"
@@ -21,9 +18,17 @@ Please complete this form in its entirety. Click the <b>Submit button at the end
 
 </CFIF>
 
-
+<!--
+https://lawdept.usps.gov/inhouse/framed/conting.liab.htm
+-->
 <p>
-Here is a <b>summary of requirements</b> for reporting your case on this form. (See the <a href="/InHouse/conting.liab.htm" target="_blank">Contingent Liability Protocol</a> for further details.)
+Here is a <b>summary of requirements</b> for reporting your case on this form. (See the <a href="https://lawdept.usps.gov/inhouse/conting.liab.htm" target="_blank">Contingent Liability Protocol</a> for further details.)
+
+<!---Here is a <b>summary of requirements</b> for reporting your case on this form. (See the <a href="#ContingLiab_Protocol_URL#" target="_blank">Contingent Liability Protocol</a> for further details.)--->
+
+
+
+
 
 <div style="margin-top:25pt">
 
@@ -40,8 +45,6 @@ Select the likelihood of a loss, or liability, on the <b>Liability Assessment</b
 This Liability Assessment is made separately from the Damages Assessment. Be sure to explain the reasons for the Liability Assessment in the Facts/Positions section of this form.
 
 </div>
-
-
 <div style="margin-top:25pt">
 
 <div style="font-weight:bold; font-size:15pt; margin-bottom:10pt">Damages Assessment</div>
@@ -75,7 +78,6 @@ if the Maximum Reasonable Payout is $1 million or more</b>.
 <li>Liability Assessment of <b>Remote</b> with <b>Maximum Reasonable Payout</b> of <b>$10 million</b> or more.
 
 </div>
-
 
 <div style="margin-top:25pt">
 

@@ -9,16 +9,11 @@ EditRecord.ptC.cfm
 
 --->
 
-
-
-
 <!---
 NOTES: 
 -- Status Code range 11-30 reserved for Codes for cases to be removed from report
 -- "CFSET Status_Code_Order" in application.cfm
 --->
-
-
 
 <CFSWITCH EXPRESSION="#Status_Code_Var#">
 

@@ -23,7 +23,6 @@ Form to return to Report.full.cfm after selecting Report scope option (earlier r
 	<CFSET ReportScopeParm = "">
 </cfif>
 
-
 <CFOUTPUT>
 
 <CFIF IsDefined("EarlierRptDate")>
@@ -33,7 +32,6 @@ Form to return to Report.full.cfm after selecting Report scope option (earlier r
 </cfif>
 
 </cfoutput>
-
 
 <input type="hidden" name="CorpFinFormat" value="">
 <input type="hidden" name="CorpFinFormatFrontOffcVersion" value="">
