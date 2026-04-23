@@ -1,6 +1,5 @@
 <cfinclude template="MfaCookieCheck.cfm">
 
-
 <!---
 
 Included in Report.ptC.cfm
@@ -8,7 +7,6 @@ Included in Report.ptC.cfm
 Links to EditRecord.cfm
 
 Links, signals for MC / Deputy approve/disapprove
-
 
 --->
 
@@ -295,11 +293,6 @@ CLRC_Query_Name EQ "Get_Single_Record">
 	<CFSET URL_PrevReportDate_Parm = "">
 </CFIF>
 
-
-
-
-
-
 <CFSET UpdateNeededFlag = "no">
 
 <!---
@@ -332,11 +325,7 @@ Get_Case_WithoutChecklist.RecordCount GT 0
 	<CFIF IsDefined("EarlierRptDate") 
 	OR 
 	ALT_LAW_DEPT_OFFICE_Flag EQ "yes">
-
-
 		<li class="TopIndex_Gray">&nbsp;&nbsp;[Case needs update]
-
-
 	<CFELSE>
 
 		<CFSET MaroonBorderList = ListAppend(MaroonBorderList, This_CurrentRow)>
@@ -394,8 +383,6 @@ Get_Case_WithoutChecklist.RecordCount GT 0
 				<a name="#PRIMARYKEY#">&nbsp;</a>
 
 			</cfif>
-
-
 			<div id="RecLocked_#This_CurrentRow#" style="font-size:8pt; background:khaki; padding-top:3pt; padding-bottom:2pt; padding-left:4pt; padding-right:8pt; font-style:italic; font-weight:bold; margin-bottom:-1pt; text-align:center"><img src="Padlock.gif" width="12" height="15" align="baseline" alt="Padlock Image">&nbsp;&nbsp;Record Finalized</div>
 
 		</CFIF>
@@ -422,11 +409,7 @@ Get_Case_WithoutChecklist.RecordCount GT 0
 			</cfoutput>
 
 		</cfif>
-
-
 		<CFIF Get_MC_APPR_FLAG.RecordCount EQ 1>
-
-
 			<CFIF GetMC.RecordCount EQ 1 
 			AND 
 			GetMC.CONTINGENT_LIAB_CONCUR GE 1 
@@ -631,8 +614,6 @@ Get_Case_WithoutChecklist.RecordCount GT 0
 				</cfoutput>
 				
 			<CFELSE>
-
-
 				<CFIF IsDefined("Get_Auth_User_Office.OFFICE_PRM_KEY")>
 					
 					<CFIF Get_Auth_User_Office.OFFICE_PRM_KEY EQ ALT_LAW_DEPT_OFFICE>

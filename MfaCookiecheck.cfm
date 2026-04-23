@@ -1,5 +1,5 @@
 
-<cfif cgi.SERVER_NAME neq "lawdept1-dev.usps.gov">
+<cfif cgi.SERVER_NAME neq "eagnmnss29c">
 <cfif not isdefined("cookie._mfa.authenticated_clrs")>
     <cfinvoke component="components/saml" method="doMfaInit">
         <cfinvokeargument name="relayPage" value="#getFileFromPath(getBaseTemplatePath())#">

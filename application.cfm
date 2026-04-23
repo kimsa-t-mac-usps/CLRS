@@ -4,32 +4,12 @@
 SESSIONTIMEOUT=#CreateTimeSpan(0,0,10,0)#
 SESSIONMANAGEMENT="Yes"
 SEARCHIMPLICITSCOPES="True">
-
-<!--- Previous:
-requestTimeout = "1300"
---->
-<!---
-<CFSETTING requestTimeout = "1800">
---->
 <CFSETTING requestTimeout = "5000">
+
+
 
 <!-- applicationCFM at 11 -->
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
-<!---
-
-NOTE: <CFQUERY NAME="#CLRC_Query_Name#" occurs in cfloop.cur_rem.casetype.assesscutoff.query.cfm and Get_Single_Record.cfm
-
---->
-
-<!---
-<CFOUTPUT>
-GetFileFromPath(GetBaseTemplatePath()) = #GetFileFromPath(GetBaseTemplatePath())#
-</CFOUTPUT>
-
-<p></p>
---->
-
-
 <CFSET ThisTemplatePath = GetDirectoryFromPath(GetBaseTemplatePath())>
 
 <CFSET ThisTemplatePath = RemoveChars(ThisTemplatePath, Len(ThisTemplatePath), 1)>
@@ -46,10 +26,7 @@ GetFileFromPath(GetBaseTemplatePath()) = #GetFileFromPath(GetBaseTemplatePath())
 
 <CFSET TenMillion = "10000000">
 
-
-
 <CFSET BackslashIndex = 1>
-
 
 <CFLOOP CONDITION="BackslashIndex GT 0">
 
@@ -62,11 +39,7 @@ GetFileFromPath(GetBaseTemplatePath()) = #GetFileFromPath(GetBaseTemplatePath())
 
 <CFSET ThisTemplateFolder = Right(ThisTemplatePath, Len(ThisTemplatePath) - LastBackslash)>
 
-
-
 <!--- For production, Comment out Test_Email_Addr, Test_Server, Test_Server_Folder: --->
-
-
 <!---
 <CFSET Test_Email_Addr = "Kimsa.t.mac@usps.gov">
 <CFSET Test_Server = "lawdept">
@@ -85,15 +58,8 @@ GetFileFromPath(GetBaseTemplatePath()) = #GetFileFromPath(GetBaseTemplatePath())
 
 <CFSET Test_Server_Folder = ThisTemplateFolder & "/">
 --->
-
-
-
 <!--- Used in Report.ptE.cfm: List of cases to Turn off Text highlighting in Facts / Positions (full name of each case): --->
-
-
 <CFSET TurnOffTextHighlight = "">
-
-
 <!---
 
 <CFSET TurnOffTextHighlight = "McConnell v. Donahoe">
@@ -104,12 +70,9 @@ GetFileFromPath(GetBaseTemplatePath()) = #GetFileFromPath(GetBaseTemplatePath())
 
 --->
 
-
 <!--- Durr case added after consulting N.Whitehead, C.Zadina, other Chicago managers --->
 <!---KS Turn On Stephen for Factor/Positon textHighlight 2.14.24 --->
 <!---<CFSET TurnOffTextHighlight = "Stephen Durr v United States Postal Service; Chicago Network Distribution Center (CNDC)">--->
-
-
 
 <!---
 B8GQQ0
@@ -117,8 +80,6 @@ B8GQQ0
 --->
 
 <!--- See below for additional ListAppend for TurnOffTextHighlight for RespondingUser_Id EQ B8GQQ0 (W. Provoda) --->
-
-
 
 <CFIF IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat">
 
@@ -137,51 +98,30 @@ span.NarrDeletion {display:inline}
 </CFIF>
 
 <!--- Definitions:
-
 [See also LabelLists.cfm]
 
 CASE_TYPE
 -- 1: Liability
 -- 2: Receivable
 -- CASE_TYPE+10: Removed
-
-
 CLAIM_CATEGORY_Labels = "Business,Labor,Tort">
-
 ASSESSMENT_PROBABILITY_LabelList = "Probable,Reasonably Possible,Remote"
-
 Estimated_Time_Resolution_ValueList = "2,100,200"
 Estimated_Time_Resolution_LabelList = "Less Than 1 Year,1 - 5 Years,Over 5 Years"
-
 Assess_Cutoff_List set in Report.ptA.cfm
-
-
 --->
-
-
-
-
-
-
 <CFQUERY NAME="Get_PW" DATASOURCE="ContLiab">
 SELECT PW, AD_MAILNICKNAME
 FROM BUSINESSSERVUSERS
 WHERE USERPRMKEY = 361
 </cfquery>
 
-
-
-
-
-
-
 <cfset startstr = "dc=usa,dc=dce,dc=usps,dc=gov">
+<cfset ldap_secure = "CFSSL_BASIC">
+<cfset ldap_port = "636">
 
-<CFSET LDAPDistingName = "CN=Sindermann Jr\, Robert P,OU=Users,OU=HQ,OU=Users & Workstations," & startstr>
-
-
+<!---<CFSET LDAPDistingName = "CN=Sindermann Jr\, Robert P,OU=Users,OU=HQ,OU=Users & Workstations," & startstr>--->
 <!---<CFSET LDAPServerName = "eagandcs.usa.dce.usps.gov"> Updated new Server name: eagandcs-sha2.usa.dce.usps.gov--->
-
 <!---<CFSET LDAPServerName = "eagandcs.usa.dce.usps.gov">3.14.25--->
 <CFSET LDAPServerName = "eagandcs-sha2.usa.dce.usps.gov">
 <CFSET todayDate = Now()>
@@ -190,48 +130,47 @@ WHERE USERPRMKEY = 361
 <!---
 <CFSET Spreadsheets_Uploads_Dir = "D:\Inetpub\wwwroot\InHouse\ContingentLiabilities\Spreadsheets\">
 --->
+<!---
+<CFSET Spreadsheets_Uploads_Dir = "D:\Inetpub\wwwroot\ClientService\ContingentLiabilities\Spreadsheets\">
+--->
+<!---
+<CFSET CFFILE_Uploads_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.LitigationHold\Matters\">
+<CFSET CFFILE_Uploads_Dir_URL = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.LitigationHold/Matters/">
+--->
+<!---
+<CFSET Spreadsheets_Uploads_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
+--->
 
 <CFSET Spreadsheets_Uploads_Dir = "D:\web\inetpub\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
 
+<!---
+<CFSET Spreadsheets_Uploads_Dir_URL = "../Spreadsheets/">
 
+<CFSET Spreadsheets_Uploads_Dir_URL = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
 
+--->
+
+<!---
+<CFSET Spreadsheets_Uploads_Dir_URL = "https://eagnmnss29c:8182/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
+--->
 
 <CFSET Spreadsheets_Uploads_Dir_URL = "/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
-
-
 
 
 <!---
 <CFSET CFFILE_Spsheet_Uploads_Dir_Link = "/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/">
 --->
 
-
-
-
-
-
 <CFSET NewCLProtocolReportDate = "06/30/2010">
-
-
 <CFSET PostRedesignReportDate = "09/30/2011">
-
-
 <CFSET PostDistDivReorgRptDate = "06/30/2021">
-
-
-
 <CFSET RowColorGreen = "CCFFCC">
-
-
-
-
+<!---KS set URL 3.19.26 --->
+<!---<CFSET CL_Protocol_URL = "https://lawdept-cat.usps.gov/inhouse/conting.liab.htm">--->
 
 <CFSET ThisTemplatePath = GetDirectoryFromPath(GetBaseTemplatePath())>
 
 <CFSET ThisTemplatePath = RemoveChars(ThisTemplatePath, Len(ThisTemplatePath), 1)>
-
-
-
 
 <CFSET BackslashIndex = 1>
 
@@ -244,13 +183,25 @@ WHERE USERPRMKEY = 361
 
 </cfloop>
 
-
 <CFSET ThisTemplateFolder = Right(ThisTemplatePath, Len(ThisTemplatePath) - LastBackslash)>
 
+<!---
+<CFSET Test_Server_Folder = "Test.20110325/">
+--->
 
 <CFIF IsDefined("Test_Server")>
         <CFSET This_Server = Test_Server>
 <CFELSE>
+        <!---<CFSET This_Server = "lawdept">--->
+        <!---<CFSET This_Server = "eagnmnss0b6">--->
+
+<!---
+        <CFSET This_Server = CGI.SERVER_NAME & ":7443">
+--->
+
+<!---
+        <CFSET This_Server = CGI.SERVER_NAME & ":8182">
+--->
 		<CFSET This_Server = CGI.SERVER_NAME>
 </cfif>
 
@@ -259,31 +210,20 @@ WHERE USERPRMKEY = 361
 <CFELSE>
 	<CFSET ServerFolder = "V1.0/">
 </cfif>
-<!--- Centralized base URL variables (soft links) --->
-<CFSET This_Server_Base_URL = "https://" & This_Server>
-<CFSET LawDept_Base_URL = "https://lawdept1-dev.usps.gov">
-<CFSET LawDept1_Base_URL = "https://lawdept1-dev.usps.gov">
-<CFSET LawManager_Base_URL = "https://lawdept1-dev.usps.gov/lmWeb">
 
-<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME eq "eagnmnss58b" and cgi.SERVER_NAME eq "lawdept1-dev.usps.gov" or cgi.SERVER_NAME eq "lawdept1-dev.usps.gov") >
-	<cfset Init_user_id = "YSRJ00">
-<cfelseif len(cgi.auth_user) neq 0>
-	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
+<!--- Moved to LabelLists.cfm
+<cfset YesNo_List = "Y,N">
+--->
+<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME neq "eagnmnwep1431" and cgi.SERVER_NAME neq "eagnmnwep1432" >
+	<cfset Init_user_id = "K6GVN0">
 <cfelse>
-	<cfset Init_User_Id = "">
-
+	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
 </cfif>
-
-
-
 
 <!---
 <!--- User test: Jim Schlett KV83HK / schletjg --->
 <cfset Init_User_Id = "schletjg">
 --->
-
-
-
 <CFIF GetFileFromPath(GetBaseTemplatePath()) DOES NOT CONTAIN "NotAuthorized.cfm">
 
 <cftry>
@@ -302,10 +242,6 @@ WHERE USERPRMKEY = 361
 		<cflog text="Init_Check_Auth_User_A: #serializeJson(checkAuthAResult)#" type="information" file="clrs-ldap">
 	</cffinally>
 </cftry>
-<!---
-
-
---->	
 	
 	<CFIF Init_Check_Auth_User_A.RecordCount EQ 1
 
@@ -346,14 +282,6 @@ WHERE USERPRMKEY = 361
 		<CFSET TurnOffTextHighlight = ListAppend(TurnOffTextHighlight, "Diping Y. Anderson v. Postmaster General")>
 
 	</CFIF>
-
-
-
-
-
-
-
-
 
 
 	<CFQUERY NAME="GetUserInfo" DATASOURCE="ContLiab">
@@ -414,11 +342,8 @@ WHERE USERPRMKEY = 361
 	
 		<CFSET TrimUserLastName = Trim(GetUserInfo.LASTNAME)>
 		<CFSET TrimUserFirstName = Trim(GetUserInfo.FIRSTNAME)>
-	
-	
+		
 	</cfif>
-
-
 
 	<CFINCLUDE TEMPLATE="Query.Get_Bus_Serv_Contact.cfm">
 
@@ -451,15 +376,11 @@ WHERE USERPRMKEY = 361
 		</cffinally>
 	</cftry>
 	<CFSET This_BusServContact_From_Line = '"' & Trim(QueryGetBusServContactDisplayName.displayName) & '"' & ' <' & Trim(QueryGetBusServContactDisplayName.mail) & '>'>
-	
-	
-	
-	<CFQUERY NAME="Get_All_ReportDates" DATASOURCE="ContLiab">
+		<CFQUERY NAME="Get_All_ReportDates" DATASOURCE="ContLiab">
 	SELECT DATE_RPT_FMT
 	FROM view_conting_all_rptdates_fmt
 	</cfquery>
-	
-	
+		
 	<CFSET ReportDatesList = ValueList(Get_All_ReportDates.DATE_RPT_FMT)>
 
 <!---
@@ -469,9 +390,6 @@ ReportDatesList = "#ReportDatesList#"
 <p>
 </CFOUTPUT>
 --->
-
-
-
 	<CFSET ReportDatesList_ListLen = ListLen(ReportDatesList)>
 
 	<CFSET EarliestReportDate = DateFormat(ListLast(ReportDatesList), "mm/dd/yyyy")>
@@ -485,7 +403,7 @@ ReportDatesList = "#ReportDatesList#"
 <!---    
 		<CFIF ReportDatesList_ListLen GT 1>
 --->	
-    
+   
 
 		<CFIF ReportDatesList_ListLen GT 1
 		AND
@@ -563,19 +481,18 @@ PrevReportDate = "#PrevReportDate#"
 	
 	    <CFSET PrevRptDateToFmt_FYQuarter = RptDateToFmt_FYQuarter>
 
-
-
 <!---
 		<CFSET PrevCFFILE_Destination_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
 --->	
-
-
 		<CFSET PrevCFFILE_Destination_Dir = Spreadsheets_Uploads_Dir & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
-
-
-
-
     
+<!---	
+		<CFSET PrevCFFILE_Uploads_Dir_Link = "/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
+--->
+
+<!---
+		<CFSET PrevCFFILE_Uploads_Dir_Link = "https://eagnmntwe1860:7443/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
+--->
 		<CFSET PrevCFFILE_Uploads_Dir_Link = Spreadsheets_Uploads_Dir_URL & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/Cases/">
 
 
@@ -590,15 +507,7 @@ PrevReportDate = "#PrevReportDate#"
 	
 	    <CFSET PrevRptDateToFmt_FYQuarter = "">
 
-
-
 	</CFIF>
-
-    
-    
-
-
-
 
 <!---
 	<CFSET Spreadsheets_Uploads_Dir = "D:\web\inetpub\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
@@ -617,11 +526,8 @@ PrevReportDate = "#PrevReportDate#"
 	<CFSET CFFILE_Spsheet_Uploads_Dir = "\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\">
 --->
 
-
 	<CFSET RptDateToFmt = ThisReportDate>
-
 	<CFINCLUDE TEMPLATE="RptDateFYQFmt.cfm">
-
 
 
 <!---
@@ -640,18 +546,9 @@ PrevReportDate = "#PrevReportDate#"
 
 --->
 
-
-
-
-
-
-
-
 <!--- Also reset in Spreadsheet.CL.cfm, for Case List spsheet: --->
 
 	<CFSET CFFILE_Spsheet_Uploads_Dir = "D:\web\inetpub\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\">
-
-
 	<CFSET CFFILE_Spsheet_Uploads_Dir_Link = "/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/">
 
 
@@ -666,11 +563,9 @@ application.cfm at 666: RptDateToFmt_FYQuarter = "#RptDateToFmt_FYQuarter#"
 </CFOUTPUT>
 --->
 
-
 <!---
 	<CFSET CFFILE_Destination_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
 --->
-
 
 	<CFSET CFFILE_Destination_Dir = Spreadsheets_Uploads_Dir & "FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "\Cases\">
 
@@ -702,11 +597,9 @@ application.cfm at 666: RptDateToFmt_FYQuarter = "#RptDateToFmt_FYQuarter#"
     <p></p>
 	</CFOUTPUT>
 --->
-
 		<CFSET ThisReportDateCompare = DateCompare(ThisReportDate, PostRedesignReportDate)>
 	
 	</CFIF>
-
 
 <!---
 <CFOUTPUT>
@@ -715,10 +608,6 @@ ThisReportDateCompare = #ThisReportDateCompare#
 
 </CFOUTPUT>
 --->
-
-
-
-	
 
 <!--- For Report Date on or after 6/30/2021 --->
 	<CFIF IsDefined("RptDate")>
@@ -730,7 +619,6 @@ ThisReportDateCompare = #ThisReportDateCompare#
 		<CFSET PostDistDivReorgDateCompare = DateCompare(ThisReportDate, PostDistDivReorgRptDate)>
 
 	</CFIF>
-
 
 
 	<cfswitch expression="#PostDistDivReorgDateCompare#"> 

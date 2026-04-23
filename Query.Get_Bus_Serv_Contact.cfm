@@ -41,10 +41,7 @@ b.AD_USERID = c.AD_USERID
 AND
 c.SURNAME = 'Contingent Liabilities Contact'
 
-
 </cfquery>
-
-
 
 <CFIF Get_Bus_Serv_Contact.Trim_LONGEMAIL EQ "">
 	<CFSET Trim_FIRSTNAME = Replace(Get_Bus_Serv_Contact.Trim_FIRSTNAME, " ", ".", "ALL")>
@@ -64,7 +61,6 @@ c.SURNAME = 'Contingent Liabilities Contact'
 <CFSET Get_Bus_Serv_Contact_Trim_LONGEMAIL = Get_Bus_Serv_Contact_Trim_LONGEMAIL & "@usps.gov">
 
 
-
 <CFQUERY NAME="Get_Bus_Serv_Mgr" DATASOURCE="contliab">
 SELECT Trim(a.LASTNAME) AS Trim_LASTNAME, Trim(a.FIRSTNAME) AS Trim_FIRSTNAME, Trim(a.TITLE) AS Trim_TITLE, Trim(a.VOICE) AS Trim_VOICE, Trim(a.LONGEMAIL) AS Trim_LONGEMAIL
 
@@ -75,8 +71,6 @@ WHERE
 AND a.TITLE LIKE 'Manager, Integration and Support%'
 
 </cfquery>
-
-
 
 <CFIF Get_Bus_Serv_Mgr.Trim_LONGEMAIL EQ "">
 	<CFSET Trim_FIRSTNAME = Replace(Get_Bus_Serv_Mgr.Trim_FIRSTNAME, " ", ".", "ALL")>

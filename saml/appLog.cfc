@@ -1,5 +1,5 @@
 component {
-    dsn = "lddb";
+    dsn = "Contliab";
 
   function createAppLogRecord(authName, authSessionId, templatePath,appName) {
     try {

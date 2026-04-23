@@ -81,10 +81,7 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 	<CFSET email_cfmail_nocases_To = Test_Email_Addr>
 <CFELSE>
 	<CFSET email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>
-</CFIF>
-
-
-
+</CFIF>--->
 <!---
     FROM="#TrimEMailAddr#"
 --->
@@ -93,8 +90,8 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
     TO="#email_cfmail_nocases_To#"
     BCC="LawDeptSurvey@usps.gov"
     SUBJECT="No Cases From #Office# to Report for Contingent Liabilities Report, #Rpt#"
-	TYPE="HTML">
---->
+	TYPE="HTML">--->
+
 
 
 <div style="font-family:arial; font-size:10pt">

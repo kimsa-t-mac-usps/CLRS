@@ -110,10 +110,19 @@ Matter Number
 
 <CFIF LM_MATTER_KEY NEQ "">
 
+<!---
+	<CFOUTPUT>
+	(<a href="https://56.207.31.151/lawmanager.net/exec/httpsrvr.dll/main?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#|&TYP=detail&HTYP=edit" target="_blank">LawManager</a>)
+	</CFOUTPUT>
+--->
+
+<!---
+https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D889839
+--->
 
 
 	<CFOUTPUT>
-    (<a href="#LawManager_Base_URL#/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
+    (<a href="https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
 	</CFOUTPUT>
 
 
@@ -266,8 +275,7 @@ HQ&nbsp;Dept
 	<br />
     
 
-
-	<CFSET This_Division_Code = DIVISION_CODE>
+	<CFSET This_Division_Code = DIVISION_CODE> 
 
 <!---
 	<CFSET This_Division_Name = NAME>
@@ -365,9 +373,9 @@ Select all that apply
 		
 		
 		<CFOUTPUT>
-		<input type="checkbox" name="Unions_Selected" value="#ListGetAt(Unions_List, Unions_List_Index)#" #Unions_Selected_CheckedWord#>#ListGetAt(Unions_List, Unions_List_Index)#
+		<input type="checkbox" name="Unions_Selected" value="#ListGetAt(Unions_List, Unions_List_Index)#"#Unions_Selected_CheckedWord#>#ListGetAt(Unions_List, Unions_List_Index)#
+				
 		</CFOUTPUT>
-		
 		<br />
 	
 	</CFLOOP>

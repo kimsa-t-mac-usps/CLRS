@@ -1,21 +1,13 @@
-
 <CFSET ASSESSMENT_PROBABILITY_LabelList = "Probable,Reasonably Possible,Remote">
 
 <!--- Also: --->
 <CFSET ASSESSMENT_PROBABILITY_Label_List = "a Probable,b. Reasonably Possible,c. Remote">
 <CFSET ASSESSMENT_PROBABILITY_Label_List_Len = ListLen(ASSESSMENT_PROBABILITY_Label_List)>
 
-
 <!---Kimsa<CFSET CASE_TYPE_LabelList = "Liability,Receivable,Addendum_Liability,Addendum_Receivable">--->
 <CFSET CASE_TYPE_LabelList = "Liability,Receivable,Addendum">
-
-
 <CFSET CLAIM_CATEGORY_Labels = "Business,Labor,Tort">
-
 <CFSET CLAIM_CATEGORY_Labels_Select = "Business,Labor,Labor -- Non-HQ,Tort">
-
-
-
 <CFSET Unions_List = "">
 
 <CFSET Unions_List = ListAppend(Unions_List, "APWU")>
@@ -61,13 +53,7 @@
 	</CFIF>
     
 </CFLOOP>
-
-
-
 <CFSET CLAIM_CATEGORY_Label_List_Len = ListLen(CLAIM_CATEGORY_Label_List)>
-
-
-
 <!--- Old STL values: No=1, Yes=2 --->
 <CFSET SHORT_TERM_LIABILITY_LabelList = "No,Yes">
 
@@ -78,9 +64,6 @@
 
 <CFSET Estimated_Time_Payout_ValueList = "0,2,100,200">
 <CFSET Estimated_Time_Payout_LabelList = "Same as Estimated Time to Resolution,Less Than 1 Year,1 - 5 Years,Over 5 Years">
-
-
-
 
 <CFIF (
 (IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat")
@@ -99,9 +82,6 @@ OR
 	<CFSET Current_Removed_List = "Current,Removed">
 
 </cfif>
-
-
-
 <CFIF (
 (IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat")
 OR
@@ -113,8 +93,6 @@ OR
 <!---
 	<CFSET Current_Removed_List_Reverse = "Removed,Current,New">
 --->
-
-
 	<CFSET Current_Removed_List_Reverse = "Current,Removed,New">
 
 <CFELSE>
@@ -123,15 +101,9 @@ OR
 	<CFSET Current_Removed_List_Reverse = "Removed,Current">
 
 </cfif>
-
-
-
-
 <!--- <CFSET Case_Type_List_Reverse = "Receivables,Liabilities"> Lenee'--->
 <!---<CFSET Case_Type_List_Reverse = "Liabilities,Receivables">kimsa --->
 <CFSET Case_Type_List_Reverse = "Receivables,Liabilities">
-
-
 <CFSET ChecklistAnswerOptionsLabels = "Yes,No,Not Applicable,Unknown At This Time">
 
 
