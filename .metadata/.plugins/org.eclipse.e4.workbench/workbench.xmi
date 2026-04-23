@@ -55,16 +55,18 @@
           <tags>persp.newWizSC:org.eclipse.ui.wizards.new.file</tags>
           <tags>persp.newWizSC:org.eclipse.ui.wizards.new.folder</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_25ZSVQ6PEfGlIaWl1y7VMQ" selectedElement="_25ZSXA6PEfGlIaWl1y7VMQ" horizontal="true">
-            <children xsi:type="basic:PartSashContainer" xmi:id="_25ZSVg6PEfGlIaWl1y7VMQ" containerData="2286" selectedElement="_25ZSWQ6PEfGlIaWl1y7VMQ">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_25ZSVg6PEfGlIaWl1y7VMQ" visible="false" containerData="2286" selectedElement="_25ZSWQ6PEfGlIaWl1y7VMQ">
               <children xsi:type="basic:PartStack" xmi:id="_25ZSVw6PEfGlIaWl1y7VMQ" elementId="left" toBeRendered="false" containerData="7000">
                 <children xsi:type="advanced:Placeholder" xmi:id="_25ZSWA6PEfGlIaWl1y7VMQ" elementId="org.eclipse.ui.views.ResourceNavigator" toBeRendered="false" ref="_25ZTVQ6PEfGlIaWl1y7VMQ"/>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_25ZSWQ6PEfGlIaWl1y7VMQ" elementId="leftBottom" containerData="3000" selectedElement="_25ZSWg6PEfGlIaWl1y7VMQ">
+              <children xsi:type="basic:PartStack" xmi:id="_25ZSWQ6PEfGlIaWl1y7VMQ" elementId="leftBottom" visible="false" containerData="3000" selectedElement="_25ZSWg6PEfGlIaWl1y7VMQ">
+                <tags>Minimized</tags>
+                <tags>MinimizedByZoom</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_25ZSWg6PEfGlIaWl1y7VMQ" elementId="com.adobe.ide.fileexplorer.view.CFFileExplorerView" ref="_25ZTdA6PEfGlIaWl1y7VMQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_25ZSWw6PEfGlIaWl1y7VMQ" elementId="com.adobe.ide.fileexplorer.view.CFFileExplorerView:*" toBeRendered="false" ref="_25ZTkg6PEfGlIaWl1y7VMQ"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_25ZSXA6PEfGlIaWl1y7VMQ" containerData="7714" selectedElement="_25ZSZw6PEfGlIaWl1y7VMQ" horizontal="true">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_25ZSXA6PEfGlIaWl1y7VMQ" containerData="7714" selectedElement="_25ZSXQ6PEfGlIaWl1y7VMQ" horizontal="true">
               <children xsi:type="basic:PartSashContainer" xmi:id="_25ZSXQ6PEfGlIaWl1y7VMQ" containerData="6273" selectedElement="_25ZSXg6PEfGlIaWl1y7VMQ">
                 <children xsi:type="advanced:Placeholder" xmi:id="_25ZSXg6PEfGlIaWl1y7VMQ" elementId="org.eclipse.ui.editorss" containerData="8000" ref="_25ZTQw6PEfGlIaWl1y7VMQ"/>
                 <children xsi:type="basic:PartStack" xmi:id="_25ZSXw6PEfGlIaWl1y7VMQ" elementId="bottom" visible="false" containerData="2000" selectedElement="_25ZSYA6PEfGlIaWl1y7VMQ">
@@ -78,16 +80,17 @@
                   <children xsi:type="advanced:Placeholder" xmi:id="_25ZSZg6PEfGlIaWl1y7VMQ" elementId="com.adobe.ide.coldfusion.appcodegeneration.extensionview" toBeRendered="false" ref="_25ZTcQ6PEfGlIaWl1y7VMQ"/>
                 </children>
               </children>
-              <children xsi:type="basic:PartSashContainer" xmi:id="_25ZSZw6PEfGlIaWl1y7VMQ" containerData="3727" selectedElement="_25ZSbA6PEfGlIaWl1y7VMQ">
+              <children xsi:type="basic:PartSashContainer" xmi:id="_25ZSZw6PEfGlIaWl1y7VMQ" visible="false" containerData="3727" selectedElement="_25ZSbA6PEfGlIaWl1y7VMQ">
                 <children xsi:type="basic:PartStack" xmi:id="_25ZSaA6PEfGlIaWl1y7VMQ" elementId="right" toBeRendered="false" containerData="6500">
                   <children xsi:type="advanced:Placeholder" xmi:id="_25ZSaQ6PEfGlIaWl1y7VMQ" elementId="org.eclipse.ui.views.ContentOutline" toBeRendered="false" ref="_25ZTWA6PEfGlIaWl1y7VMQ"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_25ZSag6PEfGlIaWl1y7VMQ" elementId="com.adobe.rds.client.core.views.DatabaseView" toBeRendered="false" ref="_25ZTWw6PEfGlIaWl1y7VMQ"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_25ZSaw6PEfGlIaWl1y7VMQ" elementId="com.adobe.rds.client.views.FileView" toBeRendered="false" ref="_25ZTXg6PEfGlIaWl1y7VMQ"/>
                 </children>
-                <children xsi:type="basic:PartStack" xmi:id="_25ZSbA6PEfGlIaWl1y7VMQ" elementId="rightBottom" containerData="3500" selectedElement="_25ZSbg6PEfGlIaWl1y7VMQ">
+                <children xsi:type="basic:PartStack" xmi:id="_25ZSbA6PEfGlIaWl1y7VMQ" elementId="rightBottom" visible="false" containerData="3500" selectedElement="_25ZSbg6PEfGlIaWl1y7VMQ">
                   <tags>Remote Systems</tags>
                   <tags>General</tags>
-                  <tags>active</tags>
+                  <tags>Minimized</tags>
+                  <tags>MinimizedByZoom</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_25ZSbQ6PEfGlIaWl1y7VMQ" elementId="com.adobe.ide.coldfusion.views.snippets" toBeRendered="false" ref="_25ZTYQ6PEfGlIaWl1y7VMQ"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_25ZSbg6PEfGlIaWl1y7VMQ" elementId="org.eclipse.rse.ui.view.SystemSearchView" ref="_25ZTkw6PEfGlIaWl1y7VMQ"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_25ZSbw6PEfGlIaWl1y7VMQ" elementId="org.eclipse.search.ui.views.SearchView" ref="_25ZTlg6PEfGlIaWl1y7VMQ"/>
@@ -116,10 +119,18 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_25ZTQw6PEfGlIaWl1y7VMQ" elementId="org.eclipse.ui.editorss" selectedElement="_25ZTRA6PEfGlIaWl1y7VMQ">
-      <children xsi:type="basic:PartStack" xmi:id="_25ZTRA6PEfGlIaWl1y7VMQ" elementId="PartStack@25c1f5ee">
+      <children xsi:type="basic:PartStack" xmi:id="_25ZTRA6PEfGlIaWl1y7VMQ" elementId="PartStack@25c1f5ee" selectedElement="_az9yMD5yEfG2Td6xmiffQQ">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <tags>noFocus</tags>
+        <tags>active</tags>
+        <children xsi:type="basic:Part" xmi:id="_az9yMD5yEfG2Td6xmiffQQ" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="ColdFusion Builder : Getting Started" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;com.adobe.ide.coldfusion.startup.startpage.editor&quot; name=&quot;Web Browser&quot; partName=&quot;ColdFusion Builder : Getting Started&quot; title=&quot;ColdFusion Builder : Getting Started&quot; tooltip=&quot;&quot;>&#xD;&#xA;&lt;input factoryID=&quot;com.adobe.ide.coldfusion.startup.startpage.StartPageEditorInput&quot; style=&quot;20&quot; tooltip=&quot;&quot; url=&quot;file:/C:/ColdFusionBuilder2016/plugins/com.adobe.ide.coldfusion.startup_3.1.3.201705031620/GettingStarted/index.html&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>com.adobe.ide.coldfusion.startup.startpage.editor</tags>
+          <tags>removeOnHide</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
+        </children>
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_25ZTVQ6PEfGlIaWl1y7VMQ" elementId="org.eclipse.ui.views.ResourceNavigator" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Navigator" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/filenav_nav.png" tooltip="" closeable="true">
@@ -231,7 +242,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:ColdFusion</tags>
-      <tags>activeOnClose</tags>
       <menus xmi:id="_25ZTdQ6PEfGlIaWl1y7VMQ" elementId="com.adobe.ide.fileexplorer.view.CFFileExplorerView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -258,7 +268,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:Remote Systems</tags>
-      <tags>active</tags>
       <tags>activeOnClose</tags>
       <menus xmi:id="_25ZTlA6PEfGlIaWl1y7VMQ" elementId="org.eclipse.rse.ui.view.SystemSearchView">
         <tags>ViewMenu</tags>
@@ -284,7 +293,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_25ZTnA6PEfGlIaWl1y7VMQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6JFAsCfFEfGCPLLM1v49hQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_25ZYAg6PEfGlIaWl1y7VMQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_W0wxsD5yEfG2Td6xmiffQQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_25ZYAg6PEfGlIaWl1y7VMQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_25ZTqA6PEfGlIaWl1y7VMQ" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -320,7 +329,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_25ZT4A6PEfGlIaWl1y7VMQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6JHc8SfFEfGCPLLM1v49hQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_25ZXmQ6PEfGlIaWl1y7VMQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_W0z1AD5yEfG2Td6xmiffQQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_25ZXmQ6PEfGlIaWl1y7VMQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_25ZT6g6PEfGlIaWl1y7VMQ" elementId="org.eclipse.ui.DefaultTextEditor" visible="false">
         <tags>Draggable</tags>
@@ -362,7 +371,7 @@
       <children xsi:type="menu:ToolControl" xmi:id="_25ZT_g6PEfGlIaWl1y7VMQ" elementId="left(com.adobe.ide.coldfusion.perspective.CFML)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_25ZT_w6PEfGlIaWl1y7VMQ" elementId="leftBottom(com.adobe.ide.coldfusion.perspective.CFML)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_25ZT_w6PEfGlIaWl1y7VMQ" elementId="leftBottom(com.adobe.ide.coldfusion.perspective.CFML)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_25ZUAA6PEfGlIaWl1y7VMQ" elementId="bottom(com.adobe.ide.coldfusion.perspective.CFML)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
@@ -371,7 +380,7 @@
       <children xsi:type="menu:ToolControl" xmi:id="_25ZUAQ6PEfGlIaWl1y7VMQ" elementId="right(com.adobe.ide.coldfusion.perspective.CFML)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_25ZUAg6PEfGlIaWl1y7VMQ" elementId="rightBottom(com.adobe.ide.coldfusion.perspective.CFML)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_25ZUAg6PEfGlIaWl1y7VMQ" elementId="rightBottom(com.adobe.ide.coldfusion.perspective.CFML)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_KsTioBu2EfGGkZxwDRFtKw" elementId="org.eclipse.ui.editorss(com.adobe.ide.coldfusion.perspective.CFML)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
@@ -1073,6 +1082,14 @@
     <tags>menuContribution:popup</tags>
   </menuContributions>
   <menuContributions xmi:id="_-g1rICfFEfGCPLLM1v49hQ" elementId="com.adobe.ide.coldfusion.appcodegeneration:1243879179" positionInParent="before=additions" parentId="popup">
+    <tags>scheme:popup</tags>
+    <tags>menuContribution:popup</tags>
+  </menuContributions>
+  <menuContributions xmi:id="_W7QicC0zEfG-UdFRRA6_7A" elementId="com.adobe.ide.coldfusion.appcodegeneration:951231719" positionInParent="before=additions" parentId="popup">
+    <tags>scheme:popup</tags>
+    <tags>menuContribution:popup</tags>
+  </menuContributions>
+  <menuContributions xmi:id="_azB-ED5yEfG2Td6xmiffQQ" elementId="com.adobe.ide.coldfusion.appcodegeneration:800360816" positionInParent="before=additions" parentId="popup">
     <tags>scheme:popup</tags>
     <tags>menuContribution:popup</tags>
   </menuContributions>

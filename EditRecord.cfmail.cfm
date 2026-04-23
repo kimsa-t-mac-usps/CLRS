@@ -136,7 +136,7 @@ For the Contingent Liabilities report on
 </cfif>
 
 
-<a href="#This_Server_Base_URL#/InHouse/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#ThisRecID#">#Form.CASE_NAME#</a>,
+<a href="#This_Server_Base_URL#/ClientService/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#ThisRecID#">#Form.CASE_NAME#</a>,
 
 
 

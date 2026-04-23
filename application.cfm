@@ -278,14 +278,17 @@ WHERE USERPRMKEY = 361
 </cfif>
 <!--- Centralized base URL variables (soft links) --->
 <CFSET This_Server_Base_URL = "https://" & This_Server>
-<CFSET LawDept_Base_URL = "https://lawdept-dev.usps.gov">
-<CFSET LawDept1_Base_URL = "https://lawdept-dev.usps.gov">
-<CFSET LawManager_Base_URL = "https://lawdept-dev.usps.gov/lmWeb">
+<CFSET LawDept_Base_URL = "https://lawdept1-dev.usps.gov">
+<CFSET LawDept1_Base_URL = "https://lawdept1-dev.usps.gov">
+<CFSET LawManager_Base_URL = "https://lawdept1-dev.usps.gov/lmWeb">
 
-<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME neq "eagnmnwep1431" and cgi.SERVER_NAME neq "eagnmnwep1432" >
+<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME eq "eagnmnss58b" and cgi.SERVER_NAME eq "lawdept1-dev.usps.gov" or cgi.SERVER_NAME eq "lawdept1-dev.usps.gov") >
 	<cfset Init_user_id = "YSRJ00">
-<cfelse>
+<cfelseif len(cgi.auth_user) neq 0>
 	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
+<cfelse>
+	<cfset Init_User_Id = "">
+
 </cfif>
 
 

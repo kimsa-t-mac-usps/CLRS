@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "https-sonar-usps-gov-",
+        "projectKey": "8309:ldis-InHouse"
+    }
+}

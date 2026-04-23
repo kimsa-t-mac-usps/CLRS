@@ -4,7 +4,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<!---<meta http-equiv="X-UA-Compatible" content="IE=edge">--->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>DRAFT CONFIDENTIAL Law Department Contingent Liabilities: Edit Record</title>
 
 <style>
