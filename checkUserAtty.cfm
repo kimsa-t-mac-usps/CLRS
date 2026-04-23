@@ -325,9 +325,7 @@ AuthorizedFlag = "#AuthorizedFlag#"
 https://lawdept.usps.gov/inhouse/framed/conting.liab.htm
 --->
 
-	<li><a href="https://lawdept.usps.gov/InHouse/conting.liab.htm" target="_top">Contingent Liability Protocol and Reference Materials</a>
-		<!---KS 3.19.26 --->
-	<!---<CFOUTPUT><li><a href="#CL_Protocol_URL#" target="_top">Contingent Liability Protocol and Reference Materials</a></CFOUTPUT>--->
+	<CFOUTPUT><li><a href="#CL_Protocol_URL#" target="_top">Contingent Liability Protocol and Reference Materials</a></CFOUTPUT>
 
 	
 	</div>

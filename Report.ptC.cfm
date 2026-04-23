@@ -183,7 +183,7 @@ Case Number
 	
 	
 		<CFOUTPUT>
-	    (<a href="https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
+	    (<a href="#App_Base_URL#/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
 		</CFOUTPUT>
 	
 	<CFELSE>
@@ -232,7 +232,7 @@ Case Number
 		
 		
 			<CFOUTPUT>
-		    (<a href="https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">#NewList#</a>)
+		    (<a href="#App_Base_URL#/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">#NewList#</a>)
 			</CFOUTPUT>
 		
 		

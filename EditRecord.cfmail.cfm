@@ -127,12 +127,13 @@ For the Contingent Liabilities report on
 		GAC-8/08/2013: changed this_server to cgi variable
         <CFSET This_Server = "lawdept">
 		--->
-        <CFSET This_Server = #CGI.SERVER_NAME#>
+        <!--- URL now derives from App_Base_URL defined in application.cfm --->
+        <CFSET This_Server = App_Base_URL>
         
 </cfif>
 
 
-<a href="https://<cfoutput>#This_Server#</cfoutput>/InHouse/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#ThisRecID#">#Form.CASE_NAME#</a>,
+<a href="<cfoutput>#This_Server#</cfoutput>/ClientService/ContingentLiabilities/#ServerFolder#Report.cfm?RecIDParm=#ThisRecID#">#Form.CASE_NAME#</a>,
 
 
 
