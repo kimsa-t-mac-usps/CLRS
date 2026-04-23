@@ -113,7 +113,7 @@ Matter Number
 
 
 	<CFOUTPUT>
-	(<a href="#LawManager_Base_URL#/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
+    (<a href="#LawManager_Base_URL#/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
 	</CFOUTPUT>
 
 
