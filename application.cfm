@@ -5,38 +5,21 @@ SESSIONTIMEOUT=#CreateTimeSpan(0,0,10,0)#
 SESSIONMANAGEMENT="Yes"
 SEARCHIMPLICITSCOPES="True">
 
-
-
 <!--- Previous:
-
 requestTimeout = "1300"
-
 --->
-
 <!---
 <CFSETTING requestTimeout = "1800">
 --->
-
-
-
 <CFSETTING requestTimeout = "5000">
-
-
 
 <!-- applicationCFM at 11 -->
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
-
-
 <!---
 
 NOTE: <CFQUERY NAME="#CLRC_Query_Name#" occurs in cfloop.cur_rem.casetype.assesscutoff.query.cfm and Get_Single_Record.cfm
 
 --->
-
-
-
-
-
 
 <!---
 <CFOUTPUT>
