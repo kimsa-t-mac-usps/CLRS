@@ -141,7 +141,7 @@ WHERE USERPRMKEY = 361
 <CFSET Spreadsheets_Uploads_Dir = "D:\web\cf\cfusion\wwwroot\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
 --->
 
-<CFSET Spreadsheets_Uploads_Dir = "D:\web\inetpub\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
+<CFSET Spreadsheets_Uploads_Dir = "\\eagnmnss58b\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
 
 <!---
 <CFSET Spreadsheets_Uploads_Dir_URL = "../Spreadsheets/">
@@ -217,7 +217,7 @@ WHERE USERPRMKEY = 361
 <!--- Moved to LabelLists.cfm
 <cfset YesNo_List = "Y,N">
 --->
-<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME neq "eagnmnwep1431" and cgi.SERVER_NAME neq "eagnmnwep1432" >
+<cfif len(cgi.auth_user) eq 0 and cgi.SERVER_NAME neq "eagnmnss58b" and cgi.SERVER_NAME neq "eagnmnss146" and cgi.SERVER_NAME neq "eagnmnwbd203" and cgi.SERVER_NAME neq "eagnmnwbd204" >
 	<cfset Init_user_id = "K6GVN0">
 <cfelse>
 	<cfset Init_User_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
