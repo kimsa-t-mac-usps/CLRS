@@ -16,24 +16,24 @@
 </CFCASE>
 --->
 
-<CFCASE VALUE="eagnmnss58b">
+<CFCASE VALUE="eagnmnss58b,56.76.29.90">
 	<CFSET ServerID = "eagnmnss58b">
 </CFCASE>
 
-<CFCASE VALUE="eagnmnss146">
+<CFCASE VALUE="eagnmnss146,56.76.28.86">
 	<CFSET ServerID = "eagnmnss146">
 </CFCASE>
 
-<CFCASE VALUE="eagnmnwbd203">
+<CFCASE VALUE="eagnmnwbd203,56.76.100.115">
 	<CFSET ServerID = "eagnmnwbd203">
 </CFCASE>
 
-<CFCASE VALUE="eagnmnwbd204">
+<CFCASE VALUE="eagnmnwbd204,56.76.100.116">
 	<CFSET ServerID = "eagnmnwbd204">
 </CFCASE>
 
 <CFDEFAULTCASE>
-	<CFSET ServerID = CGI.SERVER_NAME>
+	<CFSET ServerID = "lawdept1-dev.usps.gov">
 </CFDEFAULTCASE>
 
 </CFSWITCH>
