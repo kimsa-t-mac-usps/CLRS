@@ -1,25 +1,16 @@
 <cfinclude template="MfaCookieCheck.cfm">
-
-
 <CFLOOP INDEX="Status_Code_List_Index" LIST="#STATUS_CODE_SELECTED#">
-
-
-
 	<CFSET Status_Code_Var = Status_Code_List_Index>
 	<CFINCLUDE TEMPLATE="cfswitch.status_code.cfm">
 		
 	<CFIF Status_Code_Var NEQ 2>
 		<CFSET Status_Code_Label = "<strong>" & Status_Code_Label & "</strong>">
 	</CFIF>
-		
-    
+   
 	<CFOUTPUT>
 	<li>#Status_Code_Label#</li>
 	</cfoutput>
 
-
-
-	
 	<CFIF NOT (
 	(IsDefined("Form.CorpFinFormat") AND Form.CorpFinFormat EQ "CorpFinFormat")
 	OR
@@ -27,7 +18,6 @@
 	OR
 	(IsDefined("Form.CorpFinFormat_STL") AND Form.CorpFinFormat_STL EQ "CorpFinFormat_STL")
 	)>
-	
 	
 		<CFIF IsDefined("ThresholdStatus")
 		AND

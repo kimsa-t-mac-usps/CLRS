@@ -144,7 +144,7 @@ else fcnRemoveConf = true;
 		
 			if (thisForm.ASSESSMENT_AMOUNT_UPPER.value < 1) {
 	
-			alert('Selected Status option says "Still Meets Threshold," but Max Reasonable Payout (' + thisForm.ASSESSMENT_AMOUNT_UPPER.value + ' Million)' + '\r\n' + 'is BELOW reporting threshold of $1 Million.' + '\r\n \r\n' + 'Please revise Max Reasonable Payout or change Status option to "Reassessed; No Longer Meets Threshold."');
+			//alert('Selected Status option says "Still Meets Threshold," but Max Reasonable Payout (' + thisForm.ASSESSMENT_AMOUNT_UPPER.value + ' Million)' + '\r\n' + 'is BELOW reporting threshold of $1 Million.' + '\r\n \r\n' + 'Please revise Max Reasonable Payout or change Status option to "Reassessed; No Longer Meets Threshold."');
 
 			thisForm.ASSESSMENT_AMOUNT_UPPER.focus();
 

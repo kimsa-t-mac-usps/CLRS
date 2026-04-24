@@ -4,16 +4,10 @@
 <!---
 	<CFSET InstrucAmtDivMargBottom = "margin-bottom:-15pt">
 --->
-
-
 	<CFSET InstrucAmtDivMargBottom = "margin-bottom:-5pt">
-
-
 <CFELSE>
 	<CFSET InstrucAmtDivMargBottom = "">
 </cfif>
-
-
 <CFOUTPUT>
 <div style="font-family:verdana; font-size:7.5pt; font-style:italic; width:100%; #InstrucAmtDivMargBottom#">
 </CFOUTPUT>
@@ -30,7 +24,6 @@ enter it as <b>both</b> the Most Likely Payout and the Maximum Reasonable Payout
 
 </CFIF>
 
-
 Enter 
 
 <CFIF FormField EQ "Amount Sought">
@@ -38,7 +31,6 @@ amount(s)
 <CFELSEIF FormField EQ "Assessment Amount">
 amounts
 </cfif>
-
 
 with up to one decimal place and no comma. 
 <br>

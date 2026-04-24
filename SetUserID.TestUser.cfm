@@ -28,12 +28,13 @@ WHERE SETTINGUSER_PKEY = #Init_Check_Auth_User_A.USERPRMKEY#)
 
 	<cfset RespondingUser_Id = Trim(UCase(Get_TestUser_Name.AD_USERID))>
 	<CFSET ThisEEName = Trim(Get_TestUser_Name.FULLNAME)>
+			<cflog text="Line 31: ThisEEName: #ThisEEName#" type="information" file="clrs-ldap">
 
 <CFELSE>
 
 	<cfset RespondingUser_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
 
-	<CFQUERY NAME="Get_Ee_ThisUser" DATASOURCE="contliab">
+	<CFQUERY NAME="Get_Ee_ThisUser" DATASOURCE="contliab" result="check_EE_This_User">
 	SELECT Trim(LAWDEPARTMENT.LASTNAME) || ', ' || Trim(LAWDEPARTMENT.FIRSTNAME) AS FULLNAME
 	FROM LAWDEPARTMENT, LDEXTRA
 	WHERE
@@ -44,6 +45,7 @@ WHERE SETTINGUSER_PKEY = #Init_Check_Auth_User_A.USERPRMKEY#)
 	AND (UPPER(AD_USERID) LIKE UPPER('#RespondingUser_Id#%')
 	OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#RespondingUser_Id#%'))
 	</cfquery>
+		<cflog text="Line 48: Init_Check_Auth_User_A: #serializeJson(check_EE_This_User)#" type="information" file="clrs-ldap">
 
 <!---
 <CFOUTPUT>
@@ -55,6 +57,7 @@ Get_Ee_ThisUser.RecordCount = #Get_Ee_ThisUser.RecordCount#
 	<CFIF Get_Ee_ThisUser.RecordCount EQ 1>
 		<CFSET ThisEEName = Trim(Get_Ee_ThisUser.FULLNAME)>
 	</cfif>
+		<cflog text="Line 60: ThisEEName: #ThisEEName#"  type="information" file="clrs-ldap">
 	
 </cfif>
 

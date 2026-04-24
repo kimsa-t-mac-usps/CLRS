@@ -66,11 +66,11 @@ OR UPPER(AD_MAILNICKNAME) LIKE UPPER('#From#%'))
 
 
 
-<CFIF IsDefined("Test_Email_Addr")>
+<!---<CFIF IsDefined("Test_Email_Addr")>
 	<CFSET EAJA_email_cfmail_nocases_To = Test_Email_Addr>
 <CFELSE>
 	<CFSET EAJA_email_cfmail_nocases_To = Trim(QueryGetBusServContactDisplayName.mail)>
-</CFIF>
+</CFIF>--->
 
 
 

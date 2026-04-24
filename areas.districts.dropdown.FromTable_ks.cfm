@@ -21,7 +21,8 @@
 		<CFIF This_District_Code NEQ Prev_This_District_Code>
 			
 			<CFSET Prev_This_District_Code = This_District_Code>
-			<CFIF IsDefined("prev_dist_perf_cluster_code") AND prev_dist_perf_cluster_code EQ This_District_Code>
+			<CFIF IsDefined("This_DIST_PERF_CLUSTER_CODE") AND This_DIST_PERF_CLUSTER_CODE EQ This_District_Code>
+			<!---<CFIF IsDefined("prev_dist_perf_cluster_code") AND prev_dist_perf_cluster_code EQ This_District_Code>--->
 				<CFSET SelectedWord = "SELECTED">
 			<CFELSE>
 				<CFSET SelectedWord = "">

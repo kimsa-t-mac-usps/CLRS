@@ -1,8 +1,6 @@
 <cfinclude template="MfaCookieCheck.cfm">
 
-
 <!--- Check whether user authorized to access CL system and scope of authorization: Department-wide, Office-wide, case-only, or none --->
-
 <!--- Included separately in Report.ptA.cfm, InsertRecord.cfm, EditRecord.cfm --->
 
 <CFSET AuthorizedFlag = "No">
@@ -16,11 +14,6 @@ alert('CheckUserAuth.cfm at 11: AuthorizedFlag = "#AuthorizedFlag#"');
 
 </script>
 --->
-
-
-
-
-
 
 <!---
 CONTINGENT_LIAB_AUTH = 'A' = Full Access
@@ -52,13 +45,9 @@ alert('CheckUserAuth.cfm at 46: Check_Auth_User_A.RecordCount = "#Check_Auth_Use
 </script>
 --->
 
-
-
-
 <CFIF Check_Auth_User_A.RecordCount EQ 1>
 	<CFSET AuthorizedFlag = "Yes">
 	<CFSET OfficeScope = "All Law Department Offices">
-
 
 <!---
 <script>
@@ -69,8 +58,6 @@ alert('CheckUserAuth.cfm at 51: AuthorizedFlag = "#AuthorizedFlag#"');
 
 </script>
 --->
-
-
 
 <CFELSE>
 
@@ -99,7 +86,6 @@ alert('CheckUserAuth.cfm at 95: Get_Auth_User_PRMKEY.RecordCount = "#Get_Auth_Us
 
 </script>
 --->
-
 	
 	<CFIF Get_Auth_User_PRMKEY.RecordCount EQ 1>
 	
@@ -114,9 +100,7 @@ alert('CheckUserAuth.cfm at 85: AuthorizedFlag = "#AuthorizedFlag#"');
 
 </script>
 --->    
-    
-    
-    
+  
 		<CFSET ThisCONTINGENT_LIAB_AUTH = Get_Auth_User_PRMKEY.CONTINGENT_LIAB_AUTH>
 
 <!---
@@ -124,7 +108,6 @@ CONTINGENT_LIAB_AUTH = 'O' = Office-wide Authorization
 CONTINGENT_LIAB_AUTH = 'B' = Business Claim cases only (St. Louis)
 CONTINGENT_LIAB_AUTH = 'T' = Tort Claim cases only (St. Louis)
 --->
-
 
 		<CFQUERY NAME="Get_Auth_User_Office" DATASOURCE="contliab">
 		
@@ -142,7 +125,7 @@ CONTINGENT_LIAB_AUTH = 'T' = Tort Claim cases only (St. Louis)
         (
         trim(a.OFFICE) = trim(b.OFFICE)
 		AND
-		trim(a.OFFICE) != 'General Law Service Center'
+		trim(a.OFFICE) != 'General Law Service Center' 
 		)
         
 		OR
@@ -200,8 +183,6 @@ Get_Auth_User_Office.OFFICE_PRM_KEY = #Get_Auth_User_Office.OFFICE_PRM_KEY#
 <cfabort>
 --->
 
-
-
 		<CFIF Get_Auth_User_Office.RecordCount EQ 1>
 		
 			<CFIF Trim(Get_Auth_User_Office.OFFICE) CONTAINS "General Law">
@@ -225,7 +206,6 @@ OfficeScope = "#OfficeScope#"
 <!---
 <CFABORT>
 --->
-
 
 			<CFSET DefaultOffice = Get_Auth_User_Office.OFFICE_PRM_KEY>
 		

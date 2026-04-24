@@ -1,21 +1,16 @@
-<cfinclude template="MfaCookieCheck.cfm">
-
-<!---------------------------- Report.Full.cfm ------------------------------->
-<!---------------------------------------------------------------------------->
-<!--- KS1 --->
-	<!---<CFOUTPUT>
-		Program = "Report.Full.cfm at 4"
-	</CFOUTPUT>--->
-
-<html>
-
+<CFINCLUDE TEMPLATE="cfswitch.serveraddr_id.cfm">
+<html lang="en">
 <head>
-	<link rel='stylesheet' type='text/css' href='stylesheet.css'>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link rel='stylesheet' type='text/css' href='stylesheet.css'>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
 <title>
 
-[<CFOUTPUT>#CGI.SERVER_NAME#</CFOUTPUT>] 
+<CFOUTPUT>#ServerID#</CFOUTPUT> 
 
 <CFIF NOT IsDefined("EarlierRptDate")>
 DRAFT
@@ -24,8 +19,16 @@ DRAFT
 CONFIDENTIAL Law Department Contingent Liabilities
 
 </title>
+</head>
+<body>
+<cfinclude template="MfaCookieCheck.cfm">
 
-
+<!---------------------------- Report.Full.cfm ------------------------------->
+<!---------------------------------------------------------------------------->
+<!--- KS1 --->
+	<!---<CFOUTPUT>
+		Program = "Report.Full.cfm at 4"
+	</CFOUTPUT>--->
 
 
 
@@ -71,8 +74,7 @@ CONFIDENTIAL Law Department Contingent Liabilities
 <CFINCLUDE TEMPLATE="CheckUserAuth.cfm">
 
 
-<!--- Displays server ID / name in page header --->
-<CFINCLUDE TEMPLATE="cfswitch.serveraddr_id.cfm">
+<!--- Displays server ID / name in page header (moved to top for use in <title>) --->
 
 <!--- Top part of Report page: Displayed banner heading. Queries to retrieve cases, based on authorization, selected scope (District, HQ Dept, etc.), and selected format (Front Office Review, Corp Finance) --->
 <CFINCLUDE TEMPLATE="Report.ptA.cfm">

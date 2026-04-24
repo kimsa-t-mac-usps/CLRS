@@ -5,7 +5,6 @@ For attaching a spreadsheet for a case report: new spreadsheet or updated replac
 Action file: AttachFile.uploadfileaction.cfm
 --->
 
-
 <script language="javascript">
 
 function checkFileSelected(thisForm) {
@@ -17,21 +16,14 @@ if (thisForm.FiletoUpload.value == "") return false;
 </script>
 
 
-
-
 <body style="background:linen; line-height:150%; font-family:Verdana; font-size:9pt; color:maroon; width:40%">
-
-
 
 <cfdirectory action="list" 
 name="dirQuery" 
 directory="#CFFILE_Destination_Dir#"
 sort="name, datelastmodified">
 
-
 <CFSET FileReplace = "no">
-
-
 
     <CFLOOP QUERY="dirQuery">
    
@@ -57,16 +49,12 @@ sort="name, datelastmodified">
 
     </CFLOOP>
 
-
-
-
 <CFIF FileReplace EQ "no">
 
 	<cfdirectory action="list" 
 	name="Prev_dirQuery" 
 	directory="#PrevCFFILE_Destination_Dir#"
 	sort="name, datelastmodified">
-
 
 <!---
 	<CFOUTPUT>
@@ -76,17 +64,11 @@ sort="name, datelastmodified">
     </CFOUTPUT>
 --->
 
-
 	<CFSET PrevQSpsheetFound = "no">
-
-
-
 
 	    <CFLOOP QUERY="Prev_dirQuery">
    	
 		    <CFIF name EQ "CL.Case." & CaseRecIDSeq & ".GC.xls">
-
-
 				<CFSET PrevQSpsheetFound = "yes">
 
 				<cfbreak>
@@ -95,11 +77,7 @@ sort="name, datelastmodified">
 
 		</CFLOOP>
 
-
-
-
 </CFIF>
-
 
 <!---
 <CFOUTPUT>
@@ -159,26 +137,12 @@ Lesson learned: Can't use OL; causes browser to display Divs with style.display=
 </CFIF>
 
 
-
-
-
-
-
-
-
-
-
-
 <CFOUTPUT>
 
 
 <div id="FileSelectDiv" style="width:100%; height:100%">
 
-
-
 </CFOUTPUT>
-
-
 
 <CFIF IsDefined("FileReplace")
 AND
@@ -201,17 +165,12 @@ FileReplace EQ "no">
 
 </CFIF>
 
-
-
 spreadsheet from your directory folder&nbsp;.&nbsp;.&nbsp;.
-
 
 </div>
 
-
 <form name="UploadFile_Form" action="AttachFile.uploadfileaction.cfm" 
 enctype="multipart/form-data" method="post" style="margin-top:0; margin-left:16pt">
-
 
 <input type="hidden" 
 
@@ -229,10 +188,7 @@ FileReplace EQ "yes">
 
 </cfif>
 
-
-
 <input type="hidden" 
-
 
 <CFIF IsDefined("CaseRecIDSeq")>
 
@@ -250,10 +206,6 @@ FileReplace EQ "yes">
 <CFOUTPUT>
 <input type="hidden" name="RecID" value="#RecIDParm#">
 </CFOUTPUT>
-
-
-
-
 
 <!--- Initial display: Div hides remnant of text field in FiletoUpload input field: --->
 <div id="HideLineDiv" style="position:absolute; z-index:10; background:linen; width:3px; height:21px; left:20px"></div>
