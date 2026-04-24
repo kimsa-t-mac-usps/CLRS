@@ -1,3 +1,4 @@
+<CFINCLUDE TEMPLATE="cfswitch.serveraddr_id.cfm">
 <html lang="en">
 <head>
 <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,7 +10,7 @@
 
 <title>
 
-[<CFOUTPUT>#CGI.SERVER_NAME#</CFOUTPUT>] 
+<CFOUTPUT>#ServerID#</CFOUTPUT> 
 
 <CFIF NOT IsDefined("EarlierRptDate")>
 DRAFT
@@ -73,8 +74,7 @@ CONFIDENTIAL Law Department Contingent Liabilities
 <CFINCLUDE TEMPLATE="CheckUserAuth.cfm">
 
 
-<!--- Displays server ID / name in page header --->
-<CFINCLUDE TEMPLATE="cfswitch.serveraddr_id.cfm">
+<!--- Displays server ID / name in page header (moved to top for use in <title>) --->
 
 <!--- Top part of Report page: Displayed banner heading. Queries to retrieve cases, based on authorization, selected scope (District, HQ Dept, etc.), and selected format (Front Office Review, Corp Finance) --->
 <CFINCLUDE TEMPLATE="Report.ptA.cfm">
