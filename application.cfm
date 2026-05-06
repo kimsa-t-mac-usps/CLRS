@@ -174,6 +174,13 @@ Assess_Cutoff_List set in Report.ptA.cfm
 --->
 
 
+<!--- Base URL and Protocol URL --->
+<cfif cgi.SERVER_NAME EQ "127.0.0.1" OR cgi.SERVER_NAME EQ "localhost">
+	<CFSET App_Base_URL = "http://" & cgi.SERVER_NAME & ":" & cgi.SERVER_PORT>
+<cfelse>
+	<CFSET App_Base_URL = "https://lawdept1-dev.usps.gov">
+</cfif>
+<CFSET CL_Protocol_URL = App_Base_URL & "/inhouse/conting.liab.htm">
 
 
 
@@ -457,10 +464,15 @@ WHERE USERPRMKEY = 361
 		    password="#Get_PW.PW#">
 		<cfcatch type="any">
 			<cflog text="QueryGetDisplayName Error: #cfcatch.message#" type="error" file="clrs-ldap">
-			
+			<cfset QueryGetDisplayName = QueryNew("displayName,mail")>
+			<cfset QueryAddRow(QueryGetDisplayName)>
+			<cfset QuerySetCell(QueryGetDisplayName, "displayName", GetUserInfo.FULLNAME)>
+			<cfset QuerySetCell(QueryGetDisplayName, "mail", GetUserInfo.LONGEMAIL)>
 		</cfcatch>
 		<cffinally>
-			<cflog text="LDAP QueryGetDisplayName Result: displayName #queryGetDisplayname.displayname# | mail #queryGetDisplayname.mail#" type="information" file="clrs-ldap">
+			<cfif isDefined("queryGetDisplayname.displayname")>
+				<cflog text="LDAP QueryGetDisplayName Result: displayName #queryGetDisplayname.displayname# | mail #queryGetDisplayname.mail#" type="information" file="clrs-ldap">
+			</cfif>
 		</cffinally>
 		</cftry>
 
@@ -501,10 +513,15 @@ WHERE USERPRMKEY = 361
 	    password="#Get_PW.PW#">
 		<cfcatch type="any">
 			<cflog text="QueryGetBusServContactDisplayName Error: #cfcatch.message#" type="error" file="clrs-ldap">
-			
+			<cfset QueryGetBusServContactDisplayName = QueryNew("displayName,mail")>
+			<cfset QueryAddRow(QueryGetBusServContactDisplayName)>
+			<cfset QuerySetCell(QueryGetBusServContactDisplayName, "displayName", GetUserInfo.FULLNAME)>
+			<cfset QuerySetCell(QueryGetBusServContactDisplayName, "mail", GetUserInfo.LONGEMAIL)>
 		</cfcatch>
 		<cffinally>
-			<cflog text="LDAP QueryGetBusServContactDisplayName Result: displayName #QueryGetBusServContactDisplayName.displayname# | mail #QueryGetBusServContactDisplayName.mail#" type="information" file="clrs-ldap">
+			<cfif isDefined("QueryGetBusServContactDisplayName.displayname")>
+				<cflog text="LDAP QueryGetBusServContactDisplayName Result: displayName #QueryGetBusServContactDisplayName.displayname# | mail #QueryGetBusServContactDisplayName.mail#" type="information" file="clrs-ldap">
+			</cfif>
 		</cffinally>
 	</cftry>
 	<CFSET This_BusServContact_From_Line = '"' & Trim(QueryGetBusServContactDisplayName.displayName) & '"' & ' <' & Trim(QueryGetBusServContactDisplayName.mail) & '>'>

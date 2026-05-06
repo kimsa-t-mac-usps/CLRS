@@ -1,5 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
-
 <CFIF (IsDefined("DropdownList") AND DropdownList EQ "District") OR (NOT IsDefined("DropdownList") AND Get_Districts.RecordCount GT 0 )>
 	
 			<CFSET Prev_This_District_Code = "">
