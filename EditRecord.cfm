@@ -158,6 +158,11 @@ Added form field STATUS_CODE_SELECTED_ALL to hold concatenated string of STATUS_
 	onSubmit="return showStatusCodeSelected(this); return showUnionsSelected(this); return checkupdFactsFlagArray(this, this.name)">
 --->
 
+<!--- Use locally computed PrevReportDate as fallback when URL parameter is missing or empty --->
+<CFIF NOT IsDefined("url.PrevReportDate_Parm") OR url.PrevReportDate_Parm EQ "">
+	<CFSET url.PrevReportDate_Parm = PrevReportDate>
+</CFIF>
+
 <cfinvoke component="components/clrsFunctions" method="getPrevReptRecord" returnvariable="GetRecord_PrevRpt">
 	<cfinvokeargument name="prevRptDate" value="#url.PrevReportDate_Parm#">
 	<cfinvokeargument name="caseRecordIdSeq" value="#CASE_REC_ID_SEQUENCE#">

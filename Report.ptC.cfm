@@ -309,20 +309,16 @@ Case Number
 
 	<tr Report.ptC.cfm at 319>
 	
-	<th Report.ptC.cfm at 321 align="right" valign="top" style="line-height:80%">
+	<th Report.ptC.cfm at 321 align="right" valign="top">
 	
-	<p style='margin-top:10pt'>
-	District /
-	<p style='margin-top:5pt'>
-	Division /
-	<p style='margin-top:5pt'>
-	HQ&nbsp;Dept
-	<p style='margin-top:10pt'>
+	<div style="margin-top:4pt; margin-bottom:6pt; line-height:1.4">District /</div>
+	<div style="margin-bottom:6pt; line-height:1.4">Division /</div>
+	<div style="line-height:1.4">HQ&nbsp;Dept</div>
 	
 	</th>
 	
 	
-	<td style="vertical-align:middle">
+	<td valign="top" style="padding-top:4pt">
 	
 	
 	<CFSET This_DIST_PERF_CLUSTER_NAME = DIST_PERF_CLUSTER_NAME>
@@ -338,8 +334,12 @@ Case Number
 
 	</CFIF>
 
+	<!--- Fall back to previous quarter's division when current record is empty (bulk load does not copy DIVISION columns) --->
+	<CFIF This_DIVISION_CODE EQ "" AND IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount") AND CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount GT 0 AND CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_CODE NEQ "">
+		<CFSET This_DIVISION_CODE = CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_CODE>
+	</CFIF>
 
-	<CFIF IsDefined("DIVISION_NAME")>
+	<CFIF IsDefined("DIVISION_NAME") AND DIVISION_NAME NEQ "">
 
 		<CFSET This_DIVISION_NAME = DIVISION_NAME>
 
@@ -353,7 +353,8 @@ Case Number
 
 
 
-
+<!--- ===== DISTRICT ROW ===== --->
+<div style="margin-bottom:6pt; line-height:1.4; min-height:1.4em">
 
 	<CFIF This_DIST_PERF_CLUSTER_NAME NEQ ""
 	AND 
@@ -379,6 +380,7 @@ Case Number
     
 
 		<CFIF This_AREA_NAME NEQ "">
+		<CFIF This_AREA_NAME DOES NOT CONTAIN "HQ">
         
         
         	<CFIF This_DIST_PERF_CLUSTER_NAME DOES NOT CONTAIN "District">
@@ -390,6 +392,7 @@ Case Number
 				<CFSET This_DIST_PERF_CLUSTER_NAME = This_DIST_PERF_CLUSTER_NAME & " (" & This_AREA_NAME & ")">
                 
 			</CFIF>
+		</CFIF>
                 
                             
 		</cfif>
@@ -427,38 +430,6 @@ Case Number
 
 		</CFIF>
 
-	<CFELSEIF This_AREA_NAME NEQ ""
-	AND
-	SelectDistrict EQ "no">
-	
-
-
-		<CFIF This_DIST_PERF_CLUSTER_NAME NEQ "">
-
-        	<br />
-    
-    	</CFIF>
-
-	
-		<CFSET NewList = This_AREA_NAME>
-	
-		<CFIF STATUS_CODE EQ 1 OR STATUS_CODE_SELECTED EQ "1">
-	
-
-			<CFSET OldList = This_AREA_NAME>
-
-
-			<CFINCLUDE TEMPLATE="textcompare.cfm">
-	
-	
-		<CFELSE>
-	
-			<CFOUTPUT>
-			#NewList#
-			</cfoutput>
-	
-		</cfif>
-	
 	</CFIF>
 
 
@@ -510,37 +481,32 @@ Case Number
 	
 	</cfif>
 
+</div>
+<!--- ===== END DISTRICT ROW ===== --->
 
 
-
-
-
+<!--- ===== DIVISION ROW ===== --->
+<div style="margin-bottom:6pt; line-height:1.4; min-height:1.4em">
 
 	<CFIF This_DIVISION_CODE NEQ "">
-    
-
-        <br />
 
 		<CFSET NewList = This_DIVISION_CODE>
 
+		<CFIF ThisReportDate NEQ EarliestReportDate AND PrevReportDate NEQ "">
 
-    
-		<div>
-    
-    
-
-		<CFSET OldList = CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_CODE>
+			<CFSET OldList = CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_CODE>
             
+			<CFINCLUDE TEMPLATE="textcompare.cfm">
 
-		<CFINCLUDE TEMPLATE="textcompare.cfm">
-	
+		<CFELSE>
 
-    	</div>
-    
+			<CFOUTPUT>
+			#NewList#
+			</CFOUTPUT>
+
+		</CFIF>
 
     </CFIF>
-
-
 
 
 	<CFIF IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount")
@@ -560,6 +526,36 @@ Case Number
 		</div>
 	
 	</cfif>
+
+</div>
+<!--- ===== END DIVISION ROW ===== --->
+
+
+<!--- ===== HQ DEPT ROW ===== --->
+<div style="line-height:1.4; min-height:1.4em">
+
+	<CFIF This_AREA_NAME CONTAINS "HQ">
+
+		<CFSET NewList = This_AREA_NAME>
+
+		<CFIF STATUS_CODE EQ 1 OR STATUS_CODE_SELECTED EQ "1">
+
+			<CFSET OldList = This_AREA_NAME>
+
+			<CFINCLUDE TEMPLATE="textcompare.cfm">
+
+		<CFELSE>
+
+			<CFOUTPUT>
+			#NewList#
+			</cfoutput>
+
+		</cfif>
+
+	</CFIF>
+
+</div>
+<!--- ===== END HQ DEPT ROW ===== --->
 
 
 	<CFIF 

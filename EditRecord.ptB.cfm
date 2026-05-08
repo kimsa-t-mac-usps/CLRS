@@ -240,73 +240,84 @@ Category
 
 <th align="right" valign="top" style="padding-top:15pt; padding-bottom:15pt">
 
-District /
-<p style='margin-top:10pt'>
-Division /
-<p style='margin-top:10pt'>
-HQ&nbsp;Dept
+<div style="margin-bottom:8pt; line-height:22px">District /</div>
+<div style="margin-bottom:8pt; line-height:22px">Division /</div>
+<div style="line-height:22px">HQ&nbsp;Dept</div>
 
 </th>
 
-<td style="padding-top:15pt; padding-bottom:15pt">
+<td valign="top" style="padding-top:15pt; padding-bottom:15pt">
 
 
-<cfset prev_dist_perf_cluster_code = GetRecord_PrevRpt.DIST_PERF_CLUSTER_CODE>
-<cfset prev_DIVISION_CODE = GetRecord_PrevRpt.DIVISION_CODE>
+<CFIF GetRecord_PrevRpt.RecordCount GT 0>
+	<cfset prev_dist_perf_cluster_code = GetRecord_PrevRpt.DIST_PERF_CLUSTER_CODE>
+	<cfset prev_DIVISION_CODE = GetRecord_PrevRpt.DIVISION_CODE>
+<CFELSE>
+	<cfset prev_dist_perf_cluster_code = "">
+	<cfset prev_DIVISION_CODE = "">
+</CFIF>
 <CFSET This_DIST_PERF_CLUSTER_CODE = DIST_PERF_CLUSTER_CODE>
 
 
 <CFSET DropdownList = "District">
 
 
-<SELECT NAME="DIST_PERF_CLUSTER_CODE" style="font-family:arial; font-size:9pt; margin-top:2pt; margin-bottom:5pt; padding-bottom:1; background:khaki" SIZE="1">
+<div style="margin-bottom:8pt">
+<SELECT NAME="DIST_PERF_CLUSTER_CODE" style="font-family:arial; font-size:9pt; padding-bottom:1; background:khaki" SIZE="1">
 
 <option value="0" style="color:white;background:maroon">Select a District . . .
 
 <CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
 
 </select>
+</div>
 
 
 <CFIF Get_Divisions.RecordCount GT 0>
 
 	<CFSET DropdownList = "Division">
 
-	<br />
-    
+	<CFSET This_Division_Code = DIVISION_CODE>
 
-	<CFSET This_Division_Code = DIVISION_CODE> 
+	<!--- Fall back to previous quarter's value when current record is empty (bulk load does not copy DIVISION_CODE) --->
+	<CFIF This_Division_Code EQ "" AND prev_DIVISION_CODE NEQ "">
+		<CFSET This_Division_Code = prev_DIVISION_CODE>
+	</CFIF>
 
 <!---
 	<CFSET This_Division_Name = NAME>
 --->
 
-	<SELECT NAME="DIVISION_CODE" style="font-family:arial; font-size:9pt; margin-top:2pt; margin-bottom:5pt; padding-bottom:1; background:khaki" SIZE="1">
+	<div style="margin-bottom:8pt">
+	<SELECT NAME="DIVISION_CODE" style="font-family:arial; font-size:9pt; padding-bottom:1; background:khaki" SIZE="1">
 
 	<option value="0" style="color:white;background:maroon">Select a Division . . .
 
 	<CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
 
 	</select>
+	</div>
+
+<CFELSE>
+
+	<div style="margin-bottom:8pt; line-height:22px">&nbsp;</div>
 
 </CFIF>
 
 
 
-<br>
-
-
 <CFSET This_HQ_AREA_NAME = AREA_NAME>
 
 
-<SELECT NAME="HQ_AREA_NAME" id="HQ_AREA_NAME" style="font-family:arial; font-size:9pt; margin-top:0pt; padding-bottom:1; background:khaki" SIZE="1" onChange="checkHQ_AREA_NAME(this)">
+<div>
+<SELECT NAME="HQ_AREA_NAME" id="HQ_AREA_NAME" style="font-family:arial; font-size:9pt; padding-bottom:1; background:khaki" SIZE="1" onChange="checkHQ_AREA_NAME(this)">
 
 <option value="0" style="color:white;background:maroon">Select a Headquarters Department . . .
 
 <CFINCLUDE TEMPLATE="hq.dept.dropdown.FromTable.cfm">
 
 </select>
-
+</div>
 
 
 </td>

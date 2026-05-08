@@ -55,7 +55,7 @@
 	
 	<CFLOOP QUERY="Get_Divisions">
 		<CFSET This_Division_Name = NAME>
-		<CFIF (IsDefined("SelectedPC") AND SelectedPC EQ This_Division_Name ) OR (IsDefined("This_Division_Code") AND This_Division_Code EQ This_Division_Name) OR (isdefined("prev_DIVISION_CODE") and prev_division_code eq This_division_name)>
+		<CFIF (IsDefined("SelectedPC") AND SelectedPC EQ This_Division_Name ) OR (IsDefined("This_Division_Code") AND (This_Division_Code EQ This_Division_Name OR This_Division_Code EQ DIVISION_CODE)) OR (isdefined("prev_DIVISION_CODE") and (prev_division_code eq This_division_name OR prev_division_code eq DIVISION_CODE))>
 			<CFSET SelectedWord = "SELECTED">
 		<CFELSE>
 			<CFSET SelectedWord = "">
