@@ -324,6 +324,11 @@ Case Number
 	<CFSET This_DIST_PERF_CLUSTER_NAME = DIST_PERF_CLUSTER_NAME>
 	<CFSET This_AREA_NAME = AREA_NAME>
 
+	<!--- Fall back to previous quarter's district when current record is empty (bulk load does not copy DIST columns) --->
+	<CFIF This_DIST_PERF_CLUSTER_NAME EQ "" AND IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount") AND CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount GT 0 AND CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME NEQ "">
+		<CFSET This_DIST_PERF_CLUSTER_NAME = CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>
+	</CFIF>
+
 	<CFIF IsDefined("DIVISION_CODE")>
 
 		<CFSET This_DIVISION_CODE = DIVISION_CODE>
