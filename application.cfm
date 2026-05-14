@@ -192,11 +192,6 @@ WHERE USERPRMKEY = 361
 </cfquery>
 
 
-
-
-
-
-
 <cfset startstr = "dc=usa,dc=dce,dc=usps,dc=gov">
 
 <CFSET LDAPDistingName = "CN=Sindermann Jr\, Robert P,OU=Users,OU=HQ,OU=Users & Workstations," & startstr>
@@ -232,8 +227,6 @@ WHERE USERPRMKEY = 361
 <CFSET Spreadsheets_Uploads_Dir = "D:\web\inetpub\wwwroot2\ClientService\DocUploadsFromCF2018\Doc.ContingentLiabilities\Spreadsheets\">
 
 
-
-
 <!---
 <CFSET Spreadsheets_Uploads_Dir_URL = "../Spreadsheets/">
 
@@ -246,20 +239,11 @@ WHERE USERPRMKEY = 361
 <CFSET Spreadsheets_Uploads_Dir_URL = "https://eagnmnss29c:8182/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
 --->
 
-
-
 <CFSET Spreadsheets_Uploads_Dir_URL = "/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/">
-
-
-
 
 <!---
 <CFSET CFFILE_Spsheet_Uploads_Dir_Link = "/ClientService/DocUploadsFromCF2018/Doc.ContingentLiabilities/Spreadsheets/FY" & RptDateToFmt_FY & "_Q" & RptDateToFmt_FYQuarter & "/">
 --->
-
-
-
-
 
 
 <CFSET NewCLProtocolReportDate = "06/30/2010">
@@ -274,14 +258,9 @@ WHERE USERPRMKEY = 361
 
 <CFSET RowColorGreen = "CCFFCC">
 
-
-
-
-
 <CFSET ThisTemplatePath = GetDirectoryFromPath(GetBaseTemplatePath())>
 
 <CFSET ThisTemplatePath = RemoveChars(ThisTemplatePath, Len(ThisTemplatePath), 1)>
-
 
 
 
@@ -413,13 +392,6 @@ WHERE USERPRMKEY = 361
 
 
 
-
-
-
-
-
-
-
 	<CFQUERY NAME="GetUserInfo" DATASOURCE="ContLiab">
 	
 	SELECT b.LASTNAME, b.FIRSTNAME, a.LONGEMAIL, b.PRIMARYKEY, b.AD_USERID, b.AD_MAILNICKNAME, Trim(a.LASTNAME) || ', ' || Trim(a.FIRSTNAME) AS FULLNAME
@@ -486,7 +458,6 @@ WHERE USERPRMKEY = 361
 	
 	
 	</cfif>
-
 
 
 	<CFINCLUDE TEMPLATE="Query.Get_Bus_Serv_Contact.cfm">

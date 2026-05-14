@@ -1,0 +1,223 @@
+================================================================================
+  CLRS ADMIN APPLICATION - SERVER MIGRATION SUMMARY REPORT
+  Contingent Liabilities Reporting System (CLRS)
+  U.S. Postal Service - Law Department
+  Date: April 24, 2026
+================================================================================
+
+1. OVERVIEW
+--------------------------------------------------------------------------------
+This report documents the administrative details for the migration and
+configuration of the CLRS (Contingent Liabilities Reporting System) Admin
+application to the lawdept1-dev.usps.gov server environment. The migration
+involved configuring four server nodes, correcting IIS/ColdFusion connector
+settings, resolving code defects, and synchronizing the codebase across all
+servers.
+
+Application:  Contingent Liabilities Reporting System (CLRS)
+Environment:  Development / UAT
+Domain URL:   https://lawdept1-dev.usps.gov/ContingentLiabilities/V1.0/
+Git Repo:     https://github.usps.gov/usps/ldis-ContingentLiabilitiesReportSystem
+Git Branch:   main  (feature branch: CLRS_V2.0.0)
+Platform:     ColdFusion 2023 on IIS (Windows Server)
+
+
+2. SERVER INVENTORY
+--------------------------------------------------------------------------------
+All four servers run ColdFusion 2023 with IIS and a Tomcat AJP connector
+(isapi_redirect.dll) routing .cfm requests.
+
+  Server         | IP Address      | AJP Port | Drive Map | UNC Share
+  ---------------|-----------------|----------|-----------|---------------------------
+  eagnmnss58b    | 56.76.29.90     | 8018     | X:        | \\eagnmnss58b\D$
+  eagnmnss146    | 56.76.28.86     | 8022     | Q:        | \\eagnmnss146\D$
+  eagnmnwbd203   | 56.76.100.115   | 8022     | W:        | \\eagnmnwbd203\shr_LDIS_Admin
+  eagnmnwbd204   | 56.76.100.116   | 8022     | U:        | \\eagnmnwbd204\shr_LDIS_Admin
+
+Note: eagnmnwbd203 and eagnmnwbd204 operate as a load-balanced pair.
+      eagnmnss58b and eagnmnss146 are accessed via WMI (WinRM not available).
+
+
+3. APPLICATION FILE PATHS
+--------------------------------------------------------------------------------
+  Web Root (all servers):
+    D:\web\inetpub\wwwroot2\ClientService\ContingentLiabilities\V1.0\
+
+  UNC Access Paths (from admin workstation):
+    eagnmnss58b  (X:): X:\web\inetpub\wwwroot2\ClientService\ContingentLiabilities\V1.0\
+    eagnmnss146  (Q:): Q:\web\inetpub\wwwroot2\ClientService\ContingentLiabilities\V1.0\
+    eagnmnwbd203 (W:): W:\web\inetpub\wwwroot2\ClientService\ContingentLiabilities\V1.0\
+    eagnmnwbd204 (U:): U:\web\inetpub\wwwroot2\ClientService\ContingentLiabilities\V1.0\
+
+  InHouse Content Path:
+    D:\web\inetpub\wwwroot2\InHouse\
+
+  ColdFusion wsconfig Paths:
+    eagnmnss58b:  D:\web\inetpub\isapi_redirect\config\
+                  Connector:  wsconfig\2\isapi_redirect.dll   (AJP port 8018)
+    eagnmnss146:  D:\web\cf2\config\wsconfig\1\isapi_redirect.dll  (AJP port 8022)
+    eagnmnwbd203/204: Standard wsconfig path  (AJP port 8022)
+
+
+4. IIS CONFIGURATION - SETTINGS APPLIED PER SERVER
+--------------------------------------------------------------------------------
+  eagnmnwbd204:
+    - Removed erroneous port 443 binding from Default Web Site
+    - Restored port 443 binding on ColdFusion site
+    - ColdFusion site confirmed: Started, port 443 LISTENING
+
+  eagnmnss146:
+    - Added /ContingentLiabilities virtual directory to ColdFusion IIS site
+    - Updated wsconfig\1 uriworkermap.properties:
+        /ClientService/* = cfusion
+        /InHouse/* = cfusion
+    - Confirmed: W3SVC Running, CF2023 Running, port 443 LISTENING
+
+  eagnmnss58b:
+    - Added ISAPI filter (tomcat) to Default Web Site in applicationHost.config:
+        Path: D:\web\inetpub\isapi_redirect\isapi_redirect.dll
+        PreCondition: bitness64 | Enabled: true
+    - Added /ClientService virtual directory to Default Web Site
+    - Updated wsconfig\2 uriworkermap.properties:
+        /ClientService/* = cfusion
+        /InHouse/* = cfusion
+    - Confirmed: W3SVC Running, CF2023 Running, port 443 LISTENING
+
+  eagnmnwbd203:
+    - Previously confirmed fully working (no changes required)
+
+
+5. APPLICATION CONFIGURATION (application.cfm)
+--------------------------------------------------------------------------------
+  Key variables set for the new server environment:
+
+    App_Base_URL      = "https://lawdept1-dev.usps.gov"
+    CL_Protocol_URL   = App_Base_URL & "/inhouse/conting.liab.htm"
+
+  Server authentication whitelist (CGI.SERVER_NAME check):
+    Permitted servers: eagnmnss58b, eagnmnss146, eagnmnwbd203, eagnmnwbd204
+
+  File upload UNC path: Updated to new server UNC paths.
+
+
+6. CODE DEFECTS RESOLVED
+--------------------------------------------------------------------------------
+  Issue:
+    Page header displayed raw IP address (e.g. [56.76.29.90]) instead of
+    server name on the "U.S. Postal Service Law Department" banner in
+    Report.full.cfm.
+
+  Root Cause:
+    (a) cfswitch.serveraddr_id.cfm used CGI.SERVER_NAME, which returns the
+        HTTP Host header (lawdept1-dev.usps.gov) when accessed via the load
+        balancer domain - not the actual server identity.
+    (b) Report.full.cfm placed the <title> tag before cfswitch.serveraddr_id.cfm
+        was included, so CGI.SERVER_NAME was used raw in the browser tab title.
+    (c) Report.cfm redirect used This_Server (= CGI.SERVER_NAME) instead of
+        App_Base_URL for building the redirect URL.
+
+  Fixes Applied:
+    File: cfswitch.serveraddr_id.cfm
+      - Changed CFSWITCH expression from CGI.SERVER_NAME to CGI.LOCAL_ADDR
+        (CGI.LOCAL_ADDR returns the server's actual bound IP regardless of
+        the HTTP Host header)
+      - CFCASE values now use IP addresses only (one value per case):
+          56.76.29.90   -> eagnmnss58b
+          56.76.28.86   -> eagnmnss146
+          56.76.100.115 -> eagnmnwbd203
+          56.76.100.116 -> eagnmnwbd204
+      - CFDEFAULTCASE: ServerID = "lawdept1-dev.usps.gov"
+
+    File: Report.full.cfm
+      - Moved <CFINCLUDE TEMPLATE="cfswitch.serveraddr_id.cfm"> to line 1
+        (before <html> tag) so ServerID is set before the <title> tag renders
+      - Changed <title> from [CGI.SERVER_NAME] to #ServerID#
+
+    File: Report.cfm
+      - Changed redirect URL from https://#This_Server#/ClientService/...
+        to #App_Base_URL#/ClientService/... to prevent IP from appearing in
+        the browser address bar during redirect
+
+
+7. FILE SYNCHRONIZATION
+--------------------------------------------------------------------------------
+  After each code fix, files were synchronized across all four servers via
+  UNC mapped drives. Final MD5 hash verification confirmed identical files:
+
+  File                         | 58b  | 146  | 203  | 204  | Status
+  -----------------------------|------|------|------|------|--------
+  cfswitch.serveraddr_id.cfm   | 4D35 | 4D35 | 4D35 | 4D35 | SYNCED
+  Report.full.cfm              | D943 | D943 | D943 | D943 | SYNCED
+  Report.cfm                   | 43AA | 43AA | 43AA | 43AA | SYNCED
+
+  (Hash values abbreviated for readability)
+
+
+8. GIT SOURCE CONTROL
+--------------------------------------------------------------------------------
+  Repository:  https://github.usps.gov/usps/ldis-ContingentLiabilitiesReportSystem
+
+  Commits pushed to main branch:
+    41b94d2  Fix server ID: switch to CGI.LOCAL_ADDR so server name shows
+             correctly behind load balancer
+    d3ba57a  Fix IP in title: move cfswitch include to top, use ServerID
+             instead of CGI.SERVER_NAME
+    860cf4b  Fix server ID display: map IPs to hostnames, use App_Base_URL
+             for redirect
+
+  Branch management completed:
+    - CLRS_V2.0.0 branch: merged with main, pushed to origin/CLRS_V2.0.0
+    - main branch: merged with CLRS_V2.0.0, pushed to origin/main
+    - Both branches are in sync at commit 6d5f7c4
+
+
+9. MAINTENANCE PROCEDURES
+--------------------------------------------------------------------------------
+  Deploying code changes:
+    1. Edit files on X: drive (eagnmnss58b, the primary dev server)
+    2. Run hash verification to identify out-of-sync servers:
+         PowerShell: Get-FileHash <file> -Algorithm MD5
+    3. Copy updated files to Q: (146), W: (203), and U: (204) via UNC
+    4. Commit and push changes to Git:
+         git add <files>
+         git commit -m "<message>"
+         git push
+    5. No IIS restart required for .cfm changes (ColdFusion reads from disk)
+
+  Restarting IIS (if needed):
+    - eagnmnwbd203/204: Use WinRM (Invoke-Command -ComputerName <server>)
+    - eagnmnss58b/146:  Use WMI (PowerShell WMI script via UNC to C$\Windows\Temp)
+
+  Verifying server health:
+    - Port 443 listening:   netstat -ano | findstr :443
+    - W3SVC state:          Get-Service W3SVC
+    - CF Application state: Get-Service "ColdFusion 2023 Application Server"
+
+  Adding new virtual directories or IIS changes:
+    - eagnmnwbd203/204: Use Invoke-Command via WinRM
+    - eagnmnss58b/146:  Write PS script to \\<server>\C$\Windows\Temp\,
+                        execute via WMI Win32_Process
+
+
+10. KNOWN NOTES / CONSIDERATIONS
+--------------------------------------------------------------------------------
+  - The .metadata/ folder in the git repo contains ColdFusion Builder IDE files.
+    These are tracked in git but should not be deployed. Consider adding to
+    .gitignore in a future cleanup.
+
+  - cfldaptest/ folder is untracked (local only) on the working tree.
+
+  - eagnmnss146 wsconfig uses folder path: D:\web\cf2\config\wsconfig\1\
+    (note: "cf2" not "inetpub") - different from eagnmnss58b which uses
+    D:\web\inetpub\isapi_redirect\
+
+  - eagnmnss58b AJP secret: D1414193-589A-4769-8AB1-495F3CB51B94
+    eagnmnss146 AJP secret: d1baa373-c2a0-467d-a98d-015b61032cfe
+    eagnmnwbd203 AJP secret: 76f8f308-68a4-48e2-80de-a075637504ae
+    eagnmnwbd204 AJP secret: e72cddf8-d594-4ec1-8dcd-0cb158da71f1
+
+================================================================================
+  END OF REPORT
+  Prepared by: GitHub Copilot (AI Assistant)
+  Project:     LDIS - Contingent Liabilities Reporting System
+================================================================================
