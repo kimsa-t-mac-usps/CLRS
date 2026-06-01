@@ -122,6 +122,18 @@ Same CFLOOP bypasses in:
 							</cfquery>
 	
 						</cfif>
+
+						<!--- Deep fallback: find most recent quarter with District data --->
+						<CFQUERY NAME="GetRecord_LatestDistrict" DATASOURCE="ContLiab">
+						SELECT DIST_PERF_CLUSTER_CODE, DIST_PERF_CLUSTER_NAME, DIVISION_CODE, DIVISION_NAME
+						FROM CONTINGENT_LIAB_REPORT
+						WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value="#CASE_REC_ID_SEQUENCE#" cfsqltype="cf_sql_numeric">
+						AND DELETED_FLAG IS NULL
+						AND DIST_PERF_CLUSTER_CODE IS NOT NULL
+						AND DATE_REPORT < to_date('#DateFormat(ThisReportDate, "mm/dd/yyyy")#', 'mm/dd/yyyy')
+						ORDER BY DATE_REPORT DESC
+						FETCH FIRST 1 ROW ONLY
+						</CFQUERY>
 	
 						<CFQUERY NAME="Get_MC_APPR_FLAG" DATASOURCE="ContLiab">
 						SELECT MC_APPR_FLAG, ALT_APPR_FLAG

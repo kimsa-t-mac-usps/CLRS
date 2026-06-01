@@ -256,6 +256,11 @@ Category
 	<cfset prev_dist_perf_cluster_code = "">
 	<cfset prev_DIVISION_CODE = "">
 </CFIF>
+<!--- Deep fallback: use any earlier quarter with district data if prev quarter is also empty --->
+<CFIF prev_dist_perf_cluster_code EQ "" AND IsDefined("GetRecord_LatestDistrict.RecordCount") AND GetRecord_LatestDistrict.RecordCount GT 0>
+	<cfset prev_dist_perf_cluster_code = GetRecord_LatestDistrict.DIST_PERF_CLUSTER_CODE>
+	<cfset prev_DIVISION_CODE = GetRecord_LatestDistrict.DIVISION_CODE>
+</CFIF>
 <CFSET This_DIST_PERF_CLUSTER_CODE = DIST_PERF_CLUSTER_CODE>
 
 

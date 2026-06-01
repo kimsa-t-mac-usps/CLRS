@@ -328,6 +328,10 @@ Case Number
 	<CFIF This_DIST_PERF_CLUSTER_NAME EQ "" AND IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount") AND CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount GT 0 AND CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME NEQ "">
 		<CFSET This_DIST_PERF_CLUSTER_NAME = CONTINGENT_LIAB_GetRecord_PrevRpt.DIST_PERF_CLUSTER_NAME>
 	</CFIF>
+	<!--- Deep fallback: search any earlier quarter with district data --->
+	<CFIF This_DIST_PERF_CLUSTER_NAME EQ "" AND IsDefined("GetRecord_LatestDistrict.RecordCount") AND GetRecord_LatestDistrict.RecordCount GT 0 AND GetRecord_LatestDistrict.DIST_PERF_CLUSTER_NAME NEQ "">
+		<CFSET This_DIST_PERF_CLUSTER_NAME = GetRecord_LatestDistrict.DIST_PERF_CLUSTER_NAME>
+	</CFIF>
 
 	<CFIF IsDefined("DIVISION_CODE")>
 
@@ -343,6 +347,10 @@ Case Number
 	<CFIF This_DIVISION_CODE EQ "" AND IsDefined("CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount") AND CONTINGENT_LIAB_GetRecord_PrevRpt.RecordCount GT 0 AND CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_CODE NEQ "">
 		<CFSET This_DIVISION_CODE = CONTINGENT_LIAB_GetRecord_PrevRpt.DIVISION_CODE>
 	</CFIF>
+	<!--- Deep fallback: search any earlier quarter with division data --->
+	<CFIF This_DIVISION_CODE EQ "" AND IsDefined("GetRecord_LatestDistrict.RecordCount") AND GetRecord_LatestDistrict.RecordCount GT 0 AND GetRecord_LatestDistrict.DIVISION_CODE NEQ "">
+		<CFSET This_DIVISION_CODE = GetRecord_LatestDistrict.DIVISION_CODE>
+	</CFIF>
 
 	<CFIF IsDefined("DIVISION_NAME") AND DIVISION_NAME NEQ "">
 
@@ -350,10 +358,12 @@ Case Number
 
 	<CFELSE>
     
-
-
 		<CFSET This_DIVISION_NAME = This_DIVISION_CODE>
 
+	</CFIF>
+	<!--- Deep fallback for division name --->
+	<CFIF This_DIVISION_NAME EQ "" AND IsDefined("GetRecord_LatestDistrict.RecordCount") AND GetRecord_LatestDistrict.RecordCount GT 0 AND GetRecord_LatestDistrict.DIVISION_NAME NEQ "">
+		<CFSET This_DIVISION_NAME = GetRecord_LatestDistrict.DIVISION_NAME>
 	</CFIF>
 
 

@@ -59,8 +59,7 @@ https://lawdept.usps.gov/inhouse/framed/conting.liab.htm
 <p style="margin-top:#TopRightLinksMarginTop#">
 </CFOUTPUT>
 &middot;&nbsp;<a href="https://lawdept.usps.gov/inhouse/conting.liab.htm" target="_blank">Contingent Liability Protocol</a>
-<!---KS 3.19.26 --->
-<!---&middot;&nbsp;<a href="#CL_Protocol_URL#" target="_blank">Contingent Liability Protocol</a>--->
+
 
 <CFIF Check_Auth_User_A.RecordCount EQ 1>
 
