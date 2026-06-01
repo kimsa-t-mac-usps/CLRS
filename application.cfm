@@ -501,7 +501,13 @@ WHERE USERPRMKEY = 361
 	
 	<CFQUERY NAME="Get_All_ReportDates" DATASOURCE="ContLiab">
 	SELECT DATE_RPT_FMT
-	FROM view_conting_all_rptdates_fmt
+	FROM (
+		SELECT DISTINCT DATE_REPORT,
+			TO_CHAR(DATE_REPORT, 'MM/DD/YYYY') AS DATE_RPT_FMT
+		FROM CONTINGENT_LIAB_REPORT
+		WHERE DELETED_FLAG IS NULL
+	)
+	ORDER BY DATE_REPORT DESC
 	</cfquery>
 	
 	
@@ -561,14 +567,32 @@ ReportDatesList = "#ReportDatesList#"
 	
 	
 	<CFELSE>
-	
-		<CFSET ThisReportDate = DateFormat(ListFirst(ReportDatesList), "mm/dd/yyyy")>
-	
-		<CFIF ReportDatesList_ListLen GT 1>
-			<CFSET PrevReportDate = DateFormat(ListGetAt(ReportDatesList, 2), "mm/dd/yyyy")>
-		<CFELSE>
-			<CFSET PrevReportDate = "">
-		</cfif>
+
+		<!--- Find the latest report date that is not too far in the future (allow up to 2 months for current working quarter) --->
+		<CFSET ThisReportDate = "">
+		<CFSET MaxAllowedDate = DateAdd("m", 2, Now())>
+		<CFLOOP INDEX="RptDateIdx" FROM="1" TO="#ReportDatesList_ListLen#">
+			<CFSET CandidateDate = DateFormat(ListGetAt(ReportDatesList, RptDateIdx), "mm/dd/yyyy")>
+			<CFIF DateCompare(CandidateDate, MaxAllowedDate) LTE 0>
+				<CFSET ThisReportDate = CandidateDate>
+				<CFIF RptDateIdx LT ReportDatesList_ListLen>
+					<CFSET PrevReportDate = DateFormat(ListGetAt(ReportDatesList, RptDateIdx + 1), "mm/dd/yyyy")>
+				<CFELSE>
+					<CFSET PrevReportDate = "">
+				</CFIF>
+				<CFBREAK>
+			</CFIF>
+		</CFLOOP>
+
+		<!--- Fallback to latest date if all dates are beyond the window --->
+		<CFIF ThisReportDate EQ "">
+			<CFSET ThisReportDate = DateFormat(ListFirst(ReportDatesList), "mm/dd/yyyy")>
+			<CFIF ReportDatesList_ListLen GT 1>
+				<CFSET PrevReportDate = DateFormat(ListGetAt(ReportDatesList, 2), "mm/dd/yyyy")>
+			<CFELSE>
+				<CFSET PrevReportDate = "">
+			</CFIF>
+		</CFIF>
 	
 	</cfif>
 

@@ -143,6 +143,18 @@ DELETED_FLAG IS NULL
 
 </cfif>
 
+<!--- Get the most recent record that has District data (may be several quarters back) --->
+<CFQUERY NAME="GetRecord_LatestDistrict" DATASOURCE="contliab">
+SELECT DIST_PERF_CLUSTER_CODE, DIST_PERF_CLUSTER_NAME, DIVISION_CODE, DIVISION_NAME
+FROM CONTINGENT_LIAB_REPORT
+WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value=#Get_Single_Record.CASE_REC_ID_SEQUENCE# cfsqltype="cf_sql_numeric">
+AND DELETED_FLAG IS NULL
+AND DIST_PERF_CLUSTER_CODE IS NOT NULL
+AND DATE_REPORT < to_date('#DateFormat(ThisReportDate, "mm/dd/yyyy")#', 'mm/dd/yyyy')
+ORDER BY DATE_REPORT DESC
+FETCH FIRST 1 ROW ONLY
+</CFQUERY>
+
 <CFQUERY NAME="Get_MC_APPR_FLAG" DATASOURCE="contliab">
 SELECT MC_APPR_FLAG, ALT_APPR_FLAG
 FROM VIEW_CONTING_GET_MC_APPR_FLAG

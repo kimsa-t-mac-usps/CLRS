@@ -67,6 +67,8 @@ SELECT MAX(DATE_REPORT) AS REPORT_DATE
 
 FROM CONTINGENT_LIAB_REPORT
 
+WHERE DATE_REPORT <= ADD_MONTHS(SYSDATE, 2)
+
 </cfquery>
 
 
@@ -167,6 +169,22 @@ Added form field STATUS_CODE_SELECTED_ALL to hold concatenated string of STATUS_
 	<cfinvokeargument name="prevRptDate" value="#url.PrevReportDate_Parm#">
 	<cfinvokeargument name="caseRecordIdSeq" value="#CASE_REC_ID_SEQUENCE#">
 </cfinvoke>
+
+<!--- Deep fallback: find most recent quarter with District data (may be several quarters back) --->
+<CFIF GetRecord_PrevRpt.RecordCount EQ 0 OR GetRecord_PrevRpt.DIST_PERF_CLUSTER_CODE EQ "">
+	<CFQUERY NAME="GetRecord_LatestDistrict" DATASOURCE="contliab">
+	SELECT DIST_PERF_CLUSTER_CODE, DIST_PERF_CLUSTER_NAME, DIVISION_CODE, DIVISION_NAME
+	FROM CONTINGENT_LIAB_REPORT
+	WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value="#CASE_REC_ID_SEQUENCE#" cfsqltype="cf_sql_numeric">
+	AND DELETED_FLAG IS NULL
+	AND DIST_PERF_CLUSTER_CODE IS NOT NULL
+	AND DATE_REPORT < to_date('#DateFormat(ThisReportDate, "mm/dd/yyyy")#', 'mm/dd/yyyy')
+	ORDER BY DATE_REPORT DESC
+	FETCH FIRST 1 ROW ONLY
+	</CFQUERY>
+<CFELSE>
+	<CFSET GetRecord_LatestDistrict = QueryNew("DIST_PERF_CLUSTER_CODE,DIST_PERF_CLUSTER_NAME,DIVISION_CODE,DIVISION_NAME")>
+</CFIF>
 
 	<form name="CaseForm_#CONTINGENT_LIAB_GetRecord.CurrentRow#" METHOD="POST" ACTION="EditRecord.Action.cfm"
 	onSubmit="return showStatusCodeSelected(this); return checkupdFactsFlagArray(this, this.name)">
