@@ -1,5 +1,3 @@
-<cfinclude template="MfaCookieCheck.cfm">
-
 <CFIF (IsDefined("DropdownList") AND DropdownList EQ "District") OR (NOT IsDefined("DropdownList") AND Get_Districts.RecordCount GT 0 )>
 	
 			<CFSET Prev_This_District_Code = "">
@@ -21,7 +19,7 @@
 		<CFIF This_District_Code NEQ Prev_This_District_Code>
 			
 			<CFSET Prev_This_District_Code = This_District_Code>
-			<CFIF IsDefined("prev_dist_perf_cluster_code") AND prev_dist_perf_cluster_code EQ This_District_Code>
+			<CFIF (IsDefined("prev_dist_perf_cluster_code") AND prev_dist_perf_cluster_code EQ This_District_Code) OR (IsDefined("This_DIST_PERF_CLUSTER_CODE") AND This_DIST_PERF_CLUSTER_CODE EQ This_District_Code)>
 				<CFSET SelectedWord = "SELECTED">
 			<CFELSE>
 				<CFSET SelectedWord = "">
@@ -57,7 +55,7 @@
 	
 	<CFLOOP QUERY="Get_Divisions">
 		<CFSET This_Division_Name = NAME>
-		<CFIF (IsDefined("SelectedPC") AND SelectedPC EQ This_Division_Name ) OR (IsDefined("This_Division_Code") AND This_Division_Code EQ This_Division_Name) OR (isdefined("prev_DIVISION_CODE") and prev_division_code eq This_division_name)>
+		<CFIF (IsDefined("SelectedPC") AND SelectedPC EQ This_Division_Name ) OR (IsDefined("This_Division_Code") AND (This_Division_Code EQ This_Division_Name OR This_Division_Code EQ DIVISION_CODE)) OR (isdefined("prev_DIVISION_CODE") and (prev_division_code eq This_division_name OR prev_division_code eq DIVISION_CODE))>
 			<CFSET SelectedWord = "SELECTED">
 		<CFELSE>
 			<CFSET SelectedWord = "">

@@ -1,5 +1,7 @@
 <cfinclude template="MfaCookieCheck.cfm">
+
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<!---<meta http-equiv="X-UA-Compatible" content="IE=edge">--->
@@ -64,6 +66,8 @@ A:active {background:yellow; color:black; text-decoration:none; font-family:aria
 SELECT MAX(DATE_REPORT) AS REPORT_DATE
 
 FROM CONTINGENT_LIAB_REPORT
+
+WHERE DATE_REPORT <= ADD_MONTHS(SYSDATE, 2)
 
 </cfquery>
 
@@ -151,27 +155,56 @@ Added form field STATUS_CODE_SELECTED_ALL to hold concatenated string of STATUS_
 
 
 
-
-
 <!---
 	<form name="CaseForm_#CONTINGENT_LIAB_GetRecord.CurrentRow#" METHOD="POST" ACTION="EditRecord.Action.cfm"
 	onSubmit="return showStatusCodeSelected(this); return showUnionsSelected(this); return checkupdFactsFlagArray(this, this.name)">
 --->
+
+<!--- Use locally computed PrevReportDate as fallback when URL parameter is missing or empty --->
+<CFIF NOT IsDefined("url.PrevReportDate_Parm") OR url.PrevReportDate_Parm EQ "">
+	<CFSET url.PrevReportDate_Parm = PrevReportDate>
+</CFIF>
 
 <cfinvoke component="components/clrsFunctions" method="getPrevReptRecord" returnvariable="GetRecord_PrevRpt">
 	<cfinvokeargument name="prevRptDate" value="#url.PrevReportDate_Parm#">
 	<cfinvokeargument name="caseRecordIdSeq" value="#CASE_REC_ID_SEQUENCE#">
 </cfinvoke>
 
+<!--- Deep fallback: find most recent quarter with District data (may be several quarters back) --->
+<CFIF GetRecord_PrevRpt.RecordCount EQ 0 OR GetRecord_PrevRpt.DIST_PERF_CLUSTER_CODE EQ "">
+	<CFQUERY NAME="GetRecord_LatestDistrict" DATASOURCE="contliab">
+	SELECT DIST_PERF_CLUSTER_CODE, DIST_PERF_CLUSTER_NAME, DIVISION_CODE, DIVISION_NAME
+	FROM CONTINGENT_LIAB_REPORT
+	WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value="#CASE_REC_ID_SEQUENCE#" cfsqltype="cf_sql_numeric">
+	AND DELETED_FLAG IS NULL
+	AND (DIST_PERF_CLUSTER_CODE IS NOT NULL OR DIVISION_CODE IS NOT NULL)
+	AND DATE_REPORT < to_date('#DateFormat(ThisReportDate, "mm/dd/yyyy")#', 'mm/dd/yyyy')
+	ORDER BY DATE_REPORT DESC
+	FETCH FIRST 1 ROW ONLY
+	</CFQUERY>
+<CFELSE>
+	<CFSET GetRecord_LatestDistrict = QueryNew("DIST_PERF_CLUSTER_CODE,DIST_PERF_CLUSTER_NAME,DIVISION_CODE,DIVISION_NAME")>
+</CFIF>
+
+<!--- Deep fallback: find most recent quarter with Division data separately --->
+<CFIF GetRecord_PrevRpt.RecordCount EQ 0 OR GetRecord_PrevRpt.DIVISION_CODE EQ "">
+	<CFQUERY NAME="GetRecord_LatestDivision" DATASOURCE="contliab">
+	SELECT DIVISION_CODE, DIVISION_NAME
+	FROM CONTINGENT_LIAB_REPORT
+	WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value="#CASE_REC_ID_SEQUENCE#" cfsqltype="cf_sql_numeric">
+	AND DELETED_FLAG IS NULL
+	AND DIVISION_CODE IS NOT NULL
+	AND DATE_REPORT < to_date('#DateFormat(ThisReportDate, "mm/dd/yyyy")#', 'mm/dd/yyyy')
+	ORDER BY DATE_REPORT DESC
+	FETCH FIRST 1 ROW ONLY
+	</CFQUERY>
+<CFELSE>
+	<CFSET GetRecord_LatestDivision = QueryNew("DIVISION_CODE,DIVISION_NAME")>
+</CFIF>
+
 	<form name="CaseForm_#CONTINGENT_LIAB_GetRecord.CurrentRow#" METHOD="POST" ACTION="EditRecord.Action.cfm"
 	onSubmit="return showStatusCodeSelected(this); return checkupdFactsFlagArray(this, this.name)">
-
-
-
-
-
-
-    
+   
 	</CFOUTPUT>
 	
 <!--- 4/24/09:
@@ -233,8 +266,6 @@ onSubmit attribute in CFFORM tag appears not to work anymore, maybe because of u
 	</div>
 	
 	</blockquote>
-	
-	
 	
 	<CFOUTPUT>
 	

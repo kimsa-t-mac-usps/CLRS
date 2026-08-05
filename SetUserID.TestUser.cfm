@@ -31,7 +31,11 @@ WHERE SETTINGUSER_PKEY = #Init_Check_Auth_User_A.USERPRMKEY#)
 
 <CFELSE>
 
-	<cfset RespondingUser_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
+	<cfif len(cgi.auth_user) eq 0 and IsDefined("Sit_Server_List") and ListFindNoCase(Sit_Server_List, cgi.SERVER_NAME)>
+		<cfset RespondingUser_Id = Init_User_Id>
+	<cfelse>
+		<cfset RespondingUser_Id = TRIM(UCASE(RemoveChars(cgi.auth_user,1,find('\',cgi.auth_user))))>
+	</cfif>
 
 	<CFQUERY NAME="Get_Ee_ThisUser" DATASOURCE="contliab">
 	SELECT Trim(LAWDEPARTMENT.LASTNAME) || ', ' || Trim(LAWDEPARTMENT.FIRSTNAME) AS FULLNAME
@@ -77,4 +81,5 @@ Get_Ee_ThisUser.RecordCount = #Get_Ee_ThisUser.RecordCount#
 	</cfoutput>--->
 
 </cfif>
+
 

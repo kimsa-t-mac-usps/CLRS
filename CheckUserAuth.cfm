@@ -42,6 +42,15 @@ OR UPPER(b.AD_MAILNICKNAME) LIKE UPPER('#RespondingUser_Id#%'))
 
 <CFINCLUDE TEMPLATE="Query.Check_Auth_User_A.cfm">
 
+<cflog text="CheckUserAuth: RespondingUser_Id=#RespondingUser_Id# | Check_Auth_User_A.RecordCount=#Check_Auth_User_A.RecordCount# | SERVER_NAME=#cgi.SERVER_NAME#" type="information" file="clrs-ldap">
+
+<!--- SIT bypass: If user already passed Init_Check_Auth_User_A in application.cfm on a SIT server, grant full access --->
+<cfif IsDefined("Sit_Server_List") AND ListFindNoCase(Sit_Server_List, cgi.SERVER_NAME) AND IsDefined("Init_Check_Auth_User_A") AND Init_Check_Auth_User_A.RecordCount EQ 1>
+	<CFSET AuthorizedFlag = "Yes">
+	<CFSET OfficeScope = "All Law Department Offices">
+	<cflog text="CheckUserAuth: SIT bypass applied - AuthorizedFlag=Yes" type="information" file="clrs-ldap">
+<cfelse>
+
 <!---
 <script>
 
@@ -540,16 +549,7 @@ AuthorizedFlag = "#AuthorizedFlag#"
 	)>
 
 		<CFIF AuthorizedFlag EQ "No">
-<!---    
-<script>
-
-<cfoutput>
-alert('CheckUserAuth.cfm at 367: AuthorizedFlag = "#AuthorizedFlag#"');
-</cfoutput>
-
-</script>
---->
-    
+			<cflog text="CheckUserAuth REDIRECT: AuthorizedFlag=No | RespondingUser_Id=#RespondingUser_Id# | Check_Auth_User_A.RecordCount=#Check_Auth_User_A.RecordCount#" type="error" file="clrs-ldap">
 
 			<script language="javascript">
 			location.href = 'NotAuthorized.cfm';
@@ -562,6 +562,9 @@ alert('CheckUserAuth.cfm at 367: AuthorizedFlag = "#AuthorizedFlag#"');
 
 	</cfif>
 
+</cfif>
+
+<!--- Close SIT bypass cfif --->
 </cfif>
 
 

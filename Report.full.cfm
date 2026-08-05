@@ -68,7 +68,9 @@ CONFIDENTIAL Law Department Contingent Liabilities
 
 <!--- NOT moved to application.cfm: --->
 <!--- Check whether user authorized to access CL system and scope of authorization: Department-wide, Office-wide, case-only, or none --->
+<cflog text="Report.full.cfm: About to include CheckUserAuth. RespondingUser_Id=#RespondingUser_Id# | SERVER_NAME=#cgi.SERVER_NAME#" type="information" file="clrs-ldap">
 <CFINCLUDE TEMPLATE="CheckUserAuth.cfm">
+<cflog text="Report.full.cfm: AFTER CheckUserAuth. AuthorizedFlag=#AuthorizedFlag#" type="information" file="clrs-ldap">
 
 
 <!--- Displays server ID / name in page header --->

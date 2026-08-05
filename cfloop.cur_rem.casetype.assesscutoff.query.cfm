@@ -45,20 +45,7 @@ Same CFLOOP bypasses in:
 See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 --->
 
-<!--- KS1 --->
-<!---<CFOUTPUT>
-		<br />
-		Program = "cfloop.cur_rem.casetype.assesscutoff.query.cfm at 46"
-		<br />
-		Current_Removed_List = #Current_Removed_List#
-		<br />
-		<!---Current_Removed_List_Index = #Current_Removed_List_Index#
-		<br />--->
-		Case_Type_List	= #Case_Type_List#
-		<br />
-		Assess_Cutoff_List = #Assess_Cutoff_List#
-		<br />
-	</CFOUTPUT>--->
+
 
 
 
@@ -124,20 +111,6 @@ See CFSET Assess_Cutoff_List in Report.ptA.cfm, Report.TopIndexDiv.cfm
 
 
 
-<!--- KS2 --->
-<!---<CFOUTPUT>
-		<br />
-		Program = "cfloop.cur_rem.casetype.assesscutoff.query.cfm at 125"
-		<br />
-		Current_Removed_List = #Current_Removed_List#
-		<br />
-		<!---Current_Removed_List_Index = #Current_Removed_List_Index#
-		<br />--->
-		Case_Type_List	= #Case_Type_List#
-		<br />
-		Assess_Cutoff_List = #Assess_Cutoff_List#
-		<br />
-	</CFOUTPUT>--->
 
 
 

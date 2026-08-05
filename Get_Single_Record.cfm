@@ -1,11 +1,7 @@
 <cfinclude template="MfaCookieCheck.cfm">
-
-
 <!---
 <CFINCLUDE TEMPLATE="string_compare.routine.cfm">
 --->
-
-
 
 <CFIF NOT
 (
@@ -18,8 +14,6 @@ TextHighlight EQ "Disabled"
 
 </CFIF>
 
-
-
 <CFSET RptDateToFmt = ThisReportDate>
 <CFINCLUDE TEMPLATE="RptDateFYQFmt.cfm">
 
@@ -30,9 +24,6 @@ TextHighlight EQ "Disabled"
 <CFSET This_CurrentRow = 0>
 <CFSET RowColor = "linen">
 <CFSET CLRC_Query_Name = "Get_Single_Record">
-
-
-
 
 <CFINCLUDE TEMPLATE="CheckUserAuth.cfm">
 
@@ -75,6 +66,7 @@ clr.AREA_CODE,
 clr.DIST_PERF_CLUSTER_NAME,
 clr.DIST_PERF_CLUSTER_CODE,
 clr.DIVISION_CODE,
+clr.DIVISION_NAME,
 clr.UNIONS_SELECTED,
 clr.SHORT_TERM_LIABILITY,
 clr.COUNSEL_LAW_DEPT,
@@ -151,6 +143,30 @@ DELETED_FLAG IS NULL
 
 </cfif>
 
+<!--- Get the most recent record that has District data (may be several quarters back) --->
+<CFQUERY NAME="GetRecord_LatestDistrict" DATASOURCE="contliab">
+SELECT DIST_PERF_CLUSTER_CODE, DIST_PERF_CLUSTER_NAME, DIVISION_CODE, DIVISION_NAME
+FROM CONTINGENT_LIAB_REPORT
+WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value=#Get_Single_Record.CASE_REC_ID_SEQUENCE# cfsqltype="cf_sql_numeric">
+AND DELETED_FLAG IS NULL
+AND (DIST_PERF_CLUSTER_CODE IS NOT NULL OR DIVISION_CODE IS NOT NULL)
+AND DATE_REPORT < to_date('#DateFormat(ThisReportDate, "mm/dd/yyyy")#', 'mm/dd/yyyy')
+ORDER BY DATE_REPORT DESC
+FETCH FIRST 1 ROW ONLY
+</CFQUERY>
+
+<!--- Get the most recent record that has Division data separately (Division may be in a different quarter than District) --->
+<CFQUERY NAME="GetRecord_LatestDivision" DATASOURCE="contliab">
+SELECT DIVISION_CODE, DIVISION_NAME
+FROM CONTINGENT_LIAB_REPORT
+WHERE CASE_REC_ID_SEQUENCE = <cfqueryparam value=#Get_Single_Record.CASE_REC_ID_SEQUENCE# cfsqltype="cf_sql_numeric">
+AND DELETED_FLAG IS NULL
+AND DIVISION_CODE IS NOT NULL
+AND DATE_REPORT < to_date('#DateFormat(ThisReportDate, "mm/dd/yyyy")#', 'mm/dd/yyyy')
+ORDER BY DATE_REPORT DESC
+FETCH FIRST 1 ROW ONLY
+</CFQUERY>
+
 <CFQUERY NAME="Get_MC_APPR_FLAG" DATASOURCE="contliab">
 SELECT MC_APPR_FLAG, ALT_APPR_FLAG
 FROM VIEW_CONTING_GET_MC_APPR_FLAG
@@ -200,11 +216,7 @@ CL Case:
 
 
 <CFINCLUDE TEMPLATE="Report.ptC.cfm">
-
-
 <CFINCLUDE TEMPLATE="Report.ptD.cfm">
-
-
 <CFINCLUDE TEMPLATE="Report.ptE.cfm">
 
 </table>

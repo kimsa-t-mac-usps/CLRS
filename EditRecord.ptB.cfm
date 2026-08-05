@@ -122,7 +122,7 @@ https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D889
 
 
 	<CFOUTPUT>
-    (<a href="https://lawdept2.usps.gov/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
+    (<a href="#App_Base_URL#/lmWeb/tabular.jsp?NB=MatterAllWS&QRY=|matter_key%3D#LM_MATTER_KEY#" target="_blank">LawManager</a>)
 	</CFOUTPUT>
 
 
@@ -240,74 +240,93 @@ Category
 
 <th align="right" valign="top" style="padding-top:15pt; padding-bottom:15pt">
 
-District /
-<p style='margin-top:10pt'>
-Division /
-<p style='margin-top:10pt'>
-HQ&nbsp;Dept
+<div style="margin-bottom:8pt; line-height:22px">District /</div>
+<div style="margin-bottom:8pt; line-height:22px">Division /</div>
+<div style="line-height:22px">HQ&nbsp;Dept</div>
 
 </th>
 
-<td style="padding-top:15pt; padding-bottom:15pt">
+<td valign="top" style="padding-top:15pt; padding-bottom:15pt">
 
 
-<cfset prev_dist_perf_cluster_code = GetRecord_PrevRpt.DIST_PERF_CLUSTER_CODE>
-<cfset prev_DIVISION_CODE = GetRecord_PrevRpt.DIVISION_CODE>
+<CFIF GetRecord_PrevRpt.RecordCount GT 0>
+	<cfset prev_dist_perf_cluster_code = GetRecord_PrevRpt.DIST_PERF_CLUSTER_CODE>
+	<cfset prev_DIVISION_CODE = GetRecord_PrevRpt.DIVISION_CODE>
+<CFELSE>
+	<cfset prev_dist_perf_cluster_code = "">
+	<cfset prev_DIVISION_CODE = "">
+</CFIF>
+<!--- Deep fallback: use any earlier quarter with district data if prev quarter is also empty --->
+<CFIF prev_dist_perf_cluster_code EQ "" AND IsDefined("GetRecord_LatestDistrict.RecordCount") AND GetRecord_LatestDistrict.RecordCount GT 0>
+	<cfset prev_dist_perf_cluster_code = GetRecord_LatestDistrict.DIST_PERF_CLUSTER_CODE>
+	<cfset prev_DIVISION_CODE = GetRecord_LatestDistrict.DIVISION_CODE>
+</CFIF>
+<!--- Separate Division deep fallback: Division may be in a different quarter than District --->
+<CFIF prev_DIVISION_CODE EQ "" AND IsDefined("GetRecord_LatestDivision.RecordCount") AND GetRecord_LatestDivision.RecordCount GT 0>
+	<cfset prev_DIVISION_CODE = GetRecord_LatestDivision.DIVISION_CODE>
+</CFIF>
 <CFSET This_DIST_PERF_CLUSTER_CODE = DIST_PERF_CLUSTER_CODE>
 
 
 <CFSET DropdownList = "District">
 
 
-<SELECT NAME="DIST_PERF_CLUSTER_CODE" style="font-family:arial; font-size:9pt; margin-top:2pt; margin-bottom:5pt; padding-bottom:1; background:khaki" SIZE="1">
+<div style="margin-bottom:8pt">
+<SELECT NAME="DIST_PERF_CLUSTER_CODE" style="font-family:arial; font-size:9pt; padding-bottom:1; background:khaki" SIZE="1">
 
 <option value="0" style="color:white;background:maroon">Select a District . . .
 
 <CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
 
 </select>
+</div>
 
 
 <CFIF Get_Divisions.RecordCount GT 0>
 
 	<CFSET DropdownList = "Division">
 
-	<br />
-    
-
-
 	<CFSET This_Division_Code = DIVISION_CODE>
+
+	<!--- Fall back to previous quarter's value when current record is empty (bulk load does not copy DIVISION_CODE) --->
+	<CFIF This_Division_Code EQ "" AND prev_DIVISION_CODE NEQ "">
+		<CFSET This_Division_Code = prev_DIVISION_CODE>
+	</CFIF>
 
 <!---
 	<CFSET This_Division_Name = NAME>
 --->
 
-	<SELECT NAME="DIVISION_CODE" style="font-family:arial; font-size:9pt; margin-top:2pt; margin-bottom:5pt; padding-bottom:1; background:khaki" SIZE="1">
+	<div style="margin-bottom:8pt">
+	<SELECT NAME="DIVISION_CODE" style="font-family:arial; font-size:9pt; padding-bottom:1; background:khaki" SIZE="1">
 
 	<option value="0" style="color:white;background:maroon">Select a Division . . .
 
 	<CFINCLUDE TEMPLATE="areas.districts.dropdown.FromTable.cfm">
 
 	</select>
+	</div>
+
+<CFELSE>
+
+	<div style="margin-bottom:8pt; line-height:22px">&nbsp;</div>
 
 </CFIF>
 
 
 
-<br>
-
-
 <CFSET This_HQ_AREA_NAME = AREA_NAME>
 
 
-<SELECT NAME="HQ_AREA_NAME" id="HQ_AREA_NAME" style="font-family:arial; font-size:9pt; margin-top:0pt; padding-bottom:1; background:khaki" SIZE="1" onChange="checkHQ_AREA_NAME(this)">
+<div>
+<SELECT NAME="HQ_AREA_NAME" id="HQ_AREA_NAME" style="font-family:arial; font-size:9pt; padding-bottom:1; background:khaki" SIZE="1" onChange="checkHQ_AREA_NAME(this)">
 
 <option value="0" style="color:white;background:maroon">Select a Headquarters Department . . .
 
 <CFINCLUDE TEMPLATE="hq.dept.dropdown.FromTable.cfm">
 
 </select>
-
+</div>
 
 
 </td>
@@ -374,9 +393,9 @@ Select all that apply
 		
 		
 		<CFOUTPUT>
-		<input type="checkbox" name="Unions_Selected" value="#ListGetAt(Unions_List, Unions_List_Index)#" #Unions_Selected_CheckedWord#>#ListGetAt(Unions_List, Unions_List_Index)#
+		<input type="checkbox" name="Unions_Selected" value="#ListGetAt(Unions_List, Unions_List_Index)#"#Unions_Selected_CheckedWord#>#ListGetAt(Unions_List, Unions_List_Index)#
+				
 		</CFOUTPUT>
-		
 		<br />
 	
 	</CFLOOP>

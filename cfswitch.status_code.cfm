@@ -36,7 +36,7 @@ NOTES:
 <!--- Dropped status_code 3, which is now split between 7 (chg in liab assessment) and 4 (chg in damages assessment) --->
 
 <!---<CFCASE VALUE="3">
-	<CFSET Status_Code_Label = "Change in Damages Assessment or Amount Sought (Still Meets Threshold)hhhhhhhhhhh">
+	<CFSET Status_Code_Label = "Change in Damages Assessment or Amount Sought (Still Meets Threshold)">
     <CFSET HideShowButton_String = "Update">
     <cfoutput >
 	Status_Code_Label3: #Status_Code_Label#

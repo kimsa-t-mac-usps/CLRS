@@ -718,13 +718,12 @@ UndoApprFlag EQ "UndoAppr">
 	
 				UNIONS_SELECTED = '#Form.UNIONS_SELECTED_ALL#',
 
-<!---
 			<CFELSEIF IsDefined("Form.UNIONS_SELECTED")
 			AND
 			Form.UNIONS_SELECTED NEQ "">
 
 				UNIONS_SELECTED = '#Form.UNIONS_SELECTED#',
---->
+
 
 			<CFELSE>
 			

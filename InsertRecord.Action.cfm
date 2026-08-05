@@ -116,6 +116,9 @@ DIST_PERF_CLUSTER_NAME,
 	<CFIF Form.DIST_PERF_CLUSTER_CODE DOES NOT CONTAIN "Multiple">
 	AREA_CODE,
 	AREA_NAME,
+	<CFELSEIF IsDefined("Form.HQ_AREA_NAME") AND Form.HQ_AREA_NAME NEQ "0">
+	AREA_CODE,
+	AREA_NAME,
 	</cfif>
 
 
@@ -380,6 +383,14 @@ to_date('#DateFiledFmt#', 'mm/dd/yyyy'),
 		<CFSET This_DIST_PERF_CLUSTER_NAME = Right(Form.DIST_PERF_CLUSTER_CODE, Len(Form.DIST_PERF_CLUSTER_CODE) - (Slashes_Next_Word - 1))>
 
 		'#This_DIST_PERF_CLUSTER_NAME#',
+
+		<CFIF IsDefined("Form.HQ_AREA_NAME") AND Form.HQ_AREA_NAME NEQ "0">
+			<CFSET Slashes_HQ_AREA_NAME_Index = Find(" // ", Form.HQ_AREA_NAME)>
+			<CFSET This_HQ_AREA_CODE = Left(Form.HQ_AREA_NAME, Slashes_HQ_AREA_NAME_Index - 1)>
+			<CFSET This_HQ_AREA_NAME = Right(Form.HQ_AREA_NAME, Len(Form.HQ_AREA_NAME) - (Slashes_HQ_AREA_NAME_Index + 3))>
+			'#This_HQ_AREA_CODE#',
+			'#This_HQ_AREA_NAME#',
+		</cfif>
 
 	</cfif>
 

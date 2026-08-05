@@ -907,10 +907,11 @@ else  alert("thisForm.STATUS_CODE NOT DEFINED");
 //	alert("At end: thisSTATUS_CODE = " + thisSTATUS_CODE);
 
 
-	thisForm.STATUS_CODE_SELECTED_ALL.value = thisSTATUS_CODE;
+	if (thisForm.STATUS_CODE_SELECTED_ALL) {
+		thisForm.STATUS_CODE_SELECTED_ALL.value = thisSTATUS_CODE;
+	}
 
-
-//	alert("thisForm.STATUS_CODE_SELECTED_ALL = " + thisForm.STATUS_CODE_SELECTED_ALL.value);
+//	alert("thisForm.STATUS_CODE_SELECTED_ALL = " + (thisForm.STATUS_CODE_SELECTED_ALL ? thisForm.STATUS_CODE_SELECTED_ALL.value : "N/A"));
 
 
 

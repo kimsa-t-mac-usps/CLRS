@@ -76,7 +76,9 @@ Select all that apply
 
 
 <CFOUTPUT>
-<input type="hidden" name="STATUS_CODE" value="1"><b>New This Quarter</b>
+<input type="hidden" name="STATUS_CODE" value="1">
+<input type="hidden" name="STATUS_CODE_SELECTED_ALL" value="1">
+<b>New This Quarter</b>
 </cfoutput>
 
 <br>

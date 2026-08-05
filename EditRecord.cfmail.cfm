@@ -129,7 +129,7 @@ For the Contingent Liabilities report on
 <CFELSE>
 		<!---
 		GAC-8/08/2013: changed this_server to cgi variable
-        <CFSET This_Server = "lawdept">
+        <CFSET This_Server = "lawdept1">
 		--->
         <CFSET This_Server = #CGI.SERVER_NAME#>
         
